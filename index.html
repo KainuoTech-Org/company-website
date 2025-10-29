@@ -63,26 +63,32 @@
             padding: 0;
             cursor: pointer;
         }
-        .quick-links i { margin: 0; }
-        
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+        .quick-links .icon-link:hover {
+            transform: scale(1.15);
         }
-        .contact-details p {
-            margin: 0;
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-        }
-        .contact-details svg {
-            width: 20px;
-            height: 20px;
-            margin-right: 0.75rem;
+        .quick-links .icon-link svg {
+            width: 48px; /* Increased size */
+            height: 48px;
             fill: currentColor;
         }
 
+        /* --- MODAL STYLES --- */
+        .nes-dialog.centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        .nes-dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        .dialog-content {
+            text-align: center;
+        }
+        .dialog-content p { word-break: break-all; }
+        
         /* Layout for 2 cards */
         .grid-2 { display:grid; grid-template-columns: repeat(2, minmax(140px,1fr)); gap: 1.25rem; }
 
@@ -177,7 +183,8 @@
         @media (max-width: 520px) { 
             .grid, .grid-2 { grid-template-columns: 1fr; }
             h1 { font-size: 1.8rem; }
-            .quick-links { flex-direction: column; align-items: center; text-align: center; }
+            .quick-links { gap: 1rem; } /* Reduce gap on small screens */
+            .quick-links .icon-link svg { width: 40px; height: 40px; }
         }
     </style>
   </head>
@@ -321,7 +328,7 @@
                 <div class="nes-container is-dark with-title">
                     <p class="title" data-key="contact_form_title">发送消息</p>
                     <p data-key="contact_intro">项目需求、商务合作或技术咨询，欢迎随时通过以下方式联系我们。</p>
-                    <p><strong>Email:</strong> <a href="mailto:kinotech808@gmail.com">kinotech808@gmail.com</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:kainuotech@gmail.com">kainuotech@gmail.com</a></p>
                     <p><strong>Tel:</strong> 18937380958</p>
                     <form style="margin-top: 1.5rem;">
                          <div class="nes-field">
