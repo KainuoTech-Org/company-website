@@ -48,16 +48,20 @@
         .contacts a { color:#fff; text-decoration:none; }
         .quick-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
-        }
-        .quick-links a, .quick-links div.contact-icon {
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            gap: 1.5rem; /* Increased gap */
+            padding: 1rem 0;
+        }
+        .quick-links .icon-link {
             color: #fff;
             text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease-out;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
         }
         .quick-links i { margin: 0; }
         
@@ -226,38 +230,29 @@
                     </div>
                     <div>
                         <div class="nes-container is-dark with-title">
-                            <p class="title" data-key="hero_links_title">联系方式</p>
-                            <div class="contact-details">
-                                <p>
-                                    <a href="mailto:kinotech808@gmail.com" class="contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,4H2V2h20V4M22,8H2v2H22V8m-2,4H4v2H20v-2m2,4H2v2H22v-2Z"/></svg>
-                                    </a>
-                                    <span>kinotech808@gmail.com</span>
-                                </p>
-                                <p>
-                                    <a href="tel:18937380958" class="contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,3h4v4H3V3M9,3h4v4H9V3m6,0h4v4h-4V3M3,9h4v4H3V9m6,0h4v4H9V9m6,0h4v4h-4V9m-6,6h4v4H9v-4m-6,0h4v4H3v-4m12,0h4v4h-4v-4Z"/></svg>
-                                    </a>
-                                    <span>18937380958</span>
-                                </p>
-                                <p>
-                                    <div class="contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,6V4H20V2H18V4H16V2H14V4H12V2H10V4H8V2H6V4H4V6H2V8H4V10H2v2H4v2H2v2H4v2H6v-2H8v2H10v-2h2v2h2v-2h2v2h2v-2h2v-2h-2v-2h2V10h-2V8h2V6H22M18,16H16v2H14v-2H12v2H10v-2H8v2H6v-2H4v-2H6v-2H4V10H6v2H8V10h2v2h2V10h2v2h2v-2h2v2H18v2M16,8H14V6H12v2H10V6H8v2H6V6H4V8H6V10H8v-2H10v2h2v-2h2v2h2V8h-2V6h2V8H16Z"/></svg>
-                                    </div>
-                                    <span data-key="contact_wechat_id">微信: (扫码或ID)</span>
-                                </p>
-                                 <p>
-                                    <a href="https://github.com/KainuoTech-Org" target="_blank" rel="noopener noreferrer" class="contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,14H4V12H2v2m0,4H4V16H2v2m0,4H4V20H2v2m4-12H6V12H4v2h2v-2m2-2H8V10H6v2H8V10m2,0V8H8v2h2m2-2V6H10v2h2m-2,6v-2H8v2h2m0,4v-2H8v2h2m2,4v-2H10v2h2m0,4v-2H10v2h2m2,0v-2H12v2h2m2-14h2v2H14V6m4,0h2v2H18V6m-2,4V8H14v2h2m-2,2v-2H14v2h2m0,2v-2H16v2h-2v2h2v-2m-2,4v-2H14v2h2m2,4v-2H14v2h2m4,0v-2H18v2h2m2-2v-2H20v2h2m0-2v-2H20v2h2m0-2V12H20v2h2m2-2V10H22v2h-2V10m0-2V8H22v2h-2V8m-2-2h2V4H20V6Z"/></svg>
-                                    </a>
-                                    <span>GitHub</span>
-                                </p>
-                                 <p>
-                                    <a href="#" class="contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,2H4V4H2V2m4,0H8V4H6V2M2,6H4V8H2V6m4,0H8V8H6V6m-4,4H4v2H2v-2m4,0H8v2H6v-2m-4,4H4v2H2v-2m4,0H8v2H6v-2m4-12h2v2h-2V2m4,0h2v2h-2V2m-4,4h2v2h-2V6m4,0h2v2h-2V6M10,10h2v2h-2v-2m4,0h2v2h-2v-2M10,14h2v2h-2v-2m4,0h2v2h-2v-2m4,0h2v2h-2v-2m4,0h2v2h-2v-2M18,10h2v2h-2v-2m4,0h2v2h-2v-2m-4,8h2v2h-2v-2m4,0h2v2h-2v-2m-8,4h2v2h-2v-2m4,0h2v2h-2v-2Z"/></svg>
-                                    </a>
-                                     <span data-key="contact_xiaohongshu">小红书</span>
-                                </p>
+                            <p class="title" data-key="hero_links_title">Quick Links</p>
+                            <!-- --- NEW QUICK LINKS AREA --- -->
+                            <div class="quick-links">
+                                <!-- GitHub -->
+                                <a href="https://github.com/KainuoTech-Org" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+                                    <svg viewBox="0 0 24 24"><path d="M2,14H4V12H2v2m0,4H4V16H2v2m0,4H4V20H2v2m4-12H6V12H4v2h2v-2m2-2H8V10H6v2H8V10m2,0V8H8v2h2m2-2V6H10v2h2m-2,6v-2H8v2h2m0,4v-2H8v2h2m2,4v-2H10v2h2m0,4v-2H10v2h2m2,0v-2H12v2h2m2-14h2v2H14V6m4,0h2v2H18V6m-2,4V8H14v2h2m-2,2v-2H14v2h2m0,2v-2H16v2h-2v2h2v-2m-2,4v-2H14v2h2m2,4v-2H14v2h2m4,0v-2H18v2h2m2-2v-2H20v2h2m0-2v-2H20v2h2m0-2V12H20v2h2m2-2V10H22v2h-2V10m0-2V8H22v2h-2V8m-2-2h2V4H20V6Z"/></svg>
+                                </a>
+                                <!-- Email -->
+                                <a href="mailto:kainuotech@gmail.com" class="icon-link" aria-label="Email">
+                                    <svg viewBox="0 0 24 24"><path d="M2,6H4V4H2V6m0,4H4V8H2v2m0,4H4v-2H2v2m0,4H4v-2H2v2m4-12H8V4H6V6m0,4H8V8H6v2m0,4H8v-2H6v2m0,4H8v-2H6v2m4-12h8V4h-8V6m0,4h8V8h-8v2m0,4h6v-2h-6v2m0,4h6v-2h-6v2m10-4h2v-2h-2v2m0,4h2v-2h-2v2m0-8h2v-2h-2v2m0-4h2V4h-2V6Z"/></svg>
+                                </a>
+                                <!-- LinkedIn -->
+                                <a href="http://linkedin.com/in/gaozikai-2567421a7" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24"><path d="M2,2H22V4H2V2m0,4H22V8H2V6m0,4H14v2H2v-2m0,4H14v2H2v-2m18,2h4v-2h-4v2m0,4h4v-2h-4v2m-2-8h2v2h-2v-2m-2,0h2v2h-2v-2m-2,0h2v2h-2v-2m-2,0h2v2H8v-2Z"/></svg>
+                                </a>
+                                <!-- Phone -->
+                                <button type="button" id="phone-btn" class="icon-link" aria-label="Phone">
+                                    <svg viewBox="0 0 24 24"><path d="M3,3h4v4H3V3M9,3h4v4H9V3m6,0h4v4h-4V3M3,9h4v4H3V9m6,0h4v4H9V9m6,0h4v4h-4V9m-6,6h4v4H9v-4m-6,0h4v4H3v-4m12,0h4v4h-4v-4Z"/></svg>
+                                </button>
+                                <!-- WeChat -->
+                                <button type="button" id="wechat-btn" class="icon-link" aria-label="WeChat">
+                                    <svg viewBox="0 0 24 24"><path d="M22,6V4H20V2H18V4H16V2H14V4H12V2H10V4H8V2H6V4H4V6H2V8H4V10H2v2H4v2H2v2H4v2H6v-2H8v2H10v-2h2v2h2v-2h2v2h2v-2h2v-2h-2v-2h2V10h-2V8h2V6H22M18,16H16v2H14v-2H12v2H10v-2H8v2H6v-2H4v-2H6v-2H4V10H6v2H8V10h2v2h2V10h2v2h2v-2h2v2H18v2M16,8H14V6H12v2H10V6H8v2H6V6H4V8H6V10H8v-2H10v2h2v-2h2v2h2V8h-2V6h2V8H16Z"/></svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -343,6 +338,25 @@
             </div>
         </section>
     </main>
+    <dialog class="nes-dialog is-rounded centered" id="phone-dialog">
+        <form method="dialog" class="dialog-content">
+            <p class="title" data-key="dialog_phone_title">Phone</p>
+            <p>18937380958</p>
+            <menu class="dialog-menu">
+                <button class="nes-btn is-primary" data-key="dialog_close">Close</button>
+            </menu>
+        </form>
+    </dialog>
+
+    <dialog class="nes-dialog is-rounded centered" id="wechat-dialog">
+        <form method="dialog" class="dialog-content">
+            <p class="title" data-key="dialog_wechat_title">WeChat</p>
+            <p>18937380958</p>
+            <menu class="dialog-menu">
+                <button class="nes-btn is-primary" data-key="dialog_close">Close</button>
+            </menu>
+        </form>
+    </dialog>
     <script>
         const i18n = {
             'en': {
@@ -352,7 +366,8 @@
                 'hero_p1': '凱諾創享科技',
                 'hero_p2': 'We are dedicated to creating exceptional value for our clients through innovative software solutions and data visualization technologies.',
                 'hero_contact_btn': 'Contact Us', 'hero_works_btn': 'See Our Work',
-                'hero_links_title': 'Contact Info',
+                'hero_links_title': 'Quick Links',
+                'dialog_phone_title': 'Phone', 'dialog_wechat_title': 'WeChat', 'dialog_close': 'Close',
                 'works_title': 'Our Work',
                 'work1_title': 'Data Visualization',
                 'work1_desc': 'Data Visualization, Pandas, Plotly, Streamlit Dashboard',
@@ -382,7 +397,8 @@
                 'hero_p1': 'Kainuo Chuangxiang Tech',
                 'hero_p2': '我们致力于通过创新的软件解决方案和数据可视化技术，为客户创造卓越价值。',
                 'hero_contact_btn': '联系我们', 'hero_works_btn': '查看案例',
-                'hero_links_title': '联系方式',
+                'hero_links_title': '快速链接',
+                'dialog_phone_title': '电话', 'dialog_wechat_title': '微信', 'dialog_close': '关闭',
                 'works_title': '成功案例',
                 'work1_title': '数据可视化',
                 'work1_desc': '数据可视化, Pandas, Plotly, Streamlit Dashboard',
@@ -412,7 +428,8 @@
                 'hero_p1': 'Kainuo Chuangxiang Tech',
                 'hero_p2': '我們致力於通過創新的軟體解決方案和數據可視化技術，為客戶創造卓越價值。',
                 'hero_contact_btn': '聯繫我們', 'hero_works_btn': '查看案例',
-                'hero_links_title': '聯繫方式',
+                'hero_links_title': '快速鏈接',
+                'dialog_phone_title': '電話', 'dialog_wechat_title': '微信', 'dialog_close': '關閉',
                 'works_title': '成功案例',
                 'work1_title': '數據可視化',
                 'work1_desc': '數據可視化, Pandas, Plotly, Streamlit Dashboard',
@@ -453,6 +470,15 @@
             });
         });
         
+        // --- MODAL LOGIC ---
+        const phoneBtn = document.getElementById('phone-btn');
+        const wechatBtn = document.getElementById('wechat-btn');
+        const phoneDialog = document.getElementById('phone-dialog');
+        const wechatDialog = document.getElementById('wechat-dialog');
+
+        phoneBtn.addEventListener('click', () => { phoneDialog.showModal(); });
+        wechatBtn.addEventListener('click', () => { wechatDialog.showModal(); });
+
         // Mobile menu toggle logic
         const menuToggle = document.getElementById('mobile-menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');
