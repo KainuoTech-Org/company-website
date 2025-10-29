@@ -52,14 +52,33 @@
             gap: 1rem;
             align-items: center;
         }
-        .quick-links a {
+        .quick-links a, .quick-links div.contact-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            color: #fff;
+            text-decoration: none;
         }
         .quick-links i { margin: 0; }
-        .quick-links .contact-info { margin-top: 0.5rem; }
         
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .contact-details p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        .contact-details svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.75rem;
+            fill: currentColor;
+        }
+
         /* Layout for 2 cards */
         .grid-2 { display:grid; grid-template-columns: repeat(2, minmax(140px,1fr)); gap: 1.25rem; }
 
@@ -208,12 +227,37 @@
                     <div>
                         <div class="nes-container is-dark with-title">
                             <p class="title" data-key="hero_links_title">联系方式</p>
-                            <div class="quick-links">
-                                <a href="mailto:18937380958@163.com"><i class="nes-icon gmail is-medium"></i></a>
-                                <div class="contact-info">
-                                    <p style="margin: 0; font-size: 0.9rem;">18937380958@163.com</p>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Tel: 18937380958</p>
-                                </div>
+                            <div class="contact-details">
+                                <p>
+                                    <a href="mailto:kinotech808@gmail.com" class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,4H2V2h20V4M22,8H2v2H22V8m-2,4H4v2H20v-2m2,4H2v2H22v-2Z"/></svg>
+                                    </a>
+                                    <span>kinotech808@gmail.com</span>
+                                </p>
+                                <p>
+                                    <a href="tel:18937380958" class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,3h4v4H3V3M9,3h4v4H9V3m6,0h4v4h-4V3M3,9h4v4H3V9m6,0h4v4H9V9m6,0h4v4h-4V9m-6,6h4v4H9v-4m-6,0h4v4H3v-4m12,0h4v4h-4v-4Z"/></svg>
+                                    </a>
+                                    <span>18937380958</span>
+                                </p>
+                                <p>
+                                    <div class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,6V4H20V2H18V4H16V2H14V4H12V2H10V4H8V2H6V4H4V6H2V8H4V10H2v2H4v2H2v2H4v2H6v-2H8v2H10v-2h2v2h2v-2h2v2h2v-2h2v-2h-2v-2h2V10h-2V8h2V6H22M18,16H16v2H14v-2H12v2H10v-2H8v2H6v-2H4v-2H6v-2H4V10H6v2H8V10h2v2h2V10h2v2h2v-2h2v2H18v2M16,8H14V6H12v2H10V6H8v2H6V6H4V8H6V10H8v-2H10v2h2v-2h2v2h2V8h-2V6h2V8H16Z"/></svg>
+                                    </div>
+                                    <span data-key="contact_wechat_id">微信: (扫码或ID)</span>
+                                </p>
+                                 <p>
+                                    <a href="https://github.com/KainuoTech-Org" target="_blank" rel="noopener noreferrer" class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,14H4V12H2v2m0,4H4V16H2v2m0,4H4V20H2v2m4-12H6V12H4v2h2v-2m2-2H8V10H6v2H8V10m2,0V8H8v2h2m2-2V6H10v2h2m-2,6v-2H8v2h2m0,4v-2H8v2h2m2,4v-2H10v2h2m0,4v-2H10v2h2m2,0v-2H12v2h2m2-14h2v2H14V6m4,0h2v2H18V6m-2,4V8H14v2h2m-2,2v-2H14v2h2m0,2v-2H16v2h-2v2h2v-2m-2,4v-2H14v2h2m2,4v-2H14v2h2m4,0v-2H18v2h2m2-2v-2H20v2h2m0-2v-2H20v2h2m0-2V12H20v2h2m2-2V10H22v2h-2V10m0-2V8H22v2h-2V8m-2-2h2V4H20V6Z"/></svg>
+                                    </a>
+                                    <span>GitHub</span>
+                                </p>
+                                 <p>
+                                    <a href="#" class="contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,2H4V4H2V2m4,0H8V4H6V2M2,6H4V8H2V6m4,0H8V8H6V6m-4,4H4v2H2v-2m4,0H8v2H6v-2m-4,4H4v2H2v-2m4,0H8v2H6v-2m4-12h2v2h-2V2m4,0h2v2h-2V2m-4,4h2v2h-2V6m4,0h2v2h-2V6M10,10h2v2h-2v-2m4,0h2v2h-2v-2M10,14h2v2h-2v-2m4,0h2v2h-2v-2m4,0h2v2h-2v-2m4,0h2v2h-2v-2M18,10h2v2h-2v-2m4,0h2v2h-2v-2m-4,8h2v2h-2v-2m4,0h2v2h-2v-2m-8,4h2v2h-2v-2m4,0h2v2h-2v-2Z"/></svg>
+                                    </a>
+                                     <span data-key="contact_xiaohongshu">小红书</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -280,38 +324,11 @@
             <div class="inner">
                 <h2 class="sec-title" data-key="contact_title">联系我们 · Contact Us</h2>
                 <div class="nes-container is-dark with-title">
-                    <p class="title" data-key="contact_form_title">保持联系</p>
+                    <p class="title" data-key="contact_form_title">发送消息</p>
                     <p data-key="contact_intro">项目需求、商务合作或技术咨询，欢迎随时通过以下方式联系我们。</p>
-                    
-                    <div class="contact-grid">
-                        <!-- Phone -->
-                        <a href="tel:18937380958" class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,3h4v4H3V3M9,3h4v4H9V3m6,0h4v4h-4V3M3,9h4v4H3V9m6,0h4v4H9V9m6,0h4v4h-4V9m-6,6h4v4H9v-4m-6,0h4v4H3v-4m12,0h4v4h-4v-4Z"/></svg>
-                            <span data-key="contact_phone">电话</span>
-                        </a>
-                        <!-- Email -->
-                        <a href="mailto:kinotech808@gmail.com" class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,4H2V2h20V4M22,8H2v2H22V8m-2,4H4v2H20v-2m2,4H2v2H22v-2Z"/></svg>
-                            <span>Gmail</span>
-                        </a>
-                        <!-- WeChat -->
-                        <div class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,6V4H20V2H18V4H16V2H14V4H12V2H10V4H8V2H6V4H4V6H2V8H4V10H2v2H4v2H2v2H4v2H6v-2H8v2H10v-2h2v2h2v-2h2v2h2v-2h2v-2h-2v-2h2V10h-2V8h2V6H22M18,16H16v2H14v-2H12v2H10v-2H8v2H6v-2H4v-2H6v-2H4V10H6v2H8V10h2v2h2V10h2v2h2v-2h2v2H18v2M16,8H14V6H12v2H10V6H8v2H6V6H4V8H6V10H8v-2H10v2h2v-2h2v2h2V8h-2V6h2V8H16Z"/></svg>
-                            <span data-key="contact_wechat">微信</span>
-                        </div>
-                        <!-- GitHub -->
-                        <a href="https://github.com/KainuoTech-Org" target="_blank" rel="noopener noreferrer" class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,14H4V12H2v2m0,4H4V16H2v2m0,4H4V20H2v2m4-12H6V12H4v2h2v-2m2-2H8V10H6v2H8V10m2,0V8H8v2h2m2-2V6H10v2h2m-2,6v-2H8v2h2m0,4v-2H8v2h2m2,4v-2H10v2h2m0,4v-2H10v2h2m2,0v-2H12v2h2m2-14h2v2H14V6m4,0h2v2H18V6m-2,4V8H14v2h2m-2,2v-2H14v2h2m0,2v-2H16v2h-2v2h2v-2m-2,4v-2H14v2h2m2,4v-2H14v2h2m4,0v-2H18v2h2m2-2v-2H20v2h2m0-2v-2H20v2h2m0-2V12H20v2h2m2-2V10H22v2h-2V10m0-2V8H22v2h-2V8m-2-2h2V4H20V6Z"/></svg>
-                            <span>GitHub</span>
-                        </a>
-                        <!-- 小红书 (Xiaohongshu) -->
-                        <a href="#" class="contact-item"> <!-- 请将 # 替换为你的小红书主页链接 -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2,2H4V4H2V2m4,0H8V4H6V2M2,6H4V8H2V6m4,0H8V8H6V6m-4,4H4v2H2v-2m4,0H8v2H6v-2m-4,4H4v2H2v-2m4,0H8v2H6v-2m4-12h2v2h-2V2m4,0h2v2h-2V2m-4,4h2v2h-2V6m4,0h2v2h-2V6M10,10h2v2h-2v-2m4,0h2v2h-2v-2M10,14h2v2h-2v-2m4,0h2v2h-2v-2m4,0h2v2h-2v-2m4,0h2v2h-2v-2M18,10h2v2h-2v-2m4,0h2v2h-2v-2m-4,8h2v2h-2v-2m4,0h2v2h-2v-2m-8,4h2v2h-2v-2m4,0h2v2h-2v-2Z"/></svg>
-                            <span data-key="contact_xiaohongshu">小红书</span>
-                        </a>
-                    </div>
-                     <!-- 原表单保留，可以删除或注释掉 -->
-                     <form style="margin-top: 1.5rem; display: none;">
+                    <p><strong>Email:</strong> <a href="mailto:kinotech808@gmail.com">kinotech808@gmail.com</a></p>
+                    <p><strong>Tel:</strong> 18937380958</p>
+                    <form style="margin-top: 1.5rem;">
                          <div class="nes-field">
                              <label for="email_field" data-key="contact_email_label">您的邮箱</label>
                              <input type="email" id="email_field" class="nes-input">
@@ -346,12 +363,11 @@
                 'about_p2': 'We believe in the power of technology, dedicating ourselves to transforming complex data into clear insights and innovative ideas into real products, helping our clients succeed in the digital age.',
                 'contact_title': 'Contact Us',
                 'contact_form_title': 'Send a Message',
-                'contact_intro': 'For project inquiries, business collaborations, or technical consultations, feel free to contact us anytime via the channels below.',
+                'contact_intro': 'For project inquiries, business collaborations, or technical consultations, feel free to contact us anytime.',
                 'contact_email_label': 'Your Email',
                 'contact_msg_label': 'Your Message',
                 'contact_send_btn': 'Send',
-                'contact_phone': 'Phone',
-                'contact_wechat': 'WeChat',
+                'contact_wechat_id': 'WeChat: (Scan QR or ID)',
                 'contact_xiaohongshu': 'Xiaohongshu',
                 'details_subtitle': 'Project Details',
                 'data_viz_title': 'Data Visualization',
@@ -381,8 +397,7 @@
                 'contact_email_label': '您的邮箱',
                 'contact_msg_label': '您的留言',
                 'contact_send_btn': '发送',
-                'contact_phone': '电话',
-                'contact_wechat': '微信',
+                'contact_wechat_id': '微信: (扫码或ID)',
                 'contact_xiaohongshu': '小红书',
                 'details_subtitle': '项目详情',
                 'data_viz_title': '数据可视化',
@@ -412,12 +427,11 @@
                 'contact_email_label': '您的郵箱',
                 'contact_msg_label': '您的留言',
                 'contact_send_btn': '發送',
-                'contact_phone': '電話',
-                'contact_wechat': '微信',
+                'contact_wechat_id': '微信: (掃碼或ID)',
                 'contact_xiaohongshu': '小紅書',
                 'details_subtitle': '項目詳情',
                 'data_viz_title': '數據可視化',
-                'data_viz_content': '這裡可以放置關於數據可視化項目的詳細介紹、截圖或嵌入式應用。',
+                'data_viz_content': '這裡可以放置關於數據可視化項目的詳細介紹、截圖或鏈接。',
                 'software_dev_title': '軟體開發',
                 'software_dev_content': '這裡可以放置關於 iOS/macOS/Web/Chrome 插件等項目的詳細介紹、截圖和鏈接。',
             }
