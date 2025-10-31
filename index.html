@@ -167,6 +167,29 @@
             text-decoration: none;
         }
 
+        /* Iframe styling for embedded content */
+        #data-viz .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 75%; /* Aspect ratio 4:3, adjust as needed */
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #data-viz .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            transform: scale(0.7);
+            transform-origin: top left;
+        }
+
         @media (max-width: 900px) {
             #hero .intro { grid-template-columns: 1fr; text-align: center;}
             #hero .intro > div:last-child { margin-top: 2rem; }
@@ -288,10 +311,13 @@
                 <h2 class="sec-title" data-key="data_viz_title">数据可视化 · Data Visualization</h2>
                 <div class="nes-container is-dark with-title">
                     <p class="title" data-key="details_subtitle">项目详情</p>
-                    <iframe 
-                        src="https://superstore-sales-dashboard-johnson.streamlit.app/?embed=true"
-                        style="width: 100%; height: 600px; border:4px solid #fff;">
-                    </iframe>
+                    <div class="project-item">
+                        <h3 data-key="data_viz_title">数据可视化作品集</h3>
+                        <div class="iframe-container" style="height: 800px; padding-top: 0;">
+                            <iframe src="https://superstore-sales-analysis-dashboard.streamlit.app/?embed=true"
+                                style="width: 120%; height: 120%;"></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
