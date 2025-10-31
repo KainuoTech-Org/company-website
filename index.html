@@ -7,6 +7,10 @@
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-cubic@1.0.1/css/cubic.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
     <style>
         html { scroll-behavior: smooth; }
         body {
@@ -131,8 +135,8 @@
         /* Layout for dashboard previews */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem; /* Reduced gap */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
         .dashboard-item {
@@ -157,25 +161,76 @@
         .dashboard-iframe-container {
             width: 100%;
             height: 0;
-            padding-bottom: calc(62.5% * 0.75); /* Aspect ratio 16:10 for horizontal layout, adjusted for scale */
+            padding-bottom: 75%; /* Aspect ratio 4:3 */
             position: relative;
             overflow: hidden;
             border: 2px solid #555;
+            margin-bottom: 1rem;
         }
 
         .dashboard-iframe-container iframe {
             position: absolute;
             top: 0;
             left: 0;
-            width: calc(100% / 0.75);
-            height: calc(100% / 0.75);
+            width: calc(100% / 0.65);
+            height: calc(100% / 0.65);
             border: 0;
-            transform: scale(0.75);
+            transform: scale(0.65);
             transform-origin: top left;
         }
         
         .sec-title { font-size: 1.4rem; margin-bottom: 1rem; }
         .muted { opacity: 0.9; }
+        
+        #data-visualization .container {
+            max-width: 1320px; /* Make the section wider */
+        }
+
+        .dashboard-item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto; /* Push actions to the bottom */
+            padding-top: 1rem; /* Space between description and actions */
+        }
+
+        .pixel-button {
+            display: inline-flex; /* Use flex for alignment */
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 2px solid #fff;
+            background-color: #555;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.8rem;
+            image-rendering: pixelated;
+            box-shadow: 3px 3px 0px #212529;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            cursor: pointer;
+        }
+
+        .pixel-button:hover {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px #212529;
+        }
+
+        .pixel-button:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0px #212529;
+        }
+
+        .like-icon {
+            font-size: 1rem;
+            color: #ff6b81;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         
         /* Mobile Menu Styles */
         .mobile-menu-toggle {
@@ -359,27 +414,21 @@
                     
                     <!-- Project 1: Superstore Sales Analysis -->
                     <div class="dashboard-item">
-                        <h4 data-key="data_viz_proj1_title">超市销售分析 (Superstore Sales Analysis)</h4>
-                        <p class="muted" data-key="data_viz_proj1_desc">
-                            一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。
-                        </p>
                         <div class="dashboard-iframe-container">
                             <iframe 
                                 src="https://superstore-sales-dashboard-johnson.streamlit.app/?embed=true"
                             ></iframe>
                         </div>
-                    </div>
-
-                    <!-- Project 2: Example (Placeholder) -->
-                    <div class="dashboard-item">
-                        <h4 data-key="data_viz_proj2_title">项目预览二 (示例)</h4>
-                        <p class="muted" data-key="data_viz_proj2_desc">
-                            这里是另一个数据可视化项目的描述，您可以替换为您的内容。
+                        <h4 data-key="data_viz_proj1_title">超市销售分析</h4>
+                        <p class="muted" data-key="data_viz_proj1_desc">
+                            一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。
                         </p>
-                        <div class="dashboard-iframe-container">
-                            <iframe 
-                                src="https://superstore-sales-dashboard-johnson.streamlit.app/?embed=true"
-                            ></iframe>
+                        <div class="dashboard-item-actions">
+                            <a href="https://superstore-sales-dashboard-johnson.streamlit.app/" target="_blank" class="pixel-button" data-key="view_button">查看</a>
+                            <div class="like-button pixel-button" onclick="like(this)">
+                                <span class="like-icon">♥</span>
+                                <span class="like-count">112</span>
+                            </div>
                         </div>
                     </div>
 
@@ -483,8 +532,8 @@
                 'data_viz_proj1_title': 'Superstore Sales Analysis',
                 'data_viz_proj1_desc': 'An interactive dashboard built with Streamlit to explore and analyze superstore sales data.',
                 'data_viz_proj2_title': 'Project Preview 2 (Example)',
-                'data_viz_proj2_desc': 'Description for another data visualization project goes here. You can replace this with your content.',
-                'view_project_btn': 'View Project',
+                'data_viz_proj2_desc': 'Description for another data visualization project. You can replace this with your content.',
+                'view_button': 'View',
                 'software_dev_title': 'Software Development',
                 'software_dev_content': 'Here you can showcase details, screenshots, and links for your projects like iOS/macOS/Web Apps and Chrome Extensions.',
             },
@@ -519,7 +568,7 @@
                 'data_viz_proj1_desc': '一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。',
                 'data_viz_proj2_title': '项目预览二 (示例)',
                 'data_viz_proj2_desc': '这里是另一个数据可视化项目的描述，您可以替换为您的内容。',
-                'view_project_btn': '查看项目',
+                'view_button': '查看',
                 'software_dev_title': '软件开发',
                 'software_dev_content': '这里可以放置关于 iOS/macOS/Web/Chrome 插件等项目的详细介绍、截图和链接。',
             },
@@ -554,7 +603,7 @@
                 'data_viz_proj1_desc': '一個基於 Streamlit 構建的互動式儀表板，用於探索和分析超市銷售數據。',
                 'data_viz_proj2_title': '項目預覽二 (示例)',
                 'data_viz_proj2_desc': '這裡是另一個數據可視化項目的描述，您可以替換為您的內容。',
-                'view_project_btn': '查看項目',
+                'view_button': '查看',
                 'software_dev_title': '軟體開發',
                 'software_dev_content': '這裡可以放置關於 iOS/macOS/Web/Chrome 插件等項目的詳細介紹、截圖和鏈接。',
             }
@@ -599,6 +648,16 @@
         });
 
         applyLang();
+
+        // Initialize with default language
+        changeLanguage(currentLanguage);
+
+        function like(button) {
+            const countElement = button.querySelector('.like-count');
+            let count = parseInt(countElement.innerText);
+            count++;
+            countElement.innerText = count;
+        }
     </script>
   </body>
 </html>
