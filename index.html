@@ -135,55 +135,62 @@
         /* Layout for dashboard previews */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
         .dashboard-item {
-            background-color: rgba(33,37,41,0.85);
-            border: 4px solid #fff;
-            padding: 1rem; /* Reduced padding */
-            display: flex;
-            flex-direction: column;
+            background-color: #333;
+            border: 2px solid #555;
+            padding: 0.75rem;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dashboard-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .dashboard-preview-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top;
+            border: 2px solid #555;
+            margin-bottom: 0.75rem;
         }
 
         .dashboard-item h4 {
-            margin-top: 0;
-            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
         }
 
         .dashboard-item p {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            flex-grow: 1; /* Allow description to grow */
+            font-size: 0.75rem;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            flex-grow: 1;
+        }
+
+        .dashboard-item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
         }
 
         .dashboard-iframe-container {
-            width: 100%;
-            height: 0;
-            padding-bottom: 75%; /* Aspect ratio 4:3 */
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #555;
-            margin-bottom: 1rem;
-        }
-
-        .dashboard-iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: calc(100% / 0.65);
-            height: calc(100% / 0.65);
-            border: 0;
-            transform: scale(0.65);
-            transform-origin: top left;
+            display: none; /* Hide iframe containers, we use images now */
         }
         
         .sec-title { font-size: 1.4rem; margin-bottom: 1rem; }
+        .sub-sec-title { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 4px solid #fff; padding-bottom: 0.5rem; }
         .muted { opacity: 0.9; }
         
         #data-visualization .container {
-            max-width: 1320px; /* Make the section wider */
+            max-width: 1400px; /* Make the section wider */
+            width: 95%; /* Use more screen width */
         }
 
         .dashboard-item-actions {
@@ -410,15 +417,15 @@
         <section id="data-viz">
             <div class="inner">
                 <h2 class="sec-title" data-key="data_viz_title">数据可视化 · Data Visualization</h2>
+                
+                <!-- Streamlit Sub-section -->
+                <h3 class="sub-sec-title" data-key="data_viz_streamlit_title">Streamlit</h3>
                 <div class="dashboard-grid">
-                    
                     <!-- Project 1: Superstore Sales Analysis -->
                     <div class="dashboard-item">
-                        <div class="dashboard-iframe-container">
-                            <iframe 
-                                src="https://superstore-sales-dashboard-johnson.streamlit.app/?embed=true"
-                            ></iframe>
-                        </div>
+                        <a href="https://superstore-sales-dashboard-johnson.streamlit.app/" target="_blank">
+                           <img src="img/streamlit_preview.png" alt="Superstore Sales Analysis Preview" class="dashboard-preview-image">
+                        </a>
                         <h4 data-key="data_viz_proj1_title">超市销售分析</h4>
                         <p class="muted" data-key="data_viz_proj1_desc">
                             一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。
@@ -429,10 +436,32 @@
                                 <span class="like-icon">♥</span>
                                 <span class="like-count">112</span>
                             </div>
+                            </div>
                         </div>
                     </div>
 
+                <!-- Tableau Sub-section -->
+                <h3 class="sub-sec-title" data-key="data_viz_tableau_title">Tableau</h3>
+                <div class="dashboard-grid">
+                    <!-- Project 2: Tableau HK Retail Sales -->
+                    <div class="dashboard-item">
+                        <a href="https://public.tableau.com/views/HongKongRetailSalesAnalysis/HongKongRetailSalesDashboard?:language=en-US" target="_blank">
+                            <img src="img/tableau_preview.png" alt="Hong Kong Retail Sales Analysis Preview" class="dashboard-preview-image">
+                        </a>
+                        <h4 data-key="data_viz_proj2_title">香港零售業銷售分析</h4>
+                        <p class="muted" data-key="data_viz_proj2_desc">
+                            一個基於 Tableau 构建的交互式儀表板，分析香港零售業的銷售趨勢。
+                        </p>
+                        <div class="dashboard-item-actions">
+                            <a href="https://public.tableau.com/views/HongKongRetailSalesAnalysis/HongKongRetailSalesDashboard?:language=en-US" target="_blank" class="pixel-button" data-key="view_button">查看</a>
+                            <div class="like-button pixel-button" onclick="like(this)">
+                                <span class="like-icon">♥</span>
+                                <span class="like-count">42</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
@@ -529,10 +558,12 @@
                 'contact_xiaohongshu': 'Xiaohongshu',
                 'details_subtitle': 'Data Visualization Projects',
                 'data_viz_title': 'Data Visualization',
+                'data_viz_streamlit_title': 'Streamlit',
+                'data_viz_tableau_title': 'Tableau',
                 'data_viz_proj1_title': 'Superstore Sales Analysis',
                 'data_viz_proj1_desc': 'An interactive dashboard built with Streamlit to explore and analyze superstore sales data.',
-                'data_viz_proj2_title': 'Project Preview 2 (Example)',
-                'data_viz_proj2_desc': 'Description for another data visualization project. You can replace this with your content.',
+                'data_viz_proj2_title': 'Hong Kong Retail Sales Analysis',
+                'data_viz_proj2_desc': 'An interactive dashboard built with Tableau to analyze sales trends in the Hong Kong retail sector.',
                 'view_button': 'View',
                 'software_dev_title': 'Software Development',
                 'software_dev_content': 'Here you can showcase details, screenshots, and links for your projects like iOS/macOS/Web Apps and Chrome Extensions.',
@@ -564,10 +595,12 @@
                 'contact_xiaohongshu': '小红书',
                 'details_subtitle': '数据可视化项目',
                 'data_viz_title': '数据可视化',
+                'data_viz_streamlit_title': 'Streamlit',
+                'data_viz_tableau_title': 'Tableau',
                 'data_viz_proj1_title': '超市销售分析 (Superstore Sales Analysis)',
                 'data_viz_proj1_desc': '一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。',
-                'data_viz_proj2_title': '项目预览二 (示例)',
-                'data_viz_proj2_desc': '这里是另一个数据可视化项目的描述，您可以替换为您的内容。',
+                'data_viz_proj2_title': '香港零售业销售分析',
+                'data_viz_proj2_desc': '一个基于 Tableau 构建的交互式仪表盘，分析香港零售业的销售趋势。',
                 'view_button': '查看',
                 'software_dev_title': '软件开发',
                 'software_dev_content': '这里可以放置关于 iOS/macOS/Web/Chrome 插件等项目的详细介绍、截图和链接。',
@@ -599,10 +632,12 @@
                 'contact_xiaohongshu': '小紅書',
                 'details_subtitle': '數據可視化項目',
                 'data_viz_title': '數據可視化',
+                'data_viz_streamlit_title': 'Streamlit',
+                'data_viz_tableau_title': 'Tableau',
                 'data_viz_proj1_title': '超市銷售分析 (Superstore Sales Analysis)',
                 'data_viz_proj1_desc': '一個基於 Streamlit 構建的互動式儀表板，用於探索和分析超市銷售數據。',
-                'data_viz_proj2_title': '項目預覽二 (示例)',
-                'data_viz_proj2_desc': '這裡是另一個數據可視化項目的描述，您可以替換為您的內容。',
+                'data_viz_proj2_title': '香港零售業銷售分析',
+                'data_viz_proj2_desc': '一個基於 Tableau 構建的互動式儀表板，分析香港零售業的銷售趨勢。',
                 'view_button': '查看',
                 'software_dev_title': '軟體開發',
                 'software_dev_content': '這裡可以放置關於 iOS/macOS/Web/Chrome 插件等項目的詳細介紹、截圖和鏈接。',
