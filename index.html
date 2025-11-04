@@ -742,13 +742,16 @@
                 name: document.getElementById('name_field').value,
                 from_name: document.getElementById('name_field').value,
                 from_email: document.getElementById('email_field').value,
-                message: document.getElementById('textarea_field').value
+                message: document.getElementById('textarea_field').value,
+                to_email: 'kainuotech@gmail.com'
             };
 
             // 发送邮件
+            console.log('📧 准备发送邮件，参数：', templateParams);
+            
             emailjs.send('service_6sk5xxi', 'template_kv13jry', templateParams)
                 .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
+                    console.log('✅ 邮件发送成功！', response.status, response.text);
                     formStatus.style.display = 'block';
                     formStatus.className = 'nes-text is-success';
                     formStatus.innerText = currentLang === 'en' 
@@ -763,12 +766,12 @@
                         formStatus.style.display = 'none';
                     }, 3000);
                 }, function(error) {
-                    console.log('FAILED...', error);
+                    console.error('❌ 邮件发送失败：', error);
                     formStatus.style.display = 'block';
                     formStatus.className = 'nes-text is-error';
                     formStatus.innerText = currentLang === 'en' 
-                        ? '✗ Failed to send message. Please try again.' 
-                        : '✗ 发送失败，请重试。';
+                        ? '✗ Failed: ' + (error.text || error.message || 'Unknown error')
+                        : '✗ 发送失败：' + (error.text || error.message || '未知错误');
                 })
                 .finally(function() {
                     // 恢复按钮状态
