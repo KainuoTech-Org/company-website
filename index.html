@@ -515,6 +515,10 @@
                     <p><strong>Tel:</strong> 18937380958</p>
                     <form id="contact-form" style="margin-top: 1.5rem;">
                          <div class="nes-field">
+                             <label for="name_field" data-key="contact_name_label">您的姓名</label>
+                             <input type="text" id="name_field" name="user_name" class="nes-input" required>
+                         </div>
+                         <div class="nes-field" style="margin-top:0.75rem;">
                              <label for="email_field" data-key="contact_email_label">您的邮箱</label>
                              <input type="email" id="email_field" name="user_email" class="nes-input" required>
                          </div>
@@ -570,6 +574,7 @@
                 'contact_title': 'Contact Us',
                 'contact_form_title': 'Send a Message',
                 'contact_intro': 'For project inquiries, business collaborations, or technical consultations, feel free to contact us anytime.',
+                'contact_name_label': 'Your Name',
                 'contact_email_label': 'Your Email',
                 'contact_msg_label': 'Your Message',
                 'contact_send_btn': 'Send',
@@ -607,6 +612,7 @@
                 'contact_title': '联系我们',
                 'contact_form_title': '发送消息',
                 'contact_intro': '项目需求、商务合作或技术咨询，欢迎随时通过以下方式联系我们。',
+                'contact_name_label': '您的姓名',
                 'contact_email_label': '您的邮箱',
                 'contact_msg_label': '您的留言',
                 'contact_send_btn': '发送',
@@ -644,6 +650,7 @@
                 'contact_title': '聯繫我們',
                 'contact_form_title': '發送消息',
                 'contact_intro': '項目需求、商務合作或技術諮詢，歡迎隨時通過以下方式聯繫我們。',
+                'contact_name_label': '您的姓名',
                 'contact_email_label': '您的郵箱',
                 'contact_msg_label': '您的留言',
                 'contact_send_btn': '發送',
@@ -715,7 +722,7 @@
 
         // EmailJS Integration
         (function() {
-            emailjs.init("YOUR_PUBLIC_KEY"); // 需要替换为您的 EmailJS Public Key
+            emailjs.init("78CmxAprdh8lD2A7b");
         })();
 
         // Contact Form Handler
@@ -732,13 +739,14 @@
             
             // 获取表单数据
             const templateParams = {
-                user_email: document.getElementById('email_field').value,
-                message: document.getElementById('textarea_field').value,
-                to_email: 'contact@kainuotech.com'
+                name: document.getElementById('name_field').value,
+                from_name: document.getElementById('name_field').value,
+                from_email: document.getElementById('email_field').value,
+                message: document.getElementById('textarea_field').value
             };
 
-            // 发送邮件 (需要替换 YOUR_SERVICE_ID 和 YOUR_TEMPLATE_ID)
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            // 发送邮件
+            emailjs.send('service_6sk5xxi', 'template_kv13jry', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     formStatus.style.display = 'block';
