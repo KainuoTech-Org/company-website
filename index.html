@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
         html { scroll-behavior: smooth; }
@@ -231,6 +232,23 @@
         .like-icon {
             font-size: 1rem;
             color: #ff6b81;
+        }
+
+        /* Form Status Styles */
+        #form-status {
+            padding: 1rem;
+            border: 4px solid;
+            background-color: rgba(33,37,41,0.9);
+            text-align: center;
+            animation: fadeIn 0.3s ease-in;
+        }
+        #form-status.nes-text.is-success {
+            border-color: #92cc41;
+            color: #92cc41;
+        }
+        #form-status.nes-text.is-error {
+            border-color: #e76e55;
+            color: #e76e55;
         }
 
         /* Keyframes for animations */
@@ -495,17 +513,18 @@
                     <p data-key="contact_intro">项目需求、商务合作或技术咨询，欢迎随时通过以下方式联系我们。</p>
                     <p><strong>Email:</strong> <a href="mailto:contact@kainuotech.com">contact@kainuotech.com</a></p>
                     <p><strong>Tel:</strong> 18937380958</p>
-                    <form style="margin-top: 1.5rem;">
+                    <form id="contact-form" style="margin-top: 1.5rem;">
                          <div class="nes-field">
                              <label for="email_field" data-key="contact_email_label">您的邮箱</label>
-                             <input type="email" id="email_field" class="nes-input">
+                             <input type="email" id="email_field" name="user_email" class="nes-input" required>
                          </div>
                          <div class="nes-field" style="margin-top:0.75rem;">
                              <label for="textarea_field" data-key="contact_msg_label">您的留言</label>
-                             <textarea id="textarea_field" class="nes-textarea" rows="4"></textarea>
+                             <textarea id="textarea_field" name="message" class="nes-textarea" rows="4" required></textarea>
                          </div>
-                         <button type="button" class="nes-btn is-primary" style="margin-top:0.75rem;" data-key="contact_send_btn">发送</button>
+                         <button type="submit" id="send-btn" class="nes-btn is-primary" style="margin-top:0.75rem;" data-key="contact_send_btn">发送</button>
                      </form>
+                     <div id="form-status" style="margin-top: 1rem; display: none;"></div>
                 </div>
             </div>
         </section>
@@ -693,6 +712,67 @@
             count++;
             countElement.innerText = count;
         }
+
+        // EmailJS Integration
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // 需要替换为您的 EmailJS Public Key
+        })();
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const sendBtn = document.getElementById('send-btn');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 禁用按钮，防止重复提交
+            sendBtn.disabled = true;
+            sendBtn.innerText = currentLang === 'en' ? 'Sending...' : '发送中...';
+            
+            // 获取表单数据
+            const templateParams = {
+                user_email: document.getElementById('email_field').value,
+                message: document.getElementById('textarea_field').value,
+                to_email: 'contact@kainuotech.com'
+            };
+
+            // 发送邮件 (需要替换 YOUR_SERVICE_ID 和 YOUR_TEMPLATE_ID)
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    formStatus.style.display = 'block';
+                    formStatus.className = 'nes-text is-success';
+                    formStatus.innerText = currentLang === 'en' 
+                        ? '✓ Message sent successfully!' 
+                        : '✓ 消息发送成功！';
+                    
+                    // 清空表单
+                    contactForm.reset();
+                    
+                    // 3秒后隐藏状态消息
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 3000);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    formStatus.style.display = 'block';
+                    formStatus.className = 'nes-text is-error';
+                    formStatus.innerText = currentLang === 'en' 
+                        ? '✗ Failed to send message. Please try again.' 
+                        : '✗ 发送失败，请重试。';
+                })
+                .finally(function() {
+                    // 恢复按钮状态
+                    sendBtn.disabled = false;
+                    const btnTexts = {
+                        'en': 'Send',
+                        'zh-CN': '发送',
+                        'zh-TW': '發送'
+                    };
+                    sendBtn.innerText = btnTexts[currentLang];
+                });
+        });
     </script>
   </body>
 </html>
