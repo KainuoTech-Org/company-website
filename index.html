@@ -412,32 +412,6 @@
         <section id="works">
             <div class="inner">
                 <h2 class="sec-title" data-key="works_title">成功案例 · Our Work</h2>
-                <div class="grid-2">
-                    <div class="card">
-                        <a href="#data-viz" style="text-decoration: none; color: white; display: contents;">
-                            <i><div class="icon-chart"><span class="bar1"></span><span class="bar2"></span><span class="bar3"></span></div></i>
-                            <div data-key="work1_title">数据可视化</div>
-                            <p class="muted card-desc" data-key="work1_desc">交互式仪表盘、数据报告、商业智能 (BI)</p>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="#software-dev" style="text-decoration: none; color: white; display: contents;">
-                            <i class="nes-octocat is-animated"></i>
-                            <div data-key="work2_title">软件开发</div>
-                            <p class="muted card-desc" data-key="work2_desc">iOS App, macOS App, Chrome 插件, 网页端应用</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 新增：数据可视化详情区域 -->
-        <section id="data-viz">
-            <div class="inner">
-                <h2 class="sec-title" data-key="data_viz_title">数据可视化 · Data Visualization</h2>
-                
-                <!-- Streamlit Sub-section -->
-                <h3 class="sub-sec-title" data-key="data_viz_streamlit_title">Streamlit</h3>
                 <div class="dashboard-grid">
                     <!-- Project 1: Superstore Sales Analysis -->
                     <div class="dashboard-item">
@@ -454,21 +428,17 @@
                                 <span class="like-icon">♥</span>
                                 <span class="like-count">112</span>
                             </div>
-                            </div>
                         </div>
                     </div>
 
-                <!-- Tableau Sub-section -->
-                <h3 class="sub-sec-title" data-key="data_viz_tableau_title">Tableau</h3>
-                <div class="dashboard-grid">
-                    <!-- Project 2: Tableau HK Retail Sales -->
+                    <!-- Project 2: Hong Kong Retail Sales -->
                     <div class="dashboard-item">
                         <a href="https://public.tableau.com/views/HongKongRetailSalesAnalysis/HongKongRetailSalesDashboard?:language=en-US" target="_blank">
                             <img src="img/tableau_preview.png" alt="Hong Kong Retail Sales Analysis Preview" class="dashboard-preview-image">
                         </a>
                         <h4 data-key="data_viz_proj2_title">香港零售業銷售分析</h4>
                         <p class="muted" data-key="data_viz_proj2_desc">
-                            一個基於 Tableau 构建的交互式儀表板，分析香港零售業的銷售趨勢。
+                            一個基於 Tableau 構建的互動式儀表板，分析香港零售業的銷售趨勢。
                         </p>
                         <div class="dashboard-item-actions">
                             <a href="https://public.tableau.com/views/HongKongRetailSalesAnalysis/HongKongRetailSalesDashboard?:language=en-US" target="_blank" class="pixel-button" data-key="view_button">查看</a>
@@ -478,6 +448,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- Project 3: BMW Sales Analysis -->
                     <div class="dashboard-item">
                         <a href="https://public.tableau.com/views/BMWSalesAnalysis_17624449946750/111" target="_blank">
@@ -495,10 +466,33 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    <!-- Software Development Placeholder -->
+                    <div class="dashboard-item">
+                        <div style="width: 100%; height: 200px; background: rgba(33,37,41,0.85); border: 2px solid #555; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                            <div style="text-align: center; color: #fff; opacity: 0.7;">
+                                <i class="nes-octocat is-animated" style="font-size: 3rem;"></i>
+                                <div style="margin-top: 1rem; font-size: 0.9rem;">软件开发项目</div>
+                                <div style="font-size: 0.7rem; margin-top: 0.5rem;">iOS App, macOS App, Chrome 插件, 网页端应用</div>
+                                <div style="font-size: 0.6rem; margin-top: 0.5rem; opacity: 0.5;">即将推出...</div>
+                            </div>
+                        </div>
+                        <h4 style="margin-top: 0.75rem;">软件开发项目</h4>
+                        <p class="muted">
+                            iOS App, macOS App, Chrome 插件, 网页端应用 - 敬请期待更多精彩案例。
+                        </p>
+                        <div class="dashboard-item-actions">
+                            <div class="pixel-button" style="opacity: 0.6; cursor: not-allowed;">即将推出</div>
+                            <div class="like-button pixel-button" onclick="like(this)">
+                                <span class="like-icon">♥</span>
+                                <span class="like-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+
 
         <!-- 新增：软件开发详情区域 -->
         <section id="software-dev">
