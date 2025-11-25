@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>凯诺创享科技 | Kainuo Chuangxiang Tech</title>
+    <title>Kainuo Tech | 凱諾創想科技</title>
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-cubic@1.0.1/css/cubic.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
@@ -341,9 +341,9 @@
                 <a href="#about-us" data-key="nav_about">About</a>
                 <a href="#contact" data-key="nav_contact">Contact</a>
                 <div class="lang-switcher">
-                    <button type="button" class="nes-btn is-small" data-lang="zh-CN">简</button>
-                    <button type="button" class="nes-btn is-small" data-lang="zh-TW">繁</button>
                     <button type="button" class="nes-btn is-small" data-lang="en">EN</button>
+                    <button type="button" class="nes-btn is-small" data-lang="zh-TW">繁</button>
+                    <button type="button" class="nes-btn is-small" data-lang="zh-CN">简</button>
                 </div>
             </div>
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -574,8 +574,8 @@
             'en': {
                 'nav_brand': 'Kainuo Tech',
                 'nav_home': 'Home', 'nav_works': 'Cases', 'nav_about': 'About', 'nav_contact': 'Contact',
-                'hero_h1': 'Kainuo Chuangxiang Tech',
-                'hero_p1': '凱諾創享科技',
+                'hero_h1': 'Kainuo Creative Tech',
+                'hero_p1': '凱諾創想科技',
                 'hero_p2': 'We are dedicated to creating exceptional value for our clients through innovative software solutions and data visualization technologies.',
                 'hero_contact_btn': 'Contact Us', 'hero_works_btn': 'See Our Work',
                 'hero_links_title': 'Quick Links',
@@ -614,8 +614,8 @@
             'zh-CN': {
                 'nav_brand': '凯诺科技',
                 'nav_home': '首页', 'nav_works': '成功案例', 'nav_about': '关于我们', 'nav_contact': '联系我们',
-                'hero_h1': '凯诺创享科技',
-                'hero_p1': 'Kainuo Chuangxiang Tech',
+                'hero_h1': '凯诺创想科技',
+                'hero_p1': 'Kainuo Creative Tech',
                 'hero_p2': '我们致力于通过创新的软件解决方案和数据可视化技术，为客户创造卓越价值。',
                 'hero_contact_btn': '联系我们', 'hero_works_btn': '查看案例',
                 'hero_links_title': '快速链接',
@@ -626,7 +626,7 @@
                 'work2_title': '软件开发',
                 'work2_desc': 'iOS App, macOS App, Chrome 插件, 网页端应用',
                 'about_title': '关于我们',
-                'about_p1': '凯诺创享科技是一家专注于提供高质量软件开发与数据可视化解决方案的科技公司。',
+                'about_p1': '凯诺创想科技是一家专注于提供高质量软件开发与数据可视化解决方案的科技公司。',
                 'about_p2': '我们相信技术的力量，致力于将复杂的数据转化为清晰的洞察，将创新的想法变为现实的产品，帮助客户在数字化时代获得成功。',
                 'contact_title': '联系我们',
                 'contact_form_title': '发送消息',
@@ -654,8 +654,8 @@
             'zh-TW': {
                 'nav_brand': '凱諾科技',
                 'nav_home': '首頁', 'nav_works': '成功案例', 'nav_about': '關於我們', 'nav_contact': '聯繫我們',
-                'hero_h1': '凱諾創享科技',
-                'hero_p1': 'Kainuo Chuangxiang Tech',
+                'hero_h1': '凱諾創想科技',
+                'hero_p1': 'Kainuo Creative Tech',
                 'hero_p2': '我們致力於通過創新的軟體解決方案和數據可視化技術，為客戶創造卓越價值。',
                 'hero_contact_btn': '聯繫我們', 'hero_works_btn': '查看案例',
                 'hero_links_title': '快速鏈接',
@@ -666,7 +666,7 @@
                 'work2_title': '軟體開發',
                 'work2_desc': 'iOS App, macOS App, Chrome 插件, 網頁端應用',
                 'about_title': '關於我們',
-                'about_p1': '凱諾創享科技是一家專注於提供高質量軟體開發與數據可視化解決方案的科技公司。',
+                'about_p1': '凱諾創想科技是一家專注於提供高質量軟體開發與數據可視化解決方案的科技公司。',
                 'about_p2': '我們相信技術的力量，致力於將複雜的數據轉化為清晰的洞察，將創新的想法變為現實的產品，幫助客戶在數字化時代獲得成功。',
                 'contact_title': '聯繫我們',
                 'contact_form_title': '發送消息',
@@ -692,7 +692,7 @@
                 'software_dev_content': '這裡可以放置關於 iOS/macOS/Web/Chrome 插件等項目的詳細介紹、截圖和鏈接。',
             }
         };
-        let currentLang = 'zh-CN';
+        let currentLang = 'en';
         function applyLang() {
             document.documentElement.lang = currentLang;
             document.querySelectorAll('[data-key]').forEach(el => {
