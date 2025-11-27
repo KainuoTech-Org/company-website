@@ -394,14 +394,6 @@
                                 <a href="http://linkedin.com/in/gaozikai-2567421a7" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
                                     <i class="nes-icon linkedin is-large"></i>
                                 </a>
-                                <!-- Phone -->
-                                <button type="button" id="phone-btn" class="icon-link" aria-label="Phone">
-                                    <i class="nes-icon phone is-large"></i>
-                                </button>
-                                <!-- WeChat -->
-                                <button type="button" id="wechat-btn" class="icon-link" aria-label="WeChat">
-                                    <i class="nes-icon message is-large"></i>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -544,25 +536,6 @@
             </div>
         </section>
     </main>
-    <dialog class="nes-dialog is-rounded centered" id="phone-dialog">
-        <form method="dialog" class="dialog-content">
-            <p class="title" data-key="dialog_phone_title">Phone</p>
-            <p>+852 93412653</p>
-            <menu class="dialog-menu">
-                <button class="nes-btn is-primary" data-key="dialog_close">Close</button>
-            </menu>
-        </form>
-    </dialog>
-
-    <dialog class="nes-dialog is-rounded centered" id="wechat-dialog">
-        <form method="dialog" class="dialog-content">
-            <p class="title" data-key="dialog_wechat_title">WeChat</p>
-            <p>+852 93412653</p>
-            <menu class="dialog-menu">
-                <button class="nes-btn is-primary" data-key="dialog_close">Close</button>
-            </menu>
-        </form>
-    </dialog>
     <script>
         const i18n = {
             'en': {
@@ -704,14 +677,6 @@
         });
         
         // --- MODAL LOGIC ---
-        const phoneBtn = document.getElementById('phone-btn');
-        const wechatBtn = document.getElementById('wechat-btn');
-        const phoneDialog = document.getElementById('phone-dialog');
-        const wechatDialog = document.getElementById('wechat-dialog');
-
-        phoneBtn.addEventListener('click', () => { phoneDialog.showModal(); });
-        wechatBtn.addEventListener('click', () => { wechatDialog.showModal(); });
-
         // Mobile menu toggle logic
         const menuToggle = document.getElementById('mobile-menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');
