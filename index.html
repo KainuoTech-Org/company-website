@@ -117,18 +117,25 @@
             padding: 2rem;
             transition: transform 0.3s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .price-card.popular {
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
         }
         .price-card:hover { transform: translateY(-5px); box-shadow: 8px 8px 0 var(--border-color); }
         .price-header { border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 1.5rem; }
         .price-amount { font-size: 2.5rem; font-family: var(--font-serif); font-weight: 700; color: var(--accent-color); }
-        .price-features { list-style: none; padding: 0; margin-bottom: 2rem; }
+        .price-features { list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1; }
         .price-features li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
         .price-features li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-color); }
         .badge {
-            position: absolute; top: -12px; right: 20px;
+            position: absolute; top: -15px; right: 20px;
             background: var(--accent-color); color: #fff;
-            padding: 4px 12px; font-size: 0.8rem; font-weight: 600;
-            text-transform: uppercase;
+            padding: 6px 15px; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         /* Portfolio / Works */
@@ -274,11 +281,11 @@
                             <li data-key="pkg1_f7">Free Email Forwarding (Cloudflare)</li>
                             <li data-key="pkg1_f8">3-Month Free Maintenance</li>
                         </ul>
-                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Quick%20Launch%20Plan%20(HK$3,880)." target="_blank" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_select">Inquire via WhatsApp</a>
+                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Quick%20Launch%20Plan%20(HK$3,880)." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_select">Inquire via WhatsApp</a>
                     </div>
 
                     <!-- Package B: Business Brand (Popular) -->
-                    <div class="price-card">
+                    <div class="price-card popular">
                         <div class="badge">Most Popular</div>
                         <div class="price-header">
                             <h3 data-key="pkg2_title">Business Brand</h3>
@@ -300,7 +307,7 @@
                         <div class="price-header">
                             <h3 data-key="pkg3_title">Add-Ons & Custom</h3>
                             <p data-key="pkg3_for">Upgrade Your Package</p>
-                            <div class="price-amount" style="font-size: 1.5rem;">À La Carte</div>
+                            <div class="price-amount" style="font-size: 1.5rem; color: var(--text-color);">Optional Upgrades</div>
                         </div>
                         <ul class="price-features">
                             <li data-key="pkg3_f1">Real Business Email (SendGrid) +HK$500/yr</li>
@@ -309,7 +316,7 @@
                             <li data-key="pkg3_f4">Data Visualization Dashboard (Custom Quote)</li>
                             <li data-key="pkg3_f5">iOS/Android App (Custom Quote)</li>
                         </ul>
-                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20Custom%20Add-ons." target="_blank" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_contact">Inquire via WhatsApp</a>
+                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20Custom%20Add-ons." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_contact">Inquire via WhatsApp</a>
                     </div>
                 </div>
             </div>
