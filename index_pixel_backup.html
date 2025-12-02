@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kainuo Innovision Tech | 凱諾創享科技</title>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-cubic@1.0.1/css/cubic.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Cubic 11', 'Press Start 2P', sans-serif;
+            margin: 0; color: #fff; background-color: #212529;
+            background-image: url('assets/background.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            image-rendering: pixelated; text-shadow: 2px 2px #000;
+        }
+        body::before {
+            content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+            background-image: radial-gradient(rgba(0,0,0,0.25) 1px, transparent 0);
+            background-size: 4px 4px;
+        }
+        .container { position: relative; z-index:2; }
+        section { min-height: 100vh; display:flex; align-items:center; padding: 4rem 0; box-sizing: border-box;}
+        .inner { width: 92%; max-width: 1080px; margin: 0 auto; }
+        
+        header {
+             position: fixed; top:0; left:0; right:0; z-index: 10;
+             background-color: rgba(33, 37, 41, 0.85);
+             backdrop-filter: blur(10px);
+             border-bottom: 4px solid #fff;
+        }
+        .topnav { 
+            padding: 0.75rem 1rem;
+            display:flex; align-items:center; justify-content:space-between;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .topnav .brand { font-size: 1.2rem; }
+        .topnav .links { display:flex; gap: 1rem; flex-wrap: wrap; align-items: center;}
+        .topnav a { color:#fff; text-decoration:none; font-size: 0.9rem; transition: color 0.2s ease-out; }
+        .topnav a:hover { color: #ff9248; } /* 添加悬停颜色变化 */
+        .lang-switcher button { margin-left: 0.5rem; }
+        
+        #hero .intro { display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items:center; }
+        #hero h1 { font-size: 2.2rem; margin: 0 0 1rem; }
+        .contacts { display:flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+        .contacts a { color:#fff; text-decoration:none; }
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+        .quick-links .icon-link {
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease-out;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+        .quick-links .icon-link:hover {
+            transform: scale(1.15);
+        }
+
+        /* --- MODAL STYLES --- */
+        .nes-dialog.centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        .nes-dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        .dialog-content {
+            text-align: center;
+        }
+        .dialog-content p { word-break: break-all; }
+
+        /* Layout for 2 cards */
+        .grid-2 { display:grid; grid-template-columns: repeat(2, minmax(140px,1fr)); gap: 1.25rem; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            padding: 1rem;
+            background-color: rgba(33,37,41,0.85);
+            border: 4px solid #fff;
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+        }
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(50,55,60,0.9);
+        }
+        .contact-item svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 1rem;
+            fill: currentColor;
+        }
+
+        .card { 
+            display:flex; flex-direction:column; align-items:center; padding:1rem; 
+            background-color: rgba(33,37,41,0.85); border: 4px solid #fff; text-align: center;
+            transition: transform 0.2s ease-out;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card i { display:flex; align-items:center; justify-content:center; height: 4.5rem; width: 4.5rem; margin-bottom: 0.5rem; font-size: 4rem; }
+        .card .card-desc { font-size: 0.8rem; opacity: 0.8; margin-top: 0.5rem; }
+        .icon-chart { display:inline-flex; width: 80%; height:80%; align-items:flex-end; gap:6px; justify-content:center; }
+        .icon-chart span { background:#fff; display:inline-block; width:15px; box-shadow:2px 2px #000; }
+        .icon-chart .bar1{height:50%} .icon-chart .bar2{height:80%} .icon-chart .bar3{height:30%}
+        
+        /* Layout for dashboard previews */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .dashboard-item {
+            background-color: #333;
+            border: 2px solid #555;
+            padding: 0.75rem;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .dashboard-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .dashboard-preview-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top;
+            border: 2px solid #555;
+            margin-bottom: 0.75rem;
+        }
+
+        .dashboard-item h4 {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .dashboard-item p {
+            font-size: 0.75rem;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            flex-grow: 1;
+        }
+
+        .dashboard-item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .dashboard-iframe-container {
+            display: none; /* Hide iframe containers, we use images now */
+        }
+        
+        .sec-title { font-size: 1.4rem; margin-bottom: 1rem; }
+        .sub-sec-title { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 4px solid #fff; padding-bottom: 0.5rem; }
+        .muted { opacity: 0.9; }
+        
+        #data-visualization .container {
+            max-width: 1400px; /* Make the section wider */
+            width: 95%; /* Use more screen width */
+        }
+
+        .dashboard-item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto; /* Push actions to the bottom */
+            padding-top: 1rem; /* Space between description and actions */
+        }
+
+        .pixel-button {
+            display: inline-flex; /* Use flex for alignment */
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 2px solid #fff;
+            background-color: #555;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.8rem;
+            image-rendering: pixelated;
+            box-shadow: 3px 3px 0px #212529;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            cursor: pointer;
+        }
+
+        .pixel-button:hover {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px #212529;
+        }
+
+        .pixel-button:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0px #212529;
+        }
+
+        .like-icon {
+            font-size: 1rem;
+            color: #ff6b81;
+        }
+
+        /* Form Status Styles */
+        #form-status {
+            padding: 1rem;
+            border: 4px solid;
+            background-color: rgba(33,37,41,0.9);
+            text-align: center;
+            animation: fadeIn 0.3s ease-in;
+        }
+        #form-status.nes-text.is-success {
+            border-color: #92cc41;
+            color: #92cc41;
+        }
+        #form-status.nes-text.is-error {
+            border-color: #e76e55;
+            color: #e76e55;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-menu-toggle .icon-bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 64px; /* header height */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(33, 37, 41, 0.98);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            z-index: 9;
+        }
+        .mobile-nav a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Iframe styling for embedded content */
+        #data-viz .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 75%; /* Aspect ratio 4:3, adjust as needed */
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #data-viz .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            transform: scale(0.7);
+            transform-origin: top left;
+        }
+
+        @media (max-width: 900px) {
+            #hero .intro { grid-template-columns: 1fr; text-align: center;}
+            #hero .intro > div:last-child { margin-top: 2rem; }
+            .contacts { justify-content: center; }
+            .grid, .grid-2 { grid-template-columns: repeat(2, minmax(140px,1fr)); }
+            .topnav .links { display: none; }
+            .mobile-menu-toggle { display: block; }
+        }
+        @media (max-width: 520px) { 
+            .grid, .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+            .quick-links { gap: 1rem; }
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+        <nav class="topnav">
+            <div class="brand" data-key="nav_brand">Kainuo Tech</div>
+            <div class="links">
+                <a href="#hero" data-key="nav_home">Home</a>
+                <a href="#works" data-key="nav_works">Cases</a>
+                <a href="#about-us" data-key="nav_about">About</a>
+                <a href="#contact" data-key="nav_contact">Contact</a>
+                <div class="lang-switcher">
+                    <button type="button" class="nes-btn is-small" data-lang="en">EN</button>
+                    <button type="button" class="nes-btn is-small" data-lang="zh-TW">繁</button>
+                    <button type="button" class="nes-btn is-small" data-lang="zh-CN">简</button>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#hero" data-key="nav_home">Home</a>
+            <a href="#works" data-key="nav_works">Cases</a>
+            <a href="#about-us" data-key="nav_about">About</a>
+            <a href="#contact" data-key="nav_contact">Contact</a>
+            <div class="lang-switcher">
+                <button type="button" class="nes-btn is-small" data-lang="zh-CN">简</button>
+                <button type="button" class="nes-btn is-small" data-lang="zh-TW">繁</button>
+                <button type="button" class="nes-btn is-small" data-lang="en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hero">
+            <div class="inner">
+                <div class="intro">
+                    <div>
+                        <h1 data-key="hero_h1">凯诺创享科技</h1>
+                        <p class="muted" data-key="hero_p1">Kainuo Innovision Tech</p>
+                        <p class="muted" data-key="hero_p2">我们致力于通过创新的软件解决方案和数据可视化技术，为客户创造卓越价值。</p>
+                        <div class="contacts">
+                            <a class="nes-btn is-primary" href="#contact" data-key="hero_contact_btn">联系我们</a>
+                            <a class="nes-btn" href="#works" data-key="hero_works_btn">查看案例</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="nes-container is-dark with-title">
+                            <p class="title" data-key="hero_links_title">Quick Links</p>
+                            <div class="quick-links">
+                                <!-- GitHub -->
+                                <a href="https://github.com/KainuoTech-Org" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+                                    <i class="nes-icon github is-large"></i>
+                                </a>
+                                <!-- Email -->
+                                <a href="mailto:contact@kainuotech.com" class="icon-link" aria-label="Email">
+                                    <i class="nes-icon gmail is-large"></i>
+                                </a>
+                                <!-- LinkedIn -->
+                                <a href="http://linkedin.com/in/gaozikai-2567421a7" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
+                                    <i class="nes-icon linkedin is-large"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="works">
+            <div class="inner">
+                <h2 class="sec-title" data-key="works_title">成功案例 · Our Work</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <a href="#software-dev" style="text-decoration: none; color: white; display: contents;">
+                            <i class="nes-octocat is-animated"></i>
+                            <div data-key="work2_title">软件开发</div>
+                            <p class="muted card-desc" data-key="work2_desc">iOS App, macOS App, Chrome 插件, 网页端应用</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="#data-viz" style="text-decoration: none; color: white; display: contents;">
+                            <i><div class="icon-chart"><span class="bar1"></span><span class="bar2"></span><span class="bar3"></span></div></i>
+                            <div data-key="work1_title">数据可视化</div>
+                            <p class="muted card-desc" data-key="work1_desc">交互式仪表盘、数据报告、商业智能 (BI)</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 新增：软件开发详情区域 -->
+        <section id="software-dev">
+            <div class="inner">
+                <h2 class="sec-title" data-key="software_dev_title">软件开发 · Software Development</h2>
+                
+                <div class="dashboard-grid">
+                    <!-- Project: Mood Balloon -->
+                    <div class="dashboard-item">
+                        <div style="width: 100%; border: 2px solid #555; margin-bottom: 0.75rem; overflow: hidden;">
+                            <img src="img/mood-balloon.jpg" alt="Mood Balloon App" style="width: 100%; height: auto; display: block;">
+                        </div>
+                        <h4 data-key="app_mood_title">Mood Balloon</h4>
+                        <p class="muted" data-key="app_mood_desc">
+                            一款专注于情绪记录与心灵疗愈的 iOS 应用。
+                        </p>
+                        <div class="dashboard-item-actions">
+                            <div class="pixel-button" style="cursor: default;" data-key="app_coming_soon">Coming Soon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 新增：数据可视化详情区域 -->
+        <section id="data-viz">
+            <div class="inner">
+                <h2 class="sec-title" data-key="data_viz_title">数据可视化 · Data Visualization</h2>
+                <div class="dashboard-grid">
+                    <!-- Project 1: Superstore Sales Analysis -->
+                    <div class="dashboard-item">
+                        <a href="https://superstore-sales-dashboard-johnson.streamlit.app/" target="_blank">
+                           <img src="img/streamlit_preview.png" alt="Superstore Sales Analysis Preview" class="dashboard-preview-image">
+                        </a>
+                        <h4 data-key="data_viz_proj1_title">超市销售分析</h4>
+                        <p class="muted" data-key="data_viz_proj1_desc">
+                            一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。
+                        </p>
+                        <div class="dashboard-item-actions">
+                            <a href="https://superstore-sales-dashboard-johnson.streamlit.app/" target="_blank" class="pixel-button" data-key="view_button">查看</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Hong Kong Retail Sales -->
+                    <div class="dashboard-item">
+                        <a href="https://public.tableau.com/views/HongKongRetailSalesAnalysis/HongKongRetailSalesDashboard?:language=en-US" target="_blank">
+                            <img src="img/tableau_preview.png" alt="Hong Kong Retail Sales Analysis Preview" class="dashboard-preview-image">
+                        </a>
+                        <h4 data-key="data_viz_proj2_title">香港零售業銷售分析</h4>
+                        <p class="muted" data-key="data_viz_proj2_desc">
+                            一個基於 Tableau 構建的互動式儀表板，分析香港零售業的銷售趨勢。
+                        </p>
+                        <div class="dashboard-item-actions">
+                            <a href="https://public.tableau.com/views/HongKongRetailSalesAnalysis/HongKongRetailSalesDashboard?:language=en-US" target="_blank" class="pixel-button" data-key="view_button">查看</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: BMW Sales Analysis -->
+                    <div class="dashboard-item">
+                        <a href="https://public.tableau.com/views/BMWSalesAnalysis_17624449946750/111" target="_blank">
+                            <img src="img/bmw-sales-analysis.png" alt="BMW Sales Analysis Preview" class="dashboard-preview-image">
+                        </a>
+                        <h4 data-key="data_viz_proj3_title">宝马汽车销售分析</h4>
+                        <p class="muted" data-key="data_viz_proj3_desc">
+                            一个基于 Tableau 构建的交互式仪表盘，深度分析宝马汽车的全球销售数据。
+                        </p>
+                        <div class="dashboard-item-actions">
+                            <a href="https://public.tableau.com/views/BMWSalesAnalysis_17624449946750/111" target="_blank" class="pixel-button" data-key="view_button">查看</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about-us">
+            <div class="inner">
+                <h2 class="sec-title" data-key="about_title">关于我们 · About Us</h2>
+                <div class="nes-container is-dark">
+                    <p data-key="about_p1">凯诺创享科技是一家专注于提供高质量软件开发与数据可视化解决方案的科技公司。</p>
+                    <p data-key="about_p2">我们相信技术的力量，致力于将复杂的数据转化为清晰的洞察，将创新的想法变为现实的产品，帮助客户在数字化时代获得成功。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="inner">
+                <h2 class="sec-title" data-key="contact_title">联系我们 · Contact Us</h2>
+                <div class="nes-container is-dark with-title">
+                    <p class="title" data-key="contact_form_title">发送消息</p>
+                    <p data-key="contact_intro">项目需求、商务合作或技术咨询，欢迎随时通过以下方式联系我们。</p>
+                    <p><strong>Email:</strong> <a href="mailto:contact@kainuotech.com">contact@kainuotech.com</a></p>
+                    <p><strong>Tel:</strong> +852 93412653</p>
+                    <form id="contact-form" style="margin-top: 1.5rem;">
+                         <div class="nes-field">
+                             <label for="name_field" data-key="contact_name_label">您的姓名</label>
+                             <input type="text" id="name_field" name="user_name" class="nes-input" required>
+                         </div>
+                         <div class="nes-field" style="margin-top:0.75rem;">
+                             <label for="email_field" data-key="contact_email_label">您的邮箱</label>
+                             <input type="email" id="email_field" name="user_email" class="nes-input" required>
+                         </div>
+                         <div class="nes-field" style="margin-top:0.75rem;">
+                             <label for="textarea_field" data-key="contact_msg_label">您的留言</label>
+                             <textarea id="textarea_field" name="message" class="nes-textarea" rows="4" required></textarea>
+                         </div>
+                         <button type="submit" id="send-btn" class="nes-btn is-primary" style="margin-top:0.75rem;" data-key="contact_send_btn">发送</button>
+                     </form>
+                     <div id="form-status" style="margin-top: 1rem; display: none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 2rem 0; opacity: 0.7; font-size: 0.8rem;">
+            <p>Copyright © <span id="year"></span> Kainuo Innovision Tech. All rights reserved.</p>
+            <p>D-U-N-S® Number: 77-331-5956</p>
+        </footer>
+    </main>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        const i18n = {
+            'en': {
+                'nav_brand': 'Kainuo Tech',
+                'nav_home': 'Home', 'nav_works': 'Cases', 'nav_about': 'About', 'nav_contact': 'Contact',
+                'hero_h1': 'Kainuo Innovision Tech',
+                'hero_p1': '凱諾創享科技',
+                'hero_p2': 'We are dedicated to creating exceptional value for our clients through innovative software solutions and data visualization technologies.',
+                'hero_contact_btn': 'Contact Us', 'hero_works_btn': 'See Our Work',
+                'hero_links_title': 'Quick Links',
+                'dialog_phone_title': 'Phone', 'dialog_wechat_title': 'WeChat', 'dialog_close': 'Close',
+                'works_title': 'Our Work',
+                'work1_title': 'Data Visualization',
+                'work1_desc': 'Interactive Dashboards, Data Reports, Business Intelligence (BI)',
+                'work2_title': 'Software Development',
+                'work2_desc': 'iOS App, macOS App, Chrome Extensions, Web Apps',
+                'about_title': 'About Us',
+                'about_p1': 'Kainuo Innovision Tech is a technology company focused on providing high-quality software development and data visualization solutions.',
+                'about_p2': 'We believe in the power of technology, dedicating ourselves to transforming complex data into clear insights and innovative ideas into real products, helping our clients succeed in the digital age.',
+                'contact_title': 'Contact Us',
+                'contact_form_title': 'Send a Message',
+                'contact_intro': 'For project inquiries, business collaborations, or technical consultations, feel free to contact us anytime.',
+                'contact_name_label': 'Your Name',
+                'contact_email_label': 'Your Email',
+                'contact_msg_label': 'Your Message',
+                'contact_send_btn': 'Send',
+                'contact_wechat_id': 'WeChat: (Scan QR or ID)',
+                'contact_xiaohongshu': 'Xiaohongshu',
+                'details_subtitle': 'Data Visualization Projects',
+                'data_viz_title': 'Data Visualization',
+                'data_viz_streamlit_title': 'Streamlit',
+                'data_viz_tableau_title': 'Tableau',
+                'data_viz_proj1_title': 'Superstore Sales Analysis',
+                'data_viz_proj1_desc': 'An interactive dashboard built with Streamlit to explore and analyze superstore sales data.',
+                'data_viz_proj2_title': 'Hong Kong Retail Sales Analysis',
+                'data_viz_proj2_desc': 'An interactive dashboard built with Tableau to analyze sales trends in the Hong Kong retail sector.',
+                'data_viz_proj3_title': 'BMW Sales Analysis',
+                'data_viz_proj3_desc': 'An interactive dashboard built with Tableau for an in-depth analysis of global BMW sales data.',
+                'view_button': 'View',
+                'software_dev_title': 'Software Development',
+                'app_mood_title': 'Mood Balloon',
+                'app_mood_desc': 'An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.',
+                'app_coming_soon': 'Coming Soon',
+            },
+            'zh-CN': {
+                'nav_brand': '凯诺科技',
+                'nav_home': '首页', 'nav_works': '成功案例', 'nav_about': '关于我们', 'nav_contact': '联系我们',
+                'hero_h1': '凯诺创享科技',
+                'hero_p1': 'Kainuo Innovision Tech',
+                'hero_p2': '我们致力于通过创新的软件解决方案和数据可视化技术，为客户创造卓越价值。',
+                'hero_contact_btn': '联系我们', 'hero_works_btn': '查看案例',
+                'hero_links_title': '快速链接',
+                'dialog_phone_title': '电话', 'dialog_wechat_title': '微信', 'dialog_close': '关闭',
+                'works_title': '成功案例',
+                'work1_title': '数据可视化',
+                'work1_desc': '交互式仪表盘、数据报告、商业智能 (BI)',
+                'work2_title': '软件开发',
+                'work2_desc': 'iOS App, macOS App, Chrome 插件, 网页端应用',
+                'about_title': '关于我们',
+                'about_p1': '凯诺创享科技是一家专注于提供高质量软件开发与数据可视化解决方案的科技公司。',
+                'about_p2': '我们相信技术的力量，致力于将复杂的数据转化为清晰的洞察，将创新的想法变为现实的产品，帮助客户在数字化时代获得成功。',
+                'contact_title': '联系我们',
+                'contact_form_title': '发送消息',
+                'contact_intro': '项目需求、商务合作或技术咨询，欢迎随时通过以下方式联系我们。',
+                'contact_name_label': '您的姓名',
+                'contact_email_label': '您的邮箱',
+                'contact_msg_label': '您的留言',
+                'contact_send_btn': '发送',
+                'contact_wechat_id': '微信: (扫码或ID)',
+                'contact_xiaohongshu': '小红书',
+                'details_subtitle': '数据可视化项目',
+                'data_viz_title': '数据可视化',
+                'data_viz_streamlit_title': 'Streamlit',
+                'data_viz_tableau_title': 'Tableau',
+                'data_viz_proj1_title': '超市销售分析 (Superstore Sales Analysis)',
+                'data_viz_proj1_desc': '一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。',
+                'data_viz_proj2_title': '香港零售业销售分析',
+                'data_viz_proj2_desc': '一个基于 Tableau 构建的交互式仪表盘，分析香港零售业的销售趋势。',
+                'data_viz_proj3_title': '宝马汽车销售分析',
+                'data_viz_proj3_desc': '一个基于 Tableau 构建的交互式仪表盘，深度分析宝马汽车的全球销售数据。',
+                'view_button': '查看',
+                'software_dev_title': '软件开发',
+                'app_mood_title': 'Mood Balloon',
+                'app_mood_desc': '一款专注于情绪记录与心灵疗愈的 iOS 应用。记录情绪，疗愈心灵。',
+                'app_coming_soon': '即将上线',
+            },
+            'zh-TW': {
+                'nav_brand': '凱諾科技',
+                'nav_home': '首頁', 'nav_works': '成功案例', 'nav_about': '關於我們', 'nav_contact': '聯繫我們',
+                'hero_h1': '凱諾創享科技',
+                'hero_p1': 'Kainuo Innovision Tech',
+                'hero_p2': '我們致力於通過創新的軟體解決方案和數據可視化技術，為客戶創造卓越價值。',
+                'hero_contact_btn': '聯繫我們', 'hero_works_btn': '查看案例',
+                'hero_links_title': '快速鏈接',
+                'dialog_phone_title': '電話', 'dialog_wechat_title': '微信', 'dialog_close': '關閉',
+                'works_title': '成功案例',
+                'work1_title': '數據可視化',
+                'work1_desc': '互動式儀表板、數據報告、商業智能 (BI)',
+                'work2_title': '軟體開發',
+                'work2_desc': 'iOS App, macOS App, Chrome 插件, 網頁端應用',
+                'about_title': '關於我們',
+                'about_p1': '凱諾創享科技是一家專注於提供高質量軟體開發與數據可視化解決方案的科技公司。',
+                'about_p2': '我們相信技術的力量，致力於將複雜的數據轉化為清晰的洞察，將創新的想法變為現實的產品，幫助客戶在數字化時代獲得成功。',
+                'contact_title': '聯繫我們',
+                'contact_form_title': '發送消息',
+                'contact_intro': '項目需求、商務合作或技術諮詢，歡迎隨時通過以下方式聯繫我們。',
+                'contact_name_label': '您的姓名',
+                'contact_email_label': '您的郵箱',
+                'contact_msg_label': '您的留言',
+                'contact_send_btn': '發送',
+                'contact_wechat_id': '微信: (掃碼或ID)',
+                'contact_xiaohongshu': '小紅書',
+                'details_subtitle': '數據可視化項目',
+                'data_viz_title': '數據可視化',
+                'data_viz_streamlit_title': 'Streamlit',
+                'data_viz_tableau_title': 'Tableau',
+                'data_viz_proj1_title': '超市銷售分析 (Superstore Sales Analysis)',
+                'data_viz_proj1_desc': '一個基於 Streamlit 構建的互動式儀表板，用於探索和分析超市銷售數據。',
+                'data_viz_proj2_title': '香港零售業銷售分析',
+                'data_viz_proj2_desc': '一個基於 Tableau 構建的互動式儀表板，分析香港零售業的銷售趨勢。',
+                'data_viz_proj3_title': '寶馬汽車銷售分析',
+                'data_viz_proj3_desc': '一個基於 Tableau 構建的互動式儀表板，深度分析寶馬汽車的全球銷售數據。',
+                'view_button': '查看',
+                'software_dev_title': '軟體開發',
+                'app_mood_title': 'Mood Balloon',
+                'app_mood_desc': '一款專注於情緒記錄與心靈療癒的 iOS 應用。記錄情緒，療癒心靈。',
+                'app_coming_soon': '即將上線',
+            }
+        };
+        let currentLang = 'en';
+        function applyLang() {
+            document.documentElement.lang = currentLang;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (i18n[currentLang][key]) {
+                    el.innerText = i18n[currentLang][key];
+                }
+            });
+        }
+        document.querySelectorAll('.lang-switcher button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentLang = btn.dataset.lang;
+                applyLang();
+            });
+        });
+        
+        // --- MODAL LOGIC ---
+        // Mobile menu toggle logic
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        menuToggle.addEventListener('click', () => {
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        // Close menu when a link is clicked
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.style.display = 'none';
+            });
+        });
+
+        applyLang();
+
+        // EmailJS Integration
+        (function() {
+            emailjs.init("78CmxAprdh8lD2A7b");
+        })();
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const sendBtn = document.getElementById('send-btn');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 禁用按钮，防止重复提交
+            sendBtn.disabled = true;
+            sendBtn.innerText = currentLang === 'en' ? 'Sending...' : '发送中...';
+            
+            // 获取表单数据
+            const templateParams = {
+                name: document.getElementById('name_field').value,
+                from_name: document.getElementById('name_field').value,
+                from_email: document.getElementById('email_field').value,
+                message: document.getElementById('textarea_field').value,
+                to_email: 'kainuotech@gmail.com'
+            };
+
+            // 发送邮件
+            console.log('📧 准备发送邮件，参数：', templateParams);
+            
+            emailjs.send('service_6sk5xxi', 'template_kv13jry', templateParams)
+                .then(function(response) {
+                    console.log('✅ 邮件发送成功！', response.status, response.text);
+                    formStatus.style.display = 'block';
+                    formStatus.className = 'nes-text is-success';
+                    formStatus.innerText = currentLang === 'en' 
+                        ? '✓ Message sent successfully!' 
+                        : '✓ 消息发送成功！';
+                    
+                    // 清空表单
+                    contactForm.reset();
+                    
+                    // 3秒后隐藏状态消息
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 3000);
+                }, function(error) {
+                    console.error('❌ 邮件发送失败：', error);
+                    formStatus.style.display = 'block';
+                    formStatus.className = 'nes-text is-error';
+                    formStatus.innerText = currentLang === 'en' 
+                        ? '✗ Failed: ' + (error.text || error.message || 'Unknown error')
+                        : '✗ 发送失败：' + (error.text || error.message || '未知错误');
+                })
+                .finally(function() {
+                    // 恢复按钮状态
+                    sendBtn.disabled = false;
+                    const btnTexts = {
+                        'en': 'Send',
+                        'zh-CN': '发送',
+                        'zh-TW': '發送'
+                    };
+                    sendBtn.innerText = btnTexts[currentLang];
+                });
+        });
+    </script>
+  </body>
+</html>
