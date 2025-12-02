@@ -490,9 +490,25 @@
         <section id="software-dev">
             <div class="inner">
                 <h2 class="sec-title" data-key="software_dev_title">软件开发 · Software Development</h2>
-                <div class="nes-container is-dark with-title">
-                    <p class="title" data-key="details_subtitle">项目详情</p>
-                    <p data-key="software_dev_content">这里可以放置您关于 iOS/macOS/Web/Chrome 插件等项目的详细介绍、截图和链接。</p>
+                
+                <div class="dashboard-grid">
+                    <!-- Project: Mood Balloon -->
+                    <div class="dashboard-item">
+                        <div style="width: 100%; border: 2px solid #555; margin-bottom: 0.75rem; overflow: hidden;">
+                            <img src="img/mood-balloon.jpg" alt="Mood Balloon App" style="width: 100%; height: auto; display: block;">
+                        </div>
+                        <h4 data-key="app_mood_title">Mood Balloon</h4>
+                        <p class="muted" data-key="app_mood_desc">
+                            一款专注于情绪记录与心灵疗愈的 iOS 应用。
+                        </p>
+                        <div class="dashboard-item-actions">
+                            <div class="pixel-button" style="cursor: default;" data-key="app_coming_soon">Coming Soon</div>
+                            <div class="like-button pixel-button" onclick="like(this)">
+                                <span class="like-icon">♥</span>
+                                <span class="like-count">88</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -582,7 +598,9 @@
                 'data_viz_proj3_desc': 'An interactive dashboard built with Tableau for an in-depth analysis of global BMW sales data.',
                 'view_button': 'View',
                 'software_dev_title': 'Software Development',
-                'software_dev_content': 'Here you can showcase details, screenshots, and links for your projects like iOS/macOS/Web Apps and Chrome Extensions.',
+                'app_mood_title': 'Mood Balloon',
+                'app_mood_desc': 'An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.',
+                'app_coming_soon': 'Coming Soon',
             },
             'zh-CN': {
                 'nav_brand': '凯诺科技',
@@ -622,7 +640,9 @@
                 'data_viz_proj3_desc': '一个基于 Tableau 构建的交互式仪表盘，深度分析宝马汽车的全球销售数据。',
                 'view_button': '查看',
                 'software_dev_title': '软件开发',
-                'software_dev_content': '这里可以放置关于 iOS/macOS/Web/Chrome 插件等项目的详细介绍、截图和链接。',
+                'app_mood_title': 'Mood Balloon',
+                'app_mood_desc': '一款专注于情绪记录与心灵疗愈的 iOS 应用。记录情绪，疗愈心灵。',
+                'app_coming_soon': '即将上线',
             },
             'zh-TW': {
                 'nav_brand': '凱諾科技',
@@ -662,7 +682,9 @@
                 'data_viz_proj3_desc': '一個基於 Tableau 構建的互動式儀表板，深度分析寶馬汽車的全球銷售數據。',
                 'view_button': '查看',
                 'software_dev_title': '軟體開發',
-                'software_dev_content': '這裡可以放置關於 iOS/macOS/Web/Chrome 插件等項目的詳細介紹、截圖和鏈接。',
+                'app_mood_title': 'Mood Balloon',
+                'app_mood_desc': '一款專注於情緒記錄與心靈療癒的 iOS 應用。記錄情緒，療癒心靈。',
+                'app_coming_soon': '即將上線',
             }
         };
         let currentLang = 'en';
