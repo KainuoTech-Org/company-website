@@ -179,6 +179,32 @@
             .pricing-grid, .project-grid { grid-template-columns: 1fr; }
         }
 
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: #FFF;
+        }
+        
         /* Language Switcher */
         .lang-switcher button {
             background: none; border: none; cursor: pointer;
@@ -227,7 +253,7 @@
             <div class="container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 data-key="services_title">Web Design Packages</h2>
-                    <p data-key="services_desc">Static websites built fast. No backend complexity. Perfect for Hong Kong SMEs.</p>
+                    <p data-key="services_desc">Secure Static Architecture. No backend complexity. High Performance.</p>
                 </div>
                 
                 <div class="pricing-grid">
@@ -235,7 +261,7 @@
                     <div class="price-card">
                         <div class="price-header">
                             <h3 data-key="pkg1_title">Quick Launch</h3>
-                            <p data-key="pkg1_for">For Renovation / Cleaning / Tutoring / Coaching / Clinics</p>
+                            <p data-key="pkg1_for">Best for Single Service / Personal Profile</p>
                             <div class="price-amount">HK$3,880</div>
                         </div>
                         <ul class="price-features">
@@ -248,7 +274,7 @@
                             <li data-key="pkg1_f7">Free Email Forwarding (Cloudflare)</li>
                             <li data-key="pkg1_f8">3-Month Free Maintenance</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_select">Select Plan</a>
+                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Quick%20Launch%20Plan%20(HK$3,880)." target="_blank" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_select">Inquire via WhatsApp</a>
                     </div>
 
                     <!-- Package B: Business Brand (Popular) -->
@@ -256,7 +282,7 @@
                         <div class="badge">Most Popular</div>
                         <div class="price-header">
                             <h3 data-key="pkg2_title">Business Brand</h3>
-                            <p data-key="pkg2_for">For Trading / Accounting / Law Firms / Design Studios</p>
+                            <p data-key="pkg2_for">Best for Growing Business / Company Profile</p>
                             <div class="price-amount">HK$6,880</div>
                         </div>
                         <ul class="price-features">
@@ -266,7 +292,7 @@
                             <li data-key="pkg2_f4">Contact Form (Tally/Google Form)</li>
                             <li data-key="pkg2_f5">All Quick Launch Benefits</li>
                         </ul>
-                        <a href="#contact" class="btn" style="width:100%; text-align:center;" data-key="btn_select">Select Plan</a>
+                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Business%20Brand%20Plan%20(HK$6,880)." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_select">Inquire via WhatsApp</a>
                     </div>
 
                     <!-- Package C: Add-ons -->
@@ -283,7 +309,7 @@
                             <li data-key="pkg3_f4">Data Visualization Dashboard (Custom Quote)</li>
                             <li data-key="pkg3_f5">iOS/Android App (Custom Quote)</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_contact">Inquire Now</a>
+                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20Custom%20Add-ons." target="_blank" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_contact">Inquire via WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -324,9 +350,39 @@
         <!-- Portfolio Section -->
         <section id="works">
             <div class="container">
-                <h2 data-key="works_title">Selected Works</h2>
-                <div class="project-grid">
-                    
+                <h2 data-key="works_title" style="text-align: center; margin-bottom: 3rem;">Selected Works</h2>
+                
+                <!-- 1. Web Projects -->
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_web">Web Solutions</h3>
+                <div class="project-grid" style="margin-bottom: 4rem;">
+                    <!-- Placeholder for Web Project -->
+                    <div class="project-card">
+                        <div style="width: 100%; height: 240px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; border-bottom: 1px solid #eee;">
+                            <span style="font-size: 3rem;">🌐</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="tag">Corporate Website</span>
+                            <h3 data-key="web_proj1_title">Standard Business Site</h3>
+                            <p data-key="web_proj1_desc">A professional multi-page website designed for a local trading company, featuring bilingual support and contact forms.</p>
+                            <span style="font-size: 0.9rem; color: #666;">(Demo / Template)</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div style="width: 100%; height: 240px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; border-bottom: 1px solid #eee;">
+                            <span style="font-size: 3rem;">🛍️</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="tag">Landing Page</span>
+                            <h3 data-key="web_proj2_title">Service Landing Page</h3>
+                            <p data-key="web_proj2_desc">High-conversion single page design for service providers, optimized for mobile and WhatsApp conversion.</p>
+                            <span style="font-size: 0.9rem; color: #666;">(Demo / Template)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Mobile Apps -->
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_app">Mobile Innovation</h3>
+                <div class="project-grid" style="margin-bottom: 4rem;">
                     <!-- Mood Balloon -->
                     <div class="project-card">
                         <img src="img/mood-balloon.jpg" alt="Mood Balloon" class="project-image">
@@ -337,7 +393,11 @@
                             <span style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;" data-key="app_coming_soon">Coming Soon</span>
                         </div>
                     </div>
+                </div>
 
+                <!-- 3. Data Intelligence -->
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_data">Data Intelligence</h3>
+                <div class="project-grid">
                     <!-- Superstore -->
                     <div class="project-card">
                         <img src="img/streamlit_preview.png" alt="Superstore Analysis" class="project-image">
@@ -370,7 +430,6 @@
                             <a href="https://public.tableau.com/views/BMWSalesAnalysis_17624449946750/111" target="_blank" style="text-decoration: underline; font-size: 0.9rem;">View Live →</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -387,8 +446,7 @@
                     <div style="background: #fff; padding: 2rem; border: 1px solid #eee;">
                         <h3 style="font-size: 1.2rem;">Registered in Hong Kong</h3>
                         <p style="margin-bottom: 0.5rem;"><strong>Company:</strong> Kainuo Innovision Tech Co., Limited</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>D-U-N-S®:</strong> 77-331-5956</p>
-                        <p style="margin-bottom: 0;"><strong>Apple Developer:</strong> K6TPFM6M6D</p>
+                        <p style="margin-bottom: 0;"><strong>D-U-N-S®:</strong> 77-331-5956</p>
                     </div>
                 </div>
             </div>
@@ -434,6 +492,11 @@
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/85293412653?text=Hi%20Kainuo,%20I'm%20interested%20in%20your%20web%20design%20services." class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 35px; height: 35px;">
+    </a>
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -447,10 +510,10 @@
                 'hero_desc': 'We build professional websites and data solutions that help Hong Kong businesses thrive in the digital age.',
                 'btn_start': 'Start Project', 'btn_view_work': 'View Work',
                 'services_title': 'Web Design Packages',
-                'services_desc': 'Static websites built fast. No backend complexity. Perfect for Hong Kong SMEs.',
-                'pkg1_title': 'Quick Launch', 'pkg1_for': 'For Renovation / Cleaning / Tutoring / Coaching / Clinics',
+                'services_desc': 'Secure Static Architecture. No backend complexity. High Performance.',
+                'pkg1_title': 'Quick Launch', 'pkg1_for': 'Best for Single Service / Personal Profile',
                 'pkg1_f1': 'Single Page Design (Landing Page)', 'pkg1_f2': 'Mobile Responsive (Phone/Desktop)', 'pkg1_f3': 'WhatsApp Floating Button', 'pkg1_f4': 'Basic SEO Setup', 'pkg1_f5': 'Free .com Domain (1st Year)', 'pkg1_f6': 'Free SSL Certificate', 'pkg1_f7': 'Free Email Forwarding (Cloudflare)', 'pkg1_f8': '3-Month Free Maintenance',
-                'pkg2_title': 'Business Brand', 'pkg2_for': 'For Trading / Accounting / Law Firms / Design Studios',
+                'pkg2_title': 'Business Brand', 'pkg2_for': 'Best for Growing Business / Company Profile',
                 'pkg2_f1': 'Multi-Page Website (Home + 3 Pages)', 'pkg2_f2': 'Bilingual Support (EN/繁)', 'pkg2_f3': 'Google Maps Integration', 'pkg2_f4': 'Contact Form (Tally/Google Form)', 'pkg2_f5': 'All Quick Launch Benefits',
                 'pkg3_title': 'Add-Ons & Custom', 'pkg3_for': 'Upgrade Your Package',
                 'pkg3_f1': 'Real Business Email (SendGrid) +HK$500/yr', 'pkg3_f2': 'Extra Page +HK$800/page', 'pkg3_f3': 'Logo Design +HK$1,200', 'pkg3_f4': 'Data Visualization Dashboard (Custom Quote)', 'pkg3_f5': 'iOS/Android App (Custom Quote)',
@@ -460,7 +523,10 @@
                 'step2_title': 'Setup', 'step2_desc': 'We register your domain, SSL, and email forwarding for you.',
                 'step3_title': 'Build', 'step3_desc': 'We design and code your website with mobile-first approach.',
                 'step4_title': 'Handover', 'step4_desc': 'You get full ownership of all assets, accounts, and passwords.',
-                'btn_select': 'Select Plan', 'btn_contact': 'Inquire Now',
+                'cat_web': 'Web Solutions', 'cat_app': 'Mobile Innovation', 'cat_data': 'Data Intelligence',
+                'web_proj1_title': 'Standard Business Site', 'web_proj1_desc': 'A professional multi-page website designed for a local trading company, featuring bilingual support and contact forms.',
+                'web_proj2_title': 'Service Landing Page', 'web_proj2_desc': 'High-conversion single page design for service providers, optimized for mobile and WhatsApp conversion.',
+                'btn_select': 'Inquire via WhatsApp', 'btn_contact': 'Inquire via WhatsApp',
                 'works_title': 'Selected Works',
                 'app_mood_desc': 'An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.',
                 'app_coming_soon': 'Coming Soon',
@@ -485,10 +551,10 @@
                 'hero_desc': '我們致力於提供專業的網站和數據解決方案，幫助香港企業在數字時代蓬勃發展。',
                 'btn_start': '開始專案', 'btn_view_work': '查看案例',
                 'services_title': '網站設計方案',
-                'services_desc': '純靜態網站，快速交付。無後端複雜度。專為香港中小企打造。',
-                'pkg1_title': '快速啟動版', 'pkg1_for': '適合 裝修 / 清潔 / 補習 / 教練 / 診所',
+                'services_desc': '安全靜態架構。無後端複雜度。極速高性能。',
+                'pkg1_title': '快速啟動版', 'pkg1_for': '適合 單一服務展示 / 個人形象頁',
                 'pkg1_f1': '單頁式設計 (Landing Page)', 'pkg1_f2': '手機響應式 (手機/電腦完美適配)', 'pkg1_f3': 'WhatsApp 懸浮按鈕', 'pkg1_f4': '基礎 SEO 優化', 'pkg1_f5': '贈送 .com 域名 (首年)', 'pkg1_f6': '贈送 SSL 安全證書', 'pkg1_f7': '贈送企業郵箱轉發 (Cloudflare)', 'pkg1_f8': '3 個月免費維護',
-                'pkg2_title': '品牌商務版', 'pkg2_for': '適合 貿易公司 / 會計樓 / 律師行 / 設計公司',
+                'pkg2_title': '品牌商務版', 'pkg2_for': '適合 成長型企業 / 公司官網',
                 'pkg2_f1': '多頁面架構 (首頁 + 3 個內頁)', 'pkg2_f2': '雙語支持 (繁/英)', 'pkg2_f3': 'Google 地圖嵌入', 'pkg2_f4': '聯絡表單 (Tally/Google Form)', 'pkg2_f5': '包含快速啟動版所有內容',
                 'pkg3_title': '增值服務 & 定制', 'pkg3_for': '升級您的方案',
                 'pkg3_f1': '真實企業郵箱 (SendGrid) +HK$500/年', 'pkg3_f2': '額外頁面 +HK$800/頁', 'pkg3_f3': 'Logo 設計 +HK$1,200', 'pkg3_f4': '數據可視化儀表板 (按需報價)', 'pkg3_f5': 'iOS/Android App (按需報價)',
@@ -498,7 +564,10 @@
                 'step2_title': '配置', 'step2_desc': '協助註冊域名、SSL證書及企業郵箱轉發。',
                 'step3_title': '開發', 'step3_desc': '進行網站設計與代碼開發，優先適配手機端。',
                 'step4_title': '移交', 'step4_desc': '交付所有資產所有權，包括賬戶與密碼。',
-                'btn_select': '選擇方案', 'btn_contact': '立即諮詢',
+                'cat_web': '網站解決方案', 'cat_app': '移動創新', 'cat_data': '數據智能',
+                'web_proj1_title': '標準企業官網', 'web_proj1_desc': '專為本地貿易公司設計的多頁面專業網站，支持雙語切換與聯絡表單。',
+                'web_proj2_title': '服務推廣單頁', 'web_proj2_desc': '專為服務提供商設計的高轉化落地頁，針對手機端與 WhatsApp 諮詢優化。',
+                'btn_select': 'WhatsApp 諮詢', 'btn_contact': 'WhatsApp 諮詢',
                 'works_title': '精選案例',
                 'app_mood_desc': '一款專注於情緒記錄與心靈療癒的 iOS 應用。記錄情緒，療癒心靈。',
                 'app_coming_soon': '即將上線',
@@ -536,7 +605,10 @@
                 'step2_title': '配置', 'step2_desc': '协助注册域名、SSL证书及企业邮箱转发。',
                 'step3_title': '开发', 'step3_desc': '进行网站设计与代码开发，优先适配手机端。',
                 'step4_title': '移交', 'step4_desc': '交付所有资产所有权，包括账户与密码。',
-                'btn_select': '选择方案', 'btn_contact': '立即咨询',
+                'cat_web': '网站解决方案', 'cat_app': '移动创新', 'cat_data': '数据智能',
+                'web_proj1_title': '标准企业官网', 'web_proj1_desc': '专为本地贸易公司设计的多页面专业网站，支持双语切换与联络表单。',
+                'web_proj2_title': '服务推广单页', 'web_proj2_desc': '专为服务提供商设计的高转化落地页，针对手机端与 WhatsApp 咨询优化。',
+                'btn_select': 'WhatsApp 咨询', 'btn_contact': 'WhatsApp 咨询',
                 'works_title': '精选案例',
                 'app_mood_desc': '一款专注于情绪记录与心灵疗愈的 iOS 应用。记录情绪，疗愈心灵。',
                 'app_coming_soon': '即将上线',
