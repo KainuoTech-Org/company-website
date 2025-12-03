@@ -209,6 +209,51 @@
         }
         footer p { color: #aaa; font-size: 0.9rem; }
         
+        /* Scroll Animation Styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-right.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scale-in.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         /* Mobile Menu */
         .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
         
@@ -292,7 +337,7 @@
         </section>
 
         <!-- Services Section (The Cash Cow) -->
-        <section id="services" style="background-color: var(--secondary-bg);">
+        <section id="services" style="background-color: var(--secondary-bg);" class="fade-in-section">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 data-key="services_title">Web Design Packages</h2>
@@ -301,7 +346,7 @@
                 
                 <div class="pricing-grid">
                     <!-- Package A: Quick Launch -->
-                    <div class="price-card">
+                    <div class="price-card fade-in-section">
                         <div class="price-header">
                             <h3 data-key="pkg1_title">Quick Launch</h3>
                             <p data-key="pkg1_for">Best for Single Service / Personal Profile</p>
@@ -321,7 +366,7 @@
                     </div>
 
                     <!-- Package B: Business Brand (Popular) -->
-                    <div class="price-card popular">
+                    <div class="price-card popular fade-in-section">
                         <div class="badge">Most Popular</div>
                         <div class="price-header">
                             <h3 data-key="pkg2_title">Business Brand</h3>
@@ -339,7 +384,7 @@
                     </div>
 
                     <!-- Package C: Add-ons -->
-                    <div class="price-card">
+                    <div class="price-card fade-in-section">
                         <div class="price-header">
                             <h3 data-key="pkg3_title">Add-Ons & Custom</h3>
                             <p data-key="pkg3_for">Upgrade Your Package</p>
@@ -359,7 +404,7 @@
         </section>
 
         <!-- Process Section (How it Works) -->
-        <section id="process">
+        <section id="process" class="fade-in-section">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 data-key="process_title">How It Works</h2>
@@ -391,7 +436,7 @@
         </section>
 
         <!-- Portfolio Section -->
-        <section id="works">
+        <section id="works" class="fade-in-section">
             <div class="container">
                 <h2 data-key="works_title" style="text-align: center; margin-bottom: 3rem;">Selected Works</h2>
                 
@@ -399,7 +444,7 @@
                 <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_web">Web Solutions</h3>
                 <div class="project-grid" style="margin-bottom: 4rem;">
                     <!-- Harbour Trade Co. Demo -->
-                    <div class="project-card">
+                    <div class="project-card scale-in">
                         <img src="img/harbour-trade-demo.png" alt="Harbour Trade Co." class="project-image">
                         <div class="project-content">
                             <span class="tag">Corporate Website</span>
@@ -408,7 +453,7 @@
                             <a href="https://demo-trade.kainuotech.com/" target="_blank">View Live Demo →</a>
                         </div>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card scale-in">
                         <div style="width: 100%; aspect-ratio: 1200/900; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; border-bottom: 1px solid #eee;">
                             <span style="font-size: 3rem;">🛍️</span>
                         </div>
@@ -425,7 +470,7 @@
                 <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_app">Mobile Innovation</h3>
                 <div class="project-grid" style="margin-bottom: 4rem;">
                     <!-- Mood Balloon -->
-                    <div class="project-card">
+                    <div class="project-card scale-in">
                         <img src="img/mood-balloon.jpg" alt="Mood Balloon" class="project-image">
                         <div class="project-content">
                             <span class="tag">iOS App</span>
@@ -440,7 +485,7 @@
                 <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_data">Data Intelligence</h3>
                 <div class="project-grid">
                     <!-- Superstore -->
-                    <div class="project-card">
+                    <div class="project-card scale-in">
                         <img src="img/streamlit_preview.png" alt="Superstore Analysis" class="project-image">
                         <div class="project-content">
                             <span class="tag">Streamlit · Data</span>
@@ -451,7 +496,7 @@
                     </div>
 
                     <!-- HK Retail Sales -->
-                    <div class="project-card">
+                    <div class="project-card scale-in">
                         <img src="img/tableau_preview.png" alt="HK Retail Sales" class="project-image">
                         <div class="project-content">
                             <span class="tag">Tableau · BI</span>
@@ -462,7 +507,7 @@
                     </div>
 
                     <!-- Tableau BMW -->
-                    <div class="project-card">
+                    <div class="project-card scale-in">
                         <img src="img/bmw-sales-analysis.png" alt="BMW Analysis" class="project-image">
                         <div class="project-content">
                             <span class="tag">Tableau · BI</span>
@@ -476,7 +521,7 @@
         </section>
 
         <!-- About Section -->
-        <section id="about">
+        <section id="about" class="fade-in-section">
             <div class="container">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
                     <div>
@@ -494,7 +539,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" style="background-color: var(--secondary-bg);">
+        <section id="contact" style="background-color: var(--secondary-bg);" class="fade-in-section">
             <div class="container" style="max-width: 600px;">
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <h2 data-key="contact_title">Get in Touch</h2>
@@ -750,6 +795,24 @@
                     sendBtn.innerText = i18n[currentLang]['contact_send_btn'] || 'Send Message';
                 });
         });
+
+        // Scroll Animation - Intersection Observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        const animatedElements = document.querySelectorAll('.fade-in-section, .fade-in-left, .fade-in-right, .scale-in');
+        animatedElements.forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
