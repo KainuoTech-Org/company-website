@@ -91,58 +91,9 @@
         }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a, .nav-item > span {
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-        .nav-links a:hover, .nav-item > span:hover { color: var(--accent-color); }
-
-        /* Dropdown Menu */
-        .nav-item {
-            position: relative;
-            display: inline-block;
-        }
-        .nav-item > span::after {
-            content: ' ▼';
-            font-size: 0.7rem;
-            margin-left: 0.3rem;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            min-width: 200px;
-            margin-top: 1rem;
-            z-index: 1000;
-        }
-        .dropdown-menu a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            color: var(--text-color);
-            text-transform: none;
-            font-size: 0.9rem;
-            border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
-        }
-        .dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-        .dropdown-menu a:hover {
-            background: var(--secondary-bg);
-            color: var(--accent-color);
-            padding-left: 2rem;
-        }
-        .nav-item:hover .dropdown-menu {
-            display: block;
-        }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--accent-color); }
 
         /* Hero Section */
         #hero { padding: 8rem 0; text-align: center; }
@@ -432,22 +383,8 @@
                 <span style="font-family: var(--font-sans); font-size: 0.7rem; font-weight: 400; color: #666; letter-spacing: 0.5px;">Innovision Tech</span>
             </div>
             <nav class="nav-links">
-                <div class="nav-item">
-                    <span data-key="nav_services">Services</span>
-                    <div class="dropdown-menu">
-                        <a href="#services" data-key="nav_web_design">網站設計 Web Design</a>
-                        <a href="#app-services" data-key="nav_app_dev">App 開發 App Development</a>
-                        <a href="#data-services" data-key="nav_data_services">數據服務 Data Services</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <span data-key="nav_works">Portfolio</span>
-                    <div class="dropdown-menu">
-                        <a href="#web-works" data-key="nav_web_works">網站案例 Website Projects</a>
-                        <a href="#app-works" data-key="nav_app_works">App 案例 App Projects</a>
-                        <a href="#data-works" data-key="nav_data_works">數據案例 Data Projects</a>
-                    </div>
-                </div>
+                <a href="#works" data-key="nav_works">Portfolio</a>
+                <a href="#services" data-key="nav_services">Services</a>
                 <a href="#about" data-key="nav_about">About</a>
                 <a href="#contact" data-key="nav_contact">Contact</a>
             </nav>
@@ -473,6 +410,99 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- Portfolio Section -->
+        <section id="works" class="fade-in-section">
+            <div class="container">
+                <h2 data-key="works_title" style="text-align: center; margin-bottom: 3rem;">Selected Works</h2>
+
+                <!-- 1. Web Projects -->
+                <div id="web-works"></div>
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_web">Web Solutions</h3>
+                <div class="project-grid" style="margin-bottom: 4rem;">
+                    <!-- Harbour Trade Co. Demo -->
+                    <div class="project-card scale-in">
+                        <img src="img/harbour-trade-demo.png" alt="Harbour Trade Co." class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Corporate Website</span>
+                            <h3 data-key="web_proj1_title">Harbour Trade Co.</h3>
+                            <p data-key="web_proj1_desc">A professional trading company website with bilingual support, showcasing import/export solutions and comprehensive trade services.</p>
+                            <a href="https://demo-trade.kainuotech.com/" target="_blank">View Live Demo →</a>
+                        </div>
+                    </div>
+                    <div class="project-card scale-in">
+                        <div style="width: 100%; aspect-ratio: 1200/900; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; border-bottom: 1px solid #eee;">
+                            <span style="font-size: 3rem;">🛍️</span>
+                        </div>
+                        <div class="project-content">
+                            <span class="tag">Landing Page</span>
+                            <h3 data-key="web_proj2_title">Service Landing Page</h3>
+                            <p data-key="web_proj2_desc">High-conversion single page design for service providers, optimized for mobile and WhatsApp conversion.</p>
+                            <span style="font-size: 0.9rem; color: #666;">(Demo / Template)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Personal Projects -->
+                <div id="app-works"></div>
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 0.5rem; color: var(--accent-color);" data-key="cat_app">Personal Projects</h3>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 2rem; font-style: italic;" data-key="personal_note">
+                    *These are our personal projects that showcase our technical capabilities. Not currently offered as commercial services.
+                </p>
+                <div class="project-grid" style="margin-bottom: 4rem;">
+                    <!-- Mood Balloon -->
+                    <div class="project-card scale-in">
+                        <img src="img/mood-balloon.jpg" alt="Mood Balloon" class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Personal Project</span>
+                            <h3>Mood Balloon</h3>
+                            <p data-key="app_mood_desc">An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.</p>
+                            <span style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;" data-key="app_coming_soon">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Data Intelligence -->
+                <div id="data-works"></div>
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_data">Data Intelligence</h3>
+                <div class="project-grid">
+                    <!-- Superstore -->
+                    <div class="project-card scale-in">
+                        <img src="img/streamlit_preview.png" alt="Superstore Analysis" class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Streamlit · Data</span>
+                            <h3 data-key="data_viz_proj1_title">Superstore Sales Analysis</h3>
+                            <p data-key="data_viz_proj1_desc">Interactive dashboard for exploring and analyzing superstore sales data.</p>
+                            <a href="https://superstore-sales-dashboard-johnson.streamlit.app/" target="_blank">View Live →</a>
+                        </div>
+                    </div>
+
+                    <!-- HK Retail Sales -->
+                    <div class="project-card scale-in">
+                        <img src="img/tableau_preview.png" alt="HK Retail Sales" class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Tableau · BI</span>
+                            <h3 data-key="data_viz_proj2_title">HK Retail Sales Analysis</h3>
+                            <p data-key="data_viz_proj2_desc">Comprehensive analysis of Hong Kong retail industry sales trends and insights.</p>
+                            <a href="https://public.tableau.com/views/HKRetailSalesAnalysis_17624449946750/Dashboard1" target="_blank">View Live →</a>
+                        </div>
+                    </div>
+
+                    <!-- Tableau BMW -->
+                    <div class="project-card scale-in">
+                        <img src="img/bmw-sales-analysis.png" alt="BMW Analysis" class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Tableau · BI</span>
+                            <h3 data-key="data_viz_proj3_title">BMW Sales Analysis</h3>
+                            <p data-key="data_viz_proj3_desc">In-depth analysis of global BMW sales trends and performance metrics.</p>
+                            <a href="https://public.tableau.com/views/BMWSalesAnalysis_17624449946750/111" target="_blank">View Live →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Services Section (The Cash Cow) -->
         <section id="services" style="background-color: var(--secondary-bg);" class="fade-in-section">
@@ -542,6 +572,7 @@
             </div>
         </section>
 
+
         <!-- Process Section (How it Works) -->
         <section id="process" class="fade-in-section">
             <div class="container">
@@ -574,148 +605,6 @@
             </div>
         </section>
 
-        <!-- App Development Services -->
-        <section id="app-services" style="background-color: var(--secondary-bg);" class="fade-in-section">
-            <div class="container">
-                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-                    <h2 data-key="app_services_title">iOS App Development</h2>
-                    <p data-key="app_services_desc" style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
-                        We create custom iOS applications tailored to your business needs. From concept to App Store, we handle the entire development process with attention to detail and user experience.
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: left;">
-                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
-                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="app_feature1_title">Native iOS Development</h4>
-                            <p style="font-size: 0.95rem; color: #666;" data-key="app_feature1_desc">Built with Swift for optimal performance and seamless integration with Apple ecosystem.</p>
-                        </div>
-                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
-                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="app_feature2_title">UI/UX Design</h4>
-                            <p style="font-size: 0.95rem; color: #666;" data-key="app_feature2_desc">Beautiful, intuitive interfaces following Apple Human Interface Guidelines.</p>
-                        </div>
-                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
-                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="app_feature3_title">App Store Submission</h4>
-                            <p style="font-size: 0.95rem; color: #666;" data-key="app_feature3_desc">Complete support from development to successful App Store launch.</p>
-                        </div>
-                    </div>
-                    <p style="margin-top: 2rem; font-size: 0.9rem; color: #888;" data-key="app_services_note">
-                        *Our flagship app <strong>Mood Balloon</strong> showcases our capabilities in emotional wellness and mindful journaling applications.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Data Services -->
-        <section id="data-services" class="fade-in-section">
-            <div class="container">
-                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-                    <h2 data-key="data_services_title">Data Visualization & Analytics</h2>
-                    <p data-key="data_services_desc" style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
-                        Transform your data into actionable insights with interactive dashboards and comprehensive analytics solutions. We help businesses make data-driven decisions.
-                    </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: left;">
-                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
-                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="data_feature1_title">Interactive Dashboards</h4>
-                            <p style="font-size: 0.95rem; color: #666;" data-key="data_feature1_desc">Built with Tableau, Power BI, or custom solutions using Python & Streamlit.</p>
-                        </div>
-                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
-                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="data_feature2_title">Business Intelligence</h4>
-                            <p style="font-size: 0.95rem; color: #666;" data-key="data_feature2_desc">Comprehensive reporting and analysis to drive strategic decisions.</p>
-                        </div>
-                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
-                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="data_feature3_title">Data Integration</h4>
-                            <p style="font-size: 0.95rem; color: #666;" data-key="data_feature3_desc">Connect multiple data sources for unified insights and real-time monitoring.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="works" class="fade-in-section">
-            <div class="container">
-                <h2 data-key="works_title" style="text-align: center; margin-bottom: 3rem;">Selected Works</h2>
-
-                <!-- 1. Web Projects -->
-                <div id="web-works"></div>
-                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_web">Web Solutions</h3>
-                <div class="project-grid" style="margin-bottom: 4rem;">
-                    <!-- Harbour Trade Co. Demo -->
-                    <div class="project-card scale-in">
-                        <img src="img/harbour-trade-demo.png" alt="Harbour Trade Co." class="project-image">
-                        <div class="project-content">
-                            <span class="tag">Corporate Website</span>
-                            <h3 data-key="web_proj1_title">Harbour Trade Co.</h3>
-                            <p data-key="web_proj1_desc">A professional trading company website with bilingual support, showcasing import/export solutions and comprehensive trade services.</p>
-                            <a href="https://demo-trade.kainuotech.com/" target="_blank">View Live Demo →</a>
-                        </div>
-                    </div>
-                    <div class="project-card scale-in">
-                        <div style="width: 100%; aspect-ratio: 1200/900; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; border-bottom: 1px solid #eee;">
-                            <span style="font-size: 3rem;">🛍️</span>
-                        </div>
-                        <div class="project-content">
-                            <span class="tag">Landing Page</span>
-                            <h3 data-key="web_proj2_title">Service Landing Page</h3>
-                            <p data-key="web_proj2_desc">High-conversion single page design for service providers, optimized for mobile and WhatsApp conversion.</p>
-                            <span style="font-size: 0.9rem; color: #666;">(Demo / Template)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. Mobile Apps -->
-                <div id="app-works"></div>
-                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_app">Mobile Innovation</h3>
-                <div class="project-grid" style="margin-bottom: 4rem;">
-                    <!-- Mood Balloon -->
-                    <div class="project-card scale-in">
-                        <img src="img/mood-balloon.jpg" alt="Mood Balloon" class="project-image">
-                        <div class="project-content">
-                            <span class="tag">iOS App</span>
-                            <h3>Mood Balloon</h3>
-                            <p data-key="app_mood_desc">An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.</p>
-                            <span style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;" data-key="app_coming_soon">Coming Soon</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. Data Intelligence -->
-                <div id="data-works"></div>
-                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_data">Data Intelligence</h3>
-                <div class="project-grid">
-                    <!-- Superstore -->
-                    <div class="project-card scale-in">
-                        <img src="img/streamlit_preview.png" alt="Superstore Analysis" class="project-image">
-                        <div class="project-content">
-                            <span class="tag">Streamlit · Data</span>
-                            <h3 data-key="data_viz_proj1_title">Superstore Sales Analysis</h3>
-                            <p data-key="data_viz_proj1_desc">Interactive dashboard for exploring and analyzing superstore sales data.</p>
-                            <a href="https://superstore-sales-dashboard-johnson.streamlit.app/" target="_blank">View Live →</a>
-                        </div>
-                    </div>
-
-                    <!-- HK Retail Sales -->
-                    <div class="project-card scale-in">
-                        <img src="img/tableau_preview.png" alt="HK Retail Sales" class="project-image">
-                        <div class="project-content">
-                            <span class="tag">Tableau · BI</span>
-                            <h3 data-key="data_viz_proj2_title">HK Retail Sales Analysis</h3>
-                            <p data-key="data_viz_proj2_desc">Comprehensive analysis of Hong Kong retail industry sales trends and insights.</p>
-                            <a href="https://public.tableau.com/views/HKRetailSalesAnalysis_17624449946750/Dashboard1" target="_blank">View Live →</a>
-                        </div>
-                    </div>
-
-                    <!-- Tableau BMW -->
-                    <div class="project-card scale-in">
-                        <img src="img/bmw-sales-analysis.png" alt="BMW Analysis" class="project-image">
-                        <div class="project-content">
-                            <span class="tag">Tableau · BI</span>
-                            <h3 data-key="data_viz_proj3_title">BMW Sales Analysis</h3>
-                            <p data-key="data_viz_proj3_desc">In-depth analysis of global BMW sales trends and performance metrics.</p>
-                            <a href="https://public.tableau.com/views/BMWSalesAnalysis_17624449946750/111" target="_blank">View Live →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- About Section -->
         <section id="about" class="fade-in-section">
@@ -1116,16 +1005,3 @@
                 // Close all other FAQs
                 document.querySelectorAll('.faq-question').forEach(btn => {
                     btn.classList.remove('active');
-                    btn.nextElementSibling.classList.remove('active');
-                });
-
-                // Toggle current FAQ
-                if (!isActive) {
-                    this.classList.add('active');
-                    answer.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
