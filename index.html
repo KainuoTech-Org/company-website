@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kainuo Innovision Tech | 凱諾創享科技</title>
+
+    <!-- SEO Meta Tags -->
+    <title>香港網頁設計公司 | 網站開發 App開發 數據可視化 | Kainuo凱諾創享科技</title>
+    <meta name="description" content="香港專業網頁設計公司，提供網站開發、iOS App開發、數據可視化服務。HK$3,880起，快速上線，Wix WordPress Shopify建站。香港網頁設計 網站製作 網頁制作 網站上線 Web Design Hong Kong">
+    <meta name="keywords" content="香港網頁設計, 網站開發, 網頁製作, 網頁設計公司, 網站設計, 網站製作, 網頁開發, 網站上線, web design hong kong, 香港建站, WordPress設計, Wix網站, Shopify建站, 網店設計, iOS app開發, 數據可視化, tableau dashboard, 香港網頁設計公司, 網頁設計價錢, 網站設計費用, 平價網頁設計, 中小企網站, SME web design, responsive web design, 手機網站, 雙語網站">
+    <meta name="author" content="Kainuo Innovision Tech">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.kainuotech.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.kainuotech.com/">
+    <meta property="og:title" content="香港網頁設計公司 | 網站開發 App開發 | Kainuo凱諾創享科技">
+    <meta property="og:description" content="香港專業網頁設計公司，HK$3,880起。提供網站開發、iOS App開發、數據可視化服務。快速上線，專業建站">
+    <meta property="og:image" content="https://www.kainuotech.com/img/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.kainuotech.com/">
+    <meta property="twitter:title" content="香港網頁設計公司 | Kainuo凱諾創享科技">
+    <meta property="twitter:description" content="香港專業網頁設計公司，HK$3,880起。網站開發、App開發、數據可視化服務">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="HK">
+    <meta name="geo.placename" content="Hong Kong">
+
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="img/favicon.svg">
-    
+
     <!-- Fonts: Playfair Display (Serif for headers) & Inter (Sans-serif for body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,10 +91,59 @@
         }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.95rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: var(--accent-color); }
-        
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a, .nav-item > span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        .nav-links a:hover, .nav-item > span:hover { color: var(--accent-color); }
+
+        /* Dropdown Menu */
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-item > span::after {
+            content: ' ▼';
+            font-size: 0.7rem;
+            margin-left: 0.3rem;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 200px;
+            margin-top: 1rem;
+            z-index: 1000;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-color);
+            text-transform: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-menu a:hover {
+            background: var(--secondary-bg);
+            color: var(--accent-color);
+            padding-left: 2rem;
+        }
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
         /* Hero Section */
         #hero { padding: 8rem 0; text-align: center; }
         .hero-content { max-width: 800px; margin: 0 auto; }
@@ -200,6 +274,56 @@
             width: 100%;
         }
 
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            border: 1px solid #eee;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            background: var(--secondary-bg);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+        }
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
         /* Footer */
         footer {
             background: var(--text-color);
@@ -308,8 +432,22 @@
                 <span style="font-family: var(--font-sans); font-size: 0.7rem; font-weight: 400; color: #666; letter-spacing: 0.5px;">Innovision Tech</span>
             </div>
             <nav class="nav-links">
-                <a href="#services" data-key="nav_services">Services</a>
-                <a href="#works" data-key="nav_works">Portfolio</a>
+                <div class="nav-item">
+                    <span data-key="nav_services">Services</span>
+                    <div class="dropdown-menu">
+                        <a href="#services" data-key="nav_web_design">網站設計 Web Design</a>
+                        <a href="#app-services" data-key="nav_app_dev">App 開發 App Development</a>
+                        <a href="#data-services" data-key="nav_data_services">數據服務 Data Services</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <span data-key="nav_works">Portfolio</span>
+                    <div class="dropdown-menu">
+                        <a href="#web-works" data-key="nav_web_works">網站案例 Website Projects</a>
+                        <a href="#app-works" data-key="nav_app_works">App 案例 App Projects</a>
+                        <a href="#data-works" data-key="nav_data_works">數據案例 Data Projects</a>
+                    </div>
+                </div>
                 <a href="#about" data-key="nav_about">About</a>
                 <a href="#contact" data-key="nav_contact">Contact</a>
             </nav>
@@ -341,9 +479,9 @@
             <div class="container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 data-key="services_title">Web Design Packages</h2>
-                    <p data-key="services_desc">Secure Static Architecture. No backend complexity. High Performance.</p>
+                    <p data-key="services_desc">Professional websites built with modern no-code platforms. Fast delivery, easy maintenance.</p>
                 </div>
-                
+
                 <div class="pricing-grid">
                     <!-- Package A: Quick Launch -->
                     <div class="price-card fade-in-section">
@@ -354,13 +492,13 @@
                         </div>
                         <ul class="price-features">
                             <li data-key="pkg1_f1">Single Page Design (Landing Page)</li>
-                            <li data-key="pkg1_f2">Mobile Responsive (Phone/Desktop)</li>
-                            <li data-key="pkg1_f3">WhatsApp Floating Button</li>
-                            <li data-key="pkg1_f4">Basic SEO Setup</li>
-                            <li data-key="pkg1_f5">Free .com Domain (1st Year)</li>
-                            <li data-key="pkg1_f6">Free SSL Certificate</li>
-                            <li data-key="pkg1_f7">Free Email Forwarding (Cloudflare)</li>
-                            <li data-key="pkg1_f8">3-Month Free Maintenance</li>
+                            <li data-key="pkg1_f2">Built with Wix/WordPress</li>
+                            <li data-key="pkg1_f3">Mobile Responsive Design</li>
+                            <li data-key="pkg1_f4">WhatsApp Integration</li>
+                            <li data-key="pkg1_f5">Basic SEO Setup</li>
+                            <li data-key="pkg1_f6">Free Domain (1st Year)</li>
+                            <li data-key="pkg1_f7">SSL Certificate</li>
+                            <li data-key="pkg1_f8">3-Month Support</li>
                         </ul>
                         <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Quick%20Launch%20Plan%20(HK$3,880)." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_select">Inquire via WhatsApp</a>
                     </div>
@@ -371,16 +509,18 @@
                         <div class="price-header">
                             <h3 data-key="pkg2_title">Business Brand</h3>
                             <p data-key="pkg2_for">Best for Growing Business / Company Profile</p>
-                            <div class="price-amount">HK$6,880</div>
+                            <div class="price-amount">HK$8,880</div>
                         </div>
                         <ul class="price-features">
-                            <li data-key="pkg2_f1">Multi-Page Website (Home + 3 Pages)</li>
+                            <li data-key="pkg2_f1">Multi-Page Website (Home + 4 Pages)</li>
                             <li data-key="pkg2_f2">Bilingual Support (EN/繁)</li>
                             <li data-key="pkg2_f3">Google Maps Integration</li>
-                            <li data-key="pkg2_f4">Contact Form (Tally/Google Form)</li>
-                            <li data-key="pkg2_f5">All Quick Launch Benefits</li>
+                            <li data-key="pkg2_f4">Contact Form with Email Notification</li>
+                            <li data-key="pkg2_f5">Blog/News Section</li>
+                            <li data-key="pkg2_f6">Advanced SEO Optimization</li>
+                            <li data-key="pkg2_f7">All Quick Launch Benefits</li>
                         </ul>
-                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Business%20Brand%20Plan%20(HK$6,880)." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_select">Inquire via WhatsApp</a>
+                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Business%20Brand%20Plan%20(HK$8,880)." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_select">Inquire via WhatsApp</a>
                     </div>
 
                     <!-- Package C: Add-ons -->
@@ -388,14 +528,13 @@
                         <div class="price-header">
                             <h3 data-key="pkg3_title">Add-Ons & Custom</h3>
                             <p data-key="pkg3_for">Upgrade Your Package</p>
-                            <div class="price-amount" style="font-size: 1.5rem; color: var(--text-color);">Optional Upgrades</div>
+                            <div class="price-amount" style="font-size: 1.5rem; color: var(--text-color);">Optional</div>
                         </div>
                         <ul class="price-features">
-                            <li data-key="pkg3_f1">Real Business Email (SendGrid) +HK$500/yr</li>
-                            <li data-key="pkg3_f2">Extra Page +HK$800/page</li>
-                            <li data-key="pkg3_f3">Logo Design +HK$1,200</li>
-                            <li data-key="pkg3_f4">Data Visualization Dashboard (Custom Quote)</li>
-                            <li data-key="pkg3_f5">iOS/Android App (Custom Quote)</li>
+                            <li data-key="pkg3_f1">Extra Page +HK$800/page</li>
+                            <li data-key="pkg3_f2">Logo Design +HK$1,500</li>
+                            <li data-key="pkg3_f3">Professional Copywriting +HK$2,000</li>
+                            <li data-key="pkg3_f4">Monthly Maintenance +HK$800/mo</li>
                         </ul>
                         <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20Custom%20Add-ons." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_contact">Inquire via WhatsApp</a>
                     </div>
@@ -435,12 +574,68 @@
             </div>
         </section>
 
+        <!-- App Development Services -->
+        <section id="app-services" style="background-color: var(--secondary-bg);" class="fade-in-section">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                    <h2 data-key="app_services_title">iOS App Development</h2>
+                    <p data-key="app_services_desc" style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
+                        We create custom iOS applications tailored to your business needs. From concept to App Store, we handle the entire development process with attention to detail and user experience.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: left;">
+                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="app_feature1_title">Native iOS Development</h4>
+                            <p style="font-size: 0.95rem; color: #666;" data-key="app_feature1_desc">Built with Swift for optimal performance and seamless integration with Apple ecosystem.</p>
+                        </div>
+                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="app_feature2_title">UI/UX Design</h4>
+                            <p style="font-size: 0.95rem; color: #666;" data-key="app_feature2_desc">Beautiful, intuitive interfaces following Apple Human Interface Guidelines.</p>
+                        </div>
+                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="app_feature3_title">App Store Submission</h4>
+                            <p style="font-size: 0.95rem; color: #666;" data-key="app_feature3_desc">Complete support from development to successful App Store launch.</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 2rem; font-size: 0.9rem; color: #888;" data-key="app_services_note">
+                        *Our flagship app <strong>Mood Balloon</strong> showcases our capabilities in emotional wellness and mindful journaling applications.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Services -->
+        <section id="data-services" class="fade-in-section">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                    <h2 data-key="data_services_title">Data Visualization & Analytics</h2>
+                    <p data-key="data_services_desc" style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
+                        Transform your data into actionable insights with interactive dashboards and comprehensive analytics solutions. We help businesses make data-driven decisions.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: left;">
+                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="data_feature1_title">Interactive Dashboards</h4>
+                            <p style="font-size: 0.95rem; color: #666;" data-key="data_feature1_desc">Built with Tableau, Power BI, or custom solutions using Python & Streamlit.</p>
+                        </div>
+                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="data_feature2_title">Business Intelligence</h4>
+                            <p style="font-size: 0.95rem; color: #666;" data-key="data_feature2_desc">Comprehensive reporting and analysis to drive strategic decisions.</p>
+                        </div>
+                        <div style="background: #fff; padding: 1.5rem; border: 1px solid #eee;">
+                            <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;" data-key="data_feature3_title">Data Integration</h4>
+                            <p style="font-size: 0.95rem; color: #666;" data-key="data_feature3_desc">Connect multiple data sources for unified insights and real-time monitoring.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Portfolio Section -->
         <section id="works" class="fade-in-section">
             <div class="container">
                 <h2 data-key="works_title" style="text-align: center; margin-bottom: 3rem;">Selected Works</h2>
-                
+
                 <!-- 1. Web Projects -->
+                <div id="web-works"></div>
                 <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_web">Web Solutions</h3>
                 <div class="project-grid" style="margin-bottom: 4rem;">
                     <!-- Harbour Trade Co. Demo -->
@@ -467,6 +662,7 @@
                 </div>
 
                 <!-- 2. Mobile Apps -->
+                <div id="app-works"></div>
                 <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_app">Mobile Innovation</h3>
                 <div class="project-grid" style="margin-bottom: 4rem;">
                     <!-- Mood Balloon -->
@@ -482,6 +678,7 @@
                 </div>
 
                 <!-- 3. Data Intelligence -->
+                <div id="data-works"></div>
                 <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_data">Data Intelligence</h3>
                 <div class="project-grid">
                     <!-- Superstore -->
@@ -533,6 +730,60 @@
                         <h3 style="font-size: 1.2rem;">Registered in Hong Kong</h3>
                         <p style="margin-bottom: 0.5rem;"><strong>Company:</strong> Kainuo Innovision Tech Co., Limited</p>
                         <p style="margin-bottom: 0;"><strong>D-U-N-S®:</strong> 77-331-5956</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="fade-in-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 data-key="faq_title">Frequently Asked Questions</h2>
+                    <p data-key="faq_desc">Got questions? We've got answers.</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq1_q">How long does it take to build a website?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq1_a">Quick Launch takes 3-5 business days. Business Brand takes 7-10 days. E-commerce stores take 10-14 days depending on the number of products.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq2_q">Do I own the website after completion?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq2_a">Yes! You get full ownership of the domain, hosting accounts, and all passwords. However, note that Wix/WordPress platforms require ongoing subscriptions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq3_q">Can I update the website myself?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq3_a">Absolutely! We build on user-friendly platforms like Wix and WordPress. We'll provide training on how to update content, add pages, and manage your site.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq4_q">What if I need help after the website is done?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq4_a">All packages include 3 months of free support. After that, you can opt for our monthly maintenance plan at HK$800/month.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq5_q">Do you provide SEO services?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq5_a">Yes! All our packages include basic SEO setup (meta tags, descriptions, sitemap). For advanced SEO and Google Ads management, we offer custom packages.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq6_q">What payment methods do you accept?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq6_a">We accept bank transfer (FPS/HSBC), PayMe, and Alipay. 50% deposit required to start, 50% upon completion.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -596,13 +847,13 @@
                 'hero_desc': 'We build professional websites and data solutions that help Hong Kong businesses thrive in the digital age.',
                 'btn_start': 'Start Project', 'btn_view_work': 'View Work',
                 'services_title': 'Web Design Packages',
-                'services_desc': 'Secure Static Architecture. No backend complexity. High Performance.',
+                'services_desc': 'Professional websites built with modern no-code platforms. Fast delivery, easy maintenance.',
                 'pkg1_title': 'Quick Launch', 'pkg1_for': 'Best for Single Service / Personal Profile',
-                'pkg1_f1': 'Single Page Design (Landing Page)', 'pkg1_f2': 'Mobile Responsive (Phone/Desktop)', 'pkg1_f3': 'WhatsApp Floating Button', 'pkg1_f4': 'Basic SEO Setup', 'pkg1_f5': 'Free .com Domain (1st Year)', 'pkg1_f6': 'Free SSL Certificate', 'pkg1_f7': 'Free Email Forwarding (Cloudflare)', 'pkg1_f8': '3-Month Free Maintenance',
+                'pkg1_f1': 'Single Page Design (Landing Page)', 'pkg1_f2': 'Built with Wix/WordPress', 'pkg1_f3': 'Mobile Responsive Design', 'pkg1_f4': 'WhatsApp Integration', 'pkg1_f5': 'Basic SEO Setup', 'pkg1_f6': 'Free Domain (1st Year)', 'pkg1_f7': 'SSL Certificate', 'pkg1_f8': '3-Month Support',
                 'pkg2_title': 'Business Brand', 'pkg2_for': 'Best for Growing Business / Company Profile',
-                'pkg2_f1': 'Multi-Page Website (Home + 3 Pages)', 'pkg2_f2': 'Bilingual Support (EN/繁)', 'pkg2_f3': 'Google Maps Integration', 'pkg2_f4': 'Contact Form (Tally/Google Form)', 'pkg2_f5': 'All Quick Launch Benefits',
+                'pkg2_f1': 'Multi-Page Website (Home + 4 Pages)', 'pkg2_f2': 'Bilingual Support (EN/繁)', 'pkg2_f3': 'Google Maps Integration', 'pkg2_f4': 'Contact Form with Email Notification', 'pkg2_f5': 'Blog/News Section', 'pkg2_f6': 'Advanced SEO Optimization', 'pkg2_f7': 'All Quick Launch Benefits',
                 'pkg3_title': 'Add-Ons & Custom', 'pkg3_for': 'Upgrade Your Package',
-                'pkg3_f1': 'Real Business Email (SendGrid) +HK$500/yr', 'pkg3_f2': 'Extra Page +HK$800/page', 'pkg3_f3': 'Logo Design +HK$1,200', 'pkg3_f4': 'Data Visualization Dashboard (Custom Quote)', 'pkg3_f5': 'iOS/Android App (Custom Quote)',
+                'pkg3_f1': 'Extra Page +HK$800/page', 'pkg3_f2': 'Logo Design +HK$1,500', 'pkg3_f3': 'Professional Copywriting +HK$2,000', 'pkg3_f4': 'Monthly Maintenance +HK$800/mo',
                 'process_title': 'How It Works',
                 'process_desc': 'Simple 4-step process to get your business online.',
                 'step1_title': 'Consult', 'step1_desc': 'We discuss your needs and select the right package for your business.',
@@ -627,7 +878,21 @@
                 'about_p2': 'We combine technical expertise with business acumen to deliver solutions that not only look good but also drive results.',
                 'contact_title': 'Get in Touch',
                 'contact_intro': 'Ready to start your project? Contact us today.',
-                'contact_name_label': 'Name', 'contact_email_label': 'Email', 'contact_msg_label': 'Message', 'contact_send_btn': 'Send Message'
+                'contact_name_label': 'Name', 'contact_email_label': 'Email', 'contact_msg_label': 'Message', 'contact_send_btn': 'Send Message',
+                'faq_title': 'Frequently Asked Questions',
+                'faq_desc': 'Got questions? We\'ve got answers.',
+                'faq1_q': 'How long does it take to build a website?',
+                'faq1_a': 'Quick Launch takes 3-5 business days. Business Brand takes 7-10 days.',
+                'faq2_q': 'Do I own the website after completion?',
+                'faq2_a': 'Yes! You get full ownership of the domain, hosting accounts, and all passwords. However, note that Wix/WordPress platforms require ongoing subscriptions.',
+                'faq3_q': 'Can I update the website myself?',
+                'faq3_a': 'Absolutely! We build on user-friendly platforms like Wix and WordPress. We\'ll provide training on how to update content, add pages, and manage your site.',
+                'faq4_q': 'What if I need help after the website is done?',
+                'faq4_a': 'All packages include 3 months of free support. After that, you can opt for our monthly maintenance plan at HK$800/month.',
+                'faq5_q': 'Do you provide SEO services?',
+                'faq5_a': 'Yes! All our packages include basic SEO setup (meta tags, descriptions, sitemap). For advanced SEO and Google Ads management, we offer custom packages.',
+                'faq6_q': 'What payment methods do you accept?',
+                'faq6_a': 'We accept bank transfer (FPS/HSBC), PayMe, and Alipay. 50% deposit required to start, 50% upon completion.'
             },
             'zh-TW': {
                 'nav_brand': '凱諾創享',
@@ -637,13 +902,13 @@
                 'hero_desc': '我們致力於提供專業的網站和數據解決方案，幫助香港企業在數字時代蓬勃發展。',
                 'btn_start': '開始專案', 'btn_view_work': '查看案例',
                 'services_title': '網站設計方案',
-                'services_desc': '安全靜態架構。無後端複雜度。極速高性能。',
+                'services_desc': '採用現代化零代碼平台搭建專業網站，快速交付，輕鬆維護。',
                 'pkg1_title': '快速啟動版', 'pkg1_for': '適合 單一服務展示 / 個人形象頁',
-                'pkg1_f1': '單頁式設計 (Landing Page)', 'pkg1_f2': '手機響應式 (手機/電腦完美適配)', 'pkg1_f3': 'WhatsApp 懸浮按鈕', 'pkg1_f4': '基礎 SEO 優化', 'pkg1_f5': '贈送 .com 域名 (首年)', 'pkg1_f6': '贈送 SSL 安全證書', 'pkg1_f7': '贈送企業郵箱轉發 (Cloudflare)', 'pkg1_f8': '3 個月免費維護',
+                'pkg1_f1': '單頁式設計 (Landing Page)', 'pkg1_f2': '基於 Wix/WordPress 搭建', 'pkg1_f3': '手機響應式設計', 'pkg1_f4': 'WhatsApp 整合', 'pkg1_f5': '基礎 SEO 優化', 'pkg1_f6': '贈送域名 (首年)', 'pkg1_f7': 'SSL 安全證書', 'pkg1_f8': '3 個月技術支持',
                 'pkg2_title': '品牌商務版', 'pkg2_for': '適合 成長型企業 / 公司官網',
-                'pkg2_f1': '多頁面架構 (首頁 + 3 個內頁)', 'pkg2_f2': '雙語支持 (繁/英)', 'pkg2_f3': 'Google 地圖嵌入', 'pkg2_f4': '聯絡表單 (Tally/Google Form)', 'pkg2_f5': '包含快速啟動版所有內容',
+                'pkg2_f1': '多頁面架構 (首頁 + 4 個內頁)', 'pkg2_f2': '雙語支持 (繁/英)', 'pkg2_f3': 'Google 地圖整合', 'pkg2_f4': '聯絡表單含郵件通知', 'pkg2_f5': '博客/新聞區塊', 'pkg2_f6': '進階 SEO 優化', 'pkg2_f7': '包含快速啟動版所有內容',
                 'pkg3_title': '增值服務 & 定制', 'pkg3_for': '升級您的方案',
-                'pkg3_f1': '真實企業郵箱 (SendGrid) +HK$500/年', 'pkg3_f2': '額外頁面 +HK$800/頁', 'pkg3_f3': 'Logo 設計 +HK$1,200', 'pkg3_f4': '數據可視化儀表板 (按需報價)', 'pkg3_f5': 'iOS/Android App (按需報價)',
+                'pkg3_f1': '額外頁面 +HK$800/頁', 'pkg3_f2': 'Logo 設計 +HK$1,500', 'pkg3_f3': '專業文案撰寫 +HK$2,000', 'pkg3_f4': '月度維護 +HK$800/月',
                 'process_title': '服務流程',
                 'process_desc': '簡單四步，助您的業務快速上線。',
                 'step1_title': '諮詢', 'step1_desc': '溝通您的需求，選擇最適合您的方案。',
@@ -668,7 +933,21 @@
                 'about_p2': '我們結合技術專長與商業洞察，致力於交付既美觀又能推動業務成果的解決方案。',
                 'contact_title': '聯絡我們',
                 'contact_intro': '準備好開始您的專案了嗎？歡迎隨時聯繫我們。',
-                'contact_name_label': '您的姓名', 'contact_email_label': '您的郵箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '發送訊息'
+                'contact_name_label': '您的姓名', 'contact_email_label': '您的郵箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '發送訊息',
+                'faq_title': '常見問題',
+                'faq_desc': '有疑問？我們為您解答。',
+                'faq1_q': '建一個網站需要多久？',
+                'faq1_a': '快速啟動版需要 3-5 個工作日。品牌商務版需要 7-10 天。',
+                'faq2_q': '網站完成後我擁有所有權嗎？',
+                'faq2_a': '是的！您將獲得域名、主機帳戶和所有密碼的完全所有權。但請注意，Wix/WordPress 平台需要持續訂閱。',
+                'faq3_q': '我可以自己更新網站嗎？',
+                'faq3_a': '當然可以！我們使用 Wix 和 WordPress 等用戶友好的平台。我們會提供培訓，教您如何更新內容、添加頁面和管理網站。',
+                'faq4_q': '網站完成後如果需要幫助怎麼辦？',
+                'faq4_a': '所有套餐都包含 3 個月免費技術支持。之後您可以選擇我們的月度維護計劃，每月 HK$800。',
+                'faq5_q': '你們提供 SEO 服務嗎？',
+                'faq5_a': '是的！所有套餐都包含基礎 SEO 設置（meta 標籤、描述、網站地圖）。如需進階 SEO 和 Google 廣告管理，我們提供定制套餐。',
+                'faq6_q': '你們接受什麼付款方式？',
+                'faq6_a': '我們接受銀行轉帳（FPS/匯豐）、PayMe 和支付寶。需先付 50% 訂金開始項目，完成後付餘下 50%。'
             },
             'zh-CN': {
                 'nav_brand': '凯诺创享',
@@ -678,13 +957,13 @@
                 'hero_desc': '我们致力于提供专业的网站和数据解决方案，帮助香港企业在数字时代蓬勃发展。',
                 'btn_start': '开始项目', 'btn_view_work': '查看案例',
                 'services_title': '网站设计方案',
-                'services_desc': '纯静态网站，快速交付。无后端复杂度。专为香港中小企打造。',
-                'pkg1_title': '快速启动版', 'pkg1_for': '适合 装修 / 清洁 / 补习 / 教练 / 诊所',
-                'pkg1_f1': '单页式设计 (Landing Page)', 'pkg1_f2': '手机响应式 (手机/电脑完美适配)', 'pkg1_f3': 'WhatsApp 悬浮按钮', 'pkg1_f4': '基础 SEO 优化', 'pkg1_f5': '赠送 .com 域名 (首年)', 'pkg1_f6': '赠送 SSL 安全证书', 'pkg1_f7': '赠送企业邮箱转发 (Cloudflare)', 'pkg1_f8': '3 个月免费维护',
-                'pkg2_title': '品牌商务版', 'pkg2_for': '适合 贸易公司 / 会计楼 / 律师行 / 设计公司',
-                'pkg2_f1': '多页面架构 (首页 + 3 个内页)', 'pkg2_f2': '双语支持 (繁/英)', 'pkg2_f3': 'Google 地图嵌入', 'pkg2_f4': '联络表单 (Tally/Google Form)', 'pkg2_f5': '包含快速启动版所有内容',
+                'services_desc': '采用现代化零代码平台搭建专业网站，快速交付，轻松维护。',
+                'pkg1_title': '快速启动版', 'pkg1_for': '适合 单一服务展示 / 个人形象页',
+                'pkg1_f1': '单页式设计 (Landing Page)', 'pkg1_f2': '基于 Wix/WordPress 搭建', 'pkg1_f3': '手机响应式设计', 'pkg1_f4': 'WhatsApp 整合', 'pkg1_f5': '基础 SEO 优化', 'pkg1_f6': '赠送域名 (首年)', 'pkg1_f7': 'SSL 安全证书', 'pkg1_f8': '3 个月技术支持',
+                'pkg2_title': '品牌商务版', 'pkg2_for': '适合 成长型企业 / 公司官网',
+                'pkg2_f1': '多页面架构 (首页 + 4 个内页)', 'pkg2_f2': '双语支持 (繁/英)', 'pkg2_f3': 'Google 地图整合', 'pkg2_f4': '联络表单含邮件通知', 'pkg2_f5': '博客/新闻区块', 'pkg2_f6': '进阶 SEO 优化', 'pkg2_f7': '包含快速启动版所有内容',
                 'pkg3_title': '增值服务 & 定制', 'pkg3_for': '升级您的方案',
-                'pkg3_f1': '真实企业邮箱 (SendGrid) +HK$500/年', 'pkg3_f2': '额外页面 +HK$800/页', 'pkg3_f3': 'Logo 设计 +HK$1,200', 'pkg3_f4': '数据可视化仪表板 (按需报价)', 'pkg3_f5': 'iOS/Android App (按需报价)',
+                'pkg3_f1': '额外页面 +HK$800/页', 'pkg3_f2': 'Logo 设计 +HK$1,500', 'pkg3_f3': '专业文案撰写 +HK$2,000', 'pkg3_f4': '月度维护 +HK$800/月',
                 'process_title': '服务流程',
                 'process_desc': '简单四步，助您的业务快速上线。',
                 'step1_title': '咨询', 'step1_desc': '沟通您的需求，选择最适合您的方案。',
@@ -709,7 +988,21 @@
                 'about_p2': '我们结合技术专长与商业洞察，致力于交付既美观又能推动业务成果的解决方案。',
                 'contact_title': '联系我们',
                 'contact_intro': '准备好开始您的项目了吗？欢迎随时联系我们。',
-                'contact_name_label': '您的姓名', 'contact_email_label': '您的邮箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '发送消息'
+                'contact_name_label': '您的姓名', 'contact_email_label': '您的邮箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '发送消息',
+                'faq_title': '常见问题',
+                'faq_desc': '有疑问？我们为您解答。',
+                'faq1_q': '建一个网站需要多久？',
+                'faq1_a': '快速启动版需要 3-5 个工作日。品牌商务版需要 7-10 天。',
+                'faq2_q': '网站完成后我拥有所有权吗？',
+                'faq2_a': '是的！您将获得域名、主机账户和所有密码的完全所有权。但请注意，Wix/WordPress 平台需要持续订阅。',
+                'faq3_q': '我可以自己更新网站吗？',
+                'faq3_a': '当然可以！我们使用 Wix 和 WordPress 等用户友好的平台。我们会提供培训，教您如何更新内容、添加页面和管理网站。',
+                'faq4_q': '网站完成后如果需要帮助怎么办？',
+                'faq4_a': '所有套餐都包含 3 个月免费技术支持。之后您可以选择我们的月度维护计划，每月 HK$800。',
+                'faq5_q': '你们提供 SEO 服务吗？',
+                'faq5_a': '是的！所有套餐都包含基础 SEO 设置（meta 标签、描述、网站地图）。如需进阶 SEO 和 Google 广告管理，我们提供定制套餐。',
+                'faq6_q': '你们接受什么付款方式？',
+                'faq6_a': '我们接受银行转账（FPS/汇丰）、PayMe 和支付宝。需先付 50% 订金开始项目，完成后付余下 50%。'
             }
         };
 
@@ -813,6 +1106,26 @@
         // Observe all elements with animation classes
         const animatedElements = document.querySelectorAll('.fade-in-section, .fade-in-left, .fade-in-right, .scale-in');
         animatedElements.forEach(el => observer.observe(el));
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.nextElementSibling.classList.remove('active');
+                });
+
+                // Toggle current FAQ
+                if (!isActive) {
+                    this.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
