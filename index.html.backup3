@@ -438,18 +438,18 @@
             </div>
             <nav class="nav-links">
                 <div class="nav-item">
-                    <span data-key="nav_web_dev">Web Development</span>
+                    <span data-key="nav_works">Portfolio</span>
                     <div class="dropdown-menu">
-                        <a href="#web-works" data-key="nav_web_projects">Project Showcase</a>
-                        <a href="#web-pricing" data-key="nav_web_pricing">Pricing</a>
-                        <a href="#process" data-key="nav_how_it_works">How It Works</a>
+                        <a href="#web-works" data-key="nav_web_works">Web Projects</a>
+                        <a href="#app-works" data-key="nav_personal_works">Personal Projects</a>
+                        <a href="#data-works" data-key="nav_data_works">Data Projects</a>
                     </div>
                 </div>
                 <div class="nav-item">
-                    <span data-key="nav_innovation">Innovation Lab</span>
+                    <span data-key="nav_services">Services</span>
                     <div class="dropdown-menu">
-                        <a href="#app-works" data-key="nav_mobile">Mobile Apps</a>
-                        <a href="#data-works" data-key="nav_data">Data Intelligence</a>
+                        <a href="#web-pricing" data-key="nav_web_pricing">Web Design Pricing</a>
+                        <a href="#process" data-key="nav_process">How It Works</a>
                     </div>
                 </div>
                 <a href="#about" data-key="nav_about">About</a>
@@ -479,11 +479,10 @@
         </section>
 
 
-
-        <!-- Web Development Section -->
-        <section id="web-development">
+        <!-- Portfolio Section -->
+        <section id="works">
             <div class="container">
-                <h2 style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem;" data-key="web_dev_title">Web Development Services</h2>
+                <h2 data-key="works_title" style="text-align: center; margin-bottom: 3rem;">Selected Works</h2>
 
                 <!-- 1. Web Projects -->
                 <div id="web-works"></div>
@@ -491,7 +490,7 @@
                 <div class="project-grid" style="margin-bottom: 4rem;">
                     <!-- Harbour Trade Co. Demo -->
                     <div class="project-card scale-in">
-                        <img src="img/project-harbour-trade.png" alt="Harbour Trade Co." class="project-image">
+                        <img src="img/harbour-trade-demo.png" alt="Harbour Trade Co." class="project-image">
                         <div class="project-content">
                             <span class="tag">Corporate Website</span>
                             <h3 data-key="web_proj1_title">Harbour Trade Co.</h3>
@@ -499,17 +498,84 @@
                             <a href="https://demo-trade.kainuotech.com/" target="_blank">View Live Demo →</a>
                         </div>
                     </div>
-                    <!-- Flow Space Demo -->
                     <div class="project-card scale-in">
-                        <img src="img/project-flow-space.png" alt="Flow Space" class="project-image">
+                        <div style="width: 100%; aspect-ratio: 1200/900; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; border-bottom: 1px solid #eee;">
+                            <span style="font-size: 3rem;">🛍️</span>
+                        </div>
                         <div class="project-content">
-                            <span class="tag">Studio Website</span>
-                            <h3 data-key="web_proj2_title">Flow Space</h3>
-                            <p data-key="web_proj2_desc">A minimalist yoga studio website featuring class schedules, booking integration, and a serene visual design.</p>
-                            <a href="https://flow.kainuotech.com/" target="_blank">View Live Demo →</a>
+                            <span class="tag">Landing Page</span>
+                            <h3 data-key="web_proj2_title">Service Landing Page</h3>
+                            <p data-key="web_proj2_desc">High-conversion single page design for service providers, optimized for mobile and WhatsApp conversion.</p>
+                            <span style="font-size: 0.9rem; color: #666;">(Demo / Template)</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- 2. Personal Projects -->
+                <div id="app-works"></div>
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 0.5rem; color: var(--accent-color);" data-key="cat_app">Personal Projects</h3>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 2rem; font-style: italic;" data-key="personal_note">
+                    *These are our personal projects that showcase our technical capabilities. Not currently offered as commercial services.
+                </p>
+                <div class="project-grid" style="margin-bottom: 4rem;">
+                    <!-- Mood Balloon -->
+                    <div class="project-card scale-in">
+                        <img src="img/mood-balloon.jpg" alt="Mood Balloon" class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Personal Project</span>
+                            <h3>Mood Balloon</h3>
+                            <p data-key="app_mood_desc">An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.</p>
+                            <span style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;" data-key="app_coming_soon">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Data Intelligence -->
+                <div id="data-works"></div>
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_data">Data Intelligence</h3>
+                <div class="project-grid">
+                    <!-- Superstore -->
+                    <div class="project-card scale-in">
+                        <img src="img/streamlit_preview.png" alt="Superstore Analysis" class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Streamlit · Data</span>
+                            <h3 data-key="data_viz_proj1_title">Superstore Sales Analysis</h3>
+                            <p data-key="data_viz_proj1_desc">Interactive dashboard for exploring and analyzing superstore sales data.</p>
+                            <a href="https://superstore-sales-dashboard-johnson.streamlit.app/" target="_blank">View Live →</a>
+                        </div>
+                    </div>
+
+                    <!-- HK Retail Sales -->
+                    <div class="project-card scale-in">
+                        <img src="img/tableau_preview.png" alt="HK Retail Sales" class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Tableau · BI</span>
+                            <h3 data-key="data_viz_proj2_title">HK Retail Sales Analysis</h3>
+                            <p data-key="data_viz_proj2_desc">Comprehensive analysis of Hong Kong retail industry sales trends and insights.</p>
+                            <a href="https://public.tableau.com/views/HKRetailSalesAnalysis_17624449946750/Dashboard1" target="_blank">View Live →</a>
+                        </div>
+                    </div>
+
+                    <!-- Tableau BMW -->
+                    <div class="project-card scale-in">
+                        <img src="img/bmw-sales-analysis.png" alt="BMW Analysis" class="project-image">
+                        <div class="project-content">
+                            <span class="tag">Tableau · BI</span>
+                            <h3 data-key="data_viz_proj3_title">BMW Sales Analysis</h3>
+                            <p data-key="data_viz_proj3_desc">In-depth analysis of global BMW sales trends and performance metrics.</p>
+                            <a href="https://public.tableau.com/views/BMWSalesAnalysis_17624449946750/111" target="_blank">View Live →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Services Section (The Cash Cow) -->
+        <section id="services" style="background-color: var(--secondary-bg);" class="fade-in-section">
+            <div class="container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 data-key="services_title">Web Design Packages</h2>
                     <p data-key="services_desc">Professional websites built with modern no-code platforms. Fast delivery, easy maintenance.</p>
@@ -572,9 +638,11 @@
                         <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20Custom%20Add-ons." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_contact">Inquire via WhatsApp</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- How It Works -->
-                <div id="process" style="margin-top: 5rem;">
+        <!-- Process Section (How it Works) -->
+        <section id="process" class="fade-in-section">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 data-key="process_title">How It Works</h2>
@@ -602,73 +670,9 @@
                         <p data-key="step4_desc">You get full ownership of all assets, accounts, and passwords.</p>
                     </div>
                 </div>
-                </div>
             </div>
         </section>
 
-
-        <!-- Innovation Lab Section -->
-        <section id="showcase" style="background-color: var(--secondary-bg);">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.5rem;" data-key="showcase_title">Innovation Lab</h2>
-                <p style="text-align: center; color: #666; margin-bottom: 4rem; font-size: 1.1rem;" data-key="showcase_subtitle">Exploring new technologies and building innovative solutions</p>
-                <!-- 2. Personal Projects -->
-                <div id="app-works"></div>
-                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 0.5rem; color: var(--accent-color);" data-key="cat_app">Personal Projects</h3>
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 2rem; font-style: italic;" data-key="personal_note">
-                    *These are our personal projects that showcase our technical capabilities. Not currently offered as commercial services.
-                </p>
-                <div class="project-grid" style="margin-bottom: 4rem;">
-                    <!-- Mood Balloon -->
-                    <div class="project-card scale-in">
-                        <img src="img/mood-balloon.jpg" alt="Mood Balloon" class="project-image">
-                        <div class="project-content">
-                            <span class="tag">Personal Project</span>
-                            <h3>Mood Balloon</h3>
-                            <p data-key="app_mood_desc">An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.</p>
-                            <span style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;" data-key="app_coming_soon">Coming Soon</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. Data Intelligence -->
-
-                <div class="project-grid">
-                    <!-- Superstore -->
-                    <div class="project-card scale-in">
-                        <img src="img/streamlit_preview.png" alt="Superstore Analysis" class="project-image">
-                        <div class="project-content">
-                            <span class="tag">Streamlit · Data</span>
-                            <h3 data-key="data_viz_proj1_title">Superstore Sales Analysis</h3>
-                            <p data-key="data_viz_proj1_desc">Interactive dashboard for exploring and analyzing superstore sales data.</p>
-                            <a href="https://superstore-sales-dashboard-johnson.streamlit.app/" target="_blank">View Live →</a>
-                        </div>
-                    </div>
-
-                    <!-- HK Retail Sales -->
-                    <div class="project-card scale-in">
-                        <img src="img/tableau_preview.png" alt="HK Retail Sales" class="project-image">
-                        <div class="project-content">
-                            <span class="tag">Tableau · BI</span>
-                            <h3 data-key="data_viz_proj2_title">HK Retail Sales Analysis</h3>
-                            <p data-key="data_viz_proj2_desc">Comprehensive analysis of Hong Kong retail industry sales trends and insights.</p>
-                            <a href="https://public.tableau.com/views/HKRetailSalesAnalysis_17624449946750/Dashboard1" target="_blank">View Live →</a>
-                        </div>
-                    </div>
-
-                    <!-- Tableau BMW -->
-                    <div class="project-card scale-in">
-                        <img src="img/bmw-sales-analysis.png" alt="BMW Analysis" class="project-image">
-                        <div class="project-content">
-                            <span class="tag">Tableau · BI</span>
-                            <h3 data-key="data_viz_proj3_title">BMW Sales Analysis</h3>
-                            <p data-key="data_viz_proj3_desc">In-depth analysis of global BMW sales trends and performance metrics.</p>
-                            <a href="https://public.tableau.com/views/BMWSalesAnalysis_17624449946750/111" target="_blank">View Live →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- About Section -->
         <section id="about" class="fade-in-section">
@@ -688,6 +692,59 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section id="faq" class="fade-in-section">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 data-key="faq_title">Frequently Asked Questions</h2>
+                    <p data-key="faq_desc">Got questions? We've got answers.</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq1_q">How long does it take to build a website?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq1_a">Quick Launch takes 3-5 business days. Business Brand takes 7-10 days. E-commerce stores take 10-14 days depending on the number of products.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq2_q">Do I own the website after completion?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq2_a">Yes! You get full ownership of the domain, hosting accounts, and all passwords. However, note that Wix/WordPress platforms require ongoing subscriptions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq3_q">Can I update the website myself?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq3_a">Absolutely! We build on user-friendly platforms like Wix and WordPress. We'll provide training on how to update content, add pages, and manage your site.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq4_q">What if I need help after the website is done?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq4_a">All packages include 3 months of free support. After that, you can opt for our monthly maintenance plan at HK$800/month.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq5_q">Do you provide SEO services?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq5_a">Yes! All our packages include basic SEO setup (meta tags, descriptions, sitemap). For advanced SEO and Google Ads management, we offer custom packages.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" data-key="faq6_q">What payment methods do you accept?</button>
+                        <div class="faq-answer">
+                            <p data-key="faq6_a">We accept bank transfer (FPS/HSBC), PayMe, and Alipay. 50% deposit required to start, 50% upon completion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Contact Section -->
         <section id="contact" style="background-color: var(--secondary-bg);" class="fade-in-section">
@@ -817,7 +874,7 @@
                 'step4_title': '移交', 'step4_desc': '交付所有資產所有權，包括賬戶與密碼。',
                 'cat_web': '網站解決方案', 'cat_app': '移動創新', 'cat_data': '數據智能',
                 'web_proj1_title': 'Harbour Trade Co.', 'web_proj1_desc': '專業貿易公司網站，支持雙語切換，展示進出口解決方案及全面的貿易服務。',
-                'web_proj2_title': 'Flow Space', 'web_proj2_desc': '極簡風格的瑜伽工作室網站，包含課程表、預約整合及寧靜的視覺設計。',
+                'web_proj2_title': '服務推廣單頁', 'web_proj2_desc': '專為服務提供商設計的高轉化落地頁，針對手機端與 WhatsApp 諮詢優化。',
                 'btn_select': 'WhatsApp 諮詢', 'btn_contact': 'WhatsApp 諮詢',
                 'works_title': '精選案例',
                 'app_mood_desc': '一款專注於情緒記錄與心靈療癒的 iOS 應用。追蹤你的心情變化，理解自己的感受，通過正念日記培養內心的平靜與安寧。',
@@ -872,7 +929,7 @@
                 'step4_title': '移交', 'step4_desc': '交付所有资产所有权，包括账户与密码。',
                 'cat_web': '网站解决方案', 'cat_app': '移动创新', 'cat_data': '数据智能',
                 'web_proj1_title': 'Harbour Trade Co.', 'web_proj1_desc': '专业贸易公司网站，支持双语切换，展示进出口解决方案及全面的贸易服务。',
-                'web_proj2_title': 'Flow Space', 'web_proj2_desc': '极简风格的瑜伽工作室网站，包含课程表、预约整合及宁静的视觉设计。',
+                'web_proj2_title': '服务推广单页', 'web_proj2_desc': '专为服务提供商设计的高转化落地页，针对手机端与 WhatsApp 咨询优化。',
                 'btn_select': 'WhatsApp 咨询', 'btn_contact': 'WhatsApp 咨询',
                 'works_title': '精选案例',
                 'app_mood_desc': '一款专注于情绪记录与心灵疗愈的 iOS 应用。追踪你的心情变化，理解自己的感受，通过正念日记培养内心的平静与安宁。',
