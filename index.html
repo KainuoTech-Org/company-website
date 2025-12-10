@@ -642,8 +642,8 @@
                         </div>
                     <div>
                         <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">02</div>
-                        <h3 style="font-size: 1.2rem;" data-key="step2_title">Design</h3>
-                        <p data-key="step2_desc">We craft visual concepts aligned with your brand identity.</p>
+                        <h3 style="font-size: 1.2rem;" data-key="step2_title">Setup & Design</h3>
+                        <p data-key="step2_desc">We handle domain, SSL, professional email, and visual design.</p>
                     </div>
                     <div>
                         <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">03</div>
@@ -652,8 +652,8 @@
                             </div>
                     <div>
                         <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">04</div>
-                        <h3 style="font-size: 1.2rem;" data-key="step4_title">Launch</h3>
-                        <p data-key="step4_desc">Final testing, deployment, and full ownership transfer.</p>
+                        <h3 style="font-size: 1.2rem;" data-key="step4_title">Handover</h3>
+                        <p data-key="step4_desc">Full ownership transfer with a detailed operation guide.</p>
                         </div>
                     </div>
                 </div>
@@ -719,60 +719,62 @@
                          </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" style="background-color: var(--secondary-bg);" class="fade-in-section">
-            <div class="container" style="max-width: 600px;">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <h2 data-key="contact_title">Get in Touch</h2>
-                    <p data-key="contact_intro">Ready to start your project? Contact us today.</p>
-                    <p style="font-size: 1.2rem;">
-                        <a href="mailto:contact@kainuotech.com">contact@kainuotech.com</a><br>
-                        <a href="https://wa.me/85293412653" target="_blank" style="color: var(--accent-color);">+852 93412653 (WhatsApp)</a>
-                    </p>
-                         </div>
+        <!-- Contact & Footer Section (Merged) -->
+        <footer id="contact" style="background: #1A1A1A; color: #fff; padding: 5rem 0;">
+            <div class="container" style="display: flex; flex-wrap: wrap; gap: 4rem;">
+                
+                <!-- Left Column: Company Info -->
+                <div style="flex: 1; min-width: 300px;">
+                    <h2 style="color: #fff; margin-bottom: 1.5rem; font-size: 2.5rem;" data-key="contact_title">Get in Touch</h2>
+                    <p style="color: #bbb; margin-bottom: 2.5rem; font-size: 1.1rem;" data-key="contact_intro">Ready to start your project? Contact us today.</p>
+                    
+                    <div style="margin-bottom: 3rem; line-height: 2; color: #ddd;">
+                        <div style="margin-bottom: 1rem;">
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">Email</strong>
+                            <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color); text-decoration: none;">contact@kainuotech.com</a>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">WhatsApp</strong>
+                            <a href="https://wa.me/85293412653" target="_blank" style="color: var(--accent-color); text-decoration: none;">+852 93412653</a>
+                        </div>
+                        <div>
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">Address</strong>
+                            Unit 1-20, 9/F., Hopeful Factory Centre, Fo Tan, Hong Kong
+                        </div>
+                    </div>
 
-                <form id="contact-form" style="background: #fff; padding: 2rem; border: 1px solid var(--border-color);">
-                    <div style="margin-bottom: 1rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;" data-key="contact_name_label">Name</label>
-                        <input type="text" id="name_field" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; font-family: var(--font-sans);">
-                         </div>
-                    <div style="margin-bottom: 1rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;" data-key="contact_email_label">Email</label>
-                        <input type="email" id="email_field" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; font-family: var(--font-sans);">
+                    <div style="border-top: 1px solid #333; padding-top: 2rem; margin-top: auto;">
+                        <p style="color: #666; font-size: 0.9rem; margin: 0;">
+                            Kainuo Innovision Tech Co., Limited<br>
+                            &copy; <span id="year"></span> All rights reserved. | D-U-N-S®: 77-331-5956
+                        </p>
                     </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;" data-key="contact_msg_label">Message</label>
-                        <textarea id="textarea_field" rows="4" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; font-family: var(--font-sans);"></textarea>
-                    </div>
-                    <button type="submit" id="send-btn" class="btn" style="width: 100%; margin: 0;" data-key="contact_send_btn">Send Message</button>
-                    <div id="form-status" style="margin-top: 1rem; text-align: center; display: none;"></div>
-                     </form>
+                </div>
 
-                <!-- Map Section -->
-                <div style="margin-top: 3rem;">
-                    <div style="border: 1px solid var(--border-color); overflow: hidden;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.856325976363!2d114.1914673760423!3d22.396828240750865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404063630af030d%3A0x3c688828b7038582!2sHopeful%20Factory%20Centre!5e0!3m2!1sen!2shk!4v1709123456789!5m2!1sen!2shk" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- Right Column: Form & Map -->
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 2rem;">
+                    <!-- Dark Theme Form -->
+                    <form id="contact-form" style="background: #222; padding: 2rem; border: 1px solid #333;">
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" id="name_field" placeholder="Name" required style="width: 100%; padding: 1rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="email" id="email_field" placeholder="Email" required style="width: 100%; padding: 1rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <textarea id="textarea_field" rows="4" placeholder="Message" required style="width: 100%; padding: 1rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);"></textarea>
+                        </div>
+                        <button type="submit" id="send-btn" class="btn" style="width: 100%; margin: 0; background: var(--accent-color); border: none; color: #fff;" data-key="contact_send_btn">Send Message</button>
+                        <div id="form-status" style="margin-top: 1rem; text-align: center; display: none;"></div>
+                    </form>
+
+                    <!-- Compact Map -->
+                    <div style="height: 200px; border: 1px solid #333; overflow: hidden; filter: grayscale(100%) invert(92%) contrast(83%);">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.856325976363!2d114.1914673760423!3d22.396828240750865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404063630af030d%3A0x3c688828b7038582!2sHopeful%20Factory%20Centre!5e0!3m2!1sen!2shk!4v1709123456789!5m2!1sen!2shk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-                    <p style="text-align: center; font-size: 0.9rem; color: #444; margin-top: 1rem; line-height: 1.6;">
-                        <span style="display: inline-block; padding: 1rem 2rem; background: #fff; border: 1px solid #e0e0e0; border-radius: 2px;">
-                            <strong>Address:</strong> Unit 1-20, 9/F., Hopeful Factory Centre, Fo Tan, Hong Kong<br>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Unit+1-20,+9/F.,+Hopeful+Factory+Centre,+Fo+Tan,+Hong+Kong" target="_blank" style="color: var(--accent-color); font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem; display: inline-block; border-bottom: 1px solid var(--accent-color);">
-                                Open in Google Maps / 在 Google 地圖中開啟 ↗
-                            </a>
-                        </span>
-                    </p>
                 </div>
             </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            <div style="margin-bottom: 1rem;">Kainuo Innovision Tech Co., Limited</div>
-            <p>&copy; <span id="year"></span> All rights reserved. | D-U-N-S® Number: 77-331-5956</p>
-        </div>
-    </footer>
+        </footer>
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/85293412653?text=Hi%20Kainuo,%20I'm%20interested%20in%20your%20web%20design%20services." class="whatsapp-float" target="_blank">
@@ -790,15 +792,15 @@
                 'nav_web_dev': 'Web Development', 'nav_innovation': 'Innovation Lab', 'nav_mobile': 'Mobile Apps',
                 'web_dev_title': 'Web Development Services',
                 'hero_title': 'Digital Craftsmanship for Business Growth.',
-                'hero_subtitle': 'Web Development · Data Intelligence · Mobile Apps',
-                'hero_desc': 'We build professional websites and data solutions that help Hong Kong businesses thrive in the digital age.',
+                'hero_subtitle': 'Web Development · Mobile Apps · Digital Solutions',
+                'hero_desc': 'We build professional websites and custom software solutions that help Hong Kong businesses thrive in the digital age.',
                 'btn_start': 'Start Project', 'btn_view_work': 'View Work',
                 'services_title': 'Web Design Packages',
-                'services_desc': 'Professional websites built with modern no-code platforms. Fast delivery, easy maintenance.',
+                'services_desc': 'Professional websites built with modern web technologies. Fast delivery, easy maintenance.',
                 'pkg1_title': 'Quick Launch', 'pkg1_for': 'Best for Startups / Personal Profile',
-                'pkg1_f1': 'One-Page Static Site (High Performance)', 'pkg1_f2': 'Bilingual (EN / Trad. Chi)', 'pkg1_f3': 'Mobile Responsive Design', 'pkg1_f4': 'Social Links & WhatsApp Chat', 'pkg1_f5': 'Free Domain Email Forwarding', 'pkg1_f6': 'Basic SEO Setup', 'pkg1_f7': 'Free Domain (.com) & SSL (1st Year)', 'pkg1_f8': '3-Month Support',
+                'pkg1_f1': 'One-Page Static Site (High Performance)', 'pkg1_f2': 'Bilingual (EN / Trad. Chi)', 'pkg1_f3': 'Mobile Responsive Design', 'pkg1_f4': 'Social Media Links & Chat Integration', 'pkg1_f5': 'Free Domain Email Forwarding', 'pkg1_f6': 'Basic SEO Setup', 'pkg1_f7': 'Free Domain (.com) & SSL (1st Year)', 'pkg1_f8': '3-Month Support',
                 'pkg2_title': 'Business Brand', 'pkg2_for': 'Best for Growing Business / Corporate',
-                'pkg2_f1': 'Multi-Page Website (Home + 4 Pages)', 'pkg2_f2': 'Multi-Language (EN/TC/SC +1)', 'pkg2_f3': 'Professional Email Setup (Google/Zoho)', 'pkg2_f4': 'Contact Form & Google Maps', 'pkg2_f5': 'Online Booking System (Calendly/WhatsApp)', 'pkg2_f6': 'Advanced SEO Optimization', 'pkg2_f7': 'Live Social Feed (IG/FB Sync)', 'pkg2_f8': 'Includes All Quick Launch Benefits',
+                'pkg2_f1': 'Multi-Page Website (Home + 4 Pages)', 'pkg2_f2': 'Multi-Language (EN/TC/SC +1)', 'pkg2_f3': 'Professional Email Setup (Google/Zoho)', 'pkg2_f4': 'Contact Form & Google Maps', 'pkg2_f5': 'Online Booking System (Calendly/WhatsApp)', 'pkg2_f6': 'Advanced SEO Optimization', 'pkg2_f7': 'Live Social Feed Widget (IG/FB Sync)', 'pkg2_f8': 'Includes All Quick Launch Benefits',
                 'pkg_pro_title': 'Professional Custom', 'pkg_pro_for': 'E-commerce & Web App', 'pkg_pro_price': '<small>From</small> HK$8,880',
                 'pkg_pro_f1': 'Full E-commerce (Shopify/Woo)', 'pkg_pro_f2': 'Member System & Login', 'pkg_pro_f3': 'Custom Interactive UI (GSAP)', 'pkg_pro_f4': 'Payment Gateway (Stripe/PayPal)', 'pkg_pro_f5': 'CMS Content Management', 'pkg_pro_f6': 'Priority Technical Support', 'pkg_pro_f7': 'Includes All Business Brand Benefits',
                 'pkg3_title': 'Add-Ons & Custom', 'pkg3_for': 'Upgrade Your Package',
@@ -806,9 +808,9 @@
                 'process_title': 'How It Works',
                 'process_desc': 'Simple 4-step process to get your business online.',
                 'step1_title': 'Consult', 'step1_desc': 'We discuss your goals and define the project scope.',
-                'step2_title': 'Design', 'step2_desc': 'We craft visual concepts aligned with your brand identity.',
+                'step2_title': 'Setup & Design', 'step2_desc': 'We handle domain, SSL, professional email (Forwarding or Business Account), and visual design.',
                 'step3_title': 'Develop', 'step3_desc': 'We build your solution using robust modern technologies.',
-                'step4_title': 'Launch', 'step4_desc': 'Final testing, deployment, and full ownership transfer.',
+                'step4_title': 'Handover', 'step4_desc': 'Full ownership transfer with a detailed operation guide and training.',
                 'cat_web': 'Web Solutions', 'cat_app': 'Mobile Innovation', 'cat_data': 'Data Intelligence',
                 'tag_corporate': 'Corporate Concept', 'tag_studio': 'Studio Concept', 'tag_fnb': 'F&B Concept', 'tag_vintage': 'Vintage Concept',
                 'web_proj1_title': 'Harbour Trade Co.', 'web_proj1_desc': 'A professional trading company website with bilingual support, showcasing import/export solutions and comprehensive trade services.',
@@ -827,8 +829,8 @@
                 'data_viz_proj3_title': 'BMW Sales Analysis',
                 'data_viz_proj3_desc': 'In-depth analysis of global BMW sales trends and performance metrics.',
                 'about_title': 'About Us',
-                'about_p1': 'Kainuo Innovision Tech is a Hong Kong-based digital creative agency. We specialize in crafting professional brand websites and innovative digital experiences for businesses.',
-                'about_p2': 'Focusing on high-performance static web technologies, we help brands establish their online presence swiftly. We also provide mobile innovation and data intelligence consulting to drive business growth.',
+                'about_p1': 'Kainuo Innovision Tech is a Hong Kong-based digital creative agency. We specialize in high-quality software development and digital experience design.',
+                'about_p2': 'We specialize in crafting professional websites and custom mobile applications. From responsive corporate sites to complex iOS apps, we deliver digital solutions that drive real business growth.',
                 'contact_title': 'Get in Touch',
                 'contact_intro': 'Ready to start your project? Contact us today.',
                 'contact_name_label': 'Name', 'contact_email_label': 'Email', 'contact_msg_label': 'Message', 'contact_send_btn': 'Send Message',
@@ -853,15 +855,15 @@
                 'nav_web_dev': '網站開發', 'nav_innovation': '創新實驗室', 'nav_mobile': '移動應用',
                 'web_dev_title': '網站開發服務',
                 'hero_title': '為商業增長打造的數字工藝',
-                'hero_subtitle': '網站開發 · 數據智能 · 移動應用',
-                'hero_desc': '我們致力於提供專業的網站和數據解決方案，幫助香港企業在數字時代蓬勃發展。',
+                'hero_subtitle': '網站開發 · 移動應用 · 數字解決方案',
+                'hero_desc': '我們致力於提供專業的網站和軟件定製解決方案，幫助香港企業在數字時代蓬勃發展。',
                 'btn_start': '開始專案', 'btn_view_work': '查看案例',
                 'services_title': '網站設計方案',
-                'services_desc': '採用現代化零代碼平台搭建專業網站，快速交付，輕鬆維護。',
+                'services_desc': '採用現代化技術棧搭建專業網站，快速交付，輕鬆維護。',
                 'pkg1_title': '快速啟動版', 'pkg1_for': '適合 初創企業 / 個人形象頁',
-                'pkg1_f1': '單頁式靜態網站 (高性能)', 'pkg1_f2': '標準雙語 (英 / 繁)', 'pkg1_f3': '手機響應式設計', 'pkg1_f4': '社交鏈接 & WhatsApp 接入', 'pkg1_f5': '免費域名郵箱轉發', 'pkg1_f6': '基礎 SEO 優化', 'pkg1_f7': '贈送域名 (.com) & SSL (首年)', 'pkg1_f8': '3 個月技術支持',
+                'pkg1_f1': '單頁式靜態網站 (高性能)', 'pkg1_f2': '標準雙語 (英 / 繁)', 'pkg1_f3': '手機響應式設計', 'pkg1_f4': '社交鏈接與聊天集成', 'pkg1_f5': '免費域名郵箱轉發', 'pkg1_f6': '基礎 SEO 優化', 'pkg1_f7': '贈送域名 (.com) & SSL (首年)', 'pkg1_f8': '3 個月技術支持',
                 'pkg2_title': '品牌商務版', 'pkg2_for': '適合 成長型企業 / 公司官網',
-                'pkg2_f1': '多頁面架構 (首頁 + 4 個內頁)', 'pkg2_f2': '多語言支持 (英/繁/簡 +1)', 'pkg2_f3': '企業郵箱配置 (Google/Zoho)', 'pkg2_f4': '聯絡表單 & Google 地圖', 'pkg2_f5': '線上預約系統 (Calendly/WhatsApp)', 'pkg2_f6': '進階 SEO 優化', 'pkg2_f7': 'IG/FB 實時動態牆 (自動同步)', 'pkg2_f8': '包含快速啟動版所有內容',
+                'pkg2_f1': '多頁面架構 (首頁 + 4 個內頁)', 'pkg2_f2': '多語言支持 (英/繁/簡 +1)', 'pkg2_f3': '企業郵箱配置 (Google/Zoho)', 'pkg2_f4': '聯絡表單 & Google 地圖', 'pkg2_f5': '線上預約系統 (Calendly/WhatsApp)', 'pkg2_f6': '進階 SEO 優化', 'pkg2_f7': '社交動態實時展示 (IG/FB)', 'pkg2_f8': '包含快速啟動版所有內容',
                 'pkg_pro_title': '專業定制版', 'pkg_pro_for': '適合 電商與功能型網站', 'pkg_pro_price': 'HK$8,880 <small>起</small>',
                 'pkg_pro_f1': '全功能電商系統 (Shopify/Woo)', 'pkg_pro_f2': '會員系統 & 登入功能', 'pkg_pro_f3': '高端交互特效 (GSAP)', 'pkg_pro_f4': '支付網關集成 (Stripe/PayPal)', 'pkg_pro_f5': 'CMS 內容管理後台', 'pkg_pro_f6': '優先技術支持', 'pkg_pro_f7': '包含品牌商務版所有內容',
                 'pkg3_title': '增值服務 & 定制', 'pkg3_for': '升級您的方案',
@@ -869,9 +871,9 @@
                 'process_title': '服務流程',
                 'process_desc': '簡單四步，助您的業務快速上線。',
                 'step1_title': '諮詢', 'step1_desc': '溝通業務目標，確立項目範圍。',
-                'step2_title': '設計', 'step2_desc': '打造符合品牌調性的視覺概念與原型。',
+                'step2_title': '配置與設計', 'step2_desc': '處理域名、SSL、企業郵箱（轉發或商務帳戶）及視覺設計。',
                 'step3_title': '開發', 'step3_desc': '運用現代化技術構建高效能的解決方案。',
-                'step4_title': '發布', 'step4_desc': '最終測試、上線部署及完整權限移交。',
+                'step4_title': '移交', 'step4_desc': '完整權限移交，並提供詳細操作指南與教學。',
                 'cat_web': '網站解決方案', 'cat_app': '移動創新', 'cat_data': '數據智能',
                 'tag_corporate': '企業概念設計', 'tag_studio': '工作室概念設計', 'tag_fnb': '餐飲概念設計', 'tag_vintage': '復古概念設計',
                 'web_proj1_title': 'Harbour Trade Co.', 'web_proj1_desc': '專業貿易公司網站，支持雙語切換，展示進出口解決方案及全面的貿易服務。',
@@ -890,8 +892,8 @@
                 'data_viz_proj3_title': '寶馬汽車銷售分析',
                 'data_viz_proj3_desc': '一個基於 Tableau 構建的互動式儀表板，深度分析寶馬汽車的全球銷售數據。',
                 'about_title': '關於我們',
-                'about_p1': '凱諾創享科技是一家總部位於香港的數字創意機構。我們專注於為企業打造專業的品牌網站與創新的數字體驗。',
-                'about_p2': '我們致力於通過高效能的靜態網頁技術，幫助品牌快速建立網上形象，同時提供移動應用創新與數據智能諮詢，推動業務增長。',
+                'about_p1': '凱諾創享科技是一家總部位於香港的數字創意機構。我們專注於高質量的軟件開發與數字體驗設計。',
+                'about_p2': '我們專注於打造專業的品牌網站與定製化移動應用。從響應式企業官網到復雜的 iOS 應用開發，我們提供能推動業務增長的數字解決方案。',
                 'contact_title': '聯絡我們',
                 'contact_intro': '準備好開始您的專案了嗎？歡迎隨時聯繫我們。',
                 'contact_name_label': '您的姓名', 'contact_email_label': '您的郵箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '發送訊息',
@@ -916,15 +918,15 @@
                 'nav_web_dev': '网站开发', 'nav_innovation': '创新实验室', 'nav_mobile': '移动应用',
                 'web_dev_title': '网站开发服务',
                 'hero_title': '为商业增长打造的数字工艺',
-                'hero_subtitle': '网站开发 · 数据智能 · 移动应用',
-                'hero_desc': '我们致力于提供专业的网站和数据解决方案，帮助香港企业在数字时代蓬勃发展。',
+                'hero_subtitle': '网站开发 · 移动应用 · 数字解决方案',
+                'hero_desc': '我们致力于提供专业的网站和软件定制解决方案，帮助香港企业在数字时代蓬勃发展。',
                 'btn_start': '开始项目', 'btn_view_work': '查看案例',
                 'services_title': '网站设计方案',
-                'services_desc': '采用现代化零代码平台搭建专业网站，快速交付，轻松维护。',
+                'services_desc': '采用现代化技术栈搭建专业网站，快速交付，轻松维护。',
                 'pkg1_title': '快速启动版', 'pkg1_for': '适合 初创企业 / 个人形象页',
-                'pkg1_f1': '单页式静态网站 (高性能)', 'pkg1_f2': '标准双语 (英 / 繁)', 'pkg1_f3': '手机响应式设计', 'pkg1_f4': '社交链接 & WhatsApp 接入', 'pkg1_f5': '免费域名邮箱转发', 'pkg1_f6': '基础 SEO 优化', 'pkg1_f7': '赠送域名 (.com) & SSL (首年)', 'pkg1_f8': '3 个月技术支持',
+                'pkg1_f1': '单页式静态网站 (高性能)', 'pkg1_f2': '标准双语 (英 / 繁)', 'pkg1_f3': '手机响应式设计', 'pkg1_f4': '社交链接与聊天集成', 'pkg1_f5': '免费域名邮箱转发', 'pkg1_f6': '基础 SEO 优化', 'pkg1_f7': '赠送域名 (.com) & SSL (首年)', 'pkg1_f8': '3 个月技术支持',
                 'pkg2_title': '品牌商务版', 'pkg2_for': '适合 成长型企业 / 公司官网',
-                'pkg2_f1': '多页面架构 (首页 + 4 个内页)', 'pkg2_f2': '多语言支持 (英/繁/简 +1)', 'pkg2_f3': '企业邮箱配置 (Google/Zoho)', 'pkg2_f4': '联络表单 & Google 地图', 'pkg2_f5': '在线预约系统 (Calendly/WhatsApp)', 'pkg2_f6': '进阶 SEO 优化', 'pkg2_f7': 'IG/FB 实时动态墙 (自动同步)', 'pkg2_f8': '包含快速启动版所有内容',
+                'pkg2_f1': '多页面架构 (首页 + 4 个内页)', 'pkg2_f2': '多语言支持 (英/繁/简 +1)', 'pkg2_f3': '企业邮箱配置 (Google/Zoho)', 'pkg2_f4': '联络表单 & Google 地图', 'pkg2_f5': '在线预约系统 (Calendly/WhatsApp)', 'pkg2_f6': '进阶 SEO 优化', 'pkg2_f7': '社交动态实时展示 (IG/FB)', 'pkg2_f8': '包含快速启动版所有内容',
                 'pkg_pro_title': '专业定制版', 'pkg_pro_for': '适合 电商与功能型网站', 'pkg_pro_price': 'HK$8,880 <small>起</small>',
                 'pkg_pro_f1': '全功能电商系统 (Shopify/Woo)', 'pkg_pro_f2': '会员系统 & 登录功能', 'pkg_pro_f3': '高端交互特效 (GSAP)', 'pkg_pro_f4': '支付网关集成 (Stripe/PayPal)', 'pkg_pro_f5': 'CMS 内容管理后台', 'pkg_pro_f6': '优先技术支持', 'pkg_pro_f7': '包含品牌商务版所有内容',
                 'pkg3_title': '增值服务 & 定制', 'pkg3_for': '升级您的方案',
@@ -932,9 +934,9 @@
                 'process_title': '服务流程',
                 'process_desc': '简单四步，助您的业务快速上线。',
                 'step1_title': '咨询', 'step1_desc': '沟通业务目标，确立项目范围。',
-                'step2_title': '设计', 'step2_desc': '打造符合品牌调性的视觉概念与原型。',
+                'step2_title': '配置与设计', 'step2_desc': '处理域名、SSL、企业邮箱（转发或商务账户）及视觉设计。',
                 'step3_title': '开发', 'step3_desc': '运用现代化技术构建高效能的解决方案。',
-                'step4_title': '发布', 'step4_desc': '最终测试、上线部署及完整权限移交。',
+                'step4_title': '移交', 'step4_desc': '完整权限移交，并提供详细操作指南与教学。',
                 'cat_web': '网站解决方案', 'cat_app': '移动创新', 'cat_data': '数据智能',
                 'tag_corporate': '企业概念设计', 'tag_studio': '工作室概念设计', 'tag_fnb': '餐饮概念设计', 'tag_vintage': '复古概念设计',
                 'web_proj1_title': 'Harbour Trade Co.', 'web_proj1_desc': '专业贸易公司网站，支持双语切换，展示进出口解决方案及全面的贸易服务。',
@@ -953,8 +955,8 @@
                 'data_viz_proj3_title': '宝马汽车销售分析',
                 'data_viz_proj3_desc': '一个基于 Tableau 构建的交互式仪表盘，深度分析宝马汽车的全球销售数据。',
                 'about_title': '关于我们',
-                'about_p1': '凯诺创享科技是一家总部位于香港的数字创意机构。我们专注于为企业打造专业的品牌网站与创新的数字体验。',
-                'about_p2': '我们致力于通过高效能的静态网页技术，帮助品牌快速建立网上形象，同时提供移动应用创新与数据智能咨询，推动业务增长。',
+                'about_p1': '凯诺创享科技是一家总部位于香港的数字创意机构。我们专注于高质量的软件开发与数字体验设计。',
+                'about_p2': '我们专注于打造专业的品牌网站与定制化移动应用。从响应式企业官网到复杂的 iOS 应用开发，我们提供能推动业务增长的数字解决方案。',
                 'contact_title': '联系我们',
                 'contact_intro': '准备好开始您的项目了吗？欢迎随时联系我们。',
                 'contact_name_label': '您的姓名', 'contact_email_label': '您的邮箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '发送消息',
