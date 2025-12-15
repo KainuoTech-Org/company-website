@@ -506,29 +506,6 @@
             color: #FFF;
         }
 
-        /* D-U-N-S Badge */
-        .duns-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 50px;
-            background: rgba(212, 175, 55, 0.05);
-            font-size: 0.85rem;
-            color: #ddd;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .duns-badge:hover {
-            border-color: var(--accent-color);
-            background: rgba(212, 175, 55, 0.15);
-            transform: translateY(-2px);
-            color: #fff;
-        }
-        .duns-icon { color: var(--accent-color); font-size: 1rem; }
-
         /* Language Switcher */
         .lang-switcher button {
             background: none; border: none; cursor: pointer;
@@ -795,7 +772,7 @@
         </section>
 
         <!-- Contact & Footer Section (Merged) -->
-        <footer id="contact" style="background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #fff; padding: 4rem 0 2rem 0;">
+        <footer id="contact" style="background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #fff; padding: 4rem 0 1.5rem 0;">
             <div class="container" style="display: flex; flex-wrap: wrap; gap: 4rem;">
                 
                 <!-- Left Column: Company Info -->
@@ -816,14 +793,10 @@
                             <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_address">Address</strong>
                             <span data-key="contact_address_text">Unit 1-20, 9/F., Hopeful Factory Centre, Fo Tan, Hong Kong</span>
                         </div>
-                    </div>
-
-                    <!-- D-U-N-S Trust Badge -->
-                    <div style="margin-bottom: 2rem;">
-                        <a href="#" class="duns-badge" title="Verify D-U-N-S Number">
-                            <span class="duns-icon">🛡️</span>
-                            <span>D-U-N-S® Registered: <strong>77-331-5956</strong></span>
-                        </a>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="duns_label">D-U-N-S® Registered</strong>
+                            <a href="https://www.dnb.com/business-directory/company-profiles.html" target="_blank" style="color: #bbb; text-decoration: none; font-family: monospace;">77-331-5956</a>
+                        </div>
                     </div>
 
                     <div style="border-top: 1px solid #333; padding-top: 2rem; margin-top: auto;">
@@ -843,6 +816,9 @@
                         </div>
                         <div style="margin-bottom: 1rem;">
                             <input type="email" id="email_field" placeholder="Email" required style="width: 100%; padding: 1rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="tel" id="phone_field" placeholder="Phone" style="width: 100%; padding: 1rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);">
                         </div>
                         <div style="margin-bottom: 1.5rem;">
                             <textarea id="textarea_field" rows="4" placeholder="Message" required style="width: 100%; padding: 1rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);"></textarea>
@@ -1242,6 +1218,7 @@
                 'contact_label_whatsapp': 'WhatsApp',
                 'contact_label_address': 'Address',
                 'contact_address_text': 'Unit 1-20, 9/F., Hopeful Factory Centre, 10-16 Wo Shing Street, Fo Tan, Hong Kong',
+                'duns_label': 'D-U-N-S® Registered',
                 'footer_copyright': 'Kainuo Innovision Tech Co., Limited',
                 'faq_title': 'Frequently Asked Questions',
                 'faq_desc': 'Got questions? We\'ve got answers.',
@@ -1305,6 +1282,7 @@
                 'contact_label_whatsapp': 'WhatsApp',
                 'contact_label_address': '地址',
                 'contact_address_text': '火炭禾盛街 10-16 號海輝工業中心 9 樓 1-20 室',
+                'duns_label': '鄧白氏® 認證企業',
                 'footer_copyright': '凱諾創享科技有限公司',
                 'faq_title': '常見問題',
                 'faq_desc': '有疑問？我們為您解答。',
@@ -1374,6 +1352,7 @@
                 'contact_label_whatsapp': 'WhatsApp',
                 'contact_label_address': '地址',
                 'contact_address_text': '火炭禾盛街 10-16 号海辉工业中心 9 楼 1-20 室',
+                'duns_label': '邓白氏® 认证企业',
                 'footer_copyright': '凯诺创享科技有限公司',
                 'faq_title': '常见问题',
                 'faq_desc': '有疑问？我们为您解答。',
@@ -1467,6 +1446,7 @@
                 name: document.getElementById('name_field').value,
                 from_name: document.getElementById('name_field').value,
                 from_email: document.getElementById('email_field').value,
+                phone: document.getElementById('phone_field').value,
                 message: document.getElementById('textarea_field').value,
                 to_email: 'contact@kainuotech.com'
             };
