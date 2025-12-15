@@ -549,8 +549,11 @@
                 <div style="margin-top: 2rem;" class="hero-animate hero-delay-3">
                     <a href="#contact" class="btn" data-key="btn_start">Start Project</a>
                     <a href="#works" class="btn btn-outline" data-key="btn_view_work">View Work</a>
-                        </div>
-                    </div>
+                </div>
+                <div class="hint-text" style="margin-top: 3rem; font-size: 0.8rem; color: #888; font-style: italic; opacity: 0; animation: fadeFloatUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 2s;" data-key="hint_interactive">
+                    ✨ Tip: Click the clouds or empty space
+                </div>
+            </div>
         </section>
 
         <!-- About Us Section -->
@@ -837,12 +840,12 @@
     <div class="elfsight-app-31ed6060-ff70-4b5a-bb8f-f8c2f74d8b83" data-elfsight-app-lazy></div>
 
     <script>
-        // Interactive Background Script - Floating Clouds
+        // Interactive Background Script - Floating Clouds & Physics Playground
         (function() {
             const canvas = document.getElementById('bg-canvas');
             const ctx = canvas.getContext('2d');
             let width, height;
-            let entities = []; // Holds clouds and particles
+            let entities = []; // Clouds, particles, physics shapes
 
             // Mouse tracking
             let mouse = { x: -1000, y: -1000 };
@@ -852,21 +855,44 @@
                 mouse.y = e.clientY;
             });
 
-            // Handle Clicks - Break Clouds
+            // Handle Clicks - Break Clouds OR Spawn Physics Shapes
             window.addEventListener('mousedown', e => {
                 const clickX = e.clientX;
                 const clickY = e.clientY;
+                let hitCloud = false;
+
+                // Hide hint on first click
+                const hint = document.querySelector('.hint-text');
+                if (hint && hint.style.opacity !== '0') {
+                    hint.style.transition = 'opacity 0.5s ease';
+                    hint.style.opacity = '0';
+                    setTimeout(() => hint.style.display = 'none', 500);
+                }
                 
-                // Iterate backwards to remove from top
+                // Iterate backwards to check clouds (top layer first)
                 for (let i = entities.length - 1; i >= 0; i--) {
                     const entity = entities[i];
                     if (entity instanceof Cloud && entity.isPointInside(clickX, clickY)) {
                         entity.explode();
                         entities.splice(i, 1);
+                        hitCloud = true;
                         break; // Break one at a time
                     }
                 }
+
+                // If didn't hit a cloud, spawn "Game" elements
+                if (!hitCloud) {
+                    spawnPhysicsShapes(clickX, clickY);
+                }
             });
+
+            function spawnPhysicsShapes(x, y) {
+                // Spawn a burst of bouncing shapes
+                const count = 5 + Math.floor(Math.random() * 5);
+                for (let i = 0; i < count; i++) {
+                    entities.push(new PhysicsShape(x, y));
+                }
+            }
 
             // Cloud Class
             class Cloud {
@@ -877,8 +903,9 @@
                 init() {
                     this.x = Math.random() * width;
                     this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 0.2; // Slower, more natural drift
-                    this.vy = (Math.random() - 0.5) * 0.1;
+                    // Flow to the right (Wind effect)
+                    this.vx = 0.2 + Math.random() * 0.3; 
+                    this.vy = (Math.random() - 0.5) * 0.05; // Very slight vertical drift
                     
                     // Create fluffy shape from multiple circles
                     this.puffs = [];
@@ -904,25 +931,26 @@
                     // 1. Internal Morphing Animation
                     this.puffs.forEach(p => {
                         p.phase += p.speed;
-                        // Oscillate relative position to simulate breathing/morphing
                         p.x = p.baseX + Math.sin(p.phase) * p.amp;
                         p.y = p.baseY + Math.cos(p.phase) * p.amp;
                     });
 
-                    // 2. Movement Logic
-                    // Check if mouse is hovering over the cloud
+                    // 2. Movement Logic (Wind + Interaction)
                     const isHovered = this.isPointInside(mouse.x, mouse.y);
 
                     if (!isHovered) {
-                        // Only move if NOT hovering
                         this.x += this.vx;
                         this.y += this.vy;
                     } 
-                    // If hovering, we simply skip adding vx/vy, effectively pausing it.
 
-                    // 3. Wrap around screen
-                    if (this.x > width + 100) this.x = -100;
-                    if (this.x < -100) this.x = width + 100;
+                    // 3. Wrap around screen (Flow Right)
+                    // If cloud goes off right edge, reappear on left
+                    if (this.x > width + 150) {
+                        this.x = -150;
+                        this.y = Math.random() * height; // Randomize Y on re-entry
+                    }
+                    
+                    // Vertical wrap just in case
                     if (this.y > height + 100) this.y = -100;
                     if (this.y < -100) this.y = height + 100;
 
@@ -933,9 +961,8 @@
                     ctx.save();
                     ctx.translate(this.x, this.y);
                     
-                    // Style
                     ctx.fillStyle = '#FFFFFF';
-                    // Soft gold shadow for visibility on cream background
+                    // Soft gold shadow
                     ctx.shadowColor = 'rgba(212, 175, 55, 0.15)'; 
                     ctx.shadowBlur = 20;
                     ctx.shadowOffsetX = 0;
@@ -943,7 +970,6 @@
 
                     ctx.beginPath();
                     this.puffs.forEach(p => {
-                        // Use the animated relative positions (p.x, p.y)
                         ctx.moveTo(p.x + p.r, p.y);
                         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
                     });
@@ -952,21 +978,18 @@
                 }
 
                 isPointInside(mx, my) {
-                    // Simple distance check for interaction
-                    // Increased threshold slightly to make hovering easier
                     const dist = Math.sqrt((this.x - mx)**2 + (this.y - my)**2);
                     return dist < (70 * this.scale); 
                 }
 
                 explode() {
-                    // Create particles
                     for (let i = 0; i < 15; i++) {
                         entities.push(new Particle(this.x, this.y, this.scale));
                     }
                 }
             }
 
-            // Explosion Particle Class
+            // Explosion Particle Class (Cloud Debris)
             class Particle {
                 constructor(x, y, scale) {
                     this.x = x + (Math.random() - 0.5) * 50;
@@ -988,16 +1011,106 @@
                     if (this.life > 0) {
                         this.draw();
                     }
-                    // Return true if dead to filter it out
                     return this.life <= 0;
                 }
 
                 draw() {
                     ctx.save();
                     ctx.globalAlpha = this.life;
-                    ctx.fillStyle = '#D4AF37'; // Gold particles
+                    ctx.fillStyle = '#D4AF37';
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+
+            // Physics Shape Class (The "Game" Element)
+            class PhysicsShape {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    // Random Velocity
+                    this.vx = (Math.random() - 0.5) * 10;
+                    this.vy = (Math.random() - 1) * 10 - 5; // Initial pop up
+                    
+                    // Physics Props
+                    this.gravity = 0.5;
+                    this.friction = 0.8; // Bounciness (0.8 = retains 80% energy)
+                    this.drag = 0.99; // Air resistance
+                    
+                    // Style
+                    this.type = Math.floor(Math.random() * 3); // 0: Circle, 1: Square, 2: Triangle
+                    this.size = Math.random() * 10 + 8;
+                    this.color = Math.random() > 0.5 ? '#D4AF37' : '#1A1A1A'; // Gold or Black
+                    this.rotation = Math.random() * Math.PI * 2;
+                    this.rotSpeed = (Math.random() - 0.5) * 0.2;
+                    
+                    this.life = 600; // Frames before disappearing (approx 10 secs)
+                }
+
+                update() {
+                    // Physics
+                    this.vy += this.gravity;
+                    this.vx *= this.drag;
+                    
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.rotation += this.rotSpeed;
+                    this.life--;
+
+                    // Floor Collision
+                    if (this.y + this.size > height) {
+                        this.y = height - this.size;
+                        this.vy *= -this.friction;
+                    }
+                    // Wall Collision
+                    if (this.x + this.size > width) {
+                        this.x = width - this.size;
+                        this.vx *= -this.friction;
+                    }
+                    if (this.x - this.size < 0) {
+                        this.x = this.size;
+                        this.vx *= -this.friction;
+                    }
+
+                    // Mouse Interaction (Kick)
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 50) {
+                        const force = (50 - dist) / 50;
+                        this.vx += (dx / dist) * force * 5;
+                        this.vy += (dy / dist) * force * 5;
+                    }
+
+                    if (this.life > 0) {
+                        this.draw();
+                        return false;
+                    }
+                    return true; // Dead
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.rotation);
+                    ctx.fillStyle = this.color;
+                    
+                    // Fade out near end
+                    if (this.life < 50) ctx.globalAlpha = this.life / 50;
+
+                    ctx.beginPath();
+                    if (this.type === 0) { // Circle
+                        ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+                    } else if (this.type === 1) { // Square
+                        ctx.rect(-this.size, -this.size, this.size*2, this.size*2);
+                    } else { // Triangle
+                        ctx.moveTo(0, -this.size);
+                        ctx.lineTo(this.size, this.size);
+                        ctx.lineTo(-this.size, this.size);
+                        ctx.closePath();
+                    }
                     ctx.fill();
                     ctx.restore();
                 }
@@ -1027,11 +1140,11 @@
                 ctx.fillRect(0, 0, width, height);
 
                 // Update & Draw Entities
-                // Iterate backwards to allow removal
                 for (let i = entities.length - 1; i >= 0; i--) {
                     const ent = entities[i];
-                    // If it's a particle and returns true (dead), remove it
-                    if (ent instanceof Particle) {
+                    
+                    if (ent instanceof Particle || ent instanceof PhysicsShape) {
+                        // These return true when dead
                         if (ent.update()) {
                             entities.splice(i, 1);
                         }
@@ -1107,7 +1220,8 @@
                 'faq5_q': 'Do you provide SEO services?',
                 'faq5_a': 'Yes! All our packages include basic SEO setup (meta tags, descriptions, sitemap). For advanced SEO and Google Ads management, we offer custom packages.',
                 'faq6_q': 'What payment methods do you accept?',
-                'faq6_a': 'We accept bank transfer (FPS/HSBC), PayMe, and Alipay. 50% deposit required to start, 50% upon completion.'
+                'faq6_a': 'We accept bank transfer (FPS/HSBC), PayMe, and Alipay. 50% deposit required to start, 50% upon completion.',
+                'hint_interactive': '✨ Tip: Click the clouds or empty space'
             },
             'zh-TW': {
                 'nav_brand': '凱諾創享',
@@ -1164,7 +1278,8 @@
                 'faq5_q': '你們提供 SEO 服務嗎？',
                 'faq5_a': '是的！所有套餐都包含基礎 SEO 設置（meta 標籤、描述、網站地圖）。如需進階 SEO 和 Google 廣告管理，我們提供定制套餐。',
                 'faq6_q': '你們接受什麼付款方式？',
-                'faq6_a': '我們接受銀行轉帳（FPS/匯豐）、PayMe 和支付寶。需先付 50% 訂金開始項目，完成後付餘下 50%。'
+                'faq6_a': '我們接受銀行轉帳（FPS/匯豐）、PayMe 和支付寶。需先付 50% 訂金開始項目，完成後付餘下 50%。',
+                'hint_interactive': '✨ 提示：點擊雲朵或空白處'
             },
             'zh-CN': {
                 'nav_brand': '凯诺创享',
@@ -1227,7 +1342,8 @@
                 'faq5_q': '你们提供 SEO 服务吗？',
                 'faq5_a': '是的！所有套餐都包含基础 SEO 设置（meta 标签、描述、网站地图）。如需进阶 SEO 和 Google 广告管理，我们提供定制套餐。',
                 'faq6_q': '你们接受什么付款方式？',
-                'faq6_a': '我们接受银行转账（FPS/汇丰）、PayMe 和支付宝。需先付 50% 订金开始项目，完成后付余下 50%。'
+                'faq6_a': '我们接受银行转账（FPS/汇丰）、PayMe 和支付宝。需先付 50% 订金开始项目，完成后付余下 50%。',
+                'hint_interactive': '✨ 提示：点击云朵或空白处'
             }
         };
 
