@@ -66,13 +66,25 @@
         }
 
         .hero-animate {
-            animation: fadeFloatUp 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            animation: fadeFloatUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             opacity: 0; /* Initial state hidden */
         }
 
         .hero-delay-1 { animation-delay: 0.2s; }
         .hero-delay-2 { animation-delay: 0.6s; }
         .hero-delay-3 { animation-delay: 1.0s; }
+
+        /* Animation classes for other sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         * { box-sizing: border-box; }
         
@@ -434,10 +446,19 @@
         .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
         
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2.2rem; } /* Adjusted for mobile */
+            h2 { font-size: 1.8rem; }
+            .container { padding: 0 1.5rem; } /* Slightly less padding */
+            section { padding: 4rem 0; } /* Reduce vertical padding */
+            
             .nav-links { display: none; } 
             .mobile-menu-btn { display: block; }
             .pricing-grid, .project-grid { grid-template-columns: 1fr; }
+            
+            /* Hero Adjustments */
+            #hero { padding: 6rem 0 4rem 0; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 1.5rem; }
+            .btn { width: 100%; margin: 0.5rem 0; } /* Stack buttons */
         }
 
         /* WhatsApp Floating Button */
@@ -515,9 +536,9 @@
         <section id="about" class="fade-in-section" style="background-color: var(--secondary-bg);">
             <div class="container">
                 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <h2 data-key="about_title">About Us</h2>
-                    <p data-key="about_p1" style="font-size: 1.1rem; line-height: 1.8; color: #555;">Kainuo Innovision Tech is a digital consultancy driven by innovation. We specialize in building Next.js / React-based web platforms with modern architecture that ensures fast, secure, and SEO-optimized performance. From bilingual brand websites to custom e-commerce platforms, we transform your business vision into scalable digital assets.</p>
-                    <p data-key="about_p2" style="font-size: 1.1rem; line-height: 1.8; color: #555;">We serve businesses across Hong Kong, Mainland China, and international markets. From strategic planning to digital product delivery, we help brands launch, scale, and evolve. We provide end-to-end solutions that bridge the gap between your vision and market reality.</p>
+                    <h2 data-key="about_title" class="fade-in-section">About Us</h2>
+                    <p data-key="about_p1" class="fade-in-section" style="font-size: 1.1rem; line-height: 1.8; color: #555; transition-delay: 0.2s;">Kainuo Innovision Tech is a digital consultancy driven by innovation. We specialize in building Next.js / React-based web platforms with modern architecture that ensures fast, secure, and SEO-optimized performance. From bilingual brand websites to custom e-commerce platforms, we transform your business vision into scalable digital assets.</p>
+                    <p data-key="about_p2" class="fade-in-section" style="font-size: 1.1rem; line-height: 1.8; color: #555; transition-delay: 0.4s;">We serve businesses across Hong Kong, Mainland China, and international markets. From strategic planning to digital product delivery, we help brands launch, scale, and evolve. We provide end-to-end solutions that bridge the gap between your vision and market reality.</p>
                 </div>
             </div>
         </section>
