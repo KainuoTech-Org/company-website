@@ -506,6 +506,29 @@
             color: #FFF;
         }
 
+        /* D-U-N-S Badge */
+        .duns-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            background: rgba(212, 175, 55, 0.05);
+            font-size: 0.85rem;
+            color: #ddd;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .duns-badge:hover {
+            border-color: var(--accent-color);
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+        .duns-icon { color: var(--accent-color); font-size: 1rem; }
+
         /* Language Switcher */
         .lang-switcher button {
             background: none; border: none; cursor: pointer;
@@ -772,15 +795,15 @@
         </section>
 
         <!-- Contact & Footer Section (Merged) -->
-        <footer id="contact" style="background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #fff; padding: 5rem 0;">
+        <footer id="contact" style="background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #fff; padding: 4rem 0 2rem 0;">
             <div class="container" style="display: flex; flex-wrap: wrap; gap: 4rem;">
                 
                 <!-- Left Column: Company Info -->
-                <div style="flex: 1; min-width: 300px;">
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
                     <h2 style="color: #fff; margin-bottom: 1.5rem; font-size: 2.5rem;" data-key="contact_title">Get in Touch</h2>
                     <p style="color: #bbb; margin-bottom: 2.5rem; font-size: 1.1rem;" data-key="contact_intro">Ready to start your project? Contact us today.</p>
                     
-                    <div style="margin-bottom: 3rem; line-height: 2; color: #ddd;">
+                    <div style="margin-bottom: 2rem; line-height: 2; color: #ddd;">
                         <div style="margin-bottom: 1rem;">
                             <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_email">Email</strong>
                             <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color); text-decoration: none;">contact@kainuotech.com</a>
@@ -795,10 +818,18 @@
                         </div>
                     </div>
 
+                    <!-- D-U-N-S Trust Badge -->
+                    <div style="margin-bottom: 2rem;">
+                        <a href="#" class="duns-badge" title="Verify D-U-N-S Number">
+                            <span class="duns-icon">🛡️</span>
+                            <span>D-U-N-S® Registered: <strong>77-331-5956</strong></span>
+                        </a>
+                    </div>
+
                     <div style="border-top: 1px solid #333; padding-top: 2rem; margin-top: auto;">
                         <p style="color: #666; font-size: 0.9rem; margin: 0;">
                             <span data-key="footer_copyright">Kainuo Innovision Tech Co., Limited</span><br>
-                            &copy; <span id="year"></span> All rights reserved. | D-U-N-S®: 77-331-5956
+                            &copy; <span id="year"></span> All rights reserved.
                         </p>
                     </div>
                 </div>
