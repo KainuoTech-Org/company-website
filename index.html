@@ -51,6 +51,23 @@
             --font-sans: 'Inter', sans-serif;
         }
 
+        /* Hero Fade-in Animation */
+        @keyframes fadeFloatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-animate {
+            animation: fadeFloatUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0; /* Initial state hidden */
+        }
+
         * { box-sizing: border-box; }
         
         body {
@@ -478,7 +495,7 @@
     <main>
         <!-- Hero Section -->
         <section id="hero">
-            <div class="container hero-content">
+            <div class="container hero-content hero-animate">
                 <h1 data-key="hero_title">Digital Craftsmanship for Business Growth.</h1>
                 <p class="hero-subtitle" data-key="hero_subtitle">Digital Transformation · Custom Solutions · Tech Consulting</p>
                 <div style="margin-top: 2rem;">
@@ -679,7 +696,7 @@
                 <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_app">Mobile Innovation</h3>
                 <div class="project-grid" style="margin-bottom: 4rem;">
                     <!-- Mood Balloon -->
-                    <div class="project-card scale-in">
+                    <div class="project-card scale-in" style="max-width: 450px;">
                         <img src="img/mood-balloon.jpg" alt="Mood Balloon" class="project-image">
                         <div class="project-content">
                             <h3>Mood Balloon</h3>
