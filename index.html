@@ -831,82 +831,110 @@
     <div class="elfsight-app-31ed6060-ff70-4b5a-bb8f-f8c2f74d8b83" data-elfsight-app-lazy></div>
 
     <script>
-        // Interactive Background Script
+        // Interactive Background Script - Digital Constellation
         (function() {
             const canvas = document.getElementById('bg-canvas');
             const ctx = canvas.getContext('2d');
             let width, height;
-            let orbs = [];
+            let particles = [];
             
+            // Configuration
+            const particleCount = 60; // Fewer particles for a cleaner look
+            const connectionDistance = 150;
+            const mouseDistance = 200;
+
             // Mouse tracking
-            let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            let mouse = { x: null, y: null };
             
             window.addEventListener('mousemove', e => {
                 mouse.x = e.clientX;
                 mouse.y = e.clientY;
             });
 
-            // Orb Class
-            class Orb {
+            window.addEventListener('mouseout', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            // Particle Class
+            class Particle {
                 constructor() {
                     this.init();
                 }
 
                 init() {
-                    this.radius = Math.random() * 100 + 200; // Large soft orbs (200-300px)
                     this.x = Math.random() * width;
                     this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 0.5; // Very slow movement
+                    this.vx = (Math.random() - 0.5) * 0.5; // Slow constant movement
                     this.vy = (Math.random() - 0.5) * 0.5;
-                    this.color = Math.random() > 0.5 ? 
-                        'rgba(212, 175, 55, 0.12)' : // Gold, slightly more visible (0.08 -> 0.12)
-                        'rgba(236, 234, 228, 0.6)';  // Secondary BG color, more visible (0.4 -> 0.6)
-                    
-                    // Interaction factor (how much it reacts to mouse)
-                    this.friction = 0.95;
-                    this.springFactor = 0.01;
+                    this.size = Math.random() * 2 + 1; // Small, sharp dots
+                    this.baseColor = 'rgba(212, 175, 55, 0.4)'; // Gold
                 }
 
                 update() {
-                    // Natural movement
                     this.x += this.vx;
                     this.y += this.vy;
 
-                    // Mouse interaction - gentle repulsion/attraction
-                    const dx = mouse.x - this.x;
-                    const dy = mouse.y - this.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    const maxDist = 600;
+                    // Mouse Interaction
+                    if (mouse.x != null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < maxDist) {
-                        const force = (maxDist - dist) / maxDist; // 0 to 1
-                        const directionX = dx / dist;
-                        const directionY = dy / dist;
-                        
-                        // Move slightly AWAY from mouse for a "parting clouds" effect
-                        this.vx -= directionX * force * 0.05;
-                        this.vy -= directionY * force * 0.05;
+                        if (distance < mouseDistance) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const force = (mouseDistance - distance) / mouseDistance;
+                            
+                            // Gentle repulsion
+                            const directionX = forceDirectionX * force * 0.6;
+                            const directionY = forceDirectionY * force * 0.6;
+                            
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
                     }
 
-                    // Boundary wrap
-                    if (this.x < -this.radius) this.x = width + this.radius;
-                    if (this.x > width + this.radius) this.x = -this.radius;
-                    if (this.y < -this.radius) this.y = height + this.radius;
-                    if (this.y > height + this.radius) this.y = -this.radius;
+                    // Boundary Check
+                    if (this.x < 0 || this.x > width) this.vx = -this.vx;
+                    if (this.y < 0 || this.y > height) this.vy = -this.vy;
 
-                    // Draw
                     this.draw();
                 }
 
                 draw() {
-                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-                    gradient.addColorStop(0, this.color);
-                    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-
-                    ctx.fillStyle = gradient;
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.baseColor;
                     ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                // Responsive particle count
+                const count = width < 768 ? 30 : 60;
+                for (let i = 0; i < count; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function connect() {
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a; b < particles.length; b++) {
+                        let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) + 
+                                     ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                        
+                        if (distance < (connectionDistance * connectionDistance)) {
+                            let opacity = 1 - (distance / (connectionDistance * connectionDistance));
+                            ctx.strokeStyle = 'rgba(212, 175, 55,' + (opacity * 0.15) + ')'; // Very faint gold lines
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.stroke();
+                        }
+                    }
                 }
             }
 
@@ -915,24 +943,19 @@
                 height = window.innerHeight;
                 canvas.width = width;
                 canvas.height = height;
-                initOrbs();
-            }
-
-            function initOrbs() {
-                orbs = [];
-                // Number of orbs based on screen size
-                const numOrbs = Math.floor(width * height / 150000); 
-                for (let i = 0; i < numOrbs; i++) {
-                    orbs.push(new Orb());
-                }
+                initParticles();
             }
 
             function animate() {
-                // Clear with base color
+                ctx.clearRect(0, 0, width, height);
+                // Fill background
                 ctx.fillStyle = '#F9F7F2';
                 ctx.fillRect(0, 0, width, height);
                 
-                orbs.forEach(orb => orb.update());
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                }
+                connect();
                 requestAnimationFrame(animate);
             }
 
