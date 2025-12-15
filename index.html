@@ -831,33 +831,39 @@
     <div class="elfsight-app-31ed6060-ff70-4b5a-bb8f-f8c2f74d8b83" data-elfsight-app-lazy></div>
 
     <script>
-        // Interactive Background Script - Digital Constellation
+        // Interactive Background Script - Floating Clouds
         (function() {
             const canvas = document.getElementById('bg-canvas');
             const ctx = canvas.getContext('2d');
             let width, height;
-            let particles = [];
-            
-            // Configuration
-            const particleCount = 60; // Fewer particles for a cleaner look
-            const connectionDistance = 150;
-            const mouseDistance = 200;
+            let entities = []; // Holds clouds and particles
 
             // Mouse tracking
-            let mouse = { x: null, y: null };
+            let mouse = { x: -1000, y: -1000 };
             
             window.addEventListener('mousemove', e => {
                 mouse.x = e.clientX;
                 mouse.y = e.clientY;
             });
 
-            window.addEventListener('mouseout', () => {
-                mouse.x = null;
-                mouse.y = null;
+            // Handle Clicks - Break Clouds
+            window.addEventListener('mousedown', e => {
+                const clickX = e.clientX;
+                const clickY = e.clientY;
+                
+                // Iterate backwards to remove from top
+                for (let i = entities.length - 1; i >= 0; i--) {
+                    const entity = entities[i];
+                    if (entity instanceof Cloud && entity.isPointInside(clickX, clickY)) {
+                        entity.explode();
+                        entities.splice(i, 1);
+                        break; // Break one at a time
+                    }
+                }
             });
 
-            // Particle Class
-            class Particle {
+            // Cloud Class
+            class Cloud {
                 constructor() {
                     this.init();
                 }
@@ -865,76 +871,129 @@
                 init() {
                     this.x = Math.random() * width;
                     this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * 0.5; // Slow constant movement
-                    this.vy = (Math.random() - 0.5) * 0.5;
-                    this.size = Math.random() * 2 + 1; // Small, sharp dots
-                    this.baseColor = 'rgba(212, 175, 55, 0.4)'; // Gold
+                    this.vx = (Math.random() - 0.5) * 0.3; // Gentle drift
+                    this.vy = (Math.random() - 0.5) * 0.1;
+                    
+                    // Create fluffy shape from multiple circles
+                    this.puffs = [];
+                    const puffCount = 5 + Math.floor(Math.random() * 4);
+                    this.scale = 0.8 + Math.random() * 0.6; // Cloud size
+                    
+                    for (let i = 0; i < puffCount; i++) {
+                        this.puffs.push({
+                            x: (Math.random() - 0.5) * 60 * this.scale,
+                            y: (Math.random() - 0.5) * 30 * this.scale,
+                            r: (25 + Math.random() * 25) * this.scale
+                        });
+                    }
                 }
 
                 update() {
+                    // 1. Move
                     this.x += this.vx;
                     this.y += this.vy;
 
-                    // Mouse Interaction
-                    if (mouse.x != null) {
-                        let dx = mouse.x - this.x;
-                        let dy = mouse.y - this.y;
-                        let distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < mouseDistance) {
-                            const forceDirectionX = dx / distance;
-                            const forceDirectionY = dy / distance;
-                            const force = (mouseDistance - distance) / mouseDistance;
-                            
-                            // Gentle repulsion
-                            const directionX = forceDirectionX * force * 0.6;
-                            const directionY = forceDirectionY * force * 0.6;
-                            
-                            this.x -= directionX;
-                            this.y -= directionY;
-                        }
+                    // 2. Mouse Repulsion (Gentle push)
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 200) {
+                        const force = (200 - dist) / 200;
+                        this.vx += (dx / dist) * force * 0.05;
+                        this.vy += (dy / dist) * force * 0.05;
                     }
 
-                    // Boundary Check
-                    if (this.x < 0 || this.x > width) this.vx = -this.vx;
-                    if (this.y < 0 || this.y > height) this.vy = -this.vy;
+                    // 3. Friction to return to normal speed
+                    this.vx *= 0.99;
+                    this.vy *= 0.99;
+
+                    // 4. Wrap around screen
+                    if (this.x > width + 100) this.x = -100;
+                    if (this.x < -100) this.x = width + 100;
+                    if (this.y > height + 100) this.y = -100;
+                    if (this.y < -100) this.y = height + 100;
 
                     this.draw();
                 }
 
                 draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    
+                    // Style
+                    ctx.fillStyle = '#FFFFFF';
+                    // Soft gold shadow for visibility on cream background
+                    ctx.shadowColor = 'rgba(212, 175, 55, 0.15)'; 
+                    ctx.shadowBlur = 20;
+                    ctx.shadowOffsetX = 0;
+                    ctx.shadowOffsetY = 5;
+
+                    ctx.beginPath();
+                    this.puffs.forEach(p => {
+                        ctx.moveTo(p.x + p.r, p.y);
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    });
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                isPointInside(mx, my) {
+                    // Simple distance check for interaction
+                    const dist = Math.sqrt((this.x - mx)**2 + (this.y - my)**2);
+                    return dist < (50 * this.scale); 
+                }
+
+                explode() {
+                    // Create particles
+                    for (let i = 0; i < 15; i++) {
+                        entities.push(new Particle(this.x, this.y, this.scale));
+                    }
+                }
+            }
+
+            // Explosion Particle Class
+            class Particle {
+                constructor(x, y, scale) {
+                    this.x = x + (Math.random() - 0.5) * 50;
+                    this.y = y + (Math.random() - 0.5) * 30;
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = Math.random() * 3 + 2;
+                    this.vx = Math.cos(angle) * speed;
+                    this.vy = Math.sin(angle) * speed;
+                    this.life = 1.0;
+                    this.decay = Math.random() * 0.03 + 0.02;
+                    this.size = (Math.random() * 10 + 5) * scale;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.life -= this.decay;
+                    
+                    if (this.life > 0) {
+                        this.draw();
+                    }
+                    // Return true if dead to filter it out
+                    return this.life <= 0;
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.life;
+                    ctx.fillStyle = '#D4AF37'; // Gold particles
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = this.baseColor;
                     ctx.fill();
+                    ctx.restore();
                 }
             }
 
-            function initParticles() {
-                particles = [];
-                // Responsive particle count
-                const count = width < 768 ? 30 : 60;
-                for (let i = 0; i < count; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function connect() {
-                for (let a = 0; a < particles.length; a++) {
-                    for (let b = a; b < particles.length; b++) {
-                        let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) + 
-                                     ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-                        
-                        if (distance < (connectionDistance * connectionDistance)) {
-                            let opacity = 1 - (distance / (connectionDistance * connectionDistance));
-                            ctx.strokeStyle = 'rgba(212, 175, 55,' + (opacity * 0.15) + ')'; // Very faint gold lines
-                            ctx.lineWidth = 1;
-                            ctx.beginPath();
-                            ctx.moveTo(particles[a].x, particles[a].y);
-                            ctx.lineTo(particles[b].x, particles[b].y);
-                            ctx.stroke();
-                        }
-                    }
+            function initWorld() {
+                entities = [];
+                // Create Clouds
+                const cloudCount = width < 768 ? 8 : 15;
+                for (let i = 0; i < cloudCount; i++) {
+                    entities.push(new Cloud());
                 }
             }
 
@@ -943,19 +1002,29 @@
                 height = window.innerHeight;
                 canvas.width = width;
                 canvas.height = height;
-                initParticles();
+                initWorld();
             }
 
             function animate() {
                 ctx.clearRect(0, 0, width, height);
-                // Fill background
+                // Background
                 ctx.fillStyle = '#F9F7F2';
                 ctx.fillRect(0, 0, width, height);
-                
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
+
+                // Update & Draw Entities
+                // Iterate backwards to allow removal
+                for (let i = entities.length - 1; i >= 0; i--) {
+                    const ent = entities[i];
+                    // If it's a particle and returns true (dead), remove it
+                    if (ent instanceof Particle) {
+                        if (ent.update()) {
+                            entities.splice(i, 1);
+                        }
+                    } else {
+                        ent.update();
+                    }
                 }
-                connect();
+                
                 requestAnimationFrame(animate);
             }
 
