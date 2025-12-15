@@ -759,7 +759,7 @@
             </div>
         </section>
         <!-- Social Media Feed Section -->
-        <section id="social-feed" style="padding: 4rem 0; background-color: var(--bg-color); text-align: center; border-bottom: 1px solid var(--border-color);">
+        <section id="social-feed" style="padding: 4rem 0; background-color: transparent; text-align: center; border-bottom: 1px solid var(--border-color);">
             <div class="container">
                 <h2 class="sec-title" data-key="social_title">Follow Our Journey</h2>
                 <p style="margin-bottom: 2rem; opacity: 0.7; font-family: 'Playfair Display', serif; font-style: italic;" data-key="social_desc">Latest updates from our Instagram</p>
@@ -772,7 +772,7 @@
         </section>
 
         <!-- Contact & Footer Section (Merged) -->
-        <footer id="contact" style="background: #1A1A1A; color: #fff; padding: 5rem 0;">
+        <footer id="contact" style="background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #fff; padding: 5rem 0;">
             <div class="container" style="display: flex; flex-wrap: wrap; gap: 4rem;">
                 
                 <!-- Left Column: Company Info -->
@@ -782,22 +782,22 @@
                     
                     <div style="margin-bottom: 3rem; line-height: 2; color: #ddd;">
                         <div style="margin-bottom: 1rem;">
-                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">Email</strong>
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_email">Email</strong>
                             <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color); text-decoration: none;">contact@kainuotech.com</a>
                         </div>
                         <div style="margin-bottom: 1rem;">
-                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">WhatsApp</strong>
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_whatsapp">WhatsApp</strong>
                             <a href="https://wa.me/85293412653" target="_blank" style="color: var(--accent-color); text-decoration: none;">+852 93412653</a>
                         </div>
                         <div>
-                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;">Address</strong>
-                            Unit 1-20, 9/F., Hopeful Factory Centre, Fo Tan, Hong Kong
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_address">Address</strong>
+                            <span data-key="contact_address_text">Unit 1-20, 9/F., Hopeful Factory Centre, Fo Tan, Hong Kong</span>
                         </div>
                     </div>
 
                     <div style="border-top: 1px solid #333; padding-top: 2rem; margin-top: auto;">
                         <p style="color: #666; font-size: 0.9rem; margin: 0;">
-                            Kainuo Innovision Tech Co., Limited<br>
+                            <span data-key="footer_copyright">Kainuo Innovision Tech Co., Limited</span><br>
                             &copy; <span id="year"></span> All rights reserved. | D-U-N-S®: 77-331-5956
                         </p>
                     </div>
@@ -821,7 +821,7 @@
                     </form>
 
                     <!-- Compact Map -->
-                    <div style="height: 200px; border: 1px solid #333; overflow: hidden; filter: grayscale(100%) invert(92%) contrast(83%);">
+                    <div style="height: 350px; border: 1px solid #333; overflow: hidden; filter: grayscale(100%) invert(92%) contrast(83%);">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.856325976363!2d114.1914673760423!3d22.396828240750865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404063630af030d%3A0x3c688828b7038582!2sHopeful%20Factory%20Centre!5e0!3m2!1sen!2shk!4v1709123456789!5m2!1sen!2shk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
@@ -1207,6 +1207,11 @@
                 'contact_title': 'Get in Touch',
                 'contact_intro': 'Ready to start your project? Contact us today.',
                 'contact_name_label': 'Name', 'contact_email_label': 'Email', 'contact_msg_label': 'Message', 'contact_send_btn': 'Send Message',
+                'contact_label_email': 'Email',
+                'contact_label_whatsapp': 'WhatsApp',
+                'contact_label_address': 'Address',
+                'contact_address_text': 'Unit 1-20, 9/F., Hopeful Factory Centre, 10-16 Wo Shing Street, Fo Tan, Hong Kong',
+                'footer_copyright': 'Kainuo Innovision Tech Co., Limited',
                 'faq_title': 'Frequently Asked Questions',
                 'faq_desc': 'Got questions? We\'ve got answers.',
                 'faq1_q': 'How long does it take to build a website?',
@@ -1265,6 +1270,11 @@
                 'contact_title': '聯絡我們',
                 'contact_intro': '準備好開始您的專案了嗎？歡迎隨時聯繫我們。',
                 'contact_name_label': '您的姓名', 'contact_email_label': '您的郵箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '發送訊息',
+                'contact_label_email': '電郵',
+                'contact_label_whatsapp': 'WhatsApp',
+                'contact_label_address': '地址',
+                'contact_address_text': '火炭禾盛街 10-16 號海輝工業中心 9 樓 1-20 室',
+                'footer_copyright': '凱諾創享科技有限公司',
                 'faq_title': '常見問題',
                 'faq_desc': '有疑問？我們為您解答。',
                 'faq1_q': '建一個網站需要多久？',
@@ -1329,6 +1339,11 @@
                 'contact_title': '联系我们',
                 'contact_intro': '准备好开始您的项目了吗？欢迎随时联系我们。',
                 'contact_name_label': '您的姓名', 'contact_email_label': '您的邮箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '发送消息',
+                'contact_label_email': '邮箱',
+                'contact_label_whatsapp': 'WhatsApp',
+                'contact_label_address': '地址',
+                'contact_address_text': '火炭禾盛街 10-16 号海辉工业中心 9 楼 1-20 室',
+                'footer_copyright': '凯诺创享科技有限公司',
                 'faq_title': '常见问题',
                 'faq_desc': '有疑问？我们为您解答。',
                 'faq1_q': '建一个网站需要多久？',
