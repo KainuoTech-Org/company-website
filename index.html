@@ -199,8 +199,17 @@
         }
 
         /* Hero Section */
-        #hero { padding: 8rem 0; text-align: center; }
-        .hero-content { max-width: 800px; margin: 0 auto; }
+        #hero { 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+        .hero-content { max-width: 800px; margin: 0 auto; width: 100%; }
         .hero-subtitle { 
             font-size: 1.2rem; 
             color: #666; 
@@ -238,6 +247,28 @@
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
         }
 
+        /* Tech Stack Icons */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+        .tech-icon {
+            height: 32px;
+            width: auto;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+        }
+        .tech-icon:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        
         /* Services / Pricing Section (New Business Focus) */
         .pricing-grid {
             display: grid;
@@ -563,6 +594,18 @@
                     <h2 data-key="about_title" class="fade-in-section">About Us</h2>
                     <p data-key="about_p1" class="fade-in-section" style="font-size: 1.1rem; line-height: 1.8; color: #555; transition-delay: 0.2s;">Kainuo Innovision Tech is a digital consultancy driven by innovation. We specialize in building Next.js / React-based web platforms with modern architecture that ensures fast, secure, and SEO-optimized performance. From bilingual brand websites to custom e-commerce platforms, we transform your business vision into scalable digital assets.</p>
                     <p data-key="about_p2" class="fade-in-section" style="font-size: 1.1rem; line-height: 1.8; color: #555; transition-delay: 0.4s;">We serve businesses across Hong Kong, Mainland China, and international markets. From strategic planning to digital product delivery, we help brands launch, scale, and evolve. We provide end-to-end solutions that bridge the gap between your vision and market reality.</p>
+                
+                    <!-- Tech Stack Icons -->
+                    <div class="tech-stack fade-in-section" style="transition-delay: 0.6s;">
+                        <img src="https://cdn.simpleicons.org/react/1A1A1A" alt="React" class="tech-icon" title="React">
+                        <img src="https://cdn.simpleicons.org/nextdotjs/1A1A1A" alt="Next.js" class="tech-icon" title="Next.js">
+                        <img src="https://cdn.simpleicons.org/typescript/1A1A1A" alt="TypeScript" class="tech-icon" title="TypeScript">
+                        <img src="https://cdn.simpleicons.org/swift/1A1A1A" alt="Swift" class="tech-icon" title="Swift">
+                        <img src="https://cdn.simpleicons.org/shopify/1A1A1A" alt="Shopify" class="tech-icon" title="Shopify">
+                        <img src="https://cdn.simpleicons.org/stripe/1A1A1A" alt="Stripe" class="tech-icon" title="Stripe">
+                        <img src="https://cdn.simpleicons.org/vercel/1A1A1A" alt="Vercel" class="tech-icon" title="Vercel">
+                        <img src="https://cdn.simpleicons.org/github/1A1A1A" alt="GitHub" class="tech-icon" title="GitHub">
+                    </div>
                 </div>
             </div>
         </section>
@@ -638,7 +681,7 @@
                             <li data-key="pkg1_f5">Free Domain Email Forwarding</li>
                             <li data-key="pkg1_f6">Basic SEO Setup</li>
                             <li data-key="pkg1_f7">Free Domain (.com) & SSL (1st Year)</li>
-                            <li data-key="pkg1_f8">3-Month Support</li>
+                            <li data-key="pkg1_f8">3-Month Technical Maintenance</li>
                         </ul>
                         <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Quick%20Launch%20Plan%20(HK$3,880)." target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_select">Inquire via WhatsApp</a>
                     </div>
@@ -795,15 +838,8 @@
                         </div>
                         <div style="margin-top: 1rem;">
                             <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="duns_label">D-U-N-S® Registered</strong>
-                            <a href="https://www.dnb.com/business-directory/company-profiles.html" target="_blank" style="color: #bbb; text-decoration: none; font-family: monospace;">77-331-5956</a>
+                            <a href="https://www.dnb.com/business-directory/company-profiles.html" target="_blank" style="color: #bbb; text-decoration: none; font-family: monospace; font-size: 1.1rem;">77-331-5956</a>
                         </div>
-                    </div>
-
-                    <div style="border-top: 1px solid #333; padding-top: 2rem; margin-top: auto;">
-                        <p style="color: #666; font-size: 0.9rem; margin: 0;">
-                            <span data-key="footer_copyright">Kainuo Innovision Tech Co., Limited</span><br>
-                            &copy; <span id="year"></span> All rights reserved.
-                        </p>
                     </div>
                 </div>
 
@@ -834,6 +870,14 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Copyright Section (Bottom White Area) -->
+        <div style="text-align: center; padding: 2rem 0; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(0,0,0,0.05);">
+            <p style="margin: 0;">
+                <span data-key="footer_copyright">Kainuo Innovision Tech Co., Limited</span><br>
+                &copy; <span id="year"></span> All rights reserved.
+            </p>
+        </div>
 
     <!-- WhatsApp Floating Button (Legacy) -->
     <!--
@@ -1184,7 +1228,7 @@
                 'services_title': 'Digital Solution Packages',
                 'services_desc': 'Professional digital solutions built with modern technologies. Fast delivery, scalable architecture.',
                 'pkg1_title': 'Quick Launch', 'pkg1_for': 'Best for Startups / Personal Profile',
-                'pkg1_f1': 'One-Page Digital Presence', 'pkg1_f2': 'Bilingual (EN / Trad. Chi)', 'pkg1_f3': 'Mobile Responsive Design', 'pkg1_f4': 'Social Media Links & Chat Integration', 'pkg1_f5': 'Professional Email Forwarding', 'pkg1_f6': 'Basic SEO Setup', 'pkg1_f7': 'Free Domain (.com) & SSL (1st Year)', 'pkg1_f8': '3-Month Support',
+                'pkg1_f1': 'One-Page Digital Presence', 'pkg1_f2': 'Bilingual (EN / Trad. Chi)', 'pkg1_f3': 'Mobile Responsive Design', 'pkg1_f4': 'Social Media Links & Chat Integration', 'pkg1_f5': 'Professional Email Forwarding', 'pkg1_f6': 'Basic SEO Setup', 'pkg1_f7': 'Free Domain (.com) & SSL (1st Year)', 'pkg1_f8': '3-Month Technical Maintenance',
                 'pkg2_title': 'Business Brand', 'pkg2_for': 'Best for Growing Business / Corporate',
                 'pkg2_f1': 'Multi-Page Corporate Website', 'pkg2_f2': 'Multi-Language Support', 'pkg2_f3': 'Professional Email Setup (Google/Zoho)', 'pkg2_f4': 'Contact Form & Google Maps', 'pkg2_f5': 'Online Booking System Integration', 'pkg2_f6': 'Advanced SEO Optimization', 'pkg2_f7': 'Live Social Feed Widget', 'pkg2_f8': 'Includes All Quick Launch Benefits',
                 'pkg_pro_title': 'Professional Custom', 'pkg_pro_for': 'E-commerce & Custom Platforms', 'pkg_pro_price': '<small>From</small> HK$8,880',
@@ -1248,7 +1292,7 @@
                 'services_title': '數字解決方案套餐',
                 'services_desc': '採用現代化技術棧構建的專業數字方案。快速交付，架構靈活。',
                 'pkg1_title': '快速啟動版', 'pkg1_for': '適合 初創企業 / 個人形象頁',
-                'pkg1_f1': '單頁式數字形象 (高性能)', 'pkg1_f2': '標準雙語 (英 / 繁)', 'pkg1_f3': '全平台響應式設計', 'pkg1_f4': '社交鏈接與聊天集成', 'pkg1_f5': '專業域名郵箱轉發', 'pkg1_f6': '基礎 SEO 優化', 'pkg1_f7': '贈送域名 (.com) & SSL (首年)', 'pkg1_f8': '3 個月技術支持',
+                'pkg1_f1': '單頁式數字形象 (高性能)', 'pkg1_f2': '標準雙語 (英 / 繁)', 'pkg1_f3': '全平台響應式設計', 'pkg1_f4': '社交鏈接與聊天集成', 'pkg1_f5': '專業域名郵箱轉發', 'pkg1_f6': '基礎 SEO 優化', 'pkg1_f7': '贈送域名 (.com) & SSL (首年)', 'pkg1_f8': '3 個月技術維護',
                 'pkg2_title': '品牌商務版', 'pkg2_for': '適合 成長型企業 / 公司官網',
                 'pkg2_f1': '多頁面企業官網', 'pkg2_f2': '多語言支持 (英/繁/簡)', 'pkg2_f3': '企業郵箱配置 (Google/Zoho)', 'pkg2_f4': '聯絡表單 & Google 地圖', 'pkg2_f5': '線上預約系統集成', 'pkg2_f6': '進階 SEO 優化', 'pkg2_f7': '社交動態實時組件', 'pkg2_f8': '包含快速啟動版所有內容',
                 'pkg_pro_title': '專業定制版', 'pkg_pro_for': '適合 電商與定制平台', 'pkg_pro_price': 'HK$8,880 <small>起</small>',
@@ -1312,7 +1356,7 @@
                 'services_title': '数字解决方案套餐',
                 'services_desc': '采用现代化技术栈构建的专业数字方案。快速交付，架构灵活。',
                 'pkg1_title': '快速启动版', 'pkg1_for': '适合 初创企业 / 个人形象页',
-                'pkg1_f1': '单页式数字形象 (高性能)', 'pkg1_f2': '标准双语 (英 / 繁)', 'pkg1_f3': '全平台响应式设计', 'pkg1_f4': '社交链接与聊天集成', 'pkg1_f5': '专业域名邮箱转发', 'pkg1_f6': '基础 SEO 优化', 'pkg1_f7': '赠送域名 (.com) & SSL (首年)', 'pkg1_f8': '3 个月技术支持',
+                'pkg1_f1': '单页式数字形象 (高性能)', 'pkg1_f2': '标准双语 (英 / 繁)', 'pkg1_f3': '全平台响应式设计', 'pkg1_f4': '社交链接与聊天集成', 'pkg1_f5': '专业域名邮箱转发', 'pkg1_f6': '基础 SEO 优化', 'pkg1_f7': '赠送域名 (.com) & SSL (首年)', 'pkg1_f8': '3 个月技术维护',
                 'pkg2_title': '品牌商务版', 'pkg2_for': '适合 成长型企业 / 公司官网',
                 'pkg2_f1': '多页面企业官网', 'pkg2_f2': '多语言支持 (英/繁/简)', 'pkg2_f3': '企业邮箱配置 (Google/Zoho)', 'pkg2_f4': '联络表单 & Google 地图', 'pkg2_f5': '在线预约系统集成', 'pkg2_f6': '进阶 SEO 优化', 'pkg2_f7': '社交动态实时组件', 'pkg2_f8': '包含快速启动版所有内容',
                 'pkg_pro_title': '专业定制版', 'pkg_pro_for': '适合 电商与定制平台', 'pkg_pro_price': 'HK$8,880 <small>起</small>',
