@@ -101,7 +101,7 @@
         
         body {
             font-family: var(--font-sans);
-            background-color: var(--bg-color);
+            background-color: transparent; /* Changed from var(--bg-color) to reveal canvas */
             color: var(--text-color);
             line-height: 1.6;
             margin: 0;
@@ -133,7 +133,9 @@
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
-            background: var(--bg-color);
+            background: rgba(249, 247, 242, 0.85); /* Semi-transparent */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(10px);
             z-index: 100;
         }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
@@ -857,8 +859,8 @@
                     this.vx = (Math.random() - 0.5) * 0.5; // Very slow movement
                     this.vy = (Math.random() - 0.5) * 0.5;
                     this.color = Math.random() > 0.5 ? 
-                        'rgba(212, 175, 55, 0.08)' : // Gold, very transparent
-                        'rgba(236, 234, 228, 0.4)';  // Secondary BG color, transparent
+                        'rgba(212, 175, 55, 0.12)' : // Gold, slightly more visible (0.08 -> 0.12)
+                        'rgba(236, 234, 228, 0.6)';  // Secondary BG color, more visible (0.4 -> 0.6)
                     
                     // Interaction factor (how much it reacts to mouse)
                     this.friction = 0.95;
