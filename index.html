@@ -45,7 +45,7 @@
             --bg-color: #F9F7F2; /* Cream/Paper background */
             --text-color: #1A1A1A; /* Charcoal Black */
             --accent-color: #D4AF37; /* Vintage Gold */
-            --secondary-bg: #ECEAE4;
+            --secondary-bg: rgba(236, 234, 228, 0.6); /* Semi-transparent for glass effect */
             --border-color: #1A1A1A;
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
@@ -246,7 +246,9 @@
             margin-top: 3rem;
         }
         .price-card {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid var(--border-color);
             padding: 2rem;
             transition: transform 0.3s ease;
@@ -302,7 +304,9 @@
             gap: 3rem;
         }
         .project-card {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid #eee;
         }
         .project-image {
@@ -357,7 +361,9 @@
             margin: 0 auto;
         }
         .faq-item {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid #eee;
             margin-bottom: 1rem;
             overflow: hidden;
