@@ -51,22 +51,28 @@
             --font-sans: 'Inter', sans-serif;
         }
 
-        /* Hero Fade-in Animation */
+        /* Hero Fade-in Animation - Artistic Slow Blur */
         @keyframes fadeFloatUp {
             0% {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
+                filter: blur(10px);
             }
             100% {
                 opacity: 1;
                 transform: translateY(0);
+                filter: blur(0);
             }
         }
 
         .hero-animate {
-            animation: fadeFloatUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: fadeFloatUp 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             opacity: 0; /* Initial state hidden */
         }
+
+        .hero-delay-1 { animation-delay: 0.2s; }
+        .hero-delay-2 { animation-delay: 0.6s; }
+        .hero-delay-3 { animation-delay: 1.0s; }
 
         * { box-sizing: border-box; }
         
@@ -495,10 +501,10 @@
     <main>
         <!-- Hero Section -->
         <section id="hero">
-            <div class="container hero-content hero-animate">
-                <h1 data-key="hero_title">Digital Craftsmanship for Business Growth.</h1>
-                <p class="hero-subtitle" data-key="hero_subtitle">Digital Transformation · Custom Solutions · Tech Consulting</p>
-                <div style="margin-top: 2rem;">
+            <div class="container hero-content">
+                <h1 data-key="hero_title" class="hero-animate hero-delay-1">Digital Craftsmanship for Business Growth.</h1>
+                <p class="hero-subtitle hero-animate hero-delay-2" data-key="hero_subtitle">Digital Transformation · Custom Solutions · Tech Consulting</p>
+                <div style="margin-top: 2rem;" class="hero-animate hero-delay-3">
                     <a href="#contact" class="btn" data-key="btn_start">Start Project</a>
                     <a href="#works" class="btn btn-outline" data-key="btn_view_work">View Work</a>
                         </div>
