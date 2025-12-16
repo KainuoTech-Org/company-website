@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Kainuo Innovision Tech</title>
+    <link rel="icon" href="https://www.kainuotech.com/img/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #F9F7F2;
+            --text-color: #1A1A1A;
+            --accent-color: #D4AF37;
+            --secondary-bg: rgba(236, 234, 228, 0.6);
+            --border-color: #1A1A1A;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 { font-family: var(--font-serif); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(249, 247, 242, 0.95);
+            z-index: 100;
+        }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-color); text-decoration: none; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--text-color);
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border: 1px solid var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .lang-switcher button {
+            background: none; border: none; cursor: pointer;
+            font-family: var(--font-sans); font-size: 0.9rem;
+            color: #666; margin-left: 10px;
+        }
+        .lang-switcher button.active { color: var(--text-color); font-weight: 600; text-decoration: underline; }
+
+        footer {
+            background: rgba(26, 26, 26, 0.95);
+            color: #fff;
+            padding: 4rem 0 1.5rem 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="brand">Kainuo Innovision</a>
+            <div class="lang-switcher">
+                <button data-lang="en" class="active">EN</button>
+                <button data-lang="zh-TW">繁</button>
+                <button data-lang="zh-CN">简</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 4rem; padding-bottom: 4rem; flex: 1;">
+        <h1 data-key="terms_title" style="font-size: 2.5rem; margin-bottom: 2rem;">Terms of Service</h1>
+        
+        <div style="background: #fff; padding: 3rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px;">
+            <p data-key="terms_content" style="font-size: 1.1rem; color: #555;">
+                Our Terms of Service are currently being updated. Please contact us directly for any legal inquiries regarding our services.
+            </p>
+            
+            <div style="margin-top: 3rem; border-top: 1px solid #eee; padding-top: 2rem;">
+                <h3 data-key="contact_title">Contact Us</h3>
+                <p>Email: <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color);">contact@kainuotech.com</a></p>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <a href="index.html" class="btn" data-key="btn_back">← Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="margin: 0; color: #888;">
+                <span data-key="footer_copyright">Kainuo Innovision Tech Co., Limited</span><br>
+                &copy; <span id="year"></span> All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const i18n = {
+            'en': {
+                'terms_title': 'Terms of Service',
+                'terms_content': 'Our Terms of Service are currently being updated. Please contact us directly for any legal inquiries regarding our services.',
+                'contact_title': 'Contact Us',
+                'btn_back': '← Back to Home',
+                'footer_copyright': 'Kainuo Innovision Tech Co., Limited'
+            },
+            'zh-TW': {
+                'terms_title': '條款與細則',
+                'terms_content': '我們的條款與細則正在更新中。如有任何關於我們服務的法律諮詢，請直接與我們聯繫。',
+                'contact_title': '聯絡我們',
+                'btn_back': '← 返回首頁',
+                'footer_copyright': '凱諾創享科技有限公司'
+            },
+            'zh-CN': {
+                'terms_title': '条款与细则',
+                'terms_content': '我们的条款与细则正在更新中。如有任何关于我们服务的法律咨询，请直接与我们联系。',
+                'contact_title': '联系我们',
+                'btn_back': '← 返回首页',
+                'footer_copyright': '凯诺创享科技有限公司'
+            }
+        };
+
+        function applyLang(lang) {
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+            
+            document.querySelectorAll('.lang-switcher button').forEach(btn => {
+                if(btn.dataset.lang === lang) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        }
+
+        document.querySelectorAll('.lang-switcher button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                applyLang(btn.dataset.lang);
+            });
+        });
+    </script>
+</body>
+</html>

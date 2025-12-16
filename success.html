@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful | Kainuo Innovision Tech</title>
+    <link rel="icon" href="https://www.kainuotech.com/img/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #F9F7F2;
+            --text-color: #1A1A1A;
+            --accent-color: #D4AF37;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+
+        header { padding: 1.5rem 0; border-bottom: 1px solid #ddd; background: rgba(249, 247, 242, 0.95); }
+        .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-color); text-decoration: none; }
+
+        .success-card {
+            background: #fff;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .icon-circle {
+            width: 80px; height: 80px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 2rem auto;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-color); }
+        p { font-size: 1.1rem; color: #666; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--text-color);
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border: 1px solid var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn:hover { background-color: var(--accent-color); border-color: var(--accent-color); }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="text-align: left;">
+            <a href="index.html" class="brand">Kainuo Innovision</a>
+        </div>
+    </header>
+
+    <main class="container" style="flex: 1;">
+        <div class="success-card">
+            <div class="icon-circle">✓</div>
+            <h1>Payment Successful!</h1>
+            <p>Thank you for choosing Kainuo Innovision Tech. We have received your payment.</p>
+            <p><strong>What happens next?</strong><br>Our team will contact you via WhatsApp or Email within 24 hours to initiate your project onboarding.</p>
+            
+            <div style="margin-top: 3rem;">
+                <a href="index.html" class="btn">Return to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: #888; font-size: 0.9rem;">
+        <p>&copy; <span id="year"></span> Kainuo Innovision Tech Co., Limited</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
