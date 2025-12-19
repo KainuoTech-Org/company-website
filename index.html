@@ -51,6 +51,106 @@
             --font-sans: 'Inter', sans-serif;
         }
 
+        /* Floating Social Button Style (Uiverse.io by vinodjangid07) */
+        .social-dock {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column-reverse; /* Stack upwards */
+            gap: 15px;
+            z-index: 1000;
+            align-items: flex-end; /* Align to right */
+        }
+
+        .Btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition-duration: .3s;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+            background-color: #1A1A1A; /* Dark theme default */
+            text-decoration: none !important; /* Ensure links don't have underline */
+        }
+
+        /* plus sign (icon container) */
+        .sign {
+            width: 100%;
+            height: 100%;
+            transition-duration: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .sign img, .sign svg {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+        
+        .sign svg path {
+            fill: white;
+        }
+
+        /* text */
+        .text {
+            position: absolute;
+            right: 0%;
+            width: 0%;
+            opacity: 0;
+            color: white;
+            font-size: 0.9rem; /* Adjusted font size */
+            font-weight: 500;
+            transition-duration: .3s;
+            white-space: nowrap; /* Prevent wrapping */
+            font-family: var(--font-sans);
+        }
+
+        /* hover effect on button width */
+        .Btn:hover {
+            width: 140px; /* Expanded width */
+            border-radius: 40px;
+            transition-duration: .3s;
+        }
+
+        /* Brand Colors on Hover */
+        .Btn.whatsapp:hover { background-color: #25D366; }
+        .Btn.linkedin:hover { background-color: #0077B5; }
+        .Btn.instagram:hover { background-color: #E1306C; }
+        .Btn.facebook:hover { background-color: #1877F2; }
+        .Btn.github:hover { background-color: #333; }
+        .Btn.xiaohongshu:hover { background-color: #FF2442; }
+
+        .Btn:hover .sign {
+            width: 30%;
+            transition-duration: .3s;
+            padding-left: 15px;
+            justify-content: flex-start;
+        }
+
+        /* hover effect button's text */
+        .Btn:hover .text {
+            opacity: 1;
+            width: 70%;
+            transition-duration: .3s;
+            padding-right: 15px;
+            right: 5px; /* Adjust text position */
+        }
+
+        /* button click effect*/
+        .Btn:active {
+            transform: translate(2px ,2px);
+        }
+
         /* Loading Screen */
         #loader-wrapper {
             position: fixed;
@@ -1352,33 +1452,44 @@
             </p>
         </div>
 
-    <!-- WhatsApp Floating Button (Legacy) -->
-    <!--
-    <a href="https://wa.me/85293412653?text=Hi%20Kainuo,%20I'm%20interested%20in%20your%20web%20design%20services." class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 35px; height: 35px;">
-    </a>
-    -->
-
-    <!-- Social Floating Dock -->
+    <!-- Social Floating Dock (Updated Style) -->
     <div class="social-dock">
-        <a href="https://www.linkedin.com/company/kainuo-tech/" target="_blank" class="social-float-btn" title="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <!-- WhatsApp (Primary) -->
+        <a href="javascript:void(0)" class="Btn whatsapp" onclick="toggleWhatsAppWidget()">
+            <div class="sign"><img src="https://cdn.simpleicons.org/whatsapp/white" alt="WhatsApp"></div>
+            <div class="text">Chat with Us</div>
         </a>
-        <a href="https://github.com/KainuoTech-Org" target="_blank" class="social-float-btn" title="GitHub">
-            <img src="https://cdn.simpleicons.org/github/white" alt="GitHub">
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/kainuo-tech/" target="_blank" class="Btn linkedin">
+            <div class="sign">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </div>
+            <div class="text">LinkedIn</div>
         </a>
-        <a href="https://www.instagram.com/kainuo_innovision_tech/" target="_blank" class="social-float-btn" title="Instagram">
-            <img src="https://cdn.simpleicons.org/instagram/white" alt="Instagram">
+
+        <!-- GitHub -->
+        <a href="https://github.com/KainuoTech-Org" target="_blank" class="Btn github">
+            <div class="sign"><img src="https://cdn.simpleicons.org/github/white" alt="GitHub"></div>
+            <div class="text">GitHub</div>
         </a>
-        <a href="https://www.facebook.com/people/Kainuo-Innovision-Tech/61584470712451/?mibextid=wwXIfr&rdid=HlD3oTm6lv9ZCoUb&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1MBT6V7N8c%2F%3Fmibextid%3DwwXIfr" target="_blank" class="social-float-btn" title="Facebook">
-            <img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook">
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/kainuo_innovision_tech/" target="_blank" class="Btn instagram">
+            <div class="sign"><img src="https://cdn.simpleicons.org/instagram/white" alt="Instagram"></div>
+            <div class="text">Instagram</div>
         </a>
-        <a href="https://www.xiaohongshu.com/user/profile/62cea13a0000000002002ea2" target="_blank" class="social-float-btn" title="XiaoHongShu">
-            <img src="https://cdn.simpleicons.org/xiaohongshu/white" alt="XiaoHongShu">
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/people/Kainuo-Innovision-Tech/61584470712451/" target="_blank" class="Btn facebook">
+            <div class="sign"><img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook"></div>
+            <div class="text">Facebook</div>
         </a>
-        <!-- Custom WhatsApp Button -->
-        <a href="javascript:void(0)" class="social-float-btn" title="WhatsApp" onclick="toggleWhatsAppWidget()">
-            <img src="https://cdn.simpleicons.org/whatsapp/white" alt="WhatsApp">
+
+        <!-- XiaoHongShu -->
+        <a href="https://www.xiaohongshu.com/user/profile/62cea13a0000000002002ea2" target="_blank" class="Btn xiaohongshu">
+            <div class="sign"><img src="https://cdn.simpleicons.org/xiaohongshu/white" alt="XiaoHongShu"></div>
+            <div class="text">XiaoHongShu</div>
         </a>
     </div>
 
