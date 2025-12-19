@@ -61,6 +61,8 @@
             gap: 15px;
             z-index: 1000;
             align-items: flex-end; /* Align to right */
+            width: 200px; /* Give it enough space to expand left without moving */
+            pointer-events: none; /* Let clicks pass through empty space */
         }
 
         .Btn {
@@ -78,6 +80,8 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
             background-color: #1A1A1A; /* Dark theme default */
             text-decoration: none !important; /* Ensure links don't have underline */
+            pointer-events: auto; /* Re-enable clicks on buttons */
+            margin-left: auto; /* Force right alignment */
         }
 
         /* plus sign (icon container) */
