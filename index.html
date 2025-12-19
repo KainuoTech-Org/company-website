@@ -178,8 +178,8 @@
             position: relative;
             display: block;
             margin: 0;
-            width: 3rem;
-            height: 3rem;
+            width: 2.2rem; /* Reduced from 3rem */
+            height: 2.2rem; /* Reduced from 3rem */
             background: #1A1A1A; /* Black circle default */
             border-radius: 1.625rem;
         }
@@ -195,7 +195,7 @@
 
         a.learn-more .circle .icon.arrow {
             transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-            left: 0.625rem;
+            left: 0.45rem; /* Adjusted for smaller circle */
             width: 1.125rem;
             height: 0.125rem;
             background: none;
@@ -221,7 +221,7 @@
             right: 0;
             bottom: 0;
             padding: 0.75rem 0;
-            margin: 0 0 0 1.85rem;
+            margin: 0 0 0 1.5rem; /* Adjusted margin for smaller circle */
             color: #1A1A1A; /* Text color matches theme */
             font-weight: 700;
             line-height: 1.6;
@@ -243,6 +243,74 @@
 
         a.learn-more:hover .button-text {
             color: #fff;
+        }
+
+        /* Payment Button (Uiverse.io by vinodjangid07) */
+        .pay-btn {
+            width: 100%; /* Full width for card */
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(15, 15, 15);
+            border: none;
+            color: white;
+            font-weight: 600;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+            position: relative;
+            overflow: hidden;
+            transition-duration: .3s;
+            text-decoration: none;
+        }
+
+        .pay-icon {
+            width: 16px;
+        }
+
+        .pay-icon path {
+            fill: white;
+        }
+
+        .pay-btn:hover {
+            color: black;
+        }
+
+        .pay-btn:hover .pay-icon path {
+            fill: black;
+        }
+
+        .pay-btn::before {
+            width: 100%;
+            height: 100%; /* Cover fully */
+            position: absolute;
+            content: "";
+            background-color: white;
+            border-radius: 50%;
+            left: -100%;
+            top: 0;
+            transition-duration: .3s;
+            mix-blend-mode: normal; /* Changed from difference to normal */
+            aspect-ratio: 1/1; /* Keep it circular-ish base */
+            transform-origin: center;
+            z-index: 0; /* Behind content */
+        }
+
+        .pay-btn span, .pay-btn svg {
+            position: relative;
+            z-index: 1; /* Above the white circle */
+        }
+
+        .pay-btn:hover::before {
+            transition-duration: .3s;
+            border-radius: 0;
+            left: 0; /* Move to cover the button */
+        }
+
+        .pay-btn:active {
+            transform: translate(5px,5px);
+            transition-duration: .3s;
         }
 
         /* Loading Screen */
@@ -381,6 +449,64 @@
             }
         }
 
+        /* Send Message Button (Uiverse.io by marcelodolza) */
+        .send-btn-wrapper {
+            font-family: inherit;
+            font-size: 20px;
+            background: rgb(21, 21, 21); /* Dark background */
+            color: white;
+            fill: rgb(155, 153, 153);
+            padding: 0.7em 1em;
+            padding-left: 0.9em;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.2s;
+            cursor: pointer;
+            width: 100%; /* Full width */
+            justify-content: center; /* Center content */
+        }
+
+        .send-btn-wrapper span {
+            display: block;
+            margin-left: 0.3em;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .send-btn-wrapper svg {
+            display: block;
+            transform-origin: center center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .send-btn-wrapper:hover .svg-wrapper {
+            animation: fly-1 0.6s ease-in-out infinite alternate;
+        }
+
+        .send-btn-wrapper:hover svg {
+            transform: translateX(1.2em) rotate(45deg) scale(1.1);
+        }
+
+        .send-btn-wrapper:hover span {
+            transform: translateX(5em);
+        }
+
+        .send-btn-wrapper:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes fly-1 {
+            from {
+                transform: translateY(0.1em);
+            }
+
+            to {
+                transform: translateY(-0.1em);
+            }
+        }
+        
         /* Interactive Background Canvas */
         #bg-canvas {
             position: fixed;
@@ -857,31 +983,20 @@
             padding: 2px 8px;
         }
 
-        /* Project demo link hover effect */
+        /* Project demo link hover effect removed underline */
         .project-content a {
             display: inline-block;
             color: var(--accent-color);
             font-weight: 600;
             position: relative;
             transition: all 0.3s ease;
+            text-decoration: none; /* Removed underline */
         }
         .project-content a:hover {
             color: var(--text-color);
             transform: translateX(4px);
         }
-        .project-content a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-        .project-content a:hover::after {
-            width: 100%;
-        }
+        /* Removed ::after pseudo-element that created the underline */
 
         /* FAQ Section */
         .faq-container {
@@ -1041,6 +1156,136 @@
             color: #666; margin-left: 10px;
         }
         .lang-switcher button.active { color: var(--text-color); font-weight: 600; text-decoration: underline; }
+
+        /* 3D Button Styles */
+        .container-button {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: "bt-1 bt-2 bt-3"
+              "bt-4 bt-5 bt-6";
+            position: relative;
+            perspective: 800;
+            padding: 0;
+            width: 160px;
+            height: 55px;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .container-button:active {
+            transform: scale(0.95);
+        }
+
+        .hover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 200;
+        }
+
+        .bt-1 { grid-area: bt-1; }
+        .bt-2 { grid-area: bt-2; }
+        .bt-3 { grid-area: bt-3; }
+        .bt-4 { grid-area: bt-4; }
+        .bt-5 { grid-area: bt-5; }
+        .bt-6 { grid-area: bt-6; }
+
+        .bt-1:hover ~ .button-3d { transform: rotateX(15deg) rotateY(-15deg) rotateZ(0deg); box-shadow: -2px -2px var(--btn-shadow); }
+        .bt-1:hover ~ .button-3d::after { animation: shake 0.5s ease-in-out 0.3s; text-shadow: -2px -2px var(--btn-shadow); }
+
+        .bt-3:hover ~ .button-3d { transform: rotateX(15deg) rotateY(15deg) rotateZ(0deg); box-shadow: 2px -2px var(--btn-shadow); }
+        .bt-3:hover ~ .button-3d::after { animation: shake 0.5s ease-in-out 0.3s; text-shadow: 2px -2px var(--btn-shadow); }
+
+        .bt-4:hover ~ .button-3d { transform: rotateX(-15deg) rotateY(-15deg) rotateZ(0deg); box-shadow: -2px 2px var(--btn-shadow); }
+        .bt-4:hover ~ .button-3d::after { animation: shake 0.5s ease-in-out 0.3s; text-shadow: -2px 2px var(--btn-shadow); }
+
+        .bt-6:hover ~ .button-3d { transform: rotateX(-15deg) rotateY(15deg) rotateZ(0deg); box-shadow: 2px 2px var(--btn-shadow); }
+        .bt-6:hover ~ .button-3d::after { animation: shake 0.5s ease-in-out 0.3s; text-shadow: 2px 2px var(--btn-shadow); }
+
+        .hover:hover ~ .button-3d::before { background: transparent; }
+        .hover:hover ~ .button-3d::after {
+            content: attr(data-hover-text);
+            top: -150%;
+            transform: translate(-50%, 0);
+            font-size: 26px;
+            color: var(--btn-hover-text-color);
+        }
+
+        .button-3d {
+            position: absolute;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            font-size: 16px;
+            font-weight: 900;
+            border: 3px solid var(--btn-border);
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+            font-family: var(--font-sans);
+        }
+
+        .button-3d::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background-color: var(--btn-bg);
+            border-radius: 9px;
+            transition: all 0.3s ease-in-out;
+            z-index: -1;
+        }
+
+        .button-3d::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 55px;
+            color: var(--btn-text-color);
+            border: none;
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            z-index: 2;
+            text-align: center;
+        }
+
+        @keyframes shake {
+            0% { left: 45%; }
+            25% { left: 54%; }
+            50% { left: 48%; }
+            75% { left: 52%; }
+            100% { left: 50%; }
+        }
+
+        /* Theme Variants */
+        .btn-gold {
+            --btn-border: #D4AF37;
+            --btn-bg: #D4AF37;
+            --btn-text-color: #FFFFFF;
+            --btn-hover-text-color: #D4AF37;
+            --btn-shadow: rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-black {
+            --btn-border: #1A1A1A;
+            --btn-bg: #1A1A1A;
+            --btn-text-color: #FFFFFF;
+            --btn-hover-text-color: #1A1A1A;
+            --btn-shadow: rgba(26, 26, 26, 0.4);
+        }
     </style>
   </head>
   <body>
@@ -1207,9 +1452,28 @@
             <div class="container hero-content">
                 <h1 data-key="hero_title" class="hero-animate hero-delay-1">Digital Craftsmanship for Business Growth.</h1>
                 <p class="hero-subtitle hero-animate hero-delay-2" data-key="hero_subtitle">Digital Transformation · Custom Solutions · Tech Consulting</p>
-                <div style="margin-top: 2rem;" class="hero-animate hero-delay-3">
-                    <a href="#contact" class="btn" data-key="btn_start">Start Project</a>
-                    <a href="#works" class="btn btn-outline" data-key="btn_view_work">View Work</a>
+                <div style="margin-top: 2rem; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;" class="hero-animate hero-delay-3">
+                    <!-- Start Project (Black Theme) -->
+                    <a href="#contact" class="container-button btn-black">
+                        <div class="hover bt-1"></div>
+                        <div class="hover bt-2"></div>
+                        <div class="hover bt-3"></div>
+                        <div class="hover bt-4"></div>
+                        <div class="hover bt-5"></div>
+                        <div class="hover bt-6"></div>
+                        <div class="button-3d" data-key="btn_start" data-text="Start Project" data-hover-text="Let's Go!"></div>
+                    </a>
+
+                    <!-- View Work (Gold Theme) -->
+                    <a href="#works" class="container-button btn-gold">
+                        <div class="hover bt-1"></div>
+                        <div class="hover bt-2"></div>
+                        <div class="hover bt-3"></div>
+                        <div class="hover bt-4"></div>
+                        <div class="hover bt-5"></div>
+                        <div class="hover bt-6"></div>
+                        <div class="button-3d" data-key="btn_view_work" data-text="View Work" data-hover-text="Explore"></div>
+                    </a>
                 </div>
                 <div class="hint-text" style="margin-top: 3rem; font-size: 0.8rem; color: #888; font-style: italic; opacity: 0; animation: fadeFloatUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 2s;" data-key="hint_interactive">
                     ✨ Tip: Click the clouds or empty space
@@ -1350,8 +1614,29 @@
                             <li data-key="pkg1_f8">3-Month Technical Maintenance</li>
                         </ul>
                         <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-direction: column;">
-                            <a href="https://buy.stripe.com/00wfZi2pV9r6fjjb7PcV200" target="_blank" class="btn" style="width:100%; text-align:center; background-color: var(--accent-color); border-color: var(--accent-color);" data-key="btn_buy_now">Buy Now</a>
-                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Quick%20Launch%20Plan%20(HK$3,880)." target="_blank" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_select" data-wa-plan="pkg1">Inquire</a>
+                            <a href="https://buy.stripe.com/00wfZi2pV9r6fjjb7PcV200" target="_blank" class="pay-btn">
+                                <span data-key="btn_buy_now">Buy Now</span>
+                                <svg class="pay-icon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+                            </a>
+                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Quick%20Launch%20Plan%20(HK$3,880)." target="_blank" class="send-btn-wrapper" style="text-decoration: none;">
+                              <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                    height="24"
+                                  >
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path
+                                      fill="currentColor"
+                                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <span data-key="btn_select" data-wa-plan="pkg1">Inquire</span>
+                            </a>
                         </div>
                     </div>
 
@@ -1374,8 +1659,29 @@
                             <li data-key="pkg2_f8">Includes All Quick Launch Benefits</li>
                         </ul>
                         <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-direction: column;">
-                            <a href="https://buy.stripe.com/eVqbJ24y3cDi0op7VDcV201" target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_buy_now">Buy Now</a>
-                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Brand%20Business%20Plan%20(HK$5,880)." target="_blank" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_select" data-wa-plan="pkg2">Inquire</a>
+                            <a href="https://buy.stripe.com/eVqbJ24y3cDi0op7VDcV201" target="_blank" class="pay-btn">
+                                <span data-key="btn_buy_now">Buy Now</span>
+                                <svg class="pay-icon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+                            </a>
+                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Brand%20Business%20Plan%20(HK$5,880)." target="_blank" class="send-btn-wrapper" style="text-decoration: none;">
+                              <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                    height="24"
+                                  >
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path
+                                      fill="currentColor"
+                                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <span data-key="btn_select" data-wa-plan="pkg2">Inquire</span>
+                            </a>
                         </div>
                     </div>
 
@@ -1397,8 +1703,29 @@
                             <li data-key="pkg_pro_f7">Includes All Business Brand Benefits</li>
                         </ul>
                         <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-direction: column;">
-                            <a href="https://buy.stripe.com/00w7sM0hNeLq7QRb7PcV202" target="_blank" class="btn" style="width:100%; text-align:center;" data-key="btn_buy_now">Buy Now</a>
-                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Professional%20Custom%20Plan%20(HK$8,880)." target="_blank" class="btn btn-outline" style="width:100%; text-align:center;" data-key="btn_select" data-wa-plan="pkg_pro">Inquire</a>
+                            <a href="https://buy.stripe.com/00w7sM0hNeLq7QRb7PcV202" target="_blank" class="pay-btn">
+                                <span data-key="btn_buy_now">Buy Now</span>
+                                <svg class="pay-icon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+                            </a>
+                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Professional%20Custom%20Plan%20(HK$8,880)." target="_blank" class="send-btn-wrapper" style="text-decoration: none;">
+                              <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                    height="24"
+                                  >
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path
+                                      fill="currentColor"
+                                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <span data-key="btn_select" data-wa-plan="pkg_pro">Inquire</span>
+                            </a>
                         </div>
                     </div>
 
@@ -1417,7 +1744,25 @@
                             <li data-key="pkg3_f5">Online Booking System Setup +HK$1,000</li>
                             <li data-key="pkg3_f4">Monthly Maintenance +HK$800/mo</li>
                         </ul>
-                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20Custom%20Add-ons." target="_blank" class="btn" style="width:100%; text-align:center; margin-top: auto;" data-key="btn_contact" data-wa-plan="pkg_custom">Inquire</a>
+                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20Custom%20Add-ons." target="_blank" class="send-btn-wrapper" style="text-decoration: none; margin-top: auto;">
+                          <div class="svg-wrapper-1">
+                            <div class="svg-wrapper">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                              >
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                  fill="currentColor"
+                                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                ></path>
+                              </svg>
+                            </div>
+                          </div>
+                          <span data-key="btn_contact" data-wa-plan="pkg_custom">Inquire</span>
+                        </a>
                     </div>
                 </div>
 
@@ -2205,7 +2550,11 @@
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (i18n[lang][key]) {
-                    el.innerHTML = i18n[lang][key];
+                    if (el.classList.contains('button-3d')) {
+                        el.setAttribute('data-text', i18n[lang][key]);
+                    } else {
+                        el.innerHTML = i18n[lang][key];
+                    }
                 }
             });
             
@@ -2315,6 +2664,24 @@
         // Observe all elements with animation classes
         const animatedElements = document.querySelectorAll('.fade-in-section, .fade-in-left, .fade-in-right, .scale-in');
         animatedElements.forEach(el => observer.observe(el));
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    const navLinks = document.querySelector('.nav-links');
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
