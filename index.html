@@ -2105,11 +2105,14 @@
                     ctx.translate(this.x, this.y);
                     
                     ctx.fillStyle = '#FFFFFF';
-                    // Soft gold shadow
+                    // Performance Optimization: Removed expensive shadow blur
+                    // This was causing significant lag on some devices
+                    /*
                     ctx.shadowColor = 'rgba(212, 175, 55, 0.15)'; 
                     ctx.shadowBlur = 20;
                     ctx.shadowOffsetX = 0;
                     ctx.shadowOffsetY = 5;
+                    */
 
                     ctx.beginPath();
                     this.puffs.forEach(p => {
@@ -2261,11 +2264,17 @@
 
             function initWorld() {
                 entities = [];
-                // Create Clouds
-                const cloudCount = width < 768 ? 8 : 15;
+                // Create Clouds - Reduced count for better performance
+                const cloudCount = width < 768 ? 5 : 10;
                 for (let i = 0; i < cloudCount; i++) {
                     entities.push(new Cloud());
                 }
+            }
+
+            let resizeTimeout;
+            function onResize() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(resize, 200);
             }
 
             function resize() {
@@ -2299,7 +2308,7 @@
                 requestAnimationFrame(animate);
             }
 
-            window.addEventListener('resize', resize);
+            window.addEventListener('resize', onResize);
             resize();
             animate();
         })();
