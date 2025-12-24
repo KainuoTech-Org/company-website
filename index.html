@@ -644,7 +644,7 @@
             align-items: center;
             justify-content: center;
             background: var(--text-color);
-            color: #fff;
+            color: #fff !important;
             padding: 0.6rem 1.5rem;
             border-radius: 8px;
             border: none;
@@ -663,16 +663,7 @@
         
         
 
-        a.learn-more .circle {
-            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-            position: relative;
-            display: block;
-            margin: 0;
-            width: 2.2rem; /* Reduced from 3rem */
-            height: 2.2rem; /* Reduced from 3rem */
-            background: #1A1A1A; /* Black circle default */
-            border-radius: 1.625rem;
-        }
+        
 
         a.learn-more .circle .icon {
             transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -721,19 +712,11 @@
             letter-spacing: 1px;
         }
 
-        a.learn-more:hover .circle {
-            width: 100%;
-            background: var(--accent-color); /* Gold on hover */
-        }
+        
 
-        a.learn-more:hover .circle .icon.arrow {
-            background: #fff;
-            transform: translate(1rem, 0);
-        }
+        
 
-        a.learn-more:hover .button-text {
-            color: #fff;
-        }
+        
 
         /* Payment Button (Uiverse.io by vinodjangid07) */
         .pay-btn {
@@ -2237,7 +2220,45 @@
             --btn-hover-text-color: #1A1A1A;
             --btn-shadow: rgba(26, 26, 26, 0.4);
         }
-    </style>
+    
+        /* View Live Demo 按钮 - 统一格式，悬停时金色背景+深色文字 */
+        .learn-more {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: var(--text-color) !important;
+            color: #fff !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 8px !important;
+            border: none !important;
+            border-bottom: 4px solid #000 !important;
+            text-decoration: none !important;
+            font-family: var(--font-sans) !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.15s ease !important;
+            height: 42px !important;
+            box-sizing: border-box !important;
+        }
+        
+        .learn-more:hover {
+            background: var(--accent-color) !important;
+            color: var(--text-color) !important;
+            filter: brightness(1) !important;
+            transform: translateY(-1px) !important;
+            border-bottom-width: 6px !important;
+            border-bottom-color: #C4A027 !important;
+        }
+        
+        .learn-more:active {
+            background: var(--accent-color) !important;
+            color: var(--text-color) !important;
+            border-bottom-width: 2px !important;
+            filter: brightness(0.9) !important;
+            transform: translateY(2px) !important;
+        }
+</style>
   </head>
   <body>
     <!-- Loading Screen -->
