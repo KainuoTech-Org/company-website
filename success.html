@@ -81,20 +81,25 @@
 <body>
 
     <header>
-        <div class="container" style="text-align: left;">
+        <div class="container" style="text-align: left; display:flex; justify-content: space-between; align-items: center;">
             <a href="index.html" class="brand">Kainuo Innovision</a>
+            <div class="lang-switcher" style="text-align:right;">
+                <button data-lang="en" class="active" style="background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:0.9rem;color:#666;margin-left:10px;">EN</button>
+                <button data-lang="zh-TW" style="background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:0.9rem;color:#666;margin-left:10px;">繁</button>
+                <button data-lang="zh-CN" style="background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:0.9rem;color:#666;margin-left:10px;">简</button>
+            </div>
         </div>
     </header>
 
     <main class="container" style="flex: 1;">
         <div class="success-card">
             <div class="icon-circle">✓</div>
-            <h1>Payment Successful!</h1>
-            <p>Thank you for choosing Kainuo Innovision Tech. We have received your payment.</p>
-            <p><strong>What happens next?</strong><br>Our team will contact you via WhatsApp or Email within 24 hours to initiate your project onboarding.</p>
+            <h1 data-key="success_title">Payment Successful!</h1>
+            <p data-key="success_p1">Thank you for choosing Kainuo Innovision Tech. We have received your payment.</p>
+            <p data-key="success_p2"><strong>What happens next?</strong><br>Our team will contact you via WhatsApp or Email within 24 hours to initiate your project onboarding.</p>
             
             <div style="margin-top: 3rem;">
-                <a href="index.html" class="btn">Return to Home</a>
+                <a href="index.html" class="btn" data-key="btn_back_home">Return to Home</a>
             </div>
         </div>
     </main>
@@ -105,6 +110,64 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const pageTitles = {
+            'en': 'Payment Successful | Kainuo Innovision Tech',
+            'zh-TW': '付款成功 | 凱諾創享科技',
+            'zh-CN': '付款成功 | 凯诺创享科技'
+        };
+
+        const i18n = {
+            'en': {
+                'success_title': 'Payment Successful!',
+                'success_p1': 'Thank you for choosing Kainuo Innovision Tech. We have received your payment.',
+                'success_p2': '<strong>What happens next?</strong><br>Our team will contact you via WhatsApp or Email within 24 hours to initiate your project onboarding.',
+                'btn_back_home': 'Return to Home'
+            },
+            'zh-TW': {
+                'success_title': '付款成功！',
+                'success_p1': '感謝您選擇凱諾創享科技。我們已收到您的付款。',
+                'success_p2': '<strong>下一步會發生什麼？</strong><br>我們的團隊將在 24 小時內透過 WhatsApp 或電郵與您聯絡，啟動專案對接。',
+                'btn_back_home': '返回首頁'
+            },
+            'zh-CN': {
+                'success_title': '付款成功！',
+                'success_p1': '感谢您选择凯诺创享科技。我们已收到您的付款。',
+                'success_p2': '<strong>接下来会发生什么？</strong><br>我们的团队将在 24 小时内通过 WhatsApp 或邮箱与您联系，启动项目对接。',
+                'btn_back_home': '返回首页'
+            }
+        };
+
+        function applyLang(lang) {
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+            if (pageTitles[lang]) document.title = pageTitles[lang];
+
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
+            });
+
+            document.querySelectorAll('.lang-switcher button').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                    btn.style.color = 'var(--text-color)';
+                    btn.style.fontWeight = '600';
+                    btn.style.textDecoration = 'underline';
+                } else {
+                    btn.classList.remove('active');
+                    btn.style.color = '#666';
+                    btn.style.fontWeight = '400';
+                    btn.style.textDecoration = 'none';
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-switcher button').forEach(btn => {
+            btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+        });
+
+        applyLang(localStorage.getItem('lang') || 'en');
     </script>
 </body>
 </html>

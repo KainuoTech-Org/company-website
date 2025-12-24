@@ -73,36 +73,41 @@
     <header>
         <div class="container nav-container">
             <a href="index.html" class="brand">Kainuo Innovision</a>
+            <div class="lang-switcher">
+                <button data-lang="en" class="active">EN</button>
+                <button data-lang="zh-TW">繁</button>
+                <button data-lang="zh-CN">简</button>
+            </div>
         </div>
     </header>
 
     <main class="container" style="padding-top: 4rem; padding-bottom: 4rem; flex: 1;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">Privacy Policy</h1>
+        <h1 data-key="privacy_title" style="font-size: 2.5rem; margin-bottom: 2rem;">Privacy Policy</h1>
         
         <div style="background: #fff; padding: 3rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px;">
-            <p style="font-size: 1.1rem; color: #555;">
+            <p data-key="privacy_intro" style="font-size: 1.1rem; color: #555;">
                 At Kainuo Innovision Tech, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information.
             </p>
             
-            <h3 style="margin-top: 2rem;">1. Information We Collect</h3>
-            <p style="color: #666;">We collect information you provide directly to us, such as when you fill out a contact form, request a quote, or purchase a service. This includes your name, email address, phone number, and payment information (processed securely via Stripe).</p>
+            <h3 data-key="privacy_h1" style="margin-top: 2rem;">1. Information We Collect</h3>
+            <p data-key="privacy_p1" style="color: #666;">We collect information you provide directly to us, such as when you fill out a contact form, request a quote, or purchase a service. This includes your name, email address, phone number, and payment information (processed securely via Stripe).</p>
 
-            <h3 style="margin-top: 2rem;">2. How We Use Information</h3>
-            <p style="color: #666;">We use your information to provide our services, communicate with you about your projects, and send you relevant updates. We do not sell your personal data to third parties.</p>
+            <h3 data-key="privacy_h2" style="margin-top: 2rem;">2. How We Use Information</h3>
+            <p data-key="privacy_p2" style="color: #666;">We use your information to provide our services, communicate with you about your projects, and send you relevant updates. We do not sell your personal data to third parties.</p>
 
-            <h3 style="margin-top: 2rem;">3. Contact Us</h3>
-            <p style="color: #666;">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color);">contact@kainuotech.com</a>.</p>
+            <h3 data-key="privacy_h3" style="margin-top: 2rem;">3. Contact Us</h3>
+            <p data-key="privacy_p3" style="color: #666;">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color);">contact@kainuotech.com</a>.</p>
         </div>
 
         <div style="margin-top: 3rem;">
-            <a href="index.html" class="btn">← Back to Home</a>
+            <a href="index.html" class="btn" data-key="btn_back">← Back to Home</a>
         </div>
     </main>
 
     <footer>
         <div class="container">
             <p style="margin: 0; color: #888;">
-                Kainuo Innovision Tech Co., Limited<br>
+                <span data-key="footer_copyright">Kainuo Innovision Tech Co., Limited</span><br>
                 &copy; <span id="year"></span> All rights reserved.
             </p>
         </div>
@@ -110,6 +115,74 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const pageTitles = {
+            'en': 'Privacy Policy | Kainuo Innovision Tech',
+            'zh-TW': '隱私政策 | 凱諾創享科技',
+            'zh-CN': '隐私政策 | 凯诺创享科技'
+        };
+
+        const i18n = {
+            'en': {
+                'privacy_title': 'Privacy Policy',
+                'privacy_intro': 'At Kainuo Innovision Tech, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information.',
+                'privacy_h1': '1. Information We Collect',
+                'privacy_p1': 'We collect information you provide directly to us, such as when you fill out a contact form or request a quote. This may include your name, email address, and phone number.',
+                'privacy_h2': '2. How We Use Information',
+                'privacy_p2': 'We use your information to respond to inquiries, deliver services, and improve your experience. We do not sell your personal data to third parties.',
+                'privacy_h3': '3. Contact Us',
+                'privacy_p3': 'If you have any questions about this Privacy Policy, please contact us at <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color);">contact@kainuotech.com</a>.',
+                'btn_back': '← Back to Home',
+                'footer_copyright': 'Kainuo Innovision Tech Co., Limited'
+            },
+            'zh-TW': {
+                'privacy_title': '隱私政策',
+                'privacy_intro': '凱諾創享科技非常重視您的隱私。本隱私政策說明我們如何收集、使用及保護您的個人資訊。',
+                'privacy_h1': '1. 我們收集的資訊',
+                'privacy_p1': '當您提交聯絡表單或索取報價時，我們可能會收集您提供的資訊，例如姓名、電郵及電話等。',
+                'privacy_h2': '2. 我們如何使用資訊',
+                'privacy_p2': '我們會使用您的資訊回覆查詢、交付服務並改善使用體驗。我們不會向第三方出售您的個人資料。',
+                'privacy_h3': '3. 聯絡我們',
+                'privacy_p3': '如對本隱私政策有任何疑問，請電郵至 <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color);">contact@kainuotech.com</a> 與我們聯絡。',
+                'btn_back': '← 返回首頁',
+                'footer_copyright': '凱諾創享科技有限公司'
+            },
+            'zh-CN': {
+                'privacy_title': '隐私政策',
+                'privacy_intro': '凯诺创享科技非常重视您的隐私。本隐私政策说明我们如何收集、使用及保护您的个人信息。',
+                'privacy_h1': '1. 我们收集的信息',
+                'privacy_p1': '当您提交联系表单或索取报价时，我们可能会收集您提供的信息，例如姓名、邮箱及电话等。',
+                'privacy_h2': '2. 我们如何使用信息',
+                'privacy_p2': '我们会使用您的信息回复咨询、交付服务并提升体验。我们不会向第三方出售您的个人数据。',
+                'privacy_h3': '3. 联系我们',
+                'privacy_p3': '如对本隐私政策有任何疑问，请发送邮件至 <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color);">contact@kainuotech.com</a> 与我们联系。',
+                'btn_back': '← 返回首页',
+                'footer_copyright': '凯诺创享科技有限公司'
+            }
+        };
+
+        function applyLang(lang) {
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+
+            if (pageTitles[lang]) document.title = pageTitles[lang];
+
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
+            });
+
+            document.querySelectorAll('.lang-switcher button').forEach(btn => {
+                if (btn.dataset.lang === lang) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        }
+
+        document.querySelectorAll('.lang-switcher button').forEach(btn => {
+            btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+        });
+
+        applyLang(localStorage.getItem('lang') || 'en');
     </script>
 </body>
 </html>

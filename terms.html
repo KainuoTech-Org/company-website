@@ -148,6 +148,8 @@
         };
 
         function applyLang(lang) {
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (i18n[lang][key]) {
@@ -166,6 +168,8 @@
                 applyLang(btn.dataset.lang);
             });
         });
+
+        applyLang(localStorage.getItem('lang') || 'en');
     </script>
 </body>
 </html>

@@ -2678,7 +2678,7 @@
             }
         };
 
-        let currentLang = 'en';
+        let currentLang = localStorage.getItem('lang') || 'en';
         
         // Define page titles for each language
         const pageTitles = {
@@ -2689,6 +2689,7 @@
 
         function applyLang(lang) {
             currentLang = lang;
+            localStorage.setItem('lang', lang);
             
             // Update document title
             if (pageTitles[lang]) {
@@ -2734,6 +2735,9 @@
                 applyLang(btn.dataset.lang);
             });
         });
+
+        // Initialize from last selected language
+        applyLang(currentLang);
 
         // Mobile Menu
         const menuBtn = document.querySelector('.mobile-menu-btn');
