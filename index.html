@@ -583,7 +583,7 @@
         a { color: var(--text-color); text-decoration: none; transition: all 0.3s ease; }
 
         /* Layout Utilities */
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 1600px; margin: 0 auto; padding: 0 2rem; }
         section { padding: 6rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
         
         /* Header / Nav */
@@ -1022,6 +1022,16 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
+        /* Innovation Lab: center single card on wide screens */
+        #showcase .project-grid {
+            justify-items: center;
+        }
+        #showcase .project-card {
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
         /* Portfolio / Works */
         .project-grid {
             display: grid;
