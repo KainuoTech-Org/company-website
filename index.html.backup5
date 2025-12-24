@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Kainuo Innovision Tech | 凱諾創享科技</title>
+    <meta name="description" content="Kainuo Innovision Tech is a Hong Kong-based technology company focused on providing high-quality software development and data visualization solutions. We serve businesses across Hong Kong, Mainland China, and international markets.">
+    <meta name="keywords" content="web design, website development, mobile app development, ios app developer, landing page design, corporate website, shopify, wordpress developer, wix expert, ui ux design, digital agency, 網站開發, 網頁製作, 網頁設計公司, 網站設計, 網站製作, 網頁開發, 網站上線, WordPress設計, Wix網站, Shopify建站, 網店設計, iOS app開發, 網頁設計價錢, 平價網頁設計, 中小企網站, responsive web design, bilingual website">
+    <meta name="author" content="Kainuo Innovision Tech">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.kainuotech.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.kainuotech.com/">
+    <meta property="og:title" content="Web Design & App Development | 網站開發 & App開發 | Kainuo Innovision">
+    <meta property="og:description" content="Professional Web Design & App Development. We build stunning websites and iOS apps. 專業網頁設計，提供網站開發、iOS App開發服務。">
+    <meta property="og:image" content="https://www.kainuotech.com/img/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.kainuotech.com/">
+    <meta property="twitter:title" content="Web Design & App Development | 網站開發 & App開發 | Kainuo Innovision">
+    <meta property="twitter:description" content="Professional Web Design & App Development. We build stunning websites and iOS apps. 專業網頁設計，提供網站開發、iOS App開發服務。">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="HK">
+    <meta name="geo.placename" content="Hong Kong">
+
+    <link rel="icon" href="https://www.kainuotech.com/img/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="https://www.kainuotech.com/img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="https://www.kainuotech.com/img/favicon.svg">
+
+    <!-- Fonts: Playfair Display (Serif for headers) & Inter (Sans-serif for body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #F9F7F2; /* Cream/Paper background */
+            --text-color: #1A1A1A; /* Charcoal Black */
+            --accent-color: #D4AF37; /* Vintage Gold */
+            --secondary-bg: rgba(236, 234, 228, 0.6); /* Semi-transparent for glass effect */
+            --border-color: #1A1A1A;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        /* Floating Social Button Style (Uiverse.io by vinodjangid07) */
+        .social-dock {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column-reverse; /* Stack upwards */
+            gap: 15px;
+            z-index: 1000;
+            align-items: flex-end; /* Align to right */
+            width: 200px; /* Give it enough space to expand left without moving */
+            pointer-events: none; /* Let clicks pass through empty space */
+        }
+
+        .Btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition-duration: .3s;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+            background-color: #1A1A1A; /* Dark theme default */
+            text-decoration: none !important; /* Ensure links don't have underline */
+            pointer-events: auto; /* Re-enable clicks on buttons */
+            margin-left: auto; /* Force right alignment */
+        }
+
+        /* plus sign (icon container) */
+        .sign {
+            width: 100%;
+            height: 100%;
+            transition-duration: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .sign img, .sign svg {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+        
+        .sign svg path {
+            fill: white;
+        }
+
+        /* text */
+        .text {
+            position: absolute;
+            right: 0%;
+            width: 0%;
+            opacity: 0;
+            color: white;
+            font-size: 0.9rem; /* Adjusted font size */
+            font-weight: 500;
+            transition-duration: .3s;
+            white-space: nowrap; /* Prevent wrapping */
+            font-family: var(--font-sans);
+        }
+
+        /* hover effect on button width */
+        .Btn:hover {
+            width: 140px; /* Expanded width */
+            border-radius: 40px;
+            transition-duration: .3s;
+        }
+
+        /* Brand Colors on Hover */
+        .Btn.whatsapp:hover { background-color: #25D366; }
+        .Btn.linkedin:hover { background-color: #0077B5; }
+        .Btn.instagram:hover { background-color: #E1306C; }
+        .Btn.facebook:hover { background-color: #1877F2; }
+        .Btn.github:hover { background-color: #333; }
+        .Btn.xiaohongshu:hover { background-color: #FF2442; }
+
+        .Btn:hover .sign {
+            width: 30%;
+            transition-duration: .3s;
+            padding-left: 15px;
+            justify-content: flex-start;
+        }
+
+        /* hover effect button's text */
+        .Btn:hover .text {
+            opacity: 1;
+            width: 70%;
+            transition-duration: .3s;
+            padding-right: 15px;
+            right: 5px; /* Adjust text position */
+        }
+
+        /* button click effect*/
+        .Btn:active {
+            transform: translate(2px ,2px);
+        }
+
+        /* View Live Demo Button Style (Uiverse.io by cssbuttons-io) */
+        a.learn-more {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: none;
+            border: 0;
+            vertical-align: middle;
+            text-decoration: none;
+            background: transparent;
+            padding: 0;
+            font-size: inherit;
+            font-family: inherit;
+            width: 12rem;
+            height: auto;
+            margin-top: 1rem;
+        }
+
+        a.learn-more .circle {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: relative;
+            display: block;
+            margin: 0;
+            width: 2.2rem; /* Reduced from 3rem */
+            height: 2.2rem; /* Reduced from 3rem */
+            background: #1A1A1A; /* Black circle default */
+            border-radius: 1.625rem;
+        }
+
+        a.learn-more .circle .icon {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background: #fff;
+        }
+
+        a.learn-more .circle .icon.arrow {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            left: 0.45rem; /* Adjusted for smaller circle */
+            width: 1.125rem;
+            height: 0.125rem;
+            background: none;
+        }
+
+        a.learn-more .circle .icon.arrow::before {
+            position: absolute;
+            content: "";
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+        }
+
+        a.learn-more .button-text {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 1.5rem; /* Adjusted margin for smaller circle */
+            color: #1A1A1A; /* Text color matches theme */
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        a.learn-more:hover .circle {
+            width: 100%;
+            background: var(--accent-color); /* Gold on hover */
+        }
+
+        a.learn-more:hover .circle .icon.arrow {
+            background: #fff;
+            transform: translate(1rem, 0);
+        }
+
+        a.learn-more:hover .button-text {
+            color: #fff;
+        }
+
+        /* Payment Button (Uiverse.io by vinodjangid07) */
+        .pay-btn {
+            width: 100%; /* Full width for card */
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(15, 15, 15);
+            border: none;
+            color: white;
+            font-weight: 600;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+            position: relative;
+            overflow: hidden;
+            transition-duration: .3s;
+            text-decoration: none;
+        }
+
+        .pay-icon {
+            width: 16px;
+        }
+
+        .pay-icon path {
+            fill: white;
+        }
+
+        .pay-btn:hover {
+            color: black;
+        }
+
+        .pay-btn:hover .pay-icon path {
+            fill: black;
+        }
+
+        .pay-btn::before {
+            width: 100%;
+            height: 100%; /* Cover fully */
+            position: absolute;
+            content: "";
+            background-color: white;
+            border-radius: 50%;
+            left: -100%;
+            top: 0;
+            transition-duration: .3s;
+            mix-blend-mode: normal; /* Changed from difference to normal */
+            aspect-ratio: 1/1; /* Keep it circular-ish base */
+            transform-origin: center;
+            z-index: 0; /* Behind content */
+        }
+
+        .pay-btn span, .pay-btn svg {
+            position: relative;
+            z-index: 1; /* Above the white circle */
+        }
+
+        .pay-btn:hover::before {
+            transition-duration: .3s;
+            border-radius: 0;
+            left: 0; /* Move to cover the button */
+        }
+
+        .pay-btn:active {
+            transform: translate(5px,5px);
+            transition-duration: .3s;
+        }
+
+        /* Loading Screen */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #F9F7F2;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
+            overflow: hidden; /* Fix scrollbar issue */
+        }
+
+        /* From Uiverse.io by vinodjangid07 */
+        .loader {
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            transform: scale(1.2); /* Reduced scale to prevent cutoff */
+        }
+
+        .truckWrapper {
+            width: 200px;
+            height: 150px; /* Increased height significantly */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+            justify-content: flex-end;
+            overflow: hidden; /* Hide flying elements outside */
+            padding-bottom: 20px; /* Lift truck off the bottom edge */
+        }
+
+        /* truck upper body */
+        .truckBody {
+            width: 130px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+            animation: motion 1s linear infinite;
+        }
+
+        .trucksvg {
+            width: 130px;
+            height: auto;
+        }
+
+        /* truck tires */
+        .truckTires {
+            width: 130px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 10px;
+            position: absolute;
+            bottom: 20px; /* Match padding-bottom of wrapper */
+            z-index: 15;
+            animation: motion 1s linear infinite;
+        }
+
+        .tiresvg {
+            width: 20px;
+        }
+
+        /* road under truck */
+        .road {
+            width: 100%;
+            height: 1.5px;
+            background-color: #282828;
+            position: relative;
+            bottom: 0;
+            align-self: flex-end;
+            border-radius: 3px;
+        }
+
+        .road::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            background-color: #282828;
+            right: -50%;
+            border-radius: 3px;
+            animation: roadAnimation 1.4s linear infinite;
+            border-left: 10px solid white;
+        }
+
+        .road::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 100%;
+            background-color: #282828;
+            left: -15%;
+            border-radius: 3px;
+            animation: roadAnimation 1.4s linear infinite;
+            border-right: 10px solid white;
+        }
+
+        /* lamp post - Removed to prevent confusion */
+        .lampPost {
+            display: none;
+        }
+
+        @keyframes motion {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(3px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes roadAnimation {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-350px);
+            }
+        }
+
+        /* Send Message Button (Uiverse.io by marcelodolza) */
+        .send-btn-wrapper {
+            font-family: inherit;
+            font-size: 20px;
+            background: rgb(21, 21, 21); /* Dark background */
+            color: white;
+            fill: rgb(155, 153, 153);
+            padding: 0.7em 1em;
+            padding-left: 0.9em;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.2s;
+            cursor: pointer;
+            width: 100%; /* Full width */
+            justify-content: center; /* Center content */
+        }
+
+        .send-btn-wrapper span {
+            display: block;
+            margin-left: 0.3em;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .send-btn-wrapper svg {
+            display: block;
+            transform-origin: center center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .send-btn-wrapper:hover .svg-wrapper {
+            animation: fly-1 0.6s ease-in-out infinite alternate;
+        }
+
+        .send-btn-wrapper:hover svg {
+            transform: translateX(1.2em) rotate(45deg) scale(1.1);
+        }
+
+        .send-btn-wrapper:hover span {
+            transform: translateX(5em);
+        }
+
+        .send-btn-wrapper:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes fly-1 {
+            from {
+                transform: translateY(0.1em);
+            }
+
+            to {
+                transform: translateY(-0.1em);
+            }
+        }
+        
+        /* Interactive Background Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind everything */
+            pointer-events: none; /* Let clicks pass through */
+        }
+
+        /* Hero Fade-in Animation - Artistic Slow Blur */
+        @keyframes fadeFloatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .hero-animate {
+            animation: fadeFloatUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0; /* Initial state hidden */
+        }
+
+        .hero-delay-1 { animation-delay: 0.2s; }
+        .hero-delay-2 { animation-delay: 0.6s; }
+        .hero-delay-3 { animation-delay: 1.0s; }
+
+        /* Animation classes for other sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-sans);
+            background-color: transparent; /* Changed from var(--bg-color) to reveal canvas */
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; position: relative; display: inline-block; }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        p { font-size: 1.05rem; margin-bottom: 1.5rem; color: #444; }
+        a { color: var(--text-color); text-decoration: none; transition: all 0.3s ease; }
+
+        /* Layout Utilities */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        
+        /* Header / Nav */
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(249, 247, 242, 0.85); /* Semi-transparent */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* Dropdown Menu - Fixed hover behavior */
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-item > span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            padding-bottom: 1.5rem; /* Extend hover area downward */
+        }
+        .nav-item > span::after {
+            content: ' ▼';
+            font-size: 0.7rem;
+            margin-left: 0.3rem;
+        }
+        .nav-item > span:hover { color: var(--accent-color); }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 220px;
+            z-index: 1000;
+            padding-top: 0.5rem;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 0.9rem 1.5rem;
+            color: var(--text-color);
+            text-transform: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s ease;
+        }
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-menu a:hover {
+            background: var(--secondary-bg);
+            color: var(--accent-color);
+            padding-left: 2rem;
+        }
+        /* Show dropdown on hover - extended hover area */
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hero Section */
+        #hero { 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+        .hero-content { max-width: 800px; margin: 0 auto; width: 100%; }
+        .hero-subtitle { 
+            font-size: 1.2rem; 
+            color: #666; 
+            margin-bottom: 2rem; 
+            font-style: italic;
+            font-family: var(--font-serif);
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--text-color);
+            color: #fff;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            border: 2px solid var(--text-color);
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        .btn:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--text-color);
+        }
+        .btn-outline:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Tech Stack Icons */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            opacity: 0.9;
+        }
+        .tech-item {
+            position: relative;
+            cursor: pointer;
+        }
+        .tech-icon {
+            height: 32px;
+            width: auto;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+            display: block;
+        }
+        .tech-item:hover .tech-icon {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        /* Tech Tooltip */
+        .tech-item::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            background: rgba(26, 26, 26, 0.9);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            pointer-events: none;
+            margin-bottom: 10px;
+        }
+        .tech-item:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        /* Social Floating Dock */
+        .social-dock {
+            position: fixed;
+            bottom: 40px; 
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 990; /* Below Mobile Menu (1000) but above content */
+            align-items: center;
+        }
+        .social-float-btn {
+            width: 45px;
+            height: 45px;
+            background: #1A1A1A;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-float-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+            border-color: transparent;
+        }
+        .social-float-btn img {
+            width: 20px;
+            height: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        /* WhatsApp Chat Widget */
+        .wa-widget {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 320px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            overflow: hidden;
+            display: none; /* Hidden by default */
+            font-family: var(--font-sans);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        .wa-widget.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .wa-header {
+            background: #008069;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .wa-avatar {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+        .wa-info h4 { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; font-family: var(--font-sans); }
+        .wa-info p { margin: 0; font-size: 0.8rem; opacity: 0.9; }
+        .wa-close {
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        .wa-body {
+            background: #E6DDD4; /* WhatsApp Default BG Color */
+            padding: 20px;
+            height: 250px;
+            overflow-y: auto;
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            background-size: 300px;
+        }
+        .wa-message {
+            background: #fff;
+            padding: 10px 15px;
+            border-radius: 0 15px 15px 15px;
+            max-width: 80%;
+            font-size: 0.9rem;
+            color: #111;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .wa-message-time {
+            display: block;
+            text-align: right;
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 5px;
+        }
+        .wa-footer {
+            padding: 15px;
+            background: #f0f0f0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .wa-input {
+            flex: 1;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            outline: none;
+            font-family: var(--font-sans);
+        }
+        .wa-send-btn {
+            background: #008069;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        .wa-send-btn:hover { transform: scale(1.1); }
+        
+        /* Services / Pricing Section (New Business Focus) */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .price-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .price-card.popular {
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+        }
+        .price-card:hover { transform: translateY(-5px); box-shadow: 8px 8px 0 var(--border-color); }
+        .price-header { 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 1rem; 
+            margin-bottom: 1.5rem;
+            min-height: 250px; /* Increased to accommodate wrapped text */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align to top */
+        }
+        .price-amount { 
+            font-size: 2.5rem; 
+            font-family: var(--font-serif); 
+            font-weight: 700; 
+            color: var(--accent-color); 
+            line-height: 1.1; 
+            margin-top: auto; /* Push to bottom of header */
+        }
+        .price-amount small { 
+            font-size: 0.4em; /* Force smaller size */
+            color: #666; 
+            font-weight: 400; 
+            display: block; 
+            margin-bottom: 5px; 
+            line-height: 1;
+        }
+        .price-features { list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1; }
+        .price-features li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
+        .price-features li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-color); }
+        .badge {
+            position: absolute; top: -15px; right: 20px;
+            background: var(--accent-color); color: #fff;
+            padding: 6px 15px; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Portfolio / Works */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        .project-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid #eee;
+        }
+        .project-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-bottom: 1px solid #eee;
+            background-color: #f0f0f0;
+            display: block;
+        }
+        .project-content { padding: 1.5rem; }
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ddd;
+            padding: 2px 8px;
+        }
+
+        /* Project demo link hover effect removed underline */
+        .project-content a {
+            display: inline-block;
+            color: var(--accent-color);
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            text-decoration: none; /* Removed underline */
+        }
+        .project-content a:hover {
+            color: var(--text-color);
+            transform: translateX(4px);
+        }
+        /* Removed ::after pseudo-element that created the underline */
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid #eee;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            background: var(--secondary-bg);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+        }
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-color);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        footer p { color: #aaa; font-size: 0.9rem; }
+        
+        /* Scroll Animation Styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-right.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scale-in.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; } /* Adjusted for mobile */
+            h2 { font-size: 1.8rem; }
+            .container { padding: 0 1.5rem; } /* Slightly less padding */
+            section { padding: 4rem 0; } /* Reduce vertical padding */
+            
+            .nav-links { display: none; } 
+            .mobile-menu-btn { display: block; }
+            .pricing-grid, .project-grid { grid-template-columns: 1fr; }
+            
+            /* Hero Adjustments */
+            #hero { padding: 6rem 0 4rem 0; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 1.5rem; }
+            .btn { width: 100%; margin: 0.5rem 0; } /* Stack buttons */
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: #FFF;
+        }
+
+        /* Language Switcher */
+        .lang-switcher button {
+            background: none; border: none; cursor: pointer;
+            font-family: var(--font-sans); font-size: 0.9rem;
+            color: #666; margin-left: 10px;
+        }
+        .lang-switcher button.active { color: var(--text-color); font-weight: 600; text-decoration: underline; }
+
+        /* 3D Button Styles */
+        .container-button {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: "bt-1 bt-2 bt-3"
+              "bt-4 bt-5 bt-6";
+            position: relative;
+            perspective: 800;
+            padding: 0;
+            width: 160px;
+            height: 55px;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .container-button:active {
+            transform: scale(0.95);
+        }
+
+        .hover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 200;
+        }
+
+        .bt-1 { grid-area: bt-1; }
+        .bt-2 { grid-area: bt-2; }
+        .bt-3 { grid-area: bt-3; }
+        .bt-4 { grid-area: bt-4; }
+        .bt-5 { grid-area: bt-5; }
+        .bt-6 { grid-area: bt-6; }
+
+        .bt-1:hover ~ .button-3d { transform: rotateX(15deg) rotateY(-15deg) rotateZ(0deg); box-shadow: -2px -2px var(--btn-shadow); }
+        .bt-1:hover ~ .button-3d::after { animation: shake 0.5s ease-in-out 0.3s; text-shadow: -2px -2px var(--btn-shadow); }
+
+        .bt-3:hover ~ .button-3d { transform: rotateX(15deg) rotateY(15deg) rotateZ(0deg); box-shadow: 2px -2px var(--btn-shadow); }
+        .bt-3:hover ~ .button-3d::after { animation: shake 0.5s ease-in-out 0.3s; text-shadow: 2px -2px var(--btn-shadow); }
+
+        .bt-4:hover ~ .button-3d { transform: rotateX(-15deg) rotateY(-15deg) rotateZ(0deg); box-shadow: -2px 2px var(--btn-shadow); }
+        .bt-4:hover ~ .button-3d::after { animation: shake 0.5s ease-in-out 0.3s; text-shadow: -2px 2px var(--btn-shadow); }
+
+        .bt-6:hover ~ .button-3d { transform: rotateX(-15deg) rotateY(15deg) rotateZ(0deg); box-shadow: 2px 2px var(--btn-shadow); }
+        .bt-6:hover ~ .button-3d::after { animation: shake 0.5s ease-in-out 0.3s; text-shadow: 2px 2px var(--btn-shadow); }
+
+        .hover:hover ~ .button-3d::before { background: transparent; }
+        .hover:hover ~ .button-3d::after {
+            content: attr(data-hover-text);
+            top: -150%;
+            transform: translate(-50%, 0);
+            font-size: 26px;
+            color: var(--btn-hover-text-color);
+        }
+
+        .button-3d {
+            position: absolute;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            font-size: 16px;
+            font-weight: 900;
+            border: 3px solid var(--btn-border);
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+            font-family: var(--font-sans);
+        }
+
+        .button-3d::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background-color: var(--btn-bg);
+            border-radius: 9px;
+            transition: all 0.3s ease-in-out;
+            z-index: -1;
+        }
+
+        .button-3d::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 55px;
+            color: var(--btn-text-color);
+            border: none;
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+            z-index: 2;
+            text-align: center;
+        }
+
+        @keyframes shake {
+            0% { left: 45%; }
+            25% { left: 54%; }
+            50% { left: 48%; }
+            75% { left: 52%; }
+            100% { left: 50%; }
+        }
+
+        /* Theme Variants */
+        .btn-gold {
+            --btn-border: #D4AF37;
+            --btn-bg: #D4AF37;
+            --btn-text-color: #FFFFFF;
+            --btn-hover-text-color: #D4AF37;
+            --btn-shadow: rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-black {
+            --btn-border: #1A1A1A;
+            --btn-bg: #1A1A1A;
+            --btn-text-color: #FFFFFF;
+            --btn-hover-text-color: #1A1A1A;
+            --btn-shadow: rgba(26, 26, 26, 0.4);
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loader-wrapper">
+        <div class="loader">
+            <div class="truckWrapper">
+              <div class="truckBody">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 198 93"
+                  class="trucksvg"
+                >
+                  <path
+                    stroke-width="3"
+                    stroke="#282828"
+                    fill="#F83D3D"
+                    d="M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z"
+                  ></path>
+                  <path
+                    stroke-width="3"
+                    stroke="#282828"
+                    fill="#7D7C7C"
+                    d="M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z"
+                  ></path>
+                  <path
+                    stroke-width="2"
+                    stroke="#282828"
+                    fill="#282828"
+                    d="M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z"
+                  ></path>
+                  <rect
+                    stroke-width="2"
+                    stroke="#282828"
+                    fill="#FFFCAB"
+                    rx="1"
+                    height="7"
+                    width="5"
+                    y="63"
+                    x="187"
+                  ></rect>
+                  <rect
+                    stroke-width="2"
+                    stroke="#282828"
+                    fill="#282828"
+                    rx="1"
+                    height="11"
+                    width="4"
+                    y="81"
+                    x="193"
+                  ></rect>
+                  <rect
+                    stroke-width="3"
+                    stroke="#282828"
+                    fill="#DFDFDF"
+                    rx="2.5"
+                    height="90"
+                    width="121"
+                    y="1.5"
+                    x="6.5"
+                  ></rect>
+                  <rect
+                    stroke-width="2"
+                    stroke="#282828"
+                    fill="#DFDFDF"
+                    rx="2"
+                    height="4"
+                    width="6"
+                    y="84"
+                    x="1"
+                  ></rect>
+                </svg>
+              </div>
+              <div class="truckTires">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 30 30"
+                  class="tiresvg"
+                >
+                  <circle
+                    stroke-width="3"
+                    stroke="#282828"
+                    fill="#282828"
+                    r="13.5"
+                    cy="15"
+                    cx="15"
+                  ></circle>
+                  <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 30 30"
+                  class="tiresvg"
+                >
+                  <circle
+                    stroke-width="3"
+                    stroke="#282828"
+                    fill="#282828"
+                    r="13.5"
+                    cy="15"
+                    cx="15"
+                  ></circle>
+                  <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+                </svg>
+              </div>
+              <div class="road"></div>
+          
+              <svg
+                xml:space="preserve"
+                viewBox="0 0 453.459 453.459"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                id="Capa_1"
+                version="1.1"
+                fill="#000000"
+                class="lampPost"
+              >
+                <path
+                  d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993 
+          c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514 
+          c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16 
+          c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914 
+          h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75 
+          v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795 
+          V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0z 
+          M232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017 
+          h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+    </div>
+
+    <!-- Interactive Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <div class="container nav-container">
+            <div class="brand" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; line-height: 1;">
+                <svg style="height: 28px; width: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244.90193935272887 60"><g fill="#A67C52" transform="matrix(5.759321212813602,0,0,5.759321212813602,-4.780240529606033,-18.94816657045608)"><path d="M2.72 3.71L2.72 7.11L4.65 4.63Q5.19 3.85 5.91 3.67Q6.62 3.49 7.62 3.71L7.62 3.71L5.81 6.02L4.19 8.09L7.95 13.52L5.74 13.52L2.72 9.16L2.72 13.52L0.83 13.52L0.83 3.71L2.72 3.71ZM13.45 13.52L13.45 12.73Q12.92 13.24 12.30 13.48Q11.68 13.72 11.05 13.70Q10.42 13.68 9.82 13.41Q9.23 13.15 8.77 12.65Q8.32 12.15 8.04 11.46Q7.77 10.77 7.77 9.88L7.77 9.88Q7.77 9.04 8.06 8.33Q8.36 7.62 8.86 7.11Q9.35 6.61 9.99 6.34Q10.63 6.06 11.31 6.09L11.31 6.09Q11.98 6.12 12.39 6.39Q12.80 6.66 12.98 7.03Q13.17 7.39 13.18 7.76Q13.19 8.13 13.06 8.36L13.06 8.36Q12.82 8.01 12.39 7.89Q11.96 7.77 11.55 7.77L11.55 7.77Q10.91 7.77 10.47 8.09Q10.04 8.40 9.81 8.88Q9.59 9.35 9.58 9.91Q9.58 10.46 9.79 10.93Q10.01 11.41 10.45 11.73Q10.89 12.04 11.55 12.04L11.55 12.04Q12.11 12.04 12.47 11.79Q12.84 11.54 13.05 11.14Q13.27 10.74 13.36 10.24Q13.45 9.74 13.45 9.25L13.45 9.25L13.45 7.04L13.45 6.27L15.27 6.27L15.27 13.52L13.45 13.52ZM16.95 13.52L16.95 7.74Q16.98 7.32 17.13 7.04Q17.28 6.76 17.51 6.59Q17.75 6.43 18.07 6.35Q18.38 6.27 18.76 6.27L18.76 6.27L18.76 13.52L16.95 13.52ZM17.86 3.29L17.86 3.29Q18.34 3.29 18.68 3.64L18.68 3.64Q19.03 3.98 19.03 4.47L19.03 4.47Q19.03 4.96 18.69 5.31L18.69 5.31Q18.49 5.50 18.23 5.58Q17.98 5.66 17.72 5.73Q17.46 5.81 17.24 5.92Q17.02 6.02 16.94 6.26L16.94 6.26Q16.87 6.03 16.79 5.68Q16.72 5.33 16.70 4.96Q16.67 4.58 16.74 4.22Q16.80 3.86 17.04 3.63L17.04 3.63Q17.37 3.29 17.86 3.29ZM22.23 6.27L22.23 7.11Q22.34 6.86 22.57 6.68Q22.81 6.50 23.09 6.37Q23.37 6.24 23.66 6.17Q23.95 6.10 24.21 6.09L24.21 6.09Q24.74 6.06 25.26 6.24Q25.77 6.41 26.21 6.85L26.21 6.85Q26.84 7.50 26.84 8.74L26.84 8.74L26.84 13.52L25.05 13.52Q25.05 13.29 25.05 12.88Q25.06 12.47 25.06 11.99Q25.06 11.51 25.06 10.99Q25.06 10.47 25.05 10.01Q25.03 9.55 25.00 9.18Q24.98 8.82 24.93 8.65L24.93 8.65Q24.82 8.20 24.51 7.98Q24.19 7.76 23.83 7.76L23.83 7.76Q23.35 7.76 23.09 8.02Q22.82 8.27 22.82 8.69L22.82 8.69Q22.65 8.64 22.48 8.46Q22.32 8.29 22.23 8.09L22.23 8.09L22.23 8.47L22.23 13.52L20.43 13.52L20.43 6.27L22.23 6.27ZM28.24 6.29L30.07 6.29L30.07 9.76Q30.07 10.01 30.08 10.30Q30.09 10.58 30.14 10.86Q30.18 11.13 30.30 11.37Q30.42 11.61 30.66 11.77L30.66 11.77Q30.81 11.89 31.02 11.94Q31.22 12.00 31.43 12.00Q31.64 12.00 31.84 11.94Q32.03 11.89 32.20 11.77L32.20 11.77Q32.44 11.62 32.56 11.39Q32.68 11.16 32.73 10.89Q32.77 10.63 32.77 10.35Q32.77 10.07 32.77 9.81L32.77 9.81L32.77 7.73Q32.76 6.97 33.26 6.60Q33.77 6.23 34.58 6.26L34.58 6.26L34.58 9.34Q34.59 10.29 34.52 10.93Q34.44 11.56 34.29 11.93L34.29 11.93Q33.88 12.87 33.14 13.27Q32.40 13.68 31.40 13.68L31.40 13.68Q30.32 13.68 29.55 13.20Q28.78 12.73 28.45 11.68L28.45 11.68Q28.35 11.35 28.29 10.80Q28.24 10.25 28.24 9.59L28.24 9.59L28.24 6.29ZM39.51 6.10L39.51 6.10Q40.61 6.10 41.47 6.64Q42.34 7.17 42.83 7.99Q43.32 8.82 43.35 9.83Q43.39 10.84 42.84 11.80L42.84 11.80Q42.38 12.60 41.64 13.08Q40.89 13.55 40.05 13.67Q39.21 13.79 38.37 13.53Q37.52 13.27 36.85 12.60L36.85 12.60Q36.09 11.83 35.84 10.82Q35.59 9.81 35.88 8.81L35.88 8.81Q36.01 8.40 36.29 8.13Q36.58 7.87 36.95 7.74Q37.31 7.62 37.70 7.63Q38.09 7.64 38.43 7.79Q38.77 7.94 39.00 8.21Q39.23 8.48 39.27 8.88L39.27 8.88Q39.06 8.72 38.77 8.71Q38.47 8.71 38.20 8.84Q37.93 8.97 37.74 9.25Q37.55 9.52 37.55 9.93L37.55 9.93Q37.55 10.63 37.84 11.09Q38.14 11.55 38.58 11.78Q39.02 12.01 39.53 12.01Q40.04 12.01 40.48 11.77Q40.92 11.54 41.22 11.07Q41.51 10.60 41.51 9.90L41.51 9.90Q41.51 9.35 41.31 8.93Q41.12 8.51 40.79 8.24Q40.46 7.97 40.03 7.86Q39.59 7.76 39.10 7.85L39.10 7.85Q38.89 7.60 38.59 7.46Q38.29 7.31 37.94 7.26Q37.59 7.21 37.24 7.27Q36.89 7.34 36.58 7.52L36.58 7.52Q37.14 6.85 37.88 6.48Q38.63 6.10 39.51 6.10Z"></path></g></svg>
+                <span style="font-family: var(--font-sans); font-size: 0.7rem; font-weight: 400; color: #666; letter-spacing: 0.5px;">Innovision Tech</span>
+                </div>
+            <nav class="nav-links">
+                <a href="#web-development" data-key="nav_web_dev">Web Development</a>
+                <a href="#app-works" data-key="nav_mobile">Mobile Apps</a>
+                <a href="#about" data-key="nav_about">About</a>
+            <a href="#contact" data-key="nav_contact">Contact</a>
+            </nav>
+            <div class="lang-switcher">
+                <button data-lang="en" class="active">EN</button>
+                <button data-lang="zh-TW">繁</button>
+                <button data-lang="zh-CN">简</button>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container hero-content">
+                <h1 data-key="hero_title" class="hero-animate hero-delay-1">Digital Craftsmanship for Business Growth.</h1>
+                <p class="hero-subtitle hero-animate hero-delay-2" data-key="hero_subtitle">Digital Transformation · Custom Solutions · Tech Consulting</p>
+                <div style="margin-top: 2rem; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;" class="hero-animate hero-delay-3">
+                    <!-- Start Project (Black Theme) -->
+                    <a href="#contact" class="container-button btn-black">
+                        <div class="hover bt-1"></div>
+                        <div class="hover bt-2"></div>
+                        <div class="hover bt-3"></div>
+                        <div class="hover bt-4"></div>
+                        <div class="hover bt-5"></div>
+                        <div class="hover bt-6"></div>
+                        <div class="button-3d" data-key="btn_start" data-text="Start Project" data-hover-text="Let's Go!"></div>
+                    </a>
+
+                    <!-- View Work (Gold Theme) -->
+                    <a href="#works" class="container-button btn-gold">
+                        <div class="hover bt-1"></div>
+                        <div class="hover bt-2"></div>
+                        <div class="hover bt-3"></div>
+                        <div class="hover bt-4"></div>
+                        <div class="hover bt-5"></div>
+                        <div class="hover bt-6"></div>
+                        <div class="button-3d" data-key="btn_view_work" data-text="View Work" data-hover-text="Explore"></div>
+                    </a>
+                </div>
+                <div class="hint-text" style="margin-top: 3rem; font-size: 0.8rem; color: #888; font-style: italic; opacity: 0; animation: fadeFloatUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 2s;" data-key="hint_interactive">
+                    ✨ Tip: Click the clouds or empty space
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="fade-in-section" style="background-color: var(--secondary-bg);">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2 data-key="about_title" class="fade-in-section">About Us</h2>
+                    <p data-key="about_p1" class="fade-in-section" style="font-size: 1.1rem; line-height: 1.8; color: #555; transition-delay: 0.2s;">Kainuo Innovision Tech is a digital consultancy driven by innovation. We specialize in building Next.js / React-based web platforms with modern architecture that ensures fast, secure, and SEO-optimized performance. From bilingual brand websites to custom e-commerce platforms, we transform your business vision into scalable digital assets.</p>
+                    <p data-key="about_p2" class="fade-in-section" style="font-size: 1.1rem; line-height: 1.8; color: #555; transition-delay: 0.4s;">We serve businesses across Hong Kong, Mainland China, and international markets. From strategic planning to digital product delivery, we help brands launch, scale, and evolve. We provide end-to-end solutions that bridge the gap between your vision and market reality.</p>
+                
+                    <!-- Tech Stack Icons -->
+                    <div class="tech-stack fade-in-section" style="transition-delay: 0.6s;">
+                        <div class="tech-item" data-tooltip="React">
+                            <img src="https://cdn.simpleicons.org/react/1A1A1A" alt="React" class="tech-icon">
+                        </div>
+                        <div class="tech-item" data-tooltip="Next.js">
+                            <img src="https://cdn.simpleicons.org/nextdotjs/1A1A1A" alt="Next.js" class="tech-icon">
+                        </div>
+                        <div class="tech-item" data-tooltip="TypeScript">
+                            <img src="https://cdn.simpleicons.org/typescript/1A1A1A" alt="TypeScript" class="tech-icon">
+                        </div>
+                        <div class="tech-item" data-tooltip="Swift">
+                            <img src="https://cdn.simpleicons.org/swift/1A1A1A" alt="Swift" class="tech-icon">
+                        </div>
+                        <div class="tech-item" data-tooltip="Shopify">
+                            <img src="https://cdn.simpleicons.org/shopify/1A1A1A" alt="Shopify" class="tech-icon">
+                        </div>
+                        <div class="tech-item" data-tooltip="Stripe">
+                            <img src="https://cdn.simpleicons.org/stripe/1A1A1A" alt="Stripe" class="tech-icon">
+                        </div>
+                        <div class="tech-item" data-tooltip="Vercel">
+                            <img src="https://cdn.simpleicons.org/vercel/1A1A1A" alt="Vercel" class="tech-icon">
+                        </div>
+                        <div class="tech-item" data-tooltip="GitHub">
+                            <img src="https://cdn.simpleicons.org/github/1A1A1A" alt="GitHub" class="tech-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Web Development Section -->
+        <section id="web-development">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem;" data-key="web_dev_title">Web Development Services</h2>
+
+                <!-- 1. Web Projects -->
+                <div id="web-works"></div>
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_web">Web Solutions</h3>
+                <div class="project-grid" style="margin-bottom: 4rem;">
+                    <!-- Harbour Trade Co. Demo -->
+                    <div class="project-card scale-in">
+                        <img src="img/142shots_so.png" alt="Harbour Trade Co." class="project-image">
+                        <div class="project-content">
+                            <span class="tag" data-key="tag_corporate">Corporate Concept</span>
+                            <h3 data-key="web_proj1_title">Harbour Trade Co.</h3>
+                            <p data-key="web_proj1_desc">A professional trading company website with bilingual support, showcasing import/export solutions and comprehensive trade services.</p>
+                            <a href="https://demo-trade.kainuotech.com/" target="_blank" class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">View Live Demo</span>
+                            </a>
+                            </div>
+                        </div>
+                    <!-- Flow Space Demo -->
+                    <div class="project-card scale-in">
+                        <img src="img/255shots_so.png" alt="Flow Space" class="project-image">
+                        <div class="project-content">
+                            <span class="tag" data-key="tag_studio">Studio Concept</span>
+                            <h3 data-key="web_proj2_title">Flow Space</h3>
+                            <p data-key="web_proj2_desc">A minimalist yoga studio website featuring class schedules, booking integration, and a serene visual design.</p>
+                            <a href="https://flow.kainuotech.com/" target="_blank" class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">View Live Demo</span>
+                            </a>
+                    </div>
+                </div>
+                    <!-- Moment Café Demo -->
+                    <div class="project-card scale-in">
+                        <img src="img/97shots_so.png" alt="Moment Café" class="project-image">
+                        <div class="project-content">
+                            <span class="tag" data-key="tag_fnb">F&B Concept</span>
+                            <h3 data-key="web_proj3_title">Moment Café</h3>
+                            <p data-key="web_proj3_desc">A minimalist website for a specialty coffee shop, designed as a digital sanctuary. Features bilingual support, an elegant menu system, and atmospheric visual storytelling.</p>
+                            <a href="https://moment-cafe.vercel.app/" target="_blank" class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">View Live Demo</span>
+                            </a>
+            </div>
+                    </div>
+                    <!-- RetroLoop Demo -->
+                    <div class="project-card scale-in">
+                        <img src="img/284shots_so.png" alt="RetroLoop" class="project-image">
+                        <div class="project-content">
+                            <span class="tag" data-key="tag_vintage">Vintage Concept</span>
+                            <h3 data-key="web_proj4_title">RetroLoop</h3>
+                            <p data-key="web_proj4_desc">A curated vintage fashion archive and e-commerce platform. Features a dynamic countdown timer, brand filtering, and a distinctive retro aesthetic.</p>
+                            <a href="https://retroloop.vercel.app/" target="_blank" class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">View Live Demo</span>
+                            </a>
+                    </div>
+                </div>
+            </div>
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 data-key="services_title">Web Design Packages</h2>
+                    <p data-key="services_desc">Professional websites built with modern web technologies. Fast delivery, easy maintenance.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Package A: Quick Launch -->
+                    <div class="price-card fade-in-section">
+                        <div class="price-header">
+                            <h3 data-key="pkg1_title">Quick Launch</h3>
+                            <p data-key="pkg1_for">Best for Startups / Personal Profile</p>
+                            <div class="price-amount">HK$3,880</div>
+                        </div>
+                        <ul class="price-features">
+                            <li data-key="pkg1_f1">One-Page Static Site (High Performance)</li>
+                            <li data-key="pkg1_f2">Bilingual (EN / Trad. Chi)</li>
+                            <li data-key="pkg1_f3">Mobile Responsive Design</li>
+                            <li data-key="pkg1_f4">Social Media Links & Chat Integration</li>
+                            <li data-key="pkg1_f5">Free Domain Email Forwarding</li>
+                            <li data-key="pkg1_f6">Basic SEO Setup</li>
+                            <li data-key="pkg1_f7">Free Domain (.com) & SSL (1st Year)</li>
+                            <li data-key="pkg1_update">1 Content Update Round (1st Month)</li>
+                            <li data-key="pkg1_f8">3-Month Technical Maintenance</li>
+                        </ul>
+                        <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-direction: column;">
+                            <a href="https://buy.stripe.com/00wfZi2pV9r6fjjb7PcV200" target="_blank" class="pay-btn">
+                                <span data-key="btn_buy_now">Buy Now</span>
+                                <svg class="pay-icon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+                            </a>
+                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Quick%20Launch%20Plan%20(HK$3,880)." target="_blank" class="send-btn-wrapper" style="text-decoration: none;">
+                              <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                    height="24"
+                                  >
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path
+                                      fill="currentColor"
+                                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <span data-key="btn_select" data-wa-plan="pkg1">Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Package B: Business Brand (Popular) -->
+                    <div class="price-card popular fade-in-section">
+                        <div class="badge">Most Popular</div>
+                        <div class="price-header">
+                            <h3 data-key="pkg2_title">Business Brand</h3>
+                            <p data-key="pkg2_for">Best for Growing Business / Corporate</p>
+                            <div class="price-amount">HK$5,880</div>
+                            </div>
+                        <ul class="price-features">
+                            <li data-key="pkg2_f1">Multi-Page Website (Home + 4 Pages)</li>
+                            <li data-key="pkg2_f2">Multi-Language (EN/TC/SC +1)</li>
+                            <li data-key="pkg2_f3">Professional Email Setup (Google/Zoho)</li>
+                            <li data-key="pkg2_f4">Contact Form & Google Maps</li>
+                            <li data-key="pkg2_f5">Online Booking System (Calendly/WhatsApp)</li>
+                            <li data-key="pkg2_f6">Advanced SEO Optimization</li>
+                            <li data-key="pkg2_f7">Live Social Feed Widget (IG/FB Sync)</li>
+                            <li data-key="pkg2_update">3 Content Update Rounds (1st 3 Months)</li>
+                            <li data-key="pkg2_f8">Includes All Quick Launch Benefits</li>
+                        </ul>
+                        <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-direction: column;">
+                            <a href="https://buy.stripe.com/eVqbJ24y3cDi0op7VDcV201" target="_blank" class="pay-btn">
+                                <span data-key="btn_buy_now">Buy Now</span>
+                                <svg class="pay-icon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+                            </a>
+                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Brand%20Business%20Plan%20(HK$5,880)." target="_blank" class="send-btn-wrapper" style="text-decoration: none;">
+                              <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                    height="24"
+                                  >
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path
+                                      fill="currentColor"
+                                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <span data-key="btn_select" data-wa-plan="pkg2">Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Package: Professional Custom (New) -->
+                    <div class="price-card fade-in-section">
+                        <div class="badge" style="background: #2c3e50;">Best Value</div>
+                        <div class="price-header">
+                            <h3 data-key="pkg_pro_title">Professional Custom</h3>
+                            <p data-key="pkg_pro_for">CMS & Brand Portal</p>
+                            <div class="price-amount" data-key="pkg_pro_price">HK$8,880</div>
+                        </div>
+                        <ul class="price-features">
+                            <li data-key="pkg_pro_f1">Dynamic Content Modules (Blog/News/Works)</li>
+                            <li data-key="pkg_pro_f3">Custom Interactive UI / UX</li>
+                            <li data-key="pkg_pro_f5">CMS Content Management</li>
+                            <li data-key="pkg_pro_f6">Priority Technical Support</li>
+                            <li data-key="pkg_pro_f7">Includes All Business Brand Benefits</li>
+                        </ul>
+                        <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-direction: column;">
+                            <a href="https://buy.stripe.com/00w7sM0hNeLq7QRb7PcV202" target="_blank" class="pay-btn">
+                                <span data-key="btn_buy_now">Buy Now</span>
+                                <svg class="pay-icon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+                            </a>
+                            <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20the%20Professional%20Custom%20Plan%20(HK$8,880)." target="_blank" class="send-btn-wrapper" style="text-decoration: none;">
+                              <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                    height="24"
+                                  >
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path
+                                      fill="currentColor"
+                                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                    ></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <span data-key="btn_select" data-wa-plan="pkg_pro">Inquire</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Package C: Add-ons -->
+                    <div class="price-card fade-in-section">
+                        <div class="price-header">
+                            <h3 data-key="pkg3_title">Add-Ons & Custom</h3>
+                            <p data-key="pkg3_for">Upgrade Your Package</p>
+                            <div class="price-amount" style="font-size: 1.5rem; color: var(--text-color);">Optional</div>
+                        </div>
+                        <ul class="price-features">
+                            <li data-key="pkg3_f1">Extra Page +HK$800/page</li>
+                            <li data-key="pkg3_f2">Visual Identity Setup +HK$1,500</li>
+                            <li data-key="pkg3_pay">Payment Gateway Setup +HK$2,800</li>
+                            <li data-key="pkg3_login">Member System / Login +HK$3,800</li>
+                            <li data-key="pkg3_cms">CMS Integration +HK$3,800</li>
+                            <li data-key="pkg3_f5">Online Booking System Setup +HK$1,000</li>
+                            <li data-key="pkg3_update">One-time Content Update +HK$500</li>
+                            <li data-key="pkg3_f4">Monthly Maintenance +HK$800/mo</li>
+                        </ul>
+                        <a href="https://wa.me/85293412653?text=Hi,%20I'm%20interested%20in%20Custom%20Add-ons." target="_blank" class="send-btn-wrapper" style="text-decoration: none; margin-top: auto;">
+                          <div class="svg-wrapper-1">
+                            <div class="svg-wrapper">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                              >
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                  fill="currentColor"
+                                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                ></path>
+                              </svg>
+                            </div>
+                          </div>
+                          <span data-key="btn_contact" data-wa-plan="pkg_custom">Inquire</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- How It Works -->
+                <div id="process" style="margin-top: 5rem;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2 data-key="process_title">How It Works</h2>
+                    <p data-key="process_desc">Simple 4-step process to get your business online.</p>
+                            </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">01</div>
+                        <h3 style="font-size: 1.2rem;" data-key="step1_title">Consult</h3>
+                        <p data-key="step1_desc">We discuss your goals and define the project scope.</p>
+                        </div>
+                    <div>
+                        <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">02</div>
+                        <h3 style="font-size: 1.2rem;" data-key="step2_title">Setup & Design</h3>
+                        <p data-key="step2_desc">We handle domain, SSL, professional email, and visual design.</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">03</div>
+                        <h3 style="font-size: 1.2rem;" data-key="step3_title">Develop</h3>
+                        <p data-key="step3_desc">We build your solution using robust modern technologies.</p>
+                            </div>
+                    <div>
+                        <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">04</div>
+                        <h3 style="font-size: 1.2rem;" data-key="step4_title">Handover</h3>
+                        <p data-key="step4_desc">Full ownership transfer with a detailed operation guide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Innovation Lab Section -->
+        <section id="showcase" style="background-color: var(--secondary-bg);">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.5rem;" data-key="showcase_title">Innovation Lab</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 4rem; font-size: 1.1rem;" data-key="showcase_subtitle">Exploring new technologies and building innovative solutions</p>
+                <!-- 2. Mobile Innovation -->
+                <div id="app-works"></div>
+                <h3 style="font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 2rem; color: var(--accent-color);" data-key="cat_app">Mobile Innovation</h3>
+                <div class="project-grid" style="margin-bottom: 4rem;">
+                    <!-- Mood Balloon -->
+                    <div class="project-card scale-in" style="max-width: 450px;">
+                        <img src="img/mood-balloon.jpg" alt="Mood Balloon" class="project-image">
+                        <div class="project-content">
+                            <h3>Mood Balloon</h3>
+                            <p data-key="app_mood_desc">An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.</p>
+                            <span style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;" data-key="app_coming_soon">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Social Media Feed Section -->
+        <section id="social-feed" style="padding: 4rem 0; background-color: transparent; text-align: center; border-bottom: 1px solid var(--border-color);">
+            <div class="container">
+                <h2 class="sec-title" data-key="social_title">Follow Our Journey</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.7; font-family: 'Playfair Display', serif; font-style: italic;" data-key="social_desc">Latest updates from our Instagram</p>
+                
+                <!-- Elfsight Widget Container -->
+                <!-- Elfsight Instagram Feed -->
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-1ed687f1-3d1e-4c20-9036-570fd4ae4af4" data-elfsight-app-lazy></div>
+                         </div>
+        </section>
+
+        <!-- Contact & Footer Section (Merged) -->
+        <footer id="contact" style="background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #fff; padding: 4rem 0 1.5rem 0;">
+            <div class="container" style="display: flex; flex-wrap: wrap; gap: 4rem;">
+                
+                <!-- Left Column: Company Info -->
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+                    <h2 style="color: #fff; margin-bottom: 1.5rem; font-size: 2.5rem;" data-key="contact_title">Get in Touch</h2>
+                    <p style="color: #bbb; margin-bottom: 2.5rem; font-size: 1.1rem;" data-key="contact_intro">Ready to start your project? Contact us today.</p>
+                    
+                    <div style="margin-bottom: 2rem; line-height: 2; color: #ddd;">
+                        <div style="margin-bottom: 1rem;">
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_email">Email</strong>
+                            <a href="mailto:contact@kainuotech.com" style="color: var(--accent-color); text-decoration: none;">contact@kainuotech.com</a>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_whatsapp">WhatsApp</strong>
+                            <a href="https://wa.me/85293412653" target="_blank" style="color: var(--accent-color); text-decoration: none;">+852 93412653</a>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_wechat">WeChat</strong>
+                            <span style="color: var(--accent-color);">+86 18937380958</span>
+                        </div>
+                        <div>
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="contact_label_address">Address</strong>
+                            <span data-key="contact_address_text">Unit 1-20, 9/F., Hopeful Factory Centre, Fo Tan, Hong Kong</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: #fff; display: block; margin-bottom: 0.2rem;" data-key="duns_label">D-U-N-S® Registered</strong>
+                            <a href="https://www.dnb.com/business-directory/company-profiles.html" target="_blank" style="color: #bbb; text-decoration: none; font-family: monospace; font-size: 1.1rem;">77-331-5956</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form & Map -->
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <!-- Dark Theme Form -->
+                    <form id="contact-form" style="background: #222; padding: 1.5rem; border: 1px solid #333;">
+                        <div style="margin-bottom: 0.8rem;">
+                            <input type="text" id="name_field" placeholder="Name" required style="width: 100%; padding: 0.8rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);">
+                        </div>
+                        <div style="margin-bottom: 0.8rem;">
+                            <input type="email" id="email_field" placeholder="Email" required style="width: 100%; padding: 0.8rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);">
+                        </div>
+                        <div style="margin-bottom: 0.8rem;">
+                            <input type="tel" id="phone_field" placeholder="Phone" style="width: 100%; padding: 0.8rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);">
+                        </div>
+                        <div style="margin-bottom: 1.2rem;">
+                            <textarea id="textarea_field" rows="3" placeholder="Message" required style="width: 100%; padding: 0.8rem; background: #333; border: 1px solid #444; color: #fff; font-family: var(--font-sans);"></textarea>
+                        </div>
+                        <button type="submit" id="send-btn" class="btn" style="width: 100%; margin: 0; background: var(--accent-color); border: none; color: #fff; padding: 0.8rem;" data-key="contact_send_btn">Send Message</button>
+                        <div id="form-status" style="margin-top: 1rem; text-align: center; display: none;"></div>
+                    </form>
+
+                    <!-- Compact Map -->
+                    <div style="height: 280px; border: 1px solid #333; overflow: hidden;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.856325976363!2d114.1914673760423!3d22.396828240750865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404063630af030d%3A0x3c688828b7038582!2sHopeful%20Factory%20Centre!5e0!3m2!1sen!2shk!4v1709123456789!5m2!1sen!2shk&q=Hopeful+Factory+Centre" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Copyright Section (Bottom White Area) -->
+        <div style="text-align: center; padding: 2rem 0; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(0,0,0,0.05);">
+            <p style="margin: 0;">
+                <span data-key="footer_copyright">Kainuo Innovision Tech Co., Limited</span><br>
+                &copy; <span id="year"></span> All rights reserved.
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                <a href="terms.html" style="color: #888; text-decoration: none;" data-key="footer_terms">Terms of Service</a>
+                <span style="margin: 0 0.5rem; color: #ccc;">|</span>
+                <a href="privacy.html" style="color: #888; text-decoration: none;" data-key="footer_privacy">Privacy Policy</a>
+            </p>
+        </div>
+
+    <!-- Social Floating Dock (Updated Style) -->
+    <div class="social-dock">
+        <!-- WhatsApp (Primary) -->
+        <a href="javascript:void(0)" class="Btn whatsapp" onclick="toggleWhatsAppWidget()">
+            <div class="sign"><img src="https://cdn.simpleicons.org/whatsapp/white" alt="WhatsApp"></div>
+            <div class="text">Chat with Us</div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/kainuo-tech/" target="_blank" class="Btn linkedin">
+            <div class="sign">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </div>
+            <div class="text">LinkedIn</div>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/KainuoTech-Org" target="_blank" class="Btn github">
+            <div class="sign"><img src="https://cdn.simpleicons.org/github/white" alt="GitHub"></div>
+            <div class="text">GitHub</div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/kainuo_innovision_tech/" target="_blank" class="Btn instagram">
+            <div class="sign"><img src="https://cdn.simpleicons.org/instagram/white" alt="Instagram"></div>
+            <div class="text">Instagram</div>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/people/Kainuo-Innovision-Tech/61584470712451/" target="_blank" class="Btn facebook">
+            <div class="sign"><img src="https://cdn.simpleicons.org/facebook/white" alt="Facebook"></div>
+            <div class="text">Facebook</div>
+        </a>
+
+        <!-- XiaoHongShu -->
+        <a href="https://www.xiaohongshu.com/user/profile/62cea13a0000000002002ea2" target="_blank" class="Btn xiaohongshu">
+            <div class="sign"><img src="https://cdn.simpleicons.org/xiaohongshu/white" alt="XiaoHongShu"></div>
+            <div class="text">XiaoHongShu</div>
+        </a>
+    </div>
+
+    <!-- Custom WhatsApp Widget -->
+    <div id="wa-widget" class="wa-widget">
+        <div class="wa-header">
+            <div class="wa-avatar">👋</div>
+            <div class="wa-info">
+                <h4>Kainuo Innovision Tech</h4>
+                <p>Typically replies within an hour</p>
+            </div>
+            <div class="wa-close" onclick="toggleWhatsAppWidget()">✕</div>
+        </div>
+        <div class="wa-body">
+            <div class="wa-message">
+                Hi there! 👋<br>Welcome to Kainuo Innovision Tech. How can we help you today?
+                <span class="wa-message-time">Just now</span>
+            </div>
+        </div>
+        <div class="wa-footer">
+            <input type="text" id="wa-input" class="wa-input" placeholder="Type a message...">
+            <button class="wa-send-btn" onclick="sendWhatsAppMessage()">
+                <img src="https://cdn.simpleicons.org/whatsapp/white" style="width: 20px; height: 20px;">
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Loader Logic - Only show while actually loading
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader-wrapper');
+            // Remove the loader immediately when the page is fully loaded
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500); // Allow fade-out transition
+        });
+
+        // Interactive Background Script - Floating Clouds & Physics Playground
+        (function() {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let entities = []; // Clouds, particles, physics shapes
+
+            // Mouse tracking
+            let mouse = { x: -1000, y: -1000 };
+            
+            window.addEventListener('mousemove', e => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            // Handle Clicks - Break Clouds OR Spawn Physics Shapes
+            window.addEventListener('mousedown', e => {
+                const clickX = e.clientX;
+                const clickY = e.clientY;
+                let hitCloud = false;
+
+                // Hide hint on first click
+                const hint = document.querySelector('.hint-text');
+                if (hint && hint.style.opacity !== '0') {
+                    hint.style.transition = 'opacity 0.5s ease';
+                    hint.style.opacity = '0';
+                    setTimeout(() => hint.style.display = 'none', 500);
+                }
+                
+                // Iterate backwards to check clouds (top layer first)
+                for (let i = entities.length - 1; i >= 0; i--) {
+                    const entity = entities[i];
+                    if (entity instanceof Cloud && entity.isPointInside(clickX, clickY)) {
+                        entity.explode();
+                        entities.splice(i, 1);
+                        hitCloud = true;
+                        break; // Break one at a time
+                    }
+                }
+
+                // If didn't hit a cloud, spawn "Game" elements
+                if (!hitCloud) {
+                    spawnPhysicsShapes(clickX, clickY);
+                }
+            });
+
+            function spawnPhysicsShapes(x, y) {
+                // Spawn a burst of bouncing shapes
+                const count = 5 + Math.floor(Math.random() * 5);
+                for (let i = 0; i < count; i++) {
+                    entities.push(new PhysicsShape(x, y));
+                }
+            }
+
+            // Cloud Class
+            class Cloud {
+                constructor() {
+                    this.init();
+                }
+
+                init() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    // Flow to the right (Wind effect)
+                    this.vx = 0.2 + Math.random() * 0.3; 
+                    this.vy = (Math.random() - 0.5) * 0.05; // Very slight vertical drift
+                    
+                    // Create fluffy shape from multiple circles
+                    this.puffs = [];
+                    const puffCount = 5 + Math.floor(Math.random() * 4);
+                    this.scale = 0.8 + Math.random() * 0.6; // Cloud size
+                    
+                    for (let i = 0; i < puffCount; i++) {
+                        this.puffs.push({
+                            // Base positions
+                            baseX: (Math.random() - 0.5) * 60 * this.scale,
+                            baseY: (Math.random() - 0.5) * 30 * this.scale,
+                            x: 0, y: 0, // Current relative positions
+                            r: (25 + Math.random() * 25) * this.scale,
+                            // Animation properties for morphing
+                            phase: Math.random() * Math.PI * 2,
+                            speed: 0.01 + Math.random() * 0.02,
+                            amp: 2 + Math.random() * 3
+                        });
+                    }
+                }
+
+                update() {
+                    // 1. Internal Morphing Animation
+                    this.puffs.forEach(p => {
+                        p.phase += p.speed;
+                        p.x = p.baseX + Math.sin(p.phase) * p.amp;
+                        p.y = p.baseY + Math.cos(p.phase) * p.amp;
+                    });
+
+                    // 2. Movement Logic (Wind + Interaction)
+                    const isHovered = this.isPointInside(mouse.x, mouse.y);
+
+                    if (!isHovered) {
+                        this.x += this.vx;
+                        this.y += this.vy;
+                    } 
+
+                    // 3. Wrap around screen (Flow Right)
+                    // If cloud goes off right edge, reappear on left
+                    if (this.x > width + 150) {
+                        this.x = -150;
+                        this.y = Math.random() * height; // Randomize Y on re-entry
+                    }
+                    
+                    // Vertical wrap just in case
+                    if (this.y > height + 100) this.y = -100;
+                    if (this.y < -100) this.y = height + 100;
+
+                    this.draw();
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    
+                    ctx.fillStyle = '#FFFFFF';
+                    // Performance Optimization: Removed expensive shadow blur
+                    // This was causing significant lag on some devices
+                    /*
+                    ctx.shadowColor = 'rgba(212, 175, 55, 0.15)'; 
+                    ctx.shadowBlur = 20;
+                    ctx.shadowOffsetX = 0;
+                    ctx.shadowOffsetY = 5;
+                    */
+
+                    ctx.beginPath();
+                    this.puffs.forEach(p => {
+                        ctx.moveTo(p.x + p.r, p.y);
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    });
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                isPointInside(mx, my) {
+                    const dist = Math.sqrt((this.x - mx)**2 + (this.y - my)**2);
+                    return dist < (70 * this.scale); 
+                }
+
+                explode() {
+                    for (let i = 0; i < 15; i++) {
+                        entities.push(new Particle(this.x, this.y, this.scale));
+                    }
+                }
+            }
+
+            // Explosion Particle Class (Cloud Debris)
+            class Particle {
+                constructor(x, y, scale) {
+                    this.x = x + (Math.random() - 0.5) * 50;
+                    this.y = y + (Math.random() - 0.5) * 30;
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = Math.random() * 3 + 2;
+                    this.vx = Math.cos(angle) * speed;
+                    this.vy = Math.sin(angle) * speed;
+                    this.life = 1.0;
+                    this.decay = Math.random() * 0.03 + 0.02;
+                    this.size = (Math.random() * 10 + 5) * scale;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.life -= this.decay;
+                    
+                    if (this.life > 0) {
+                        this.draw();
+                    }
+                    return this.life <= 0;
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.life;
+                    ctx.fillStyle = '#D4AF37';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+
+            // Physics Shape Class (The "Game" Element)
+            class PhysicsShape {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    // Random Velocity
+                    this.vx = (Math.random() - 0.5) * 10;
+                    this.vy = (Math.random() - 1) * 10 - 5; // Initial pop up
+                    
+                    // Physics Props
+                    this.gravity = 0.5;
+                    this.friction = 0.8; // Bounciness (0.8 = retains 80% energy)
+                    this.drag = 0.99; // Air resistance
+                    
+                    // Style
+                    this.type = Math.floor(Math.random() * 3); // 0: Circle, 1: Square, 2: Triangle
+                    this.size = Math.random() * 10 + 8;
+                    this.color = Math.random() > 0.5 ? '#D4AF37' : '#1A1A1A'; // Gold or Black
+                    this.rotation = Math.random() * Math.PI * 2;
+                    this.rotSpeed = (Math.random() - 0.5) * 0.2;
+                    
+                    this.life = 600; // Frames before disappearing (approx 10 secs)
+                }
+
+                update() {
+                    // Physics
+                    this.vy += this.gravity;
+                    this.vx *= this.drag;
+                    
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.rotation += this.rotSpeed;
+                    this.life--;
+
+                    // Floor Collision
+                    if (this.y + this.size > height) {
+                        this.y = height - this.size;
+                        this.vy *= -this.friction;
+                    }
+                    // Wall Collision
+                    if (this.x + this.size > width) {
+                        this.x = width - this.size;
+                        this.vx *= -this.friction;
+                    }
+                    if (this.x - this.size < 0) {
+                        this.x = this.size;
+                        this.vx *= -this.friction;
+                    }
+
+                    // Mouse Interaction (Kick)
+                    const dx = this.x - mouse.x;
+                    const dy = this.y - mouse.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 50) {
+                        const force = (50 - dist) / 50;
+                        this.vx += (dx / dist) * force * 5;
+                        this.vy += (dy / dist) * force * 5;
+                    }
+
+                    if (this.life > 0) {
+                        this.draw();
+                        return false;
+                    }
+                    return true; // Dead
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.rotation);
+                    ctx.fillStyle = this.color;
+                    
+                    // Fade out near end
+                    if (this.life < 50) ctx.globalAlpha = this.life / 50;
+
+                    ctx.beginPath();
+                    if (this.type === 0) { // Circle
+                        ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+                    } else if (this.type === 1) { // Square
+                        ctx.rect(-this.size, -this.size, this.size*2, this.size*2);
+                    } else { // Triangle
+                        ctx.moveTo(0, -this.size);
+                        ctx.lineTo(this.size, this.size);
+                        ctx.lineTo(-this.size, this.size);
+                        ctx.closePath();
+                    }
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+
+            function initWorld() {
+                entities = [];
+                // Create Clouds - Reduced count for better performance
+                const cloudCount = width < 768 ? 5 : 10;
+                for (let i = 0; i < cloudCount; i++) {
+                    entities.push(new Cloud());
+                }
+            }
+
+            let resizeTimeout;
+            function onResize() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(resize, 200);
+            }
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+                initWorld();
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                // Background
+                ctx.fillStyle = '#F9F7F2';
+                ctx.fillRect(0, 0, width, height);
+
+                // Update & Draw Entities
+                for (let i = entities.length - 1; i >= 0; i--) {
+                    const ent = entities[i];
+                    
+                    if (ent instanceof Particle || ent instanceof PhysicsShape) {
+                        // These return true when dead
+                        if (ent.update()) {
+                            entities.splice(i, 1);
+                        }
+                    } else {
+                        ent.update();
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', onResize);
+            resize();
+            animate();
+        })();
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // i18n Data
+        const i18n = {
+            'en': {
+                'nav_brand': 'Kainuo Innovision',
+                'nav_services': 'Services', 'nav_works': 'Portfolio', 'nav_about': 'About', 'nav_contact': 'Contact',
+                'nav_web_dev': 'Web Development', 'nav_innovation': 'Innovation Lab', 'nav_mobile': 'Mobile Apps',
+                'web_dev_title': 'Web Development Services',
+                'hero_title': 'Digital Craftsmanship for Business Growth.',
+                'hero_subtitle': 'Digital Transformation · Custom Solutions · Tech Consulting',
+                'hero_desc': 'We specialize in building Next.js / React-based web platforms with modern architecture that ensures fast, secure, and SEO-optimized performance. From bilingual brand websites to custom e-commerce platforms, we transform your business vision into scalable digital assets. We provide end-to-end solutions that bridge the gap between your vision and market reality.',
+                'btn_start': 'Start Project', 'btn_view_work': 'View Work',
+                'services_title': 'Web Design Packages',
+                'services_desc': 'Professional websites built with modern web technologies. Fast delivery, easy maintenance.',
+                'pkg1_title': 'Quick Launch', 'pkg1_for': 'Best for Startups / Personal Profile',
+                'pkg1_f1': 'One-Page Static Site (High Performance)', 'pkg1_f2': 'Bilingual (EN / Trad. Chi)', 'pkg1_f3': 'Mobile Responsive Design', 'pkg1_f4': 'Social Media Links & Chat Integration', 'pkg1_f5': 'Free Domain Email Forwarding', 'pkg1_f6': 'Basic SEO Setup', 'pkg1_f7': 'Free Domain (.com) & SSL (1st Year)', 'pkg1_update': '1 Content Update Round (1st Month)', 'pkg1_f8': '3-Month Technical Maintenance',
+                'pkg2_title': 'Business Brand', 'pkg2_for': 'Best for Growing Business / Corporate',
+                'pkg2_f1': 'Multi-Page Website (Home + 4 Pages)', 'pkg2_f2': 'Multi-Language (EN/TC/SC +1)', 'pkg2_f3': 'Professional Email Setup (Google/Zoho)', 'pkg2_f4': 'Contact Form & Google Maps', 'pkg2_f5': 'Online Booking System (Calendly/WhatsApp)', 'pkg2_f6': 'Advanced SEO Optimization', 'pkg2_f7': 'Live Social Feed Widget (IG/FB Sync)', 'pkg2_update': '3 Content Update Rounds (1st 3 Months)', 'pkg2_f8': 'Includes All Quick Launch Benefits',
+                'pkg_pro_title': 'Professional Custom', 'pkg_pro_for': 'CMS & Brand Portal', 'pkg_pro_price': 'HK$8,880',
+                'pkg_pro_f1': 'Dynamic Content Modules (Blog/News)', 'pkg_pro_f2': 'Member System & Login', 'pkg_pro_f3': 'Custom Interactive UI / UX', 'pkg_pro_f4': 'Payment Gateway (Stripe/PayPal)', 'pkg_pro_f5': 'CMS Content Management', 'pkg_pro_f6': 'Priority Technical Support', 'pkg_pro_f7': 'Includes All Business Brand Benefits',
+                'pkg3_title': 'Add-Ons & Custom', 'pkg3_for': 'Upgrade Your Package',
+                'pkg3_f1': 'Extra Page +HK$800/page', 'pkg3_f2': 'Visual Identity Setup +HK$1,500', 'pkg3_pay': 'Payment Gateway Setup +HK$2,800', 'pkg3_login': 'Member System / Login +HK$3,800', 'pkg3_cms': 'CMS Integration +HK$3,800', 'pkg3_f5': 'Online Booking System Setup +HK$1,000', 'pkg3_update': 'One-time Content Update +HK$500', 'pkg3_f3': 'Content Polishing +HK$800', 'pkg3_f4': 'Monthly Maintenance +HK$800/mo',
+                'process_title': 'How It Works',
+                'process_desc': 'Simple 4-step process to get your business online.',
+                'step1_title': 'Consult', 'step1_desc': 'We discuss your goals and define the project scope.',
+                'step2_title': 'Setup & Design', 'step2_desc': 'We handle domain, SSL, professional email, and visual design.',
+                'step3_title': 'Develop', 'step3_desc': 'We build your solution using robust modern technologies.',
+                'step4_title': 'Handover', 'step4_desc': 'Full ownership transfer with a detailed operation guide.',
+                'cat_web': 'Web Solutions', 'cat_app': 'Mobile Innovation',
+                'tag_corporate': 'Corporate Concept', 'tag_studio': 'Studio Concept', 'tag_fnb': 'F&B Concept', 'tag_vintage': 'Vintage Concept',
+                'web_proj1_title': 'Harbour Trade Co.', 'web_proj1_desc': 'A professional trading company website with bilingual support, showcasing import/export solutions and comprehensive trade services.',
+                'web_proj2_title': 'Flow Space', 'web_proj2_desc': 'A minimalist yoga studio website featuring class schedules, booking integration, and a serene visual design.',
+                'web_proj3_title': 'Moment Café', 'web_proj3_desc': 'A minimalist website for a specialty coffee shop, designed as a digital sanctuary. Features bilingual support, an elegant menu system, and atmospheric visual storytelling.',
+                'web_proj4_title': 'RetroLoop', 'web_proj4_desc': 'A curated vintage fashion archive and e-commerce platform. Features a dynamic countdown timer, brand filtering, and a distinctive retro aesthetic.',
+                'btn_select': 'Inquire', 'btn_contact': 'Inquire', 'btn_quote': 'Get a Quote', 'btn_buy_now': 'Buy Now',
+                'works_title': 'Selected Works',
+                'social_title': 'Follow Our Journey', 'social_desc': 'Latest updates from our Instagram',
+                'app_mood_desc': 'An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.',
+                'app_coming_soon': 'Coming Soon',
+                'about_title': 'About Us',
+                'about_p1': 'Kainuo Innovision Tech is a digital consultancy driven by innovation. We specialize in building Next.js / React-based web platforms with modern architecture that ensures fast, secure, and SEO-optimized performance. From bilingual brand websites to custom e-commerce platforms, we transform your business vision into scalable digital assets.',
+                'about_p2': 'We serve businesses across Hong Kong, Mainland China, and international markets. From strategic planning to digital product delivery, we help brands launch, scale, and evolve. We provide end-to-end solutions that bridge the gap between your vision and market reality.',
+                'contact_title': 'Get in Touch',
+                'contact_intro': 'Ready to start your project? Contact us today.',
+                'contact_name_label': 'Name', 'contact_email_label': 'Email', 'contact_msg_label': 'Message', 'contact_send_btn': 'Send Message',
+                'contact_label_email': 'Email',
+                'contact_label_whatsapp': 'WhatsApp',
+                'contact_label_wechat': 'WeChat',
+                'contact_label_address': 'Address',
+                'contact_address_text': 'Unit 1-20, 9/F., Hopeful Factory Centre, Fo Tan, Hong Kong',
+                'duns_label': 'D-U-N-S® Registered',
+                'footer_copyright': 'Kainuo Innovision Tech Co., Limited',
+                'footer_terms': 'Terms of Service',
+                'footer_privacy': 'Privacy Policy',
+                'faq_title': 'Frequently Asked Questions',
+                'faq_desc': 'Got questions? We\'ve got answers.',
+                'faq1_q': 'How long does it take to build a website?',
+                'faq1_a': 'Quick Launch takes 3-5 business days. Business Brand takes 7-10 days.',
+                'faq2_q': 'Do I own the website after completion?',
+                'faq2_a': 'Yes! You get full ownership of the domain, hosting accounts, and all passwords. However, note that Wix/WordPress platforms require ongoing subscriptions.',
+                'faq3_q': 'Can I update the website myself?',
+                'faq3_a': 'Absolutely! We build on user-friendly platforms like Wix and WordPress. We\'ll provide training on how to update content, add pages, and manage your site.',
+                'faq4_q': 'What if I need help after the website is done?',
+                'faq4_a': 'All packages include 3 months of free support. After that, you can opt for our monthly maintenance plan at HK$800/month.',
+                'faq5_q': 'Do you provide SEO services?',
+                'faq5_a': 'Yes! All our packages include basic SEO setup (meta tags, descriptions, sitemap). For advanced SEO and Google Ads management, we offer custom packages.',
+                'faq6_q': 'What payment methods do you accept?',
+                'faq6_a': 'We accept bank transfer (FPS/HSBC), PayMe, Alipay, and Credit Cards (Stripe). For standard packages, full payment is required to initiate work. For custom projects, we accept 50% deposit and 50% upon completion.',
+                'hint_interactive': '✨ Tip: Click the clouds or empty space',
+                'wa_msg_pkg1': 'Hi, I\'m interested in the Quick Launch Plan (HK$3,880).',
+                'wa_msg_pkg2': 'Hi, I\'m interested in the Business Brand Plan (HK$5,880).',
+                'wa_msg_pkg_pro': 'Hi, I\'m interested in the Professional Custom Plan (HK$8,880).',
+                'wa_msg_pkg_custom': 'Hi, I\'m interested in Custom Add-ons.'
+            },
+            'zh-TW': {
+                'nav_brand': '凱諾創享',
+                'nav_services': '服務方案', 'nav_works': '案例展示', 'nav_about': '關於我們', 'nav_contact': '聯絡我們',
+                'nav_web_dev': '解決方案', 'nav_innovation': '創新實驗室', 'nav_mobile': '移動應用',
+                'web_dev_title': '數字解決方案',
+                'hero_title': '為商業增長打造的數字工藝',
+                'hero_subtitle': '數字化轉型 · 定制解決方案 · 技術諮詢',
+                'hero_desc': '我們專注於構建基於 Next.js / React 的網絡平台，採用現代化架構確保快速、安全且針對 SEO 優化的性能表現。從雙語品牌網站到定製電子商務平台，我們將您的商業願景轉化為可擴展的數字資產。我們提供端到端的解決方案，將您的願景轉化為具體的市場優勢。',
+                'btn_start': '開始專案', 'btn_view_work': '查看案例',
+                'services_title': '數字解決方案套餐',
+                'services_desc': '採用現代化技術棧構建的專業數字方案。快速交付，架構靈活。',
+                'pkg1_title': '快速啟動版', 'pkg1_for': '適合 初創企業 / 個人形象頁',
+                'pkg1_f1': '單頁式數字形象 (高性能)', 'pkg1_f2': '標準雙語 (英 / 繁)', 'pkg1_f3': '全平台響應式設計', 'pkg1_f4': '社交鏈接與聊天集成', 'pkg1_f5': '專業域名郵箱轉發', 'pkg1_f6': '基礎 SEO 優化', 'pkg1_f7': '贈送域名 (.com) & SSL (首年)', 'pkg1_update': '首月 1 次內容修訂', 'pkg1_f8': '3 個月技術維護',
+                'pkg2_title': '品牌商務版', 'pkg2_for': '適合 成長型企業 / 公司官網',
+                'pkg2_f1': '多頁面企業官網 (首頁 + 4 內頁)', 'pkg2_f2': '多語言支持 (英/繁/簡)', 'pkg2_f3': '企業郵箱配置 (Google/Zoho)', 'pkg2_f4': '聯絡表單 & Google 地圖', 'pkg2_f5': '線上預約系統集成', 'pkg2_f6': '進階 SEO 優化', 'pkg2_f7': '社交動態實時組件', 'pkg2_update': '首 3 個月 3 次內容修訂', 'pkg2_f8': '包含快速啟動版所有內容',
+                'pkg_pro_title': '專業定制版', 'pkg_pro_for': 'CMS 內容管理與品牌門戶', 'pkg_pro_price': 'HK$8,880',
+                'pkg_pro_f1': '動態內容模組 (博客/新聞)', 'pkg_pro_f2': '會員系統 & 登入功能', 'pkg_pro_f3': '定制交互體驗 (UI/UX)', 'pkg_pro_f4': '支付網關集成', 'pkg_pro_f5': 'CMS 內容管理後台', 'pkg_pro_f6': '優先技術支持', 'pkg_pro_f7': '包含品牌商務版所有內容',
+                'pkg3_title': '增值服務 & 定制', 'pkg3_for': '升級您的方案',
+                'pkg3_f1': '額外頁面 +HK$800/頁', 'pkg3_f2': '視覺識別設置 +HK$1,500', 'pkg3_pay': '支付網關設置 +HK$2,800', 'pkg3_login': '會員系統 / 登錄 +HK$3,800', 'pkg3_cms': 'CMS 系統整合 +HK$3,800', 'pkg3_f5': '在線預約系統設置 +HK$1,000', 'pkg3_update': '單次內容更新 +HK$500', 'pkg3_f3': '內容潤色 +HK$800', 'pkg3_f4': '月度維護 +HK$800/月',
+                'process_title': '服務流程',
+                'process_desc': '簡單四步，助您的業務快速上線。',
+                'step1_title': '諮詢', 'step1_desc': '溝通業務目標，確立項目範圍。',
+                'step2_title': '配置與設計', 'step2_desc': '處理域名、SSL、企業郵箱（轉發或商務帳戶）及視覺設計。',
+                'step3_title': '開發', 'step3_desc': '運用現代化技術構建高效能的解決方案。',
+                'step4_title': '移交', 'step4_desc': '完整權限移交，並提供詳細操作指南與教學。',
+                'cat_web': '網站解決方案', 'cat_app': '移動創新',
+                'tag_corporate': '企業概念設計', 'tag_studio': '工作室概念設計', 'tag_fnb': '餐飲概念設計', 'tag_vintage': '復古概念設計',
+                'web_proj1_title': 'Harbour Trade Co.', 'web_proj1_desc': '專業貿易公司網站，支持雙語切換，展示進出口解決方案及全面的貿易服務。',
+                'web_proj2_title': 'Flow Space', 'web_proj2_desc': '極簡風格的瑜伽工作室網站，包含課程表、預約整合及寧靜的視覺設計。',
+                'web_proj3_title': 'Moment Café', 'web_proj3_desc': '為精品咖啡店打造的極簡風格網站，營造數位靜謐空間。包含雙語切換、優雅的菜單系統及氛圍感強烈的視覺敘事。',
+                'web_proj4_title': 'RetroLoop', 'web_proj4_desc': '香港復古時尚檔案館與電商平台。包含動態倒數計時、品牌篩選功能，以及獨特的復古美學設計。',
+                'btn_select': '諮詢', 'btn_contact': '諮詢', 'btn_quote': '獲取報價', 'btn_buy_now': '立即購買',
+                'works_title': '精選案例',
+                'social_title': '關注我們的旅程', 'social_desc': '來自工作室的最新動態',
+                'app_mood_desc': '一款專注於情緒記錄與心靈療癒的 iOS 應用。追蹤你的心情變化，理解自己的感受，通過正念日記培養內心的平靜與安寧。',
+                'app_coming_soon': '即將上線',
+                'about_title': '關於我們',
+                'about_p1': '凱諾創享科技是一家以創新為核心的數字諮詢機構。我們專注於構建基於 Next.js / React 的網絡平台，採用現代化架構確保快速、安全且針對 SEO 優化的性能表現。從雙語品牌網站到定製電子商務平台，我們將您的商業願景轉化為可擴展的數字資產。',
+                'about_p2': '我們的服務範圍涵蓋香港、中國內地及國際市場。從戰略規劃到數字產品交付，我們幫助品牌快速啟動、擴展並持續進化。我們提供端到端的解決方案，將您的願景轉化為具體的市場優勢。',
+                'contact_title': '聯絡我們',
+                'contact_intro': '準備好開始您的專案了嗎？歡迎隨時聯繫我們。',
+                'contact_name_label': '您的姓名', 'contact_email_label': '您的郵箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '發送訊息',
+                'contact_label_email': '電郵',
+                'contact_label_whatsapp': 'WhatsApp',
+                'contact_label_wechat': '微信',
+                'contact_label_address': '地址',
+                'contact_address_text': '火炭禾盛街 10-16 號海輝工業中心 9 樓 1-20 室',
+                'duns_label': '鄧白氏® 認證企業',
+                'footer_copyright': '凱諾創享科技有限公司',
+                'footer_terms': '條款與細則',
+                'footer_privacy': '隱私政策',
+                'faq_title': '常見問題',
+                'faq_desc': '有疑問？我們為您解答。',
+                'faq1_q': '建一個網站需要多久？',
+                'faq1_a': '快速啟動版需要 3-5 個工作日。品牌商務版需要 7-10 天。',
+                'faq2_q': '網站完成後我擁有所有權嗎？',
+                'faq2_a': '是的！您將獲得域名、主機帳戶和所有密碼的完全所有權。但請注意，Wix/WordPress 平台需要持續訂閱。',
+                'faq3_q': '我可以自己更新網站嗎？',
+                'faq3_a': '當然可以！我們使用 Wix 和 WordPress 等用戶友好的平台。我們會提供培訓，教您如何更新內容、添加頁面和管理網站。',
+                'faq4_q': '網站完成後如果需要幫助怎麼辦？',
+                'faq4_a': '所有套餐都包含 3 個月免費技術支持。之後您可以選擇我們的月度維護計劃，每月 HK$800。',
+                'faq5_q': '你們提供 SEO 服務嗎？',
+                'faq5_a': '是的！所有套餐都包含基礎 SEO 設置（meta 標籤、描述、網站地圖）。如需進階 SEO 和 Google 廣告管理，我們提供定制套餐。',
+                'faq6_q': '你們接受什麼付款方式？',
+                'faq6_a': '我們接受銀行轉帳（FPS/匯豐）、PayMe、支付寶及信用卡（Stripe）。標準套餐需全額付款以啟動項目；定制項目接受 50% 訂金，完成後支付餘下 50%。',
+                'hint_interactive': '✨ 提示：點擊雲朵或空白處',
+                'wa_msg_pkg1': '你好，我對「快速啟動版」套餐 (HK$3,880) 感興趣。',
+                'wa_msg_pkg2': '你好，我對「品牌商務版」套餐 (HK$5,880) 感興趣。',
+                'wa_msg_pkg_pro': '你好，我對「專業定制版」套餐 (HK$8,880) 感興趣。',
+                'wa_msg_pkg_custom': '你好，我對「增值服務/定制」感興趣。'
+            },
+            'zh-CN': {
+                'nav_brand': '凯诺创享',
+                'nav_services': '服务方案', 'nav_works': '案例展示', 'nav_about': '关于我们', 'nav_contact': '联系我们',
+                'nav_web_dev': '解决方案', 'nav_innovation': '创新实验室', 'nav_mobile': '移动应用',
+                'web_dev_title': '数字解决方案',
+                'hero_title': '为商业增长打造的数字工艺',
+                'hero_subtitle': '数字化转型 · 定制解决方案 · 技术咨询',
+                'hero_desc': '我们专注于构建基于 Next.js / React 的网络平台，采用现代化架构确保快速、安全且针对 SEO 优化的性能表现。从双语品牌网站到定制电子商务平台，我们将您的商业愿景转化为可扩展的数字资产。我们提供端到端的解决方案，将您的愿景转化为具体的市场优势。',
+                'btn_start': '开始项目', 'btn_view_work': '查看案例',
+                'services_title': '数字解决方案套餐',
+                'services_desc': '采用现代化技术栈构建的专业数字方案。快速交付，架构灵活。',
+                'pkg1_title': '快速启动版', 'pkg1_for': '适合 初创企业 / 个人形象页',
+                'pkg1_f1': '单页式数字形象 (高性能)', 'pkg1_f2': '标准双语 (英 / 繁)', 'pkg1_f3': '全平台响应式设计', 'pkg1_f4': '社交链接与聊天集成', 'pkg1_f5': '专业域名邮箱转发', 'pkg1_f6': '基础 SEO 优化', 'pkg1_f7': '赠送域名 (.com) & SSL (首年)', 'pkg1_update': '首月 1 次内容修订', 'pkg1_f8': '3 个月技术维护',
+                'pkg2_title': '品牌商务版', 'pkg2_for': '适合 成长型企业 / 公司官网',
+                'pkg2_f1': '多页面企业官网 (首页 + 4 内页)', 'pkg2_f2': '多语言支持 (英/繁/简)', 'pkg2_f3': '企业邮箱配置 (Google/Zoho)', 'pkg2_f4': '联络表单 & Google 地图', 'pkg2_f5': '在线预约系统集成', 'pkg2_f6': '进阶 SEO 优化', 'pkg2_f7': '社交动态实时组件', 'pkg2_update': '首 3 个月 3 次内容修订', 'pkg2_f8': '包含快速启动版所有内容',
+                'pkg_pro_title': '专业定制版', 'pkg_pro_for': 'CMS 内容管理与品牌门户', 'pkg_pro_price': 'HK$8,880',
+                'pkg_pro_f1': '动态内容模块 (博客/新闻)', 'pkg_pro_f2': '会员系统 & 登录功能', 'pkg_pro_f3': '定制交互体验 (UI/UX)', 'pkg_pro_f4': '支付网关集成', 'pkg_pro_f5': 'CMS 内容管理后台', 'pkg_pro_f6': '优先技术支持', 'pkg_pro_f7': '包含品牌商务版所有内容',
+                'pkg3_title': '增值服务 & 定制', 'pkg3_for': '升级您的方案',
+                'pkg3_f1': '额外页面 +HK$800/页', 'pkg3_f2': '视觉识别设定 +HK$1,500', 'pkg3_pay': '支付系统接入 +HK$2,800', 'pkg3_login': '会员系统 & 登录功能 +HK$3,800', 'pkg3_cms': 'CMS 内容管理系统 +HK$3,800', 'pkg3_f5': '在线预约系统配置 +HK$1,000', 'pkg3_update': '单次内容更新 +HK$500', 'pkg3_f3': '内容润色 +HK$800', 'pkg3_f4': '月度维护 +HK$800/月',
+                'process_title': '服务流程',
+                'process_desc': '简单四步，助您的业务快速上线。',
+                'step1_title': '咨询', 'step1_desc': '沟通业务目标，确立项目范围。',
+                'step2_title': '配置与设计', 'step2_desc': '处理域名、SSL、企业邮箱（转发或商务账户）及视觉设计。',
+                'step3_title': '开发', 'step3_desc': '运用现代化技术构建高效能的解决方案。',
+                'step4_title': '移交', 'step4_desc': '完整权限移交，并提供详细操作指南与教学。',
+                'cat_web': '网站解决方案', 'cat_app': '移动创新', 'cat_data': '数据智能',
+                'tag_corporate': '企业概念设计', 'tag_studio': '工作室概念设计', 'tag_fnb': '餐饮概念设计', 'tag_vintage': '复古概念设计',
+                'web_proj1_title': 'Harbour Trade Co.', 'web_proj1_desc': '专业贸易公司网站，支持双语切换，展示进出口解决方案及全面的贸易服务。',
+                'web_proj2_title': 'Flow Space', 'web_proj2_desc': '极简风格的瑜伽工作室网站，包含课程表、预约整合及宁静的视觉设计。',
+                'web_proj3_title': 'Moment Café', 'web_proj3_desc': '为精品咖啡店打造的极简风格网站，营造数字静谧空间。包含双语切换、优雅的菜单系统及氛围感强烈的视觉叙事。',
+                'web_proj4_title': 'RetroLoop', 'web_proj4_desc': '香港复古时尚档案馆与电商平台。包含动态倒数计时、品牌筛选功能，以及独特的复古美学设计。',
+                'btn_select': '咨询', 'btn_contact': '咨询', 'btn_quote': '获取报价', 'btn_buy_now': '立即购买',
+                'works_title': '精选案例',
+                'social_title': '关注我们的旅程', 'social_desc': '来自工作室的最新动态',
+                'app_mood_desc': '一款专注于情绪记录与心灵疗愈的 iOS 应用。追踪你的心情变化，理解自己的感受，通过正念日记培养内心的平静与安宁。',
+                'app_coming_soon': '即将上线',
+                'data_viz_proj1_title': '超市销售分析',
+                'data_viz_proj1_desc': '一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。',
+                'data_viz_proj2_title': '香港零售业销售分析',
+                'data_viz_proj2_desc': '一个基于 Tableau 构建的交互式仪表盘，深度分析香港零售业的销售趋势与洞察。',
+                'data_viz_proj3_title': '宝马汽车销售分析',
+                'data_viz_proj3_desc': '一个基于 Tableau 构建的交互式仪表盘，深度分析宝马汽车的全球销售数据。',
+                'about_title': '关于我们',
+                'about_p1': '凯诺创享科技是一家以创新为核心的数字咨询机构。我们专注于构建基于 Next.js / React 的网络平台，采用现代化架构确保快速、安全且针对 SEO 优化的性能表现。从双语品牌网站到定制电子商务平台，我们将您的商业愿景转化为可扩展的数字资产。',
+                'about_p2': '我们的服务范围涵盖香港、中国内地及国际市场。从战略规划到数字产品交付，我们帮助品牌快速启动、扩展并持续进化。我们提供端到端的解决方案，将您的愿景转化为具体的市场优势。',
+                'contact_title': '联系我们',
+                'contact_intro': '准备好开始您的项目了吗？欢迎随时联系我们。',
+                'contact_name_label': '您的姓名', 'contact_email_label': '您的邮箱', 'contact_msg_label': '您的留言', 'contact_send_btn': '发送消息',
+                'contact_label_email': '邮箱',
+                'contact_label_whatsapp': 'WhatsApp',
+                'contact_label_wechat': '微信',
+                'contact_label_address': '地址',
+                'contact_address_text': '火炭禾盛街 10-16 号海辉工业中心 9 楼 1-20 室',
+                'duns_label': '邓白氏® 认证企业',
+                'footer_copyright': '凯诺创享科技有限公司',
+                'footer_terms': '条款与细则',
+                'footer_privacy': '隐私政策',
+                'faq_title': '常见问题',
+                'faq_desc': '有疑问？我们为您解答。',
+                'faq1_q': '建一个网站需要多久？',
+                'faq1_a': '快速启动版需要 3-5 个工作日。品牌商务版需要 7-10 天。',
+                'faq2_q': '网站完成后我拥有所有权吗？',
+                'faq2_a': '是的！您将获得域名、主机账户和所有密码的完全所有权。但请注意，Wix/WordPress 平台需要持续订阅。',
+                'faq3_q': '我可以自己更新网站吗？',
+                'faq3_a': '当然可以！我们使用 Wix 和 WordPress 等用户友好的平台。我们会提供培训，教您如何更新内容、添加页面和管理网站。',
+                'faq4_q': '网站完成后如果需要帮助怎么办？',
+                'faq4_a': '所有套餐都包含 3 个月免费技术支持。之后您可以选择我们的月度维护计划，每月 HK$800。',
+                'faq5_q': '你们提供 SEO 服务吗？',
+                'faq5_a': '是的！所有套餐都包含基础 SEO 设置（meta 标签、描述、网站地图）。如需进阶 SEO 和 Google 广告管理，我们提供定制套餐。',
+                'faq6_q': '你们接受什么付款方式？',
+                'faq6_a': '我们接受银行转账（FPS/汇丰）、PayMe、支付宝及信用卡（Stripe）。标准套餐需全额付款以启动项目；定制项目接受 50% 订金，完成后支付余下 50%。',
+                'hint_interactive': '✨ 提示：点击云朵或空白处',
+                'wa_msg_pkg1': '你好，我对「快速启动版」套餐 (HK$3,880) 感兴趣。',
+                'wa_msg_pkg2': '你好，我对「品牌商务版」套餐 (HK$5,880) 感兴趣。',
+                'wa_msg_pkg_pro': '你好，我对「专业定制版」套餐 (HK$8,880) 感兴趣。',
+                'wa_msg_pkg_custom': '你好，我对「增值服务/定制」感兴趣。'
+            }
+        };
+
+        let currentLang = 'en';
+        
+        // Define page titles for each language
+        const pageTitles = {
+            'en': 'Web Design & App Development | 網站開發 & App開發 | Kainuo Innovision',
+            'zh-TW': '網站開發 & App開發 | Web Design & App Development | 凱諾創享',
+            'zh-CN': '网站开发 & App开发 | Web Design & App Development | 凯诺创享'
+        };
+
+        function applyLang(lang) {
+            currentLang = lang;
+            
+            // Update document title
+            if (pageTitles[lang]) {
+                document.title = pageTitles[lang];
+            }
+
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (i18n[lang][key]) {
+                    if (el.classList.contains('button-3d')) {
+                        el.setAttribute('data-text', i18n[lang][key]);
+                    } else {
+                        el.innerHTML = i18n[lang][key];
+                    }
+                }
+            });
+            
+            // Update active state
+            document.querySelectorAll('.lang-switcher button').forEach(btn => {
+                if(btn.dataset.lang === lang) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+
+            // Update WhatsApp links based on language
+            updateWhatsAppLinks(lang);
+        }
+
+        function updateWhatsAppLinks(lang) {
+            document.querySelectorAll('a[data-wa-plan]').forEach(link => {
+                const planKey = link.getAttribute('data-wa-plan');
+                const messageKey = 'wa_msg_' + planKey;
+                
+                if (i18n[lang][messageKey]) {
+                    const message = i18n[lang][messageKey];
+                    const encodedMessage = encodeURIComponent(message);
+                    link.href = `https://wa.me/85293412653?text=${encodedMessage}`;
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-switcher button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                applyLang(btn.dataset.lang);
+            });
+        });
+        
+        // Mobile Menu
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', () => {
+            if(navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = '#F9F7F2';
+                navLinks.style.padding = '1rem';
+                navLinks.style.borderBottom = '1px solid #1A1A1A';
+        }
+        });
+
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("78CmxAprdh8lD2A7b");
+        })();
+
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const sendBtn = document.getElementById('send-btn');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            sendBtn.disabled = true;
+            sendBtn.innerText = 'Sending...';
+            
+            const templateParams = {
+                name: document.getElementById('name_field').value,
+                from_name: document.getElementById('name_field').value,
+                from_email: document.getElementById('email_field').value,
+                phone: document.getElementById('phone_field').value,
+                message: document.getElementById('textarea_field').value,
+                to_email: 'contact@kainuotech.com'
+            };
+            
+            emailjs.send('service_6sk5xxi', 'template_kv13jry', templateParams)
+                .then(function() {
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = 'green';
+                    formStatus.innerText = 'Message sent successfully!';
+                    contactForm.reset();
+                    setTimeout(() => formStatus.style.display = 'none', 3000);
+                }, function(error) {
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = 'red';
+                    formStatus.innerText = 'Failed to send message.';
+                })
+                .finally(function() {
+                    sendBtn.disabled = false;
+                    sendBtn.innerText = i18n[currentLang]['contact_send_btn'] || 'Send Message';
+                });
+        });
+
+        // Scroll Animation - Intersection Observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        const animatedElements = document.querySelectorAll('.fade-in-section, .fade-in-left, .fade-in-right, .scale-in');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    const navLinks = document.querySelector('.nav-links');
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.nextElementSibling.classList.remove('active');
+                });
+
+                // Toggle current FAQ
+                if (!isActive) {
+                    this.classList.add('active');
+                    answer.classList.add('active');
+                }
+                });
+        });
+
+        // WhatsApp Widget Logic
+        function toggleWhatsAppWidget() {
+            const widget = document.getElementById('wa-widget');
+            widget.classList.toggle('active');
+        }
+
+        function sendWhatsAppMessage() {
+            const input = document.getElementById('wa-input');
+            const message = input.value.trim();
+            if (message) {
+                // Redirect to WhatsApp API
+                const phone = '85293412653';
+                const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+                window.open(url, '_blank');
+                input.value = ''; // Clear input
+                toggleWhatsAppWidget(); // Close widget
+            }
+        }
+
+        // Allow sending with Enter key
+        document.getElementById('wa-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendWhatsAppMessage();
+            }
+        });
+    </script>
+  </body>
+</html>

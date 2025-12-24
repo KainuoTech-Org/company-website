@@ -38,10 +38,490 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    // 项目预览数据
+    const projectData = {
+        'harbour-trade': {
+            image: 'img/harbour-trade-long.png',
+            tag: 'Corporate Concept',
+            tagKey: 'tag_corporate',
+            title: 'Harbour Trade Co.',
+            titleKey: 'web_proj1_title',
+            descKey: 'web_proj1_desc',
+            url: 'https://demo-trade.kainuotech.com/'
+        },
+        'flow-space': {
+            image: 'img/flow-space-long.png',
+            tag: 'Studio Concept',
+            tagKey: 'tag_studio',
+            title: 'Flow Space',
+            titleKey: 'web_proj2_title',
+            descKey: 'web_proj2_desc',
+            url: 'https://flow.kainuotech.com/'
+        },
+        'moment-cafe': {
+            image: 'img/moment-cafe-long.png',
+            tag: 'F&B Concept',
+            tagKey: 'tag_fnb',
+            title: 'Moment Café',
+            titleKey: 'web_proj3_title',
+            descKey: 'web_proj3_desc',
+            url: 'https://moment-cafe.vercel.app/'
+        },
+        'retroloop': {
+            image: 'img/retroloop-long.png',
+            tag: 'Vintage Concept',
+            tagKey: 'tag_vintage',
+            title: 'RetroLoop',
+            titleKey: 'web_proj4_title',
+            descKey: 'web_proj4_desc',
+            url: 'https://retroloop.vercel.app/'
+        },
+        'novatrix': {
+            image: 'img/novatrix-long.png',
+            tag: 'Tech/SaaS Concept',
+            tagKey: 'tag_tech',
+            title: 'Novatrix',
+            titleKey: 'web_proj5_title',
+            descKey: 'web_proj5_desc',
+            url: 'https://01-tech-saas.vercel.app'
+        },
+        'aurelius': {
+            image: 'img/aurelius-long.png',
+            tag: 'Legal Services Concept',
+            tagKey: 'tag_legal',
+            title: 'Aurelius',
+            titleKey: 'web_proj6_title',
+            descKey: 'web_proj6_desc',
+            url: 'https://02-aurelius-legal-v2.vercel.app'
+        },
+        'lumina': {
+            image: 'img/lumina-long.png',
+            tag: 'Healthcare Concept',
+            tagKey: 'tag_healthcare',
+            title: 'Lumina Dental',
+            titleKey: 'web_proj7_title',
+            descKey: 'web_proj7_desc',
+            url: 'https://04-lumina-dental.vercel.app'
+        },
+        'natura': {
+            image: 'img/natura-long.png',
+            tag: 'Beauty/Wellness Concept',
+            tagKey: 'tag_beauty',
+            title: 'Natura Beauty',
+            titleKey: 'web_proj8_title',
+            descKey: 'web_proj8_desc',
+            url: 'https://05-natura-beauty.vercel.app'
+        },
+        'vault-capital': {
+            image: 'img/vault-capital-long.png',
+            tag: 'Finance Concept',
+            tagKey: 'tag_finance',
+            title: 'Vault Capital',
+            titleKey: 'web_proj9_title',
+            descKey: 'web_proj9_desc',
+            url: 'https://03-vault-capital.vercel.app'
+        }
+    };
+    
+    function openProjectPreview(projectId) {
+        const data = projectData[projectId];
+        if (!data) return;
+        
+        const modal = document.getElementById('projectPreviewModal');
+        const img = document.getElementById('previewImage');
+        const tag = document.getElementById('previewTag');
+        const title = document.getElementById('previewTitle');
+        const desc = document.getElementById('previewDescription');
+        const link = document.getElementById('previewVisitLink');
+        
+        // 设置图片
+        img.src = data.image;
+        img.alt = data.title;
+        
+        // 设置标签（使用 i18n）
+        tag.textContent = i18n[currentLang][data.tagKey] || data.tag;
+        tag.setAttribute('data-key', data.tagKey);
+        
+        // 设置标题（使用 i18n）
+        title.textContent = i18n[currentLang][data.titleKey] || data.title;
+        title.setAttribute('data-key', data.titleKey);
+        
+        // 设置描述（使用 i18n）
+        desc.textContent = i18n[currentLang][data.descKey] || '';
+        desc.setAttribute('data-key', data.descKey);
+        
+        // 设置链接
+        link.href = data.url;
+        
+        // 设置按钮文本（使用 i18n）
+        const visitText = link.querySelector('span[data-key="btn_visit_live"]');
+        if (visitText) {
+            visitText.textContent = i18n[currentLang]['btn_visit_live'] || 'Visit Live Site';
+        }
+        
+        // 显示模态框
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // 重置图片滚动位置到顶部
+        const imageWrapper = document.querySelector('.preview-image-wrapper');
+        if (imageWrapper) {
+            imageWrapper.scrollTop = 0; // 滚动容器回到顶部
+        }
+        setTimeout(() => {
+            img.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    
+    function closeProjectPreview() {
+        const modal = document.getElementById('projectPreviewModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // 点击模态框背景关闭
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('projectPreviewModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeProjectPreview();
+                }
+            });
+        }
+        
+        // ESC 键关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeProjectPreview();
+            }
+        });
+    });
+</script>
     <!-- Motion / Animations -->
-    <script defer src="https://unpkg.com/@lottiefiles/lottie-player@2.0.4/dist/lottie-player.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://unpkg.com/@lottiefiles/lottie-player@2.0.4/dist/lottie-player.js">
+    // 项目预览数据
+    const projectData = {
+        'harbour-trade': {
+            image: 'img/harbour-trade-long.png',
+            tag: 'Corporate Concept',
+            tagKey: 'tag_corporate',
+            title: 'Harbour Trade Co.',
+            titleKey: 'web_proj1_title',
+            descKey: 'web_proj1_desc',
+            url: 'https://demo-trade.kainuotech.com/'
+        },
+        'flow-space': {
+            image: 'img/flow-space-long.png',
+            tag: 'Studio Concept',
+            tagKey: 'tag_studio',
+            title: 'Flow Space',
+            titleKey: 'web_proj2_title',
+            descKey: 'web_proj2_desc',
+            url: 'https://flow.kainuotech.com/'
+        },
+        'moment-cafe': {
+            image: 'img/moment-cafe-long.png',
+            tag: 'F&B Concept',
+            tagKey: 'tag_fnb',
+            title: 'Moment Café',
+            titleKey: 'web_proj3_title',
+            descKey: 'web_proj3_desc',
+            url: 'https://moment-cafe.vercel.app/'
+        },
+        'retroloop': {
+            image: 'img/retroloop-long.png',
+            tag: 'Vintage Concept',
+            tagKey: 'tag_vintage',
+            title: 'RetroLoop',
+            titleKey: 'web_proj4_title',
+            descKey: 'web_proj4_desc',
+            url: 'https://retroloop.vercel.app/'
+        },
+        'novatrix': {
+            image: 'img/novatrix-long.png',
+            tag: 'Tech/SaaS Concept',
+            tagKey: 'tag_tech',
+            title: 'Novatrix',
+            titleKey: 'web_proj5_title',
+            descKey: 'web_proj5_desc',
+            url: 'https://01-tech-saas.vercel.app'
+        },
+        'aurelius': {
+            image: 'img/aurelius-long.png',
+            tag: 'Legal Services Concept',
+            tagKey: 'tag_legal',
+            title: 'Aurelius',
+            titleKey: 'web_proj6_title',
+            descKey: 'web_proj6_desc',
+            url: 'https://02-aurelius-legal-v2.vercel.app'
+        },
+        'lumina': {
+            image: 'img/lumina-long.png',
+            tag: 'Healthcare Concept',
+            tagKey: 'tag_healthcare',
+            title: 'Lumina Dental',
+            titleKey: 'web_proj7_title',
+            descKey: 'web_proj7_desc',
+            url: 'https://04-lumina-dental.vercel.app'
+        },
+        'natura': {
+            image: 'img/natura-long.png',
+            tag: 'Beauty/Wellness Concept',
+            tagKey: 'tag_beauty',
+            title: 'Natura Beauty',
+            titleKey: 'web_proj8_title',
+            descKey: 'web_proj8_desc',
+            url: 'https://05-natura-beauty.vercel.app'
+        },
+        'vault-capital': {
+            image: 'img/vault-capital-long.png',
+            tag: 'Finance Concept',
+            tagKey: 'tag_finance',
+            title: 'Vault Capital',
+            titleKey: 'web_proj9_title',
+            descKey: 'web_proj9_desc',
+            url: 'https://03-vault-capital.vercel.app'
+        }
+    };
+    
+    function openProjectPreview(projectId) {
+        const data = projectData[projectId];
+        if (!data) return;
+        
+        const modal = document.getElementById('projectPreviewModal');
+        const img = document.getElementById('previewImage');
+        const tag = document.getElementById('previewTag');
+        const title = document.getElementById('previewTitle');
+        const desc = document.getElementById('previewDescription');
+        const link = document.getElementById('previewVisitLink');
+        
+        // 设置图片
+        img.src = data.image;
+        img.alt = data.title;
+        
+        // 设置标签（使用 i18n）
+        tag.textContent = i18n[currentLang][data.tagKey] || data.tag;
+        tag.setAttribute('data-key', data.tagKey);
+        
+        // 设置标题（使用 i18n）
+        title.textContent = i18n[currentLang][data.titleKey] || data.title;
+        title.setAttribute('data-key', data.titleKey);
+        
+        // 设置描述（使用 i18n）
+        desc.textContent = i18n[currentLang][data.descKey] || '';
+        desc.setAttribute('data-key', data.descKey);
+        
+        // 设置链接
+        link.href = data.url;
+        
+        // 设置按钮文本（使用 i18n）
+        const visitText = link.querySelector('span[data-key="btn_visit_live"]');
+        if (visitText) {
+            visitText.textContent = i18n[currentLang]['btn_visit_live'] || 'Visit Live Site';
+        }
+        
+        // 显示模态框
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // 重置图片滚动位置到顶部
+        const imageWrapper = document.querySelector('.preview-image-wrapper');
+        if (imageWrapper) {
+            imageWrapper.scrollTop = 0; // 滚动容器回到顶部
+        }
+        setTimeout(() => {
+            img.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    
+    function closeProjectPreview() {
+        const modal = document.getElementById('projectPreviewModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // 点击模态框背景关闭
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('projectPreviewModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeProjectPreview();
+                }
+            });
+        }
+        
+        // ESC 键关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeProjectPreview();
+            }
+        });
+    });
+</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js">
+    // 项目预览数据
+    const projectData = {
+        'harbour-trade': {
+            image: 'img/harbour-trade-long.png',
+            tag: 'Corporate Concept',
+            tagKey: 'tag_corporate',
+            title: 'Harbour Trade Co.',
+            titleKey: 'web_proj1_title',
+            descKey: 'web_proj1_desc',
+            url: 'https://demo-trade.kainuotech.com/'
+        },
+        'flow-space': {
+            image: 'img/flow-space-long.png',
+            tag: 'Studio Concept',
+            tagKey: 'tag_studio',
+            title: 'Flow Space',
+            titleKey: 'web_proj2_title',
+            descKey: 'web_proj2_desc',
+            url: 'https://flow.kainuotech.com/'
+        },
+        'moment-cafe': {
+            image: 'img/moment-cafe-long.png',
+            tag: 'F&B Concept',
+            tagKey: 'tag_fnb',
+            title: 'Moment Café',
+            titleKey: 'web_proj3_title',
+            descKey: 'web_proj3_desc',
+            url: 'https://moment-cafe.vercel.app/'
+        },
+        'retroloop': {
+            image: 'img/retroloop-long.png',
+            tag: 'Vintage Concept',
+            tagKey: 'tag_vintage',
+            title: 'RetroLoop',
+            titleKey: 'web_proj4_title',
+            descKey: 'web_proj4_desc',
+            url: 'https://retroloop.vercel.app/'
+        },
+        'novatrix': {
+            image: 'img/novatrix-long.png',
+            tag: 'Tech/SaaS Concept',
+            tagKey: 'tag_tech',
+            title: 'Novatrix',
+            titleKey: 'web_proj5_title',
+            descKey: 'web_proj5_desc',
+            url: 'https://01-tech-saas.vercel.app'
+        },
+        'aurelius': {
+            image: 'img/aurelius-long.png',
+            tag: 'Legal Services Concept',
+            tagKey: 'tag_legal',
+            title: 'Aurelius',
+            titleKey: 'web_proj6_title',
+            descKey: 'web_proj6_desc',
+            url: 'https://02-aurelius-legal-v2.vercel.app'
+        },
+        'lumina': {
+            image: 'img/lumina-long.png',
+            tag: 'Healthcare Concept',
+            tagKey: 'tag_healthcare',
+            title: 'Lumina Dental',
+            titleKey: 'web_proj7_title',
+            descKey: 'web_proj7_desc',
+            url: 'https://04-lumina-dental.vercel.app'
+        },
+        'natura': {
+            image: 'img/natura-long.png',
+            tag: 'Beauty/Wellness Concept',
+            tagKey: 'tag_beauty',
+            title: 'Natura Beauty',
+            titleKey: 'web_proj8_title',
+            descKey: 'web_proj8_desc',
+            url: 'https://05-natura-beauty.vercel.app'
+        },
+        'vault-capital': {
+            image: 'img/vault-capital-long.png',
+            tag: 'Finance Concept',
+            tagKey: 'tag_finance',
+            title: 'Vault Capital',
+            titleKey: 'web_proj9_title',
+            descKey: 'web_proj9_desc',
+            url: 'https://03-vault-capital.vercel.app'
+        }
+    };
+    
+    function openProjectPreview(projectId) {
+        const data = projectData[projectId];
+        if (!data) return;
+        
+        const modal = document.getElementById('projectPreviewModal');
+        const img = document.getElementById('previewImage');
+        const tag = document.getElementById('previewTag');
+        const title = document.getElementById('previewTitle');
+        const desc = document.getElementById('previewDescription');
+        const link = document.getElementById('previewVisitLink');
+        
+        // 设置图片
+        img.src = data.image;
+        img.alt = data.title;
+        
+        // 设置标签（使用 i18n）
+        tag.textContent = i18n[currentLang][data.tagKey] || data.tag;
+        tag.setAttribute('data-key', data.tagKey);
+        
+        // 设置标题（使用 i18n）
+        title.textContent = i18n[currentLang][data.titleKey] || data.title;
+        title.setAttribute('data-key', data.titleKey);
+        
+        // 设置描述（使用 i18n）
+        desc.textContent = i18n[currentLang][data.descKey] || '';
+        desc.setAttribute('data-key', data.descKey);
+        
+        // 设置链接
+        link.href = data.url;
+        
+        // 设置按钮文本（使用 i18n）
+        const visitText = link.querySelector('span[data-key="btn_visit_live"]');
+        if (visitText) {
+            visitText.textContent = i18n[currentLang]['btn_visit_live'] || 'Visit Live Site';
+        }
+        
+        // 显示模态框
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // 重置图片滚动位置到顶部
+        const imageWrapper = document.querySelector('.preview-image-wrapper');
+        if (imageWrapper) {
+            imageWrapper.scrollTop = 0; // 滚动容器回到顶部
+        }
+        setTimeout(() => {
+            img.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    
+    function closeProjectPreview() {
+        const modal = document.getElementById('projectPreviewModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // 点击模态框背景关闭
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('projectPreviewModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeProjectPreview();
+                }
+            });
+        }
+        
+        // ESC 键关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeProjectPreview();
+            }
+        });
+    });
+</script>
 
     <style>
         :root {
@@ -160,21 +640,28 @@
 
         /* View Live Demo Button Style (Uiverse.io by cssbuttons-io) */
         a.learn-more {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            outline: none;
-            border: 0;
-            vertical-align: middle;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--text-color);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            border-bottom: 4px solid #000;
             text-decoration: none;
-            background: transparent;
-            padding: 0;
-            font-size: inherit;
-            font-family: inherit;
-            width: 12rem;
-            height: auto;
-            margin-top: 1rem;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            height: 42px;
+            box-sizing: border-box;
         }
+        
+        
+        
+        
 
         a.learn-more .circle {
             transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -1027,9 +1514,24 @@
             justify-items: center;
         }
         #showcase .project-card {
+            position: relative;
             width: 100%;
             max-width: 520px;
             margin: 0 auto;
+            background: transparent; /* Removed box effect */
+            border: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+        }
+        #showcase .project-image {
+            border-radius: 20px; /* Rounded image */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Shadow on image instead of card */
+            border: none;
+        }
+        #showcase .project-content {
+            padding: 1.5rem 0; /* Remove side padding since box is gone */
+            text-align: center;
         }
 
         /* Portfolio / Works */
@@ -1044,6 +1546,36 @@
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid #eee;
         }
+        /* 项目图片容器：固定高度，隐藏溢出 */
+        .project-image-container {
+            width: 100%;
+            height: 300px; /* 固定显示高度 */
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            background-color: #f0f0f0;
+        }
+        
+        /* 长图：初始位置在顶部，悬停时滚动到底部 */
+        .project-image-scroll {
+            width: 100%;
+            height: auto;
+            min-height: 300px; /* 确保至少填满容器 */
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 8s cubic-bezier(0.4, 0, 0.2, 1); /* 平滑滚动动画，8秒完成 */
+            transform: translateY(0); /* 初始位置：顶部 */
+            will-change: transform; /* 优化性能 */
+        }
+        
+        /* 悬停时：图片从顶部滚动到底部 */
+        .project-card:hover .project-image-scroll {
+            /* 计算滚动距离：图片总高度 - 容器高度，向上移动（负值） */
+            transform: translateY(calc(-100% + 300px));
+        }
+        
+
         .project-image {
             width: 100%;
             height: auto;
@@ -1052,8 +1584,248 @@
             background-color: #f0f0f0;
             display: block;
         }
-        .project-content { padding: 1.5rem; }
-        .tag {
+        .project-content { 
+            padding: 1rem 1.5rem; 
+            position: relative;
+            min-height: 80px; /* 缩短最小高度 */
+        }
+        /* 项目操作按钮区域 */
+        .project-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        /* 项目标题始终显示 */
+        
+        /* 项目标题 (现在的 Concept) */
+        
+        /* 项目标题 (现在的 Concept) - 大写、醒目 */
+        .project-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* 项目副标题 (原来的名字) - 灰色、小字 */
+        .project-subtitle {
+            font-family: var(--font-sans);
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            font-weight: 400;
+            
+            /* 默认隐藏 */
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(-5px);
+        }
+
+        
+        /* 项目副标题 (原来的名字) */
+        .project-subtitle {
+            font-family: var(--font-sans);
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            font-weight: 400;
+            
+            /* 默认隐藏 */
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(-5px);
+        }
+
+        
+        /* 项目操作按钮区域 - 默认隐藏，悬停时显示 */
+        .project-card .project-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+            
+            /* 默认隐藏状态 - 强制生效 */
+            opacity: 0 !important;
+            visibility: hidden !important;
+            max-height: 0 !important;
+            margin-top: 0 !important;
+            overflow: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-actions {
+            opacity: 1 !important;
+            visibility: visible !important;
+            max-height: 100px !important;
+            margin-top: 1rem !important;
+            transform: translateY(0);
+        }
+        
+        /* 悬停时显示副标题 */
+        .project-card:hover .project-subtitle {
+            opacity: 1;
+            max-height: 30px; /* 足够显示一行文字 */
+            margin-bottom: 1rem;
+            transform: translateY(0);
+        }
+        
+        /* 项目卡片悬停时背景变化 */
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+            z-index: 10; /* 确保悬停的卡片在最上层 */
+        }
+
+        
+        /* 预览按钮 - 3D 按压效果 */
+        .btn-preview {
+            background: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            border-bottom: 4px solid #C4A027;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            height: 42px;
+            box-sizing: border-box;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-preview:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            border-bottom-width: 6px;
+        }
+        
+        .btn-preview:active {
+            border-bottom-width: 2px;
+            filter: brightness(0.9);
+            transform: translateY(2px);
+        }
+        
+        /* 全屏预览模态框 */
+        .project-preview-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-preview-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .preview-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            gap: 0;
+        }
+        
+        /* 左侧图片区域 */
+        .preview-image-section {
+            flex: 1.2;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+        }
+        
+        .preview-image-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .preview-image-wrapper::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .preview-image-wrapper::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .preview-image-wrapper::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+        
+        .preview-image-scroll {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 10s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+        }
+        
+        .preview-image-section:hover .preview-image-scroll {
+            transform: translateY(calc(-100% + 100vh));
+        }
+        
+        /* 右侧文字描述区域 */
+        .preview-content-section {
+            flex: 0.8;
+            height: 100vh;
+            background: var(--bg-color);
+            padding: 3rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .preview-content-section::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .preview-content-section::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        
+        .preview-content-section::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+        
+        .preview-header {
+            margin-bottom: 2rem;
+        }
+        
+        .preview-tag {
             display: inline-block;
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -1063,6 +1835,104 @@
             border: 1px solid #ddd;
             padding: 2px 8px;
         }
+        
+        .preview-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .preview-description {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2.5rem;
+        }
+        
+        .preview-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .btn-visit-live {
+            background: var(--text-color);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-visit-live:hover {
+            background: var(--accent-color);
+            color: var(--text-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* 关闭按钮 */
+        .preview-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+        
+        .preview-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+        
+        @media (max-width: 1024px) {
+            .preview-container {
+                flex-direction: column;
+            }
+            
+            .preview-image-section {
+                flex: 1;
+                height: 50vh;
+            }
+            
+            .preview-content-section {
+                flex: 1;
+                height: 50vh;
+                padding: 2rem;
+            }
+            
+            .preview-title {
+                font-size: 2rem;
+            }
+        }
+
+        
 
         /* Project demo link hover effect removed underline */
         .project-content a {
@@ -1625,64 +2495,103 @@
                 <div class="project-grid" style="margin-bottom: 4rem;">
                     <!-- Harbour Trade Co. Demo -->
                     <div class="project-card scale-in">
-                        <img src="img/142shots_so.png" alt="Harbour Trade Co." class="project-image">
+                        <div class="project-image-container"><img src="img/harbour-trade-long.png" alt="Harbour Trade Co." class="project-image-scroll"></div>
                         <div class="project-content">
-                            <span class="tag" data-key="tag_corporate">Corporate Concept</span>
-                            <h3 data-key="web_proj1_title">Harbour Trade Co.</h3>
-                            <p data-key="web_proj1_desc">A professional trading company website with bilingual support, showcasing import/export solutions and comprehensive trade services.</p>
-                            <a href="https://demo-trade.kainuotech.com/" target="_blank" class="learn-more">
-                                <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                                </span>
-                                <span class="button-text">View Live Demo</span>
-                        </a>
-                    </div>
+                            <h3 data-key="tag_corporate">Corporate Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('harbour-trade')" data-key="btn_preview">Preview</button>
+                                <a href="https://demo-trade.kainuotech.com/" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
                         </div>
+                    </div>
                     <!-- Flow Space Demo -->
                     <div class="project-card scale-in">
-                        <img src="img/255shots_so.png" alt="Flow Space" class="project-image">
+                        <div class="project-image-container"><img src="img/flow-space-long.png" alt="Flow Space" class="project-image-scroll"></div>
                         <div class="project-content">
-                            <span class="tag" data-key="tag_studio">Studio Concept</span>
-                            <h3 data-key="web_proj2_title">Flow Space</h3>
-                            <p data-key="web_proj2_desc">A minimalist yoga studio website featuring class schedules, booking integration, and a serene visual design.</p>
-                            <a href="https://flow.kainuotech.com/" target="_blank" class="learn-more">
-                                <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                                </span>
-                                <span class="button-text">View Live Demo</span>
-                        </a>
+                            <h3 data-key="tag_studio">Studio Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('flow-space')" data-key="btn_preview">Preview</button>
+                                <a href="https://flow.kainuotech.com/" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
                     <!-- Moment Café Demo -->
                     <div class="project-card scale-in">
-                        <img src="img/97shots_so.png" alt="Moment Café" class="project-image">
+                        <div class="project-image-container"><img src="img/moment-cafe-long.png" alt="Moment Café" class="project-image-scroll"></div>
                         <div class="project-content">
-                            <span class="tag" data-key="tag_fnb">F&B Concept</span>
-                            <h3 data-key="web_proj3_title">Moment Café</h3>
-                            <p data-key="web_proj3_desc">A minimalist website for a specialty coffee shop, designed as a digital sanctuary. Features bilingual support, an elegant menu system, and atmospheric visual storytelling.</p>
-                            <a href="https://moment-cafe.vercel.app/" target="_blank" class="learn-more">
-                                <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                                </span>
-                                <span class="button-text">View Live Demo</span>
-                            </a>
-            </div>
+                            <h3 data-key="tag_fnb">F&B Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('moment-cafe')" data-key="btn_preview">Preview</button>
+                                <a href="https://moment-cafe.vercel.app/" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
+                        </div>
                     </div>
                     <!-- RetroLoop Demo -->
                     <div class="project-card scale-in">
-                        <img src="img/284shots_so.png" alt="RetroLoop" class="project-image">
+                        <div class="project-image-container"><img src="img/retroloop-long.png" alt="RetroLoop" class="project-image-scroll"></div>
                         <div class="project-content">
-                            <span class="tag" data-key="tag_vintage">Vintage Concept</span>
-                            <h3 data-key="web_proj4_title">RetroLoop</h3>
-                            <p data-key="web_proj4_desc">A curated vintage fashion archive and e-commerce platform. Features a dynamic countdown timer, brand filtering, and a distinctive retro aesthetic.</p>
-                            <a href="https://retroloop.vercel.app/" target="_blank" class="learn-more">
-                                <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                                </span>
-                                <span class="button-text">View Live Demo</span>
-                            </a>
+                            <h3 data-key="tag_vintage">Vintage Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('retroloop')" data-key="btn_preview">Preview</button>
+                                <a href="https://retroloop.vercel.app/" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <!-- Novatrix Demo -->
+                    <div class="project-card scale-in">
+                        <div class="project-image-container"><img src="img/novatrix-long.png" alt="Novatrix" class="project-image-scroll"></div>
+                        <div class="project-content">
+                            <h3 data-key="web_proj5_title">Tech / SaaS Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('novatrix')" data-key="btn_preview">Preview</button>
+                                <a href="https://01-tech-saas.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Aurelius Demo -->
+                    <div class="project-card scale-in">
+                        <div class="project-image-container"><img src="img/aurelius-long.png" alt="Aurelius" class="project-image-scroll"></div>
+                        <div class="project-content">
+                            <h3 data-key="web_proj6_title">Legal Services Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('aurelius')" data-key="btn_preview">Preview</button>
+                                <a href="https://02-aurelius-legal-v2.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lumina Demo -->
+                    <div class="project-card scale-in">
+                        <div class="project-image-container"><img src="img/lumina-long.png" alt="Lumina Dental" class="project-image-scroll"></div>
+                        <div class="project-content">
+                            <h3 data-key="web_proj7_title">Healthcare Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('lumina')" data-key="btn_preview">Preview</button>
+                                <a href="https://04-lumina-dental.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Natura Demo -->
+                    <div class="project-card scale-in">
+                        <div class="project-image-container"><img src="img/natura-long.png" alt="Natura Beauty" class="project-image-scroll"></div>
+                        <div class="project-content">
+                            <h3 data-key="web_proj8_title">Beauty / Wellness Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('natura')" data-key="btn_preview">Preview</button>
+                                <a href="https://05-natura-beauty.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Vault Capital Demo -->
+                    <div class="project-card scale-in">
+                        <div class="project-image-container"><img src="img/vault-capital-long.png" alt="Vault Capital" class="project-image-scroll"></div>
+                        <div class="project-content">
+                            <h3 data-key="web_proj9_title">Finance Concept</h3>
+                            <div class="project-actions">
+                                <button class="btn-preview" onclick="openProjectPreview('vault-capital')" data-key="btn_preview">Preview</button>
+                                <a href="https://03-vault-capital.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
             </div>
                 <!-- How It Works -->
                 <div id="process" style="margin-top: 5rem; margin-bottom: 5rem;">
@@ -1954,7 +2863,7 @@
                 </div>
 
         <!-- Innovation Lab Section -->
-        <section id="showcase" style="background-color: var(--secondary-bg);">
+        <section id="showcase" style="background-color: #F9F7F2;">
             <div class="container">
                 <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.5rem;" data-key="showcase_title">Innovation Lab</h2>
                 <p style="text-align: center; color: #666; margin-bottom: 4rem; font-size: 1.1rem;" data-key="showcase_subtitle">Exploring new technologies and building innovative solutions</p>
@@ -1974,21 +2883,12 @@
                 </div>
             </div>
         </section>
-        <!-- Social Media Feed Section -->
-        <section id="social-feed" style="padding: 4rem 0; background-color: transparent; text-align: center; border-bottom: 1px solid var(--border-color);">
-            <div class="container">
-                <h2 class="sec-title" data-key="social_title">Follow Our Journey</h2>
-                <p style="margin-bottom: 2rem; opacity: 0.7; font-family: 'Playfair Display', serif; font-style: italic;" data-key="social_desc">Latest updates from our Instagram</p>
-                
-                <!-- Elfsight Widget Container -->
-                <!-- Elfsight Instagram Feed -->
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-1ed687f1-3d1e-4c20-9036-570fd4ae4af4" data-elfsight-app-lazy></div>
-            </div>
-        </section>
+
+
+    </main>
 
         <!-- Contact & Footer Section (Merged) -->
-        <footer id="contact" style="background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #fff; padding: 4rem 0 1.5rem 0;">
+        <footer id="contact" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #1a1a1a; color: #fff; padding: 4rem 0 1.5rem 0; box-sizing: border-box;">
             <div class="container" style="display: flex; flex-wrap: wrap; gap: 4rem;">
                 
                 <!-- Left Column: Company Info -->
@@ -2049,7 +2949,7 @@
         </footer>
 
         <!-- Copyright Section (Bottom White Area) -->
-        <div style="text-align: center; padding: 2rem 0; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(0,0,0,0.05);">
+        <div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: #f9f7f2; text-align: center; padding: 2rem 0; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(0,0,0,0.05); box-sizing: border-box;">
             <p style="margin: 0;">
                 <span data-key="footer_copyright">Kainuo Innovision Tech Co., Limited</span><br>
                 &copy; <span id="year"></span> All rights reserved.
@@ -2515,10 +3415,21 @@
                 'web_proj2_title': 'Flow Space', 'web_proj2_desc': 'A minimalist yoga studio website featuring class schedules, booking integration, and a serene visual design.',
                 'web_proj3_title': 'Moment Café', 'web_proj3_desc': 'A minimalist website for a specialty coffee shop, designed as a digital sanctuary. Features bilingual support, an elegant menu system, and atmospheric visual storytelling.',
                 'web_proj4_title': 'RetroLoop', 'web_proj4_desc': 'A curated vintage fashion archive and e-commerce platform. Features a dynamic countdown timer, brand filtering, and a distinctive retro aesthetic.',
-                'btn_select': 'Inquire', 'btn_contact': 'Inquire', 'btn_quote': 'Get a Quote', 'btn_buy_now': 'Buy Now',
+                'btn_select': 'Inquire', 'btn_contact': 'Inquire', 'btn_quote': 'Get a Quote', 'btn_buy_now': 'Buy Now', 'btn_preview': '预览', 'btn_visit_live': '访问实际网站', 'btn_visit_live': '訪問實際網站', 'btn_visit_live': 'Visit Live Site', 'btn_preview': '預覽', 'btn_preview': 'Preview',
                 'works_title': 'Selected Works',
                 'social_title': 'Follow Our Journey', 'social_desc': 'Latest updates from our Instagram',
                 'app_mood_desc': 'An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.',
+                
+                'web_proj5_title': 'Tech / SaaS Concept', 'web_proj5_desc': 'A modern SaaS platform website featuring subscription pricing, feature showcase, and seamless user onboarding experience.',
+                'web_proj6_title': 'Legal Services Concept', 'web_proj6_desc': 'A professional law firm website showcasing practice areas, attorney profiles, and legal insights for clients.',
+                'web_proj7_title': 'Healthcare Concept', 'web_proj7_desc': 'A modern dental clinic website with service offerings, team introduction, gallery, and appointment booking.',
+                'web_proj8_title': 'Beauty / Wellness Concept', 'web_proj8_desc': 'A natural beauty e-commerce site featuring product discovery, personalized quiz, and wellness content.',
+                'web_proj9_title': 'Finance Concept', 'web_proj9_desc': 'An investment management platform showcasing expertise, performance tracking, and wealth advisory services.',
+                'tag_tech': 'Tech/SaaS Concept',
+                'tag_legal': 'Legal Services Concept',
+                'tag_healthcare': 'Healthcare Concept',
+                'tag_beauty': 'Beauty/Wellness Concept',
+                'tag_finance': 'Finance Concept',
                 'app_coming_soon': 'Coming Soon',
                 'about_title': 'About Us',
                 'about_p1': 'Kainuo Innovision Tech is a digital consultancy driven by innovation. We specialize in building Next.js / React-based web platforms with modern architecture that ensures fast, secure, and SEO-optimized performance. From bilingual brand websites to custom e-commerce platforms, we transform your business vision into scalable digital assets.',
@@ -2602,6 +3513,17 @@
                 'works_title': '精選案例',
                 'social_title': '關注我們的旅程', 'social_desc': '來自工作室的最新動態',
                 'app_mood_desc': '一款專注於情緒記錄與心靈療癒的 iOS 應用。追蹤你的心情變化，理解自己的感受，通過正念日記培養內心的平靜與安寧。',
+                
+                'web_proj5_title': '科技 / SaaS 概念', 'web_proj5_desc': '現代 SaaS 平台網站，展示訂閱定價、功能特色及順暢的用戶註冊體驗。',
+                'web_proj6_title': '法律服務概念', 'web_proj6_desc': '專業律師事務所網站，展示執業領域、律師簡介及法律見解。',
+                'web_proj7_title': '醫療保健概念', 'web_proj7_desc': '現代牙科診所網站，包含服務項目、團隊介紹、案例展示及預約功能。',
+                'web_proj8_title': '美容 / 保健概念', 'web_proj8_desc': '天然美妝電商網站，提供產品探索、個人化測驗及保健內容。',
+                'web_proj9_title': '金融概念', 'web_proj9_desc': '投資管理平台，展示專業知識、績效追蹤及財富顧問服務。',
+                'tag_tech': '科技/SaaS 概念',
+                'tag_legal': '法律服務概念',
+                'tag_healthcare': '醫療保健概念',
+                'tag_beauty': '美容/保健概念',
+                'tag_finance': '金融概念',
                 'app_coming_soon': '即將上線',
                 'about_title': '關於我們',
                 'about_p1': '凱諾創享科技是一家以創新為核心的數字諮詢機構。我們專注於構建基於 Next.js / React 的網絡平台，採用現代化架構確保快速、安全且針對 SEO 優化的性能表現。從雙語品牌網站到定製電子商務平台，我們將您的商業願景轉化為可擴展的數字資產。',
@@ -2685,6 +3607,17 @@
                 'works_title': '精选案例',
                 'social_title': '关注我们的旅程', 'social_desc': '来自工作室的最新动态',
                 'app_mood_desc': '一款专注于情绪记录与心灵疗愈的 iOS 应用。追踪你的心情变化，理解自己的感受，通过正念日记培养内心的平静与安宁。',
+                
+                'web_proj5_title': '科技 / SaaS 概念', 'web_proj5_desc': '现代 SaaS 平台网站，展示订阅定价、功能特色及顺畅的用户注册体验。',
+                'web_proj6_title': '法律服务概念', 'web_proj6_desc': '专业律师事务所网站，展示执业领域、律师简介及法律见解。',
+                'web_proj7_title': '医疗保健概念', 'web_proj7_desc': '现代牙科诊所网站，包含服务项目、团队介绍、案例展示及预约功能。',
+                'web_proj8_title': '美容 / 保健概念', 'web_proj8_desc': '天然美妆电商网站，提供产品探索、个人化测验及保健内容。',
+                'web_proj9_title': '金融概念', 'web_proj9_desc': '投资管理平台，展示专业知识、绩效追踪及财富顾问服务。',
+                'tag_tech': '科技/SaaS 概念',
+                'tag_legal': '法律服务概念',
+                'tag_healthcare': '医疗保健概念',
+                'tag_beauty': '美容/保健概念',
+                'tag_finance': '金融概念',
                 'app_coming_soon': '即将上线',
                 'data_viz_proj1_title': '超市销售分析',
                 'data_viz_proj1_desc': '一个基于 Streamlit 构建的交互式仪表盘，用于探索和分析超市销售数据。',
@@ -2999,6 +3932,191 @@
                 btn.addEventListener('mouseleave', () => gsap.to(btn, { scale: 1, duration: 0.22, ease: 'power2.out' }));
             });
         })();
-    </script>
-  </body>
+    
+    // 项目预览数据
+    const projectData = {
+        'harbour-trade': {
+            image: 'img/harbour-trade-long.png',
+            tag: 'Corporate Concept',
+            tagKey: 'tag_corporate',
+            title: 'Harbour Trade Co.',
+            titleKey: 'web_proj1_title',
+            descKey: 'web_proj1_desc',
+            url: 'https://demo-trade.kainuotech.com/'
+        },
+        'flow-space': {
+            image: 'img/flow-space-long.png',
+            tag: 'Studio Concept',
+            tagKey: 'tag_studio',
+            title: 'Flow Space',
+            titleKey: 'web_proj2_title',
+            descKey: 'web_proj2_desc',
+            url: 'https://flow.kainuotech.com/'
+        },
+        'moment-cafe': {
+            image: 'img/moment-cafe-long.png',
+            tag: 'F&B Concept',
+            tagKey: 'tag_fnb',
+            title: 'Moment Café',
+            titleKey: 'web_proj3_title',
+            descKey: 'web_proj3_desc',
+            url: 'https://moment-cafe.vercel.app/'
+        },
+        'retroloop': {
+            image: 'img/retroloop-long.png',
+            tag: 'Vintage Concept',
+            tagKey: 'tag_vintage',
+            title: 'RetroLoop',
+            titleKey: 'web_proj4_title',
+            descKey: 'web_proj4_desc',
+            url: 'https://retroloop.vercel.app/'
+        },
+        'novatrix': {
+            image: 'img/novatrix-long.png',
+            tag: 'Tech/SaaS Concept',
+            tagKey: 'tag_tech',
+            title: 'Novatrix',
+            titleKey: 'web_proj5_title',
+            descKey: 'web_proj5_desc',
+            url: 'https://01-tech-saas.vercel.app'
+        },
+        'aurelius': {
+            image: 'img/aurelius-long.png',
+            tag: 'Legal Services Concept',
+            tagKey: 'tag_legal',
+            title: 'Aurelius',
+            titleKey: 'web_proj6_title',
+            descKey: 'web_proj6_desc',
+            url: 'https://02-aurelius-legal-v2.vercel.app'
+        },
+        'lumina': {
+            image: 'img/lumina-long.png',
+            tag: 'Healthcare Concept',
+            tagKey: 'tag_healthcare',
+            title: 'Lumina Dental',
+            titleKey: 'web_proj7_title',
+            descKey: 'web_proj7_desc',
+            url: 'https://04-lumina-dental.vercel.app'
+        },
+        'natura': {
+            image: 'img/natura-long.png',
+            tag: 'Beauty/Wellness Concept',
+            tagKey: 'tag_beauty',
+            title: 'Natura Beauty',
+            titleKey: 'web_proj8_title',
+            descKey: 'web_proj8_desc',
+            url: 'https://05-natura-beauty.vercel.app'
+        },
+        'vault-capital': {
+            image: 'img/vault-capital-long.png',
+            tag: 'Finance Concept',
+            tagKey: 'tag_finance',
+            title: 'Vault Capital',
+            titleKey: 'web_proj9_title',
+            descKey: 'web_proj9_desc',
+            url: 'https://03-vault-capital.vercel.app'
+        }
+    };
+    
+    function openProjectPreview(projectId) {
+        const data = projectData[projectId];
+        if (!data) return;
+        
+        const modal = document.getElementById('projectPreviewModal');
+        const img = document.getElementById('previewImage');
+        const tag = document.getElementById('previewTag');
+        const title = document.getElementById('previewTitle');
+        const desc = document.getElementById('previewDescription');
+        const link = document.getElementById('previewVisitLink');
+        
+        // 设置图片
+        img.src = data.image;
+        img.alt = data.title;
+        
+        // 设置标签（使用 i18n）
+        tag.textContent = i18n[currentLang][data.tagKey] || data.tag;
+        tag.setAttribute('data-key', data.tagKey);
+        
+        // 设置标题（使用 i18n）
+        title.textContent = i18n[currentLang][data.titleKey] || data.title;
+        title.setAttribute('data-key', data.titleKey);
+        
+        // 设置描述（使用 i18n）
+        desc.textContent = i18n[currentLang][data.descKey] || '';
+        desc.setAttribute('data-key', data.descKey);
+        
+        // 设置链接
+        link.href = data.url;
+        
+        // 设置按钮文本（使用 i18n）
+        const visitText = link.querySelector('span[data-key="btn_visit_live"]');
+        if (visitText) {
+            visitText.textContent = i18n[currentLang]['btn_visit_live'] || 'Visit Live Site';
+        }
+        
+        // 显示模态框
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // 重置图片滚动位置到顶部
+        const imageWrapper = document.querySelector('.preview-image-wrapper');
+        if (imageWrapper) {
+            imageWrapper.scrollTop = 0; // 滚动容器回到顶部
+        }
+        setTimeout(() => {
+            img.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    
+    function closeProjectPreview() {
+        const modal = document.getElementById('projectPreviewModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // 点击模态框背景关闭
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('projectPreviewModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeProjectPreview();
+                }
+            });
+        }
+        
+        // ESC 键关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeProjectPreview();
+            }
+        });
+    });
+</script>
+  
+    <!-- 项目预览模态框 -->
+    <div id="projectPreviewModal" class="project-preview-modal">
+        <button class="preview-close" onclick="closeProjectPreview()" aria-label="Close">×</button>
+        <div class="preview-container">
+            <div class="preview-image-section">
+                <div class="preview-image-wrapper">
+                    <img id="previewImage" class="preview-image-scroll" src="" alt="Project Preview">
+                </div>
+            </div>
+            <div class="preview-content-section">
+                <div class="preview-header">
+                    <span id="previewTag" class="preview-tag"></span>
+                    <h2 id="previewTitle" class="preview-title"></h2>
+                </div>
+                <p id="previewDescription" class="preview-description"></p>
+                <div class="preview-actions">
+                    <a id="previewVisitLink" href="#" target="_blank" class="btn-visit-live">
+                        <span data-key="btn_visit_live">Visit Live Site</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html><!-- Update Pricing -->
