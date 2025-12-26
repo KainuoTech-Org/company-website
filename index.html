@@ -1406,18 +1406,23 @@
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(0,0,0,0.06);
             padding: 2rem;
             transition: transform 0.3s ease;
             position: relative;
             display: flex;
             flex-direction: column;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
         .price-card.popular {
             border: 2px solid var(--accent-color);
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
         }
-        .price-card:hover { transform: translateY(-5px); box-shadow: 8px 8px 0 var(--border-color); }
+        .price-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+        }
         .price-header { 
             border-bottom: 1px solid #eee; 
             padding-bottom: 1rem; 
@@ -2243,17 +2248,17 @@
         }
         
         .learn-more:hover {
-            background: var(--accent-color) !important;
-            color: var(--text-color) !important;
-            filter: brightness(1) !important;
+            background: var(--text-color) !important;
+            color: #fff !important;
+            filter: brightness(1.1) !important;
             transform: translateY(-1px) !important;
             border-bottom-width: 6px !important;
-            border-bottom-color: #C4A027 !important;
+            border-bottom-color: #000 !important;
         }
         
         .learn-more:active {
-            background: var(--accent-color) !important;
-            color: var(--text-color) !important;
+            background: var(--text-color) !important;
+            color: #fff !important;
             border-bottom-width: 2px !important;
             filter: brightness(0.9) !important;
             transform: translateY(2px) !important;
@@ -2521,7 +2526,7 @@
                             <h3 data-key="tag_corporate">Corporate Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('harbour-trade')" data-key="btn_preview">Preview</button>
-                                <a href="https://demo-trade.kainuotech.com/" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://demo-trade.kainuotech.com/" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2532,7 +2537,7 @@
                             <h3 data-key="tag_studio">Studio Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('flow-space')" data-key="btn_preview">Preview</button>
-                                <a href="https://flow.kainuotech.com/" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://flow.kainuotech.com/" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2543,7 +2548,7 @@
                             <h3 data-key="tag_fnb">F&B Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('moment-cafe')" data-key="btn_preview">Preview</button>
-                                <a href="https://moment-cafe.vercel.app/" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://moment-cafe.vercel.app/" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2554,7 +2559,7 @@
                             <h3 data-key="tag_vintage">Vintage Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('retroloop')" data-key="btn_preview">Preview</button>
-                                <a href="https://retroloop.vercel.app/" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://retroloop.vercel.app/" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2565,7 +2570,7 @@
                             <h3 data-key="web_proj5_title">Tech / SaaS Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('novatrix')" data-key="btn_preview">Preview</button>
-                                <a href="https://01-tech-saas.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://01-tech-saas.vercel.app" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2576,7 +2581,7 @@
                             <h3 data-key="web_proj6_title">Legal Services Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('aurelius')" data-key="btn_preview">Preview</button>
-                                <a href="https://02-aurelius-legal-v2.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://02-aurelius-legal-v2.vercel.app" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2587,7 +2592,7 @@
                             <h3 data-key="web_proj7_title">Healthcare Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('lumina')" data-key="btn_preview">Preview</button>
-                                <a href="https://04-lumina-dental.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://04-lumina-dental.vercel.app" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2598,7 +2603,7 @@
                             <h3 data-key="web_proj8_title">Beauty / Wellness Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('natura')" data-key="btn_preview">Preview</button>
-                                <a href="https://05-natura-beauty.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://05-natura-beauty.vercel.app" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2609,7 +2614,7 @@
                             <h3 data-key="web_proj9_title">Finance Concept</h3>
                             <div class="project-actions">
                                 <button class="btn-preview" onclick="openProjectPreview('vault-capital')" data-key="btn_preview">Preview</button>
-                                <a href="https://03-vault-capital.vercel.app" target="_blank" class="learn-more">View Live Demo</a>
+                                <a href="https://03-vault-capital.vercel.app" target="_blank" class="learn-more" data-key="btn_visit_live">View Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -2617,45 +2622,47 @@
                 <!-- How It Works -->
                 <div id="process" style="margin-top: 5rem; margin-bottom: 5rem;">
             <div class="container">
+                <div style="margin: 0 auto 5rem auto; text-align: center;">
+                    <h3 data-key="process_why_title" style="margin-bottom: 1rem; font-size: 1.8rem;">Why custom code?</h3>
+                    <p data-key="process_why_desc" style="max-width: 800px; margin: 0 auto 3rem auto; color: #555; line-height: 1.8;">We build hand-coded, tailor-made websites — unlike templates such as WordPress or Wix. That means faster loading speeds, cleaner SEO foundations, and a structure that can evolve with your business.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: left;">
+                        <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <div style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1.2rem;" data-key="process_why_1_title">Tailor‑Made, Not a Template</div>
+                            <div style="color: #666; font-size: 1rem; line-height: 1.6;" data-key="process_why_1_desc">Your layout, flow, and content structure are designed around your brand and goals — no “looks like everyone else” theme.</div>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <div style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1.2rem;" data-key="process_why_2_title">Fast, SEO‑Ready</div>
+                            <div style="color: #666; font-size: 1rem; line-height: 1.6;" data-key="process_why_2_desc">Lightweight pages, optimized assets, and clean structure — better speed, better user experience, better ranking potential.</div>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <div style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1.2rem;" data-key="process_why_3_title">Flexible & Scalable</div>
+                            <div style="color: #666; font-size: 1rem; line-height: 1.6;" data-key="process_why_3_desc">When you need new features (booking, CMS, member login, payments), we can extend the system without being limited by plugins.</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2 data-key="process_title">How It Works</h2>
                     <p data-key="process_desc">Simple 4-step process to get your business online.</p>
-                    <div style="max-width: 900px; margin: 1.25rem auto 0 auto; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.75); border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; text-align: left;">
-                        <h3 data-key="process_why_title" style="margin: 0 0 0.75rem 0; font-size: 1.15rem;">Why custom code?</h3>
-                        <p data-key="process_why_desc" style="margin: 0; color: #555; line-height: 1.8;">We build hand-coded, tailor-made websites — not WordPress templates. That means faster loading, cleaner SEO foundations, and a structure that can evolve with your business.</p>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                            <div style="background: rgba(249, 247, 242, 0.8); border: 1px solid rgba(0,0,0,0.06); border-radius: 14px; padding: 1rem;">
-                                <div style="font-weight: 700; margin-bottom: 0.35rem;" data-key="process_why_1_title">Tailor‑Made, Not a Template</div>
-                                <div style="color: #666; font-size: 0.95rem; line-height: 1.6;" data-key="process_why_1_desc">Your layout, flow, and content structure are designed around your brand and goals — no “looks like everyone else” theme.</div>
-                            </div>
-                            <div style="background: rgba(249, 247, 242, 0.8); border: 1px solid rgba(0,0,0,0.06); border-radius: 14px; padding: 1rem;">
-                                <div style="font-weight: 700; margin-bottom: 0.35rem;" data-key="process_why_2_title">Fast, SEO‑Ready</div>
-                                <div style="color: #666; font-size: 0.95rem; line-height: 1.6;" data-key="process_why_2_desc">Lightweight pages, optimized assets, and clean structure — better speed, better user experience, better ranking potential.</div>
-                            </div>
-                            <div style="background: rgba(249, 247, 242, 0.8); border: 1px solid rgba(0,0,0,0.06); border-radius: 14px; padding: 1rem;">
-                                <div style="font-weight: 700; margin-bottom: 0.35rem;" data-key="process_why_3_title">Flexible & Scalable</div>
-                                <div style="color: #666; font-size: 0.95rem; line-height: 1.6;" data-key="process_why_3_desc">When you need new features (booking, CMS, member login, payments), we can extend the system without being limited by plugins.</div>
-                            </div>
-                        </div>
-                    </div>
-                            </div>
+                </div>
+
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; text-align: center;">
-                    <div>
+                    <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                         <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">01</div>
                         <h3 style="font-size: 1.2rem;" data-key="step1_title">Consult</h3>
                         <p data-key="step1_desc">We discuss your goals and define the project scope.</p>
                         </div>
-                    <div>
+                    <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                         <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">02</div>
                         <h3 style="font-size: 1.2rem;" data-key="step2_title">Setup & Design</h3>
                         <p data-key="step2_desc">We handle domain, SSL, professional email, and visual design.</p>
                     </div>
-                    <div>
+                    <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                         <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">03</div>
                         <h3 style="font-size: 1.2rem;" data-key="step3_title">Develop</h3>
                         <p data-key="step3_desc">We build your solution using robust modern technologies.</p>
                             </div>
-                    <div>
+                    <div style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                         <div style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;">04</div>
                         <h3 style="font-size: 1.2rem;" data-key="step4_title">Handover</h3>
                         <p data-key="step4_desc">Full ownership transfer with a detailed operation guide.</p>
@@ -3419,7 +3426,7 @@
                 'process_title': 'How It Works',
                 'process_desc': 'Simple 4-step process to get your business online.',
                 'process_why_title': 'Why custom code?',
-                'process_why_desc': 'We build hand-coded, tailor-made websites — not WordPress templates. That means faster loading, cleaner SEO foundations, and a structure that can evolve with your business.',
+                'process_why_desc': 'We build hand-coded, tailor-made websites — unlike templates such as WordPress or Wix. That means faster loading speeds, cleaner SEO foundations, and a structure that can evolve with your business.',
                 'process_why_1_title': 'Tailor‑Made, Not a Template',
                 'process_why_1_desc': 'Your layout, flow, and content structure are designed around your brand and goals — no “looks like everyone else” theme.',
                 'process_why_2_title': 'Fast, SEO‑Ready',
@@ -3436,7 +3443,7 @@
                 'web_proj2_title': 'Flow Space', 'web_proj2_desc': 'A minimalist yoga studio website featuring class schedules, booking integration, and a serene visual design.',
                 'web_proj3_title': 'Moment Café', 'web_proj3_desc': 'A minimalist website for a specialty coffee shop, designed as a digital sanctuary. Features bilingual support, an elegant menu system, and atmospheric visual storytelling.',
                 'web_proj4_title': 'RetroLoop', 'web_proj4_desc': 'A curated vintage fashion archive and e-commerce platform. Features a dynamic countdown timer, brand filtering, and a distinctive retro aesthetic.',
-                'btn_select': 'Inquire', 'btn_contact': 'Inquire', 'btn_quote': 'Get a Quote', 'btn_buy_now': 'Buy Now', 'btn_preview': '预览', 'btn_visit_live': '访问实际网站', 'btn_visit_live': '訪問實際網站', 'btn_visit_live': 'Visit Live Site', 'btn_preview': '預覽', 'btn_preview': 'Preview',
+                'btn_select': 'Inquire', 'btn_contact': 'Inquire', 'btn_quote': 'Get a Quote', 'btn_buy_now': 'Buy Now', 'btn_preview': 'Preview', 'btn_visit_live': 'View Live Demo',
                 'works_title': 'Selected Works',
                 'social_title': 'Follow Our Journey', 'social_desc': 'Latest updates from our Instagram',
                 'app_mood_desc': 'An iOS app focused on mood tracking and mind healing. Track emotions, know yourself.',
@@ -3513,7 +3520,7 @@
                 'process_title': '服務流程',
                 'process_desc': '簡單四步，助您的業務快速上線。',
                 'process_why_title': '為什麼選擇定制化程式開發？',
-                'process_why_desc': '我們採用手工編寫、量身定制的網站開發方式——不是 WordPress 模版。這代表更快的載入速度、更乾淨的 SEO 結構，並且能隨著業務成長持續擴展。',
+                'process_why_desc': '我們採用手工編寫、量身定制的網站開發方式——不同於 WordPress 或 Wix 等套版模版。這代表更快的載入速度、更乾淨的 SEO 結構，並且能隨著業務成長持續擴展。',
                 'process_why_1_title': '量身定制，而非套版',
                 'process_why_1_desc': '從版面、流程到內容結構都依據品牌與目標設計，不會出現「跟別人一樣」的模版感。',
                 'process_why_2_title': '更快、更適合 SEO',
@@ -3530,7 +3537,7 @@
                 'web_proj2_title': 'Flow Space', 'web_proj2_desc': '極簡風格的瑜伽工作室網站，包含課程表、預約整合及寧靜的視覺設計。',
                 'web_proj3_title': 'Moment Café', 'web_proj3_desc': '為精品咖啡店打造的極簡風格網站，營造數位靜謐空間。包含雙語切換、優雅的菜單系統及氛圍感強烈的視覺敘事。',
                 'web_proj4_title': 'RetroLoop', 'web_proj4_desc': '香港復古時尚檔案館與電商平台。包含動態倒數計時、品牌篩選功能，以及獨特的復古美學設計。',
-                'btn_select': '諮詢', 'btn_contact': '諮詢', 'btn_quote': '獲取報價', 'btn_buy_now': '立即購買',
+                'btn_select': '諮詢', 'btn_contact': '諮詢', 'btn_quote': '獲取報價', 'btn_buy_now': '立即購買', 'btn_preview': '預覽', 'btn_visit_live': '瀏覽網站',
                 'works_title': '精選案例',
                 'social_title': '關注我們的旅程', 'social_desc': '來自工作室的最新動態',
                 'app_mood_desc': '一款專注於情緒記錄與心靈療癒的 iOS 應用。追蹤你的心情變化，理解自己的感受，通過正念日記培養內心的平靜與安寧。',
@@ -3607,7 +3614,7 @@
                 'process_title': '服务流程',
                 'process_desc': '简单四步，助您的业务快速上线。',
                 'process_why_title': '为什么选择定制化代码开发？',
-                'process_why_desc': '我们采用手写代码、量身定制的方式开发网站——不是 WordPress 模板。意味着更快的加载速度、更干净的 SEO 结构，并且能随着业务增长持续扩展。',
+                'process_why_desc': '我们采用手写代码、量身定制的方式开发网站——不同于 WordPress 或 Wix 等套版模板。意味着更快的加载速度、更干净的 SEO 结构，并且能随着业务增长持续扩展。',
                 'process_why_1_title': '量身定制，而非套模板',
                 'process_why_1_desc': '从版式、动线到内容结构都围绕品牌与目标设计，不会出现“和别人一样”的模板感。',
                 'process_why_2_title': '更快、更适合 SEO',
@@ -3624,7 +3631,7 @@
                 'web_proj2_title': 'Flow Space', 'web_proj2_desc': '极简风格的瑜伽工作室网站，包含课程表、预约整合及宁静的视觉设计。',
                 'web_proj3_title': 'Moment Café', 'web_proj3_desc': '为精品咖啡店打造的极简风格网站，营造数字静谧空间。包含双语切换、优雅的菜单系统及氛围感强烈的视觉叙事。',
                 'web_proj4_title': 'RetroLoop', 'web_proj4_desc': '香港复古时尚档案馆与电商平台。包含动态倒数计时、品牌筛选功能，以及独特的复古美学设计。',
-                'btn_select': '咨询', 'btn_contact': '咨询', 'btn_quote': '获取报价', 'btn_buy_now': '立即购买',
+                'btn_select': '咨询', 'btn_contact': '咨询', 'btn_quote': '获取报价', 'btn_buy_now': '立即购买', 'btn_preview': '预览', 'btn_visit_live': '浏览网站',
                 'works_title': '精选案例',
                 'social_title': '关注我们的旅程', 'social_desc': '来自工作室的最新动态',
                 'app_mood_desc': '一款专注于情绪记录与心灵疗愈的 iOS 应用。追踪你的心情变化，理解自己的感受，通过正念日记培养内心的平静与安宁。',
