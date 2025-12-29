@@ -119,7 +119,7 @@ export default function PortfolioPage() {
             {t('works_title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed mb-10">
-            {t('portfolio_intro') || "A curation of our recent digital products, showcasing our expertise in design, development, and user experience."}
+            {t('works_subtitle')}
           </p>
           
           {/* Filter Tabs */}
