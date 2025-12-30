@@ -13,6 +13,7 @@ interface Project {
   image: string;
   url: string;
   description: string;
+  noScroll?: boolean;
 }
 
 interface ProjectPreviewModalProps {
@@ -70,20 +71,22 @@ export default function ProjectPreviewModal({ project, isOpen, onClose }: Projec
             {/* Image Section - Scrollable on mobile, Fixed on Desktop */}
             <div className="w-full md:w-2/3 h-1/2 md:h-auto relative bg-gray-100 overflow-hidden group">
                <div 
-                 className="w-full h-full overflow-y-auto custom-scrollbar"
+                 className={`w-full h-full ${project.noScroll ? 'overflow-hidden flex items-center justify-center' : 'overflow-y-auto custom-scrollbar'}`}
                  style={{ scrollBehavior: 'smooth' }}
                >
                  <img 
                    src={project.image} 
                    alt={project.title} 
-                   className="w-full h-auto object-cover" 
+                   className={`${project.noScroll ? 'w-full h-full object-contain p-4' : 'w-full h-auto object-cover'}`} 
                  />
                </div>
                
                {/* Overlay Hint */}
-               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white text-xs px-3 py-1 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                 Scroll to view full design
-               </div>
+               {!project.noScroll && (
+                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white text-xs px-3 py-1 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                   Scroll to view full design
+                 </div>
+               )}
             </div>
 
             {/* Content Section */}

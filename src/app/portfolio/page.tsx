@@ -100,7 +100,8 @@ export default function PortfolioPage() {
       type: 'app',
       image: '/img/mood-balloon.jpg', 
       url: '#', 
-      description: t('app_mood_desc')
+      description: t('app_mood_desc'),
+      noScroll: true
     }
   ];
 
@@ -157,17 +158,17 @@ export default function PortfolioPage() {
                 <div className="w-full h-full overflow-hidden relative">
                   {/* Scrolling Image */}
                   <div 
-                    className="w-full absolute top-0 left-0 transition-transform duration-[3000ms] ease-in-out group-hover:translate-y-[calc(-100%+300px)]"
+                    className={`w-full absolute top-0 left-0 transition-transform duration-[3000ms] ease-in-out ${project.noScroll ? '' : 'group-hover:translate-y-[calc(-100%+300px)]'}`}
                     style={{ 
                       backgroundImage: `url(${project.image})`,
                       backgroundSize: 'cover',
-                      backgroundPosition: 'top center',
-                      height: '400%', // Assume long image is roughly 4x the card height
+                      backgroundPosition: project.noScroll ? 'center' : 'top center',
+                      height: project.noScroll ? '100%' : '400%', // Assume long image is roughly 4x the card height
                       width: '100%'
                     }}
                   >
                     {/* Fallback img tag if bg image fails or for SEO, but hidden */}
-                    <img src={project.image} alt={project.title} className="opacity-0 w-full" />
+                    <img src={project.image} alt={project.title} className="opacity-0 w-full h-full object-cover" />
                   </div>
                 </div>
 
