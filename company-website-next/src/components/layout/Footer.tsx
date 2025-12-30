@@ -24,13 +24,13 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-serif font-bold mb-6 text-[#D4AF37]">{t('footer_explore')}</h4>
             <ul className="space-y-3">
-              {navigation.map((item) => (
-                <li key={item.name}>
+              {navigation.map((item: any) => (
+                <li key={item.key}>
                   <Link 
                     href={item.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    {item.name}
+                    {t(item.key)}
                   </Link>
                 </li>
               ))}

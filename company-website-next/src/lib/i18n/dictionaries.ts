@@ -1,6 +1,7 @@
 export const i18n = {
     'en': {
         'nav_brand': 'Kainuo Innovision',
+        'nav_home': 'Home',
         'nav_services': 'Services', 
         'nav_works': 'Portfolio', 
         'nav_about': 'About', 
@@ -225,6 +226,7 @@ export const i18n = {
     },
     'zh-TW': {
         'nav_brand': '凱諾創享科技',
+        'nav_home': '首頁',
         'nav_services': '服務方案', 
         'nav_works': '案例展示', 
         'nav_about': '關於我們', 
@@ -449,6 +451,7 @@ export const i18n = {
     },
     'zh-CN': {
         'nav_brand': '凯诺创享科技',
+        'nav_home': '首页',
         'nav_services': '服务方案', 
         'nav_works': '案例展示', 
         'nav_about': '关于我们', 

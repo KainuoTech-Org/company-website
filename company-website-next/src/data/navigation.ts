@@ -1,10 +1,10 @@
 export const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Portfolio', href: '/portfolio' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Home', href: '/', key: 'nav_home' },
+  { name: 'Services', href: '/services', key: 'nav_services' },
+  { name: 'Portfolio', href: '/portfolio', key: 'nav_works' },
+  { name: 'Pricing', href: '/pricing', key: 'nav_pricing' },
+  { name: 'About', href: '/about', key: 'nav_about' },
+  { name: 'Contact', href: '/contact', key: 'nav_contact' },
 ];
 
 export const socialLinks = [
