@@ -36,8 +36,20 @@ export default function ContactPage() {
       if (response.ok) {
         setIsSubmitted(true);
       } else {
-        const errData = await response.json();
-        throw new Error(errData.message || 'Failed to send message');
+        // Try to parse error as JSON, fallback to status text
+        let errorMessage = 'Failed to send message';
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          try {
+            const errData = await response.json();
+            errorMessage = errData.message || errorMessage;
+          } catch (e) {
+            // Ignore parse error and use default
+          }
+        } else {
+          errorMessage = `Server Error: ${response.status} ${response.statusText}`;
+        }
+        throw new Error(errorMessage);
       }
     } catch (err: any) {
       console.error('Contact form error:', err);

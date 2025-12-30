@@ -16,6 +16,7 @@ export async function POST(req: Request) {
     const apiKey = process.env.RESEND_API_KEY;
     
     if (apiKey) {
+      console.log('Sending email via Resend...');
       const res = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -43,11 +44,16 @@ export async function POST(req: Request) {
         }),
       });
 
+      const resData = await res.json();
+
       if (!res.ok) {
-        const errorData = await res.json();
-        console.error('Resend API Error:', errorData);
-        throw new Error('Failed to deliver email via service');
+        console.error('Resend API Error Response:', resData);
+        return NextResponse.json(
+          { message: resData.message || 'Failed to deliver email via service' },
+          { status: res.status }
+        );
       }
+      console.log('Resend API Success:', resData);
     } else {
       // If no API key, just log and simulate success (for development)
       console.log('RESEND_API_KEY not found. Simulating successful send:', { name, email, subject, message });
