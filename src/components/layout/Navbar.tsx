@@ -56,8 +56,8 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex items-center gap-8 min-w-[400px] justify-end">
+        <div className="hidden md:flex items-center gap-8 flex-1 justify-end">
+          <div className="flex items-center gap-8">
             {navigation.map((item) => (
               <Link
                 key={item.href}
@@ -72,12 +72,12 @@ export default function Navbar() {
             ))}
           </div>
           
-          <div className="flex items-center gap-4 border-l border-gray-200 pl-8 ml-4">
+          <div className="flex items-center gap-4 border-l border-gray-200 pl-8 ml-4 flex-shrink-0 min-w-[220px] justify-end">
             <LanguageSwitcher />
 
             <Link
               href="/contact"
-              className="px-6 py-2 bg-[#1A1A1A] text-white text-sm font-medium uppercase tracking-wider rounded-full hover:bg-[#D4AF37] transition-colors whitespace-nowrap"
+              className="px-6 py-2 bg-[#1A1A1A] text-white text-sm font-medium uppercase tracking-wider rounded-full hover:bg-[#D4AF37] transition-colors whitespace-nowrap flex-shrink-0"
             >
               {t('btn_start')}
             </Link>
