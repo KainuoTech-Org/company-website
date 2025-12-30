@@ -180,7 +180,6 @@ export default function PortfolioPage() {
               </div>
               
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-medium uppercase tracking-wider text-gray-500">{project.category}</span>
                 <h3 className="text-2xl font-serif font-bold group-hover:text-[#D4AF37] transition-colors">
                   {project.title}
                 </h3>

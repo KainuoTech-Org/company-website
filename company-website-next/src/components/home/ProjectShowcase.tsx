@@ -111,10 +111,6 @@ export default function ProjectShowcase() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  <span className="inline-block px-4 py-2 bg-[#D4AF37] text-[#1A1A1A] text-xs font-bold uppercase tracking-widest rounded-full mb-4">
-                    {t(currentProject.tagKey)}
-                  </span>
-                  
                   <h3 className="font-serif text-3xl md:text-5xl font-bold mb-4">
                     {t(currentProject.titleKey)}
                   </h3>

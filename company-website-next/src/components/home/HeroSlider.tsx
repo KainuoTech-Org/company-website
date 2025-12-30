@@ -87,10 +87,6 @@ export default function HeroSlider() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="max-w-3xl"
             >
-              <span className="inline-block px-4 py-2 bg-[#D4AF37] text-[#1A1A1A] text-xs font-bold uppercase tracking-widest rounded-full mb-6">
-                {t(currentProject.tagKey)}
-              </span>
-              
               <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
                 {t(currentProject.titleKey)}
               </h1>
