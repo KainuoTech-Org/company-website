@@ -13,6 +13,16 @@ export default function PortfolioPage() {
 
   const projects = [
     {
+      id: 'chengjian-municipal',
+      title: t('web_proj10_title'),
+      category: t('tag_municipal'),
+      type: 'web',
+      image: '/img/chengjian-municipal-long.jpg',
+      url: 'https://cychengjian.com/',
+      description: t('web_proj10_desc'),
+      isRealProject: true
+    },
+    {
       id: 'retroloop',
       title: t('web_proj4_title'),
       category: t('tag_vintage'),
@@ -155,6 +165,14 @@ export default function PortfolioPage() {
             >
               {/* Project Card with Scroll Effect */}
               <div className="aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden mb-6 relative shadow-sm border border-gray-100">
+                {/* Real Project Badge */}
+                {project.isRealProject && (
+                  <div className="absolute top-4 left-4 z-20 bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2">
+                    <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                    {t('tag_real_project')}
+                  </div>
+                )}
+                
                 <div className="w-full h-full overflow-hidden relative">
                   {/* Scrolling Image */}
                   <div 

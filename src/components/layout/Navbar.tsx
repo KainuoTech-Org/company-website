@@ -58,29 +58,29 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 flex-1 justify-end">
           <div className="flex items-center gap-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={clsx(
+          {navigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={clsx(
                   'text-sm font-medium uppercase tracking-wider transition-colors hover:text-[#D4AF37] whitespace-nowrap',
-                  pathname === item.href ? 'text-[#D4AF37]' : 'text-[#1A1A1A]'
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+                pathname === item.href ? 'text-[#D4AF37]' : 'text-[#1A1A1A]'
+              )}
+            >
+              {item.name}
+            </Link>
+          ))}
           </div>
           
           <div className="flex items-center gap-4 border-l border-gray-200 pl-8 ml-4 flex-shrink-0 min-w-[220px] justify-end">
-            <LanguageSwitcher />
+          <LanguageSwitcher />
 
-            <Link
-              href="/contact"
+          <Link
+            href="/contact"
               className="px-6 py-2 bg-[#1A1A1A] text-white text-sm font-medium uppercase tracking-wider rounded-full hover:bg-[#D4AF37] transition-colors whitespace-nowrap flex-shrink-0"
-            >
-              {t('btn_start')}
-            </Link>
+          >
+            {t('btn_start')}
+          </Link>
           </div>
         </div>
 

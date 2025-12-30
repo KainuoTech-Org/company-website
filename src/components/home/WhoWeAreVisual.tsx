@@ -60,7 +60,7 @@ function TerminalVisual({ t }: { t: any }) {
   }, []);
 
   return (
-    <motion.div 
+      <motion.div 
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
@@ -158,7 +158,7 @@ function OrbitVisual({ t }: { t: any }) {
             Bridging Tradition<br />
             <span className="flex items-center justify-center gap-2 text-[#D4AF37]">
               <span>→</span> <span className="text-[#111]">Digital Precision</span>
-            </span>
+          </span>
           </h2>
           <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-medium mt-2">
             KAINUO INNOVISION TECH CO., LIMITED

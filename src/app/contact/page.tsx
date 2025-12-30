@@ -164,60 +164,60 @@ export default function ContactPage() {
                   className="space-y-6 w-full" 
                   onSubmit={handleSubmit}
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_name_label')}</label>
-                      <input 
-                        type="text" 
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_name_label')}</label>
+                  <input 
+                    type="text" 
                         name="name"
-                        id="name" 
+                    id="name" 
                         required
-                        className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_email_label')}</label>
-                      <input 
-                        type="email" 
+                    className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_email_label')}</label>
+                  <input 
+                    type="email" 
                         name="email"
-                        id="email" 
+                    id="email" 
                         required
-                        className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_subject_label')}</label>
-                    <select 
-                      id="subject" 
+                    className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all"
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="subject" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_subject_label')}</label>
+                <select 
+                  id="subject" 
                       name="subject"
                       required
-                      className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all appearance-none"
-                    >
-                      <option value="">{t('contact_subject_placeholder')}</option>
-                      <option value="project">{t('contact_subject_project')}</option>
-                      <option value="collaboration">{t('contact_subject_collab')}</option>
-                      <option value="other">{t('contact_subject_other')}</option>
-                    </select>
-                  </div>
+                  className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all appearance-none"
+                >
+                  <option value="">{t('contact_subject_placeholder')}</option>
+                  <option value="project">{t('contact_subject_project')}</option>
+                  <option value="collaboration">{t('contact_subject_collab')}</option>
+                  <option value="other">{t('contact_subject_other')}</option>
+                </select>
+              </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_msg_label')}</label>
-                    <textarea 
-                      id="message" 
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_msg_label')}</label>
+                <textarea 
+                  id="message" 
                       name="message"
-                      rows={5}
+                  rows={5}
                       required
-                      className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all resize-none"
-                    ></textarea>
-                  </div>
+                  className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all resize-none"
+                ></textarea>
+              </div>
 
-                  <button 
-                    type="submit"
+              <button 
+                type="submit"
                     disabled={isSubmitting}
                     className={`button-3d w-full text-center ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                  >
+              >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center gap-2">
                         <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -227,7 +227,7 @@ export default function ContactPage() {
                         Sending...
                       </span>
                     ) : t('contact_send_btn')}
-                  </button>
+              </button>
 
                   {error && (
                     <p className="text-red-500 text-sm mt-2 text-center">{error}</p>
