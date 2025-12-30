@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Calendar, Tag } from 'lucide-react';
+import { X, ExternalLink, Tag, CheckCircle2 } from 'lucide-react';
 import { useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -105,13 +105,9 @@ export default function ProjectPreviewModal({ project, isOpen, onClose }: Projec
                 </p>
 
                 <div className="space-y-4 border-t border-gray-100 pt-6">
-                  <div className="flex items-center gap-3 text-sm text-gray-500">
-                    <Tag size={16} />
-                    <span>{project.type === 'web' ? t('cat_web') : t('cat_app')}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-500">
-                    <Calendar size={16} />
-                    <span>2024-2025</span>
+                  <div className="flex items-center gap-3 text-sm text-[#D4AF37] font-semibold tracking-wider uppercase">
+                    <CheckCircle2 size={16} />
+                    <span>{t('proj_status_latest')}</span>
                   </div>
                 </div>
               </div>
