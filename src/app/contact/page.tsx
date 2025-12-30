@@ -7,21 +7,44 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ContactPage() {
   const { t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const subject = formData.get('subject') as string;
-    const body = `Name: ${formData.get('name')}
-Email: ${formData.get('email')}
-Message: ${formData.get('message')}`;
+    setIsSubmitting(true);
+    setError(null);
 
-    // Open email client
-    window.location.href = `mailto:contact@kainuotech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Show success message
-    setIsSubmitted(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        const errData = await response.json();
+        throw new Error(errData.message || 'Failed to send message');
+      }
+    } catch (err: any) {
+      console.error('Contact form error:', err);
+      setError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -180,10 +203,23 @@ Message: ${formData.get('message')}`;
 
                   <button 
                     type="submit"
-                    className="button-3d w-full text-center"
+                    disabled={isSubmitting}
+                    className={`button-3d w-full text-center ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
-                    {t('contact_send_btn')}
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                      </span>
+                    ) : t('contact_send_btn')}
                   </button>
+
+                  {error && (
+                    <p className="text-red-500 text-sm mt-2 text-center">{error}</p>
+                  )}
                 </motion.form>
               )}
             </AnimatePresence>

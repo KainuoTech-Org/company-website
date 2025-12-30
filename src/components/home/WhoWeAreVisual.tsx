@@ -148,26 +148,26 @@ function OrbitVisual({ t }: { t: any }) {
       </div>
       
       {/* Top Identity Text */}
-      <div className="absolute top-12 w-full text-center z-20 px-6 pointer-events-none">
+      <div className="absolute top-8 w-full text-center z-20 px-6 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#111] tracking-tight leading-tight mb-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#111] tracking-tight leading-tight mb-2">
             Bridging Tradition<br />
             <span className="flex items-center justify-center gap-2 text-[#D4AF37]">
               <span>→</span> <span className="text-[#111]">Digital Precision</span>
             </span>
           </h2>
-          <p className="text-[10px] text-gray-400 uppercase tracking-[0.3em] font-medium mt-3">
+          <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-medium mt-2">
             KAINUO INNOVISION TECH CO., LIMITED
           </p>
         </motion.div>
       </div>
 
       {/* Orbiting Rings */}
-      <div className="relative w-full h-full flex items-center justify-center scale-[0.8] md:scale-90 mt-24 md:mt-32">
+      <div className="relative w-full h-full flex items-center justify-center scale-[0.65] md:scale-75 mt-16 md:mt-24">
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
