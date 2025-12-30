@@ -129,19 +129,6 @@ export default function ProjectShowcase() {
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-              {/* Real Project Badge */}
-              {currentProject.isRealProject && (
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="absolute top-6 left-6 z-20 bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-white px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider shadow-xl flex items-center gap-2"
-                >
-                  <span className="w-2.5 h-2.5 bg-white rounded-full animate-pulse"></span>
-                  {t('tag_real_project')}
-                </motion.div>
-              )}
-
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
                 <motion.div

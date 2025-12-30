@@ -97,12 +97,6 @@ export default function ProjectPreviewModal({ project, isOpen, onClose }: Projec
                   <span className="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase tracking-widest rounded-full">
                     {project.category}
                   </span>
-                  {project.isRealProject && (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-white text-xs font-bold uppercase tracking-widest rounded-full">
-                      <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                      {t('tag_real_project')}
-                    </span>
-                  )}
                 </div>
                 
                 <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-[#1A1A1A] leading-tight">
