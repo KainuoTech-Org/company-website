@@ -60,9 +60,11 @@ export default function Button3D({
         data-text={text}
         data-hover-text={hoverText}
       >
-        <span className="button-3d-text">
-          {isHovered ? hoverText : text}
-        </span>
+        {!isHovered && (
+          <span className="button-3d-text">
+            {text}
+          </span>
+        )}
       </div>
     </div>
   );
