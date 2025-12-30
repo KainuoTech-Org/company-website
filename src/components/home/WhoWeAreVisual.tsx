@@ -167,11 +167,11 @@ function OrbitVisual({ t }: { t: any }) {
       </div>
 
       {/* Orbiting Rings */}
-      <div className="relative w-full h-full flex items-center justify-center scale-[0.65] md:scale-75 mt-16 md:mt-24">
+      <div className="relative w-full h-full flex items-center justify-center scale-[0.8] md:scale-[0.9] mt-20 md:mt-28">
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[280px] h-[280px] border border-dashed border-black/10 rounded-full"
+          className="absolute w-[240px] h-[240px] border border-dashed border-black/10 rounded-full"
         >
           <OrbitIcon icon="react" color="61DAFB" top="0" left="50%" />
           <OrbitIcon icon="nextdotjs" color="000000" bottom="0" left="50%" />
@@ -182,7 +182,7 @@ function OrbitVisual({ t }: { t: any }) {
         <motion.div 
           animate={{ rotate: -360 }}
           transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[420px] h-[420px] border border-dashed border-black/5 rounded-full"
+          className="absolute w-[360px] h-[360px] border border-dashed border-black/5 rounded-full"
         >
           <OrbitIcon icon="swift" color="FA7343" top="15%" left="15%" />
           <OrbitIcon icon="stripe" color="635BFF" top="15%" right="15%" />
@@ -190,9 +190,9 @@ function OrbitVisual({ t }: { t: any }) {
           <OrbitIcon icon="github" color="181717" bottom="15%" right="15%" />
         </motion.div>
 
-        {/* Center Logo Bubble - Simplified to match original */}
-        <div className="relative z-10 p-10 bg-white rounded-full shadow-[0_30px_60px_rgba(0,0,0,0.1)] border border-gray-100 flex items-center justify-center">
-          <img src="/logo.svg" alt="Logo" className="h-16 md:h-20 w-auto" />
+        {/* Center Logo Bubble - Reduced size to prevent blocking */}
+        <div className="relative z-10 p-5 md:p-6 bg-white rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.1)] border border-gray-100 flex items-center justify-center">
+          <img src="/logo.svg" alt="Logo" className="h-10 md:h-12 w-auto" />
         </div>
       </div>
     </motion.div>
@@ -202,7 +202,7 @@ function OrbitVisual({ t }: { t: any }) {
 function OrbitIcon({ icon, color, top, left, right, bottom }: any) {
   return (
     <div 
-      className="absolute bg-white p-2.5 md:p-3 rounded-xl shadow-lg border border-gray-50 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 -translate-x-1/2 -translate-y-1/2"
+      className="absolute bg-white p-2 rounded-lg shadow-md border border-gray-50 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 -translate-x-1/2 -translate-y-1/2"
       style={{ top, left, right, bottom }}
     >
       <img src={`https://cdn.simpleicons.org/${icon}/${color}`} alt={icon} className="w-full h-full object-contain" />
