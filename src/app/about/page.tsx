@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import WhoWeAreVisual from '@/components/home/WhoWeAreVisual';
+import AboutHeroVisual from '@/components/about/AboutHeroVisual';
 
 export default function AboutPage() {
   const { t } = useLanguage();
@@ -24,7 +24,7 @@ export default function AboutPage() {
         {/* Who We Are */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
           <div>
-            <WhoWeAreVisual />
+            <AboutHeroVisual />
           </div>
           <div>
             <h2 className="font-serif text-4xl font-bold mb-8">{t('about_who_we_are')}</h2>
