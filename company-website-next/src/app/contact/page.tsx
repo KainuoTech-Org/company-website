@@ -100,15 +100,15 @@ export default function ContactPage() {
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-bold uppercase tracking-wider text-gray-500">Subject</label>
+                <label htmlFor="subject" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_subject_label')}</label>
                 <select 
                   id="subject" 
                   className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all appearance-none"
                 >
-                  <option value="">Select a topic</option>
-                  <option value="project">Start a Project</option>
-                  <option value="collaboration">Collaboration</option>
-                  <option value="other">Other</option>
+                  <option value="">{t('contact_subject_placeholder')}</option>
+                  <option value="project">{t('contact_subject_project')}</option>
+                  <option value="collaboration">{t('contact_subject_collab')}</option>
+                  <option value="other">{t('contact_subject_other')}</option>
                 </select>
               </div>
 
