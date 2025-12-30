@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import { navigation, socialLinks } from '@/data/navigation';
 import { useLanguage } from '@/context/LanguageContext';
