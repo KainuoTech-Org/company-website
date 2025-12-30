@@ -115,11 +115,13 @@ body {
   background: transparent; 
 }
 
-.hover-area:hover ~ .button-3d-inner .button-3d-text {
+.hover-area:hover ~ .button-3d-inner::after {
+  content: attr(data-hover-text);
   top: -150%;
   transform: translate(-50%, 0);
   font-size: 26px;
   color: var(--btn-hover-text-color);
+  background: transparent;
   position: absolute;
   left: 50%;
 }
@@ -156,33 +158,39 @@ body {
   z-index: -1;
 }
 
-.button-3d-inner::after {
-  content: attr(data-text);
+.button-3d-text-main {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
+  color: var(--btn-text-color);
   font-size: 16px;
   font-weight: 700;
-  color: var(--btn-text-color);
-  border-radius: 12px;
   transition: all 0.3s ease-in-out;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  white-space: nowrap;
 }
 
-.hover-area:hover ~ .button-3d-inner::after {
-  content: attr(data-hover-text);
-  top: -150%;
+.button-3d-text-hover {
+  position: absolute;
+  top: 150%;
+  left: 50%;
   transform: translate(-50%, 0);
-  font-size: 26px;
   color: var(--btn-hover-text-color);
-  background: transparent;
+  font-size: 26px;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.hover-area:hover ~ .button-3d-inner .button-3d-text-main {
+  opacity: 0;
+  transform: translate(-50%, -150%);
+}
+
+.hover-area:hover ~ .button-3d-inner .button-3d-text-hover {
+  opacity: 1;
+  top: -150%;
 }
 
 @keyframes shake {

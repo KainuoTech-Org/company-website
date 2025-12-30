@@ -213,7 +213,7 @@ export const i18n = {
         'wa_msg_pkg_custom': 'Hi, I\'m interested in Custom Add-ons.'
     },
     'zh-TW': {
-        'nav_brand': '凱諾創享',
+        'nav_brand': '凱諾創享科技',
         'nav_services': '服務方案', 
         'nav_works': '案例展示', 
         'nav_about': '關於我們', 
@@ -398,7 +398,7 @@ export const i18n = {
         'duns_label': '鄧白氏® 認證企業',
         'footer_explore': '探索',
         'footer_connect': '聯繫',
-        'footer_copyright': '凱諾創享科技有限公司',
+        'footer_copyright': '凱諾創享科技',
         'footer_rights': '版權所有',
         'footer_terms': '條款與細則',
         'footer_privacy': '隱私政策',
@@ -426,7 +426,7 @@ export const i18n = {
         'wa_msg_pkg_custom': '你好，我對「增值服務/定制」感興趣。'
     },
     'zh-CN': {
-        'nav_brand': '凯诺创享',
+        'nav_brand': '凯诺创享科技',
         'nav_services': '服务方案', 
         'nav_works': '案例展示', 
         'nav_about': '关于我们', 
@@ -612,7 +612,7 @@ export const i18n = {
         'duns_label': '邓白氏® 认证企业',
         'footer_explore': '探索',
         'footer_connect': '联系',
-        'footer_copyright': '凯诺创享科技有限公司',
+        'footer_copyright': '凯诺创享科技',
         'footer_rights': '版权所有',
         'footer_terms': '条款与细则',
         'footer_privacy': '隐私政策',

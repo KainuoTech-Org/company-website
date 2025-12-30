@@ -70,8 +70,8 @@ export default function Home() {
       </section>
 
       {/* Services Preview */}
-      <section className="bg-[#1A1A1A] text-white py-20">
-        <div className="container mx-auto px-6">
+      <section className="bg-[#1A1A1A] text-white py-20 relative z-10">
+        <div className="container mx-auto px-6 relative z-20">
           <div className="flex justify-between items-end mb-16">
             <h2 className="font-serif text-4xl font-bold">{t('nav_services')}</h2>
             <Link href="/services" className="hidden md:block text-gray-400 hover:text-white transition-colors">
@@ -84,9 +84,9 @@ export default function Home() {
               { title: t('nav_web_dev') },
               { title: t('nav_mobile') }
             ].map((service, index) => (
-              <div key={index} className="border-t border-gray-700 pt-8 hover:border-[#D4AF37] transition-colors group cursor-pointer">
+              <Link href="/services" key={index} className="border-t border-gray-700 pt-8 hover:border-[#D4AF37] transition-colors group cursor-pointer block">
                 <h3 className="text-2xl font-serif font-bold group-hover:text-[#D4AF37] transition-colors">{service.title}</h3>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

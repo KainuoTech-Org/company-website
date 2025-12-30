@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <Link href="/" className="font-serif text-3xl font-bold mb-6 block">
-              Kainuo Innovision
+              {t('nav_brand')}
             </Link>
             <p className="text-gray-400 max-w-md">
               {t('about_subtitle')}. {t('about_p1')}

@@ -56,7 +56,8 @@ export default function Button3D({
         data-text={text}
         data-hover-text={hoverText}
       >
-        {/* Text is rendered via ::after in CSS for original HTML effect */}
+        <span className="button-3d-text-main">{text}</span>
+        <span className="button-3d-text-hover">{hoverText}</span>
       </div>
     </div>
   );
