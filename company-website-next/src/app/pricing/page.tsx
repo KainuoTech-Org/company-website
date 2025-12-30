@@ -47,7 +47,7 @@ export default function PricingPage() {
     {
       name: t('pkg_pro_title'),
       price: 'HK$8,880',
-      pricePrefix: 'From',
+      pricePrefix: t('price_from'),
       description: t('pkg_pro_for'),
       features: [
         t('pkg_pro_f1'),
@@ -62,7 +62,7 @@ export default function PricingPage() {
     {
       name: t('pkg_ent_title'),
       price: 'HK$16,880',
-      pricePrefix: 'From',
+      pricePrefix: t('price_from'),
       description: t('pkg_ent_for'),
       features: [
         t('pkg_ent_f1'),
@@ -98,7 +98,7 @@ export default function PricingPage() {
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0 bg-[#D4AF37] text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg uppercase tracking-wider">
-                  Most Popular
+                  {t('price_most_popular')}
                 </div>
               )}
               
@@ -147,25 +147,25 @@ export default function PricingPage() {
             <div>
               <h4 className="font-bold text-[#D4AF37] mb-4 text-lg border-b border-gray-100 pb-2">{t('addons_essentials')}</h4>
               <ul className="space-y-3 text-gray-600">
-                <li className="flex justify-between"><span>Extra Page</span> <span className="font-bold">+HK$800/page</span></li>
-                <li className="flex justify-between"><span>Visual Identity Setup</span> <span className="font-bold">+HK$1,500</span></li>
-                <li className="flex justify-between"><span>Content Polishing</span> <span className="font-bold">+HK$800</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_f1')}</span> <span className="font-bold">{t('pkg3_f1_price')}</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_f2')}</span> <span className="font-bold">{t('pkg3_f2_price')}</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_f3')}</span> <span className="font-bold">{t('pkg3_f3_price')}</span></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-[#D4AF37] mb-4 text-lg border-b border-gray-100 pb-2">{t('addons_advanced')}</h4>
               <ul className="space-y-3 text-gray-600">
-                <li className="flex justify-between"><span>Payment Gateway Setup</span> <span className="font-bold">From HK$4,800</span></li>
-                <li className="flex justify-between"><span>Member System / Login</span> <span className="font-bold">From HK$6,800</span></li>
-                <li className="flex justify-between"><span>Booking System Setup</span> <span className="font-bold">+HK$1,000</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_pay')}</span> <span className="font-bold">{t('pkg3_pay_price')}</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_login')}</span> <span className="font-bold">{t('pkg3_login_price')}</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_f5')}</span> <span className="font-bold">{t('pkg3_f5_price')}</span></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-[#D4AF37] mb-4 text-lg border-b border-gray-100 pb-2">{t('addons_support')}</h4>
               <ul className="space-y-3 text-gray-600">
-                <li className="flex justify-between"><span>Monthly Maintenance</span> <span className="font-bold">+HK$800/mo</span></li>
-                <li className="flex justify-between"><span>One-time Update</span> <span className="font-bold">+HK$500</span></li>
-                <li className="flex justify-between"><span>Headless CMS Setup</span> <span className="font-bold">From HK$4,800</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_f4')}</span> <span className="font-bold">{t('pkg3_f4_price')}</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_update')}</span> <span className="font-bold">{t('pkg3_update_price')}</span></li>
+                <li className="flex justify-between"><span>{t('pkg3_cms')}</span> <span className="font-bold">{t('pkg3_cms_price')}</span></li>
               </ul>
             </div>
           </div>
