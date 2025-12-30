@@ -65,53 +65,56 @@ function TerminalVisual({ t }: { t: any }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.6 }}
-      className="absolute inset-0 p-6 md:p-10 flex flex-col justify-center bg-[#0F0F11]"
+      className="absolute inset-0 p-6 md:p-10 flex flex-col bg-[#0F0F11] overflow-hidden"
     >
-      <div className="mb-6 md:mb-8">
-        <div className="text-[#79c0ff] text-4xl md:text-5xl font-bold font-serif mb-1 tracking-tight">HELLO,</div>
-        <div className="text-white text-4xl md:text-5xl font-bold font-serif tracking-tight">WORLD.</div>
+      {/* Background Grid */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+
+      <div className="relative z-10 mt-4 pointer-events-none">
+        <div className="text-[#fff] text-5xl md:text-7xl font-bold font-serif leading-[0.9] tracking-tight mb-1">HELLO,<br />WORLD.</div>
+        <div className="text-[#79c0ff] text-lg md:text-xl font-medium">Efficiency meets Aesthetics</div>
       </div>
 
-      <div className="bg-[#0A0A0F]/80 border border-white/10 rounded-xl p-5 md:p-6 font-mono text-xs md:text-sm shadow-2xl backdrop-blur-sm relative scale-[0.9] md:scale-100 origin-left">
-        <div className="flex gap-1.5 mb-4 border-b border-white/5 pb-3">
-          <div className="w-2.5 h-3 rounded-full bg-[#ff5f56]" />
-          <div className="w-2.5 h-3 rounded-full bg-[#ffbd2e]" />
-          <div className="w-2.5 h-3 rounded-full bg-[#27c93f]" />
-          <span className="ml-auto text-white/20 text-[10px] uppercase tracking-widest">index.tsx</span>
+      <div className="mt-auto mb-4 bg-[#0A0A0F]/95 border border-white/10 rounded-2xl p-5 md:p-8 font-mono text-[10px] md:text-xs shadow-[0_50px_100px_rgba(0,0,0,0.5)] backdrop-blur-md relative z-10 transform scale-[0.85] md:scale-95 origin-bottom-left">
+        <div className="flex gap-1.5 mb-6 border-b border-white/5 pb-4">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+          <span className="ml-auto text-white/20 text-[10px] uppercase tracking-widest font-sans">index.tsx</span>
         </div>
         
-        <div className="space-y-1">
-          <div className="text-white/30 italic mb-2">/** {t('nav_brand')} **/</div>
+        <div className="space-y-1.5">
+          <div className="text-[#6a737d] italic">/** {t('nav_brand')} **/</div>
           <div>
             <span className="text-[#ff79c6]">const</span>{" "}
             <span className="text-[#79c0ff]">Config</span> = {"{"}
           </div>
-          <div className="pl-6">
+          <div className="pl-4">
             <span className="text-[#d2a8ff]">stack</span>: <span className="text-[#a5d6ff]">"Next.js / React"</span>,
           </div>
-          <div className="pl-4 md:pl-6">
+          <div className="pl-4">
             <span className="text-[#d2a8ff]">build</span>: [
           </div>
-          <div className="pl-8 md:pl-12 text-[#a5d6ff]">
+          <div className="pl-8 text-[#a5d6ff] min-h-[1.2em]">
             "{displayText}"
             <motion.span 
               animate={{ opacity: [1, 0] }}
               transition={{ repeat: Infinity, duration: 0.8 }}
-              className="inline-block w-2 h-4 bg-[#79c0ff] ml-1 align-middle"
+              className="inline-block w-1.5 h-3 bg-[#79c0ff] ml-1 align-middle"
             />
           </div>
-          <div className="pl-4 md:pl-6">]</div>
+          <div className="pl-4">]</div>
           <div>{"};"}</div>
         </div>
 
         {/* Tech Dock */}
-        <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/5 flex gap-3 md:gap-4 overflow-hidden">
+        <div className="mt-6 pt-4 border-t border-white/5 flex gap-4 overflow-hidden">
           {['react', 'nextdotjs', 'typescript', 'swift', 'sanity', 'stripe', 'vercel', 'github'].map((icon) => (
             <img 
               key={icon}
               src={`https://cdn.simpleicons.org/${icon}/ffffff`} 
               alt={icon}
-              className="h-4 md:h-5 w-auto opacity-40 hover:opacity-100 transition-opacity"
+              className="h-4 w-auto opacity-30"
             />
           ))}
         </div>
@@ -126,17 +129,49 @@ function OrbitVisual({ t }: { t: any }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="absolute inset-0 flex items-center justify-center bg-[#F9F7F2]"
+      className="absolute inset-0 flex items-center justify-center bg-white overflow-hidden"
     >
-      {/* Light Grid Background */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#1A1A1A 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+      {/* Original Split Background from launch-row.html */}
+      <div className="absolute inset-0 flex">
+        <div className="flex-1 bg-[#f2f2f2] relative overflow-hidden flex items-center justify-center">
+          <div className="absolute font-black text-[180px] opacity-[0.04] rotate-90 whitespace-nowrap left-[-60px] tracking-tighter select-none pointer-events-none">
+            TRADITION
+          </div>
+        </div>
+        <div className="flex-1 bg-white relative overflow-hidden flex items-center justify-center">
+          {/* Grid Background */}
+          <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          <div className="absolute font-black text-[180px] opacity-[0.04] -rotate-90 whitespace-nowrap right-[-40px] tracking-tighter select-none pointer-events-none">
+            DIGITAL
+          </div>
+        </div>
+      </div>
       
+      {/* Top Identity Text */}
+      <div className="absolute top-16 w-full text-center z-20 px-6 pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-[#111] tracking-tight leading-tight mb-2">
+            Bridging Tradition<br />
+            <span className="flex items-center justify-center gap-3">
+              → <span className="text-[#111]">Digital Precision</span>
+            </span>
+          </h2>
+          <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.3em] font-medium mt-4">
+            KAINUO INNOVISION TECH CO., LIMITED
+          </p>
+        </motion.div>
+      </div>
+
       {/* Orbiting Rings */}
-      <div className="relative w-full h-full flex items-center justify-center overflow-hidden scale-90 md:scale-100">
+      <div className="relative w-full h-full flex items-center justify-center scale-[0.85] md:scale-100 mt-20">
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[240px] h-[240px] border border-dashed border-black/10 rounded-full"
+          className="absolute w-[280px] h-[280px] border border-dashed border-black/10 rounded-full"
         >
           <OrbitIcon icon="react" color="61DAFB" top="0" left="50%" />
           <OrbitIcon icon="nextdotjs" color="000000" bottom="0" left="50%" />
@@ -147,7 +182,7 @@ function OrbitVisual({ t }: { t: any }) {
         <motion.div 
           animate={{ rotate: -360 }}
           transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[380px] h-[380px] border border-dashed border-black/5 rounded-full"
+          className="absolute w-[420px] h-[420px] border border-dashed border-black/5 rounded-full"
         >
           <OrbitIcon icon="swift" color="FA7343" top="15%" left="15%" />
           <OrbitIcon icon="stripe" color="635BFF" top="15%" right="15%" />
@@ -155,15 +190,9 @@ function OrbitVisual({ t }: { t: any }) {
           <OrbitIcon icon="github" color="181717" bottom="15%" right="15%" />
         </motion.div>
 
-        {/* Center Logo */}
-        <div className="relative z-10 p-6 md:p-8 bg-white rounded-full shadow-2xl border border-gray-100 flex flex-col items-center justify-center text-center scale-75 md:scale-100">
-          <img src="/logo.svg" alt="Logo" className="h-12 md:h-16 w-auto mb-2 md:mb-4" />
-          <div className="max-w-[150px] md:max-w-[200px]">
-            <div className="text-[#1A1A1A] font-serif font-bold text-lg md:text-xl leading-tight mb-1">
-              Bridging Tradition
-            </div>
-            <div className="text-[#D4AF37] text-xl md:text-2xl font-bold">→ Digital Precision</div>
-          </div>
+        {/* Center Logo Bubble - Simplified to match original */}
+        <div className="relative z-10 p-10 bg-white rounded-full shadow-[0_30px_60px_rgba(0,0,0,0.1)] border border-gray-100 flex items-center justify-center">
+          <img src="/logo.svg" alt="Logo" className="h-16 md:h-20 w-auto" />
         </div>
       </div>
     </motion.div>
