@@ -7,20 +7,12 @@ import Link from 'next/link';
 
 const projects = [
   {
-    id: 'harbour-trade',
-    image: '/img/harbour-trade-long.png',
-    url: 'https://demo-trade.kainuotech.com/',
-    titleKey: 'web_proj1_title',
-    descKey: 'web_proj1_desc',
-    tagKey: 'tag_corporate'
-  },
-  {
-    id: 'flow-space',
-    image: '/img/flow-space-long.png',
-    url: 'https://flow.kainuotech.com/',
-    titleKey: 'web_proj2_title',
-    descKey: 'web_proj2_desc',
-    tagKey: 'tag_studio'
+    id: 'retroloop',
+    image: '/img/retroloop-long.png',
+    url: 'https://retroloop.vercel.app/',
+    titleKey: 'web_proj4_title',
+    descKey: 'web_proj4_desc',
+    tagKey: 'tag_vintage'
   },
   {
     id: 'moment-cafe',
@@ -29,6 +21,30 @@ const projects = [
     titleKey: 'web_proj3_title',
     descKey: 'web_proj3_desc',
     tagKey: 'tag_fnb'
+  },
+  {
+    id: 'natura',
+    image: '/img/natura-long.png',
+    url: 'https://05-natura-beauty.vercel.app',
+    titleKey: 'web_proj8_title',
+    descKey: 'web_proj8_desc',
+    tagKey: 'tag_beauty'
+  },
+  {
+    id: 'lumina',
+    image: '/img/lumina-long.png',
+    url: 'https://04-lumina-dental.vercel.app',
+    titleKey: 'web_proj7_title',
+    descKey: 'web_proj7_desc',
+    tagKey: 'tag_healthcare'
+  },
+  {
+    id: 'novatrix',
+    image: '/img/novatrix-long.png',
+    url: 'https://01-tech-saas.vercel.app',
+    titleKey: 'web_proj5_title',
+    descKey: 'web_proj5_desc',
+    tagKey: 'tag_tech'
   }
 ];
 

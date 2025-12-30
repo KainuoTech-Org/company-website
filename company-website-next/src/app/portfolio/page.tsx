@@ -13,6 +13,51 @@ export default function PortfolioPage() {
 
   const projects = [
     {
+      id: 'retroloop',
+      title: t('web_proj4_title'),
+      category: t('tag_vintage'),
+      type: 'web',
+      image: '/img/retroloop-long.png',
+      url: 'https://retroloop.vercel.app/',
+      description: t('web_proj4_desc')
+    },
+    {
+      id: 'moment-cafe',
+      title: t('web_proj3_title'),
+      category: t('tag_fnb'),
+      type: 'web',
+      image: '/img/moment-cafe-long.png',
+      url: 'https://moment-cafe.vercel.app/',
+      description: t('web_proj3_desc')
+    },
+    {
+      id: 'natura',
+      title: t('web_proj8_title'),
+      category: t('tag_beauty'),
+      type: 'web',
+      image: '/img/natura-long.png',
+      url: 'https://05-natura-beauty.vercel.app',
+      description: t('web_proj8_desc')
+    },
+    {
+      id: 'lumina',
+      title: t('web_proj7_title'),
+      category: t('tag_healthcare'),
+      type: 'web',
+      image: '/img/lumina-long.png',
+      url: 'https://04-lumina-dental.vercel.app',
+      description: t('web_proj7_desc')
+    },
+    {
+      id: 'novatrix',
+      title: t('web_proj5_title'),
+      category: t('tag_tech'),
+      type: 'web',
+      image: '/img/novatrix-long.png',
+      url: 'https://01-tech-saas.vercel.app',
+      description: t('web_proj5_desc')
+    },
+    {
       id: 'harbour-trade',
       title: t('web_proj1_title'),
       category: t('tag_corporate'),
@@ -31,33 +76,6 @@ export default function PortfolioPage() {
       description: t('web_proj2_desc')
     },
     {
-      id: 'moment-cafe',
-      title: t('web_proj3_title'),
-      category: t('tag_fnb'),
-      type: 'web',
-      image: '/img/moment-cafe-long.png',
-      url: 'https://moment-cafe.vercel.app/',
-      description: t('web_proj3_desc')
-    },
-    {
-      id: 'retroloop',
-      title: t('web_proj4_title'),
-      category: t('tag_vintage'),
-      type: 'web',
-      image: '/img/retroloop-long.png',
-      url: 'https://retroloop.vercel.app/',
-      description: t('web_proj4_desc')
-    },
-    {
-      id: 'novatrix',
-      title: t('web_proj5_title'),
-      category: t('tag_tech'),
-      type: 'web',
-      image: '/img/novatrix-long.png',
-      url: 'https://01-tech-saas.vercel.app',
-      description: t('web_proj5_desc')
-    },
-    {
       id: 'aurelius',
       title: t('web_proj6_title'),
       category: t('tag_legal'),
@@ -65,24 +83,6 @@ export default function PortfolioPage() {
       image: '/img/aurelius-long.png',
       url: 'https://02-aurelius-legal-v2.vercel.app',
       description: t('web_proj6_desc')
-    },
-    {
-      id: 'lumina',
-      title: t('web_proj7_title'),
-      category: t('tag_healthcare'),
-      type: 'web',
-      image: '/img/lumina-long.png',
-      url: 'https://04-lumina-dental.vercel.app',
-      description: t('web_proj7_desc')
-    },
-    {
-      id: 'natura',
-      title: t('web_proj8_title'),
-      category: t('tag_beauty'),
-      type: 'web',
-      image: '/img/natura-long.png',
-      url: 'https://05-natura-beauty.vercel.app',
-      description: t('web_proj8_desc')
     },
     {
       id: 'vault-capital',
