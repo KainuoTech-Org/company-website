@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import Link from 'next/link';
+import Button3D from '@/components/ui-custom/Button3D';
 
 export default function HeroIntro() {
   const { t } = useLanguage();
@@ -84,25 +84,25 @@ export default function HeroIntro() {
             {t('hero_desc')}
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - 3D Style from Original HTML */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center"
           >
-            <Link
+            <Button3D 
               href="/contact"
-              className="px-10 py-4 bg-[#1A1A1A] text-white rounded-full text-lg font-medium hover:bg-[#D4AF37] transition-all hover:scale-105 shadow-lg"
-            >
-              {t('btn_start')}
-            </Link>
-            <Link
+              text={t('btn_start')}
+              hoverText="Let's Go!"
+              variant="black"
+            />
+            <Button3D 
               href="/portfolio"
-              className="px-10 py-4 border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-full text-lg font-medium hover:bg-[#1A1A1A] hover:text-white transition-all hover:scale-105"
-            >
-              {t('btn_view_work')}
-            </Link>
+              text={t('btn_view_work')}
+              hoverText="Explore"
+              variant="gold"
+            />
           </motion.div>
 
           {/* Scroll Indicator */}
