@@ -33,16 +33,12 @@ export default function AboutPage() {
               <p>{t('about_p4')}</p>
             </div>
             
-            {/* DUNS Badge */}
-            <div className="inline-flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
-              <div className="w-10 h-10 rounded-full bg-[#F9F7F2] flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#D4AF37]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-                </svg>
-              </div>
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 leading-none mb-1">D-U-N-S® Registered</div>
-                <div className="text-lg font-mono font-bold text-[#1A1A1A]">77-331-5956</div>
+            {/* DUNS Text */}
+            <div className="flex items-center gap-3 text-gray-500">
+              <div className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+              <div className="text-xs">
+                <span className="uppercase tracking-widest font-medium mr-2">{t('duns_label')}</span>
+                <span className="font-mono text-gray-400">77-331-5956</span>
               </div>
             </div>
           </div>

@@ -19,14 +19,9 @@ export default function Footer() {
             <p className="text-gray-400 max-w-md">
               {t('about_subtitle')}. {t('about_p1')}
             </p>
-            <div className="mt-8 flex items-center gap-3">
-              <div className="border border-gray-700 rounded px-3 py-1.5 flex items-center gap-2 bg-white/5">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
-                <span className="text-[10px] uppercase tracking-[0.1em] font-bold text-gray-300">
-                  D-U-N-S® Registered
-                </span>
-                <span className="text-[#D4AF37] text-xs font-mono ml-1">77-331-5956</span>
-              </div>
+            <div className="mt-8 text-sm text-gray-500 flex items-center gap-2">
+              <span className="font-medium tracking-wider uppercase text-[10px]">{t('duns_label')}</span>
+              <span className="font-mono text-gray-400">77-331-5956</span>
             </div>
           </div>
           
