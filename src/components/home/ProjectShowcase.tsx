@@ -63,7 +63,7 @@ export default function ProjectShowcase() {
   const currentProject = projects[currentIndex];
 
   return (
-    <section className="py-20 bg-[#F9F7F2]">
+    <section className="py-20 bg-transparent">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-16">

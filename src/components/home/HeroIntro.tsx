@@ -8,7 +8,7 @@ export default function HeroIntro() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-[90vh] w-full overflow-hidden bg-[#F9F7F2] flex items-center">
+    <section className="relative min-h-[90vh] w-full overflow-hidden bg-transparent flex items-center">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
