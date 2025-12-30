@@ -53,8 +53,9 @@ export default function ServicesPage() {
     { name: 'TypeScript', category: t('tech_category_language') },
     { name: 'Tailwind CSS', category: t('tech_category_styling') },
     { name: 'Swift', category: t('tech_category_mobile') },
-    { name: 'Python', category: t('tech_category_backend') },
+    { name: 'Firebase', category: t('tech_category_backend') },
     { name: 'Supabase', category: t('tech_category_cms') },
+    { name: 'Stripe / PayPal', category: t('tech_category_payment') },
     { name: 'Vercel', category: t('tech_category_deployment') }
   ];
 
