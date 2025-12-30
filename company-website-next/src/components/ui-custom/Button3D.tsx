@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from 'react';
 import Link from 'next/link';
 
 interface Button3DProps {
@@ -18,7 +17,6 @@ export default function Button3D({
   variant = 'black',
   external = false 
 }: Button3DProps) {
-  const [isHovered, setIsHovered] = useState(false);
 
   const variantStyles = variant === 'gold' 
     ? {
@@ -46,8 +44,6 @@ export default function Button3D({
         ['--btn-hover-text-color' as any]: variantStyles.hoverTextColor,
         ['--btn-shadow' as any]: variantStyles.shadow,
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="hover-area bt-1"></div>
       <div className="hover-area bt-2"></div>
@@ -60,11 +56,7 @@ export default function Button3D({
         data-text={text}
         data-hover-text={hoverText}
       >
-        {!isHovered && (
-          <span className="button-3d-text">
-            {text}
-          </span>
-        )}
+        {/* Text is rendered via ::after in CSS for original HTML effect */}
       </div>
     </div>
   );
@@ -83,4 +75,3 @@ export default function Button3D({
     </Link>
   );
 }
-
