@@ -79,7 +79,8 @@ body {
   transform: rotateX(15deg) rotateY(-15deg) rotateZ(0deg); 
   box-shadow: -2px -2px var(--btn-shadow); 
 }
-.bt-1:hover ~ .button-3d-inner .button-3d-text { 
+.bt-1:hover ~ .button-3d-inner .button-3d-text-main,
+.bt-1:hover ~ .button-3d-inner .button-3d-text-hover { 
   animation: shake 0.5s ease-in-out 0.3s; 
   text-shadow: -2px -2px var(--btn-shadow); 
 }
@@ -88,7 +89,8 @@ body {
   transform: rotateX(15deg) rotateY(15deg) rotateZ(0deg); 
   box-shadow: 2px -2px var(--btn-shadow); 
 }
-.bt-3:hover ~ .button-3d-inner .button-3d-text { 
+.bt-3:hover ~ .button-3d-inner .button-3d-text-main,
+.bt-3:hover ~ .button-3d-inner .button-3d-text-hover { 
   animation: shake 0.5s ease-in-out 0.3s; 
   text-shadow: 2px -2px var(--btn-shadow); 
 }
@@ -97,7 +99,8 @@ body {
   transform: rotateX(-15deg) rotateY(-15deg) rotateZ(0deg); 
   box-shadow: -2px 2px var(--btn-shadow); 
 }
-.bt-4:hover ~ .button-3d-inner .button-3d-text { 
+.bt-4:hover ~ .button-3d-inner .button-3d-text-main,
+.bt-4:hover ~ .button-3d-inner .button-3d-text-hover { 
   animation: shake 0.5s ease-in-out 0.3s; 
   text-shadow: -2px 2px var(--btn-shadow); 
 }
@@ -106,24 +109,14 @@ body {
   transform: rotateX(-15deg) rotateY(15deg) rotateZ(0deg); 
   box-shadow: 2px 2px var(--btn-shadow); 
 }
-.bt-6:hover ~ .button-3d-inner .button-3d-text { 
+.bt-6:hover ~ .button-3d-inner .button-3d-text-main,
+.bt-6:hover ~ .button-3d-inner .button-3d-text-hover { 
   animation: shake 0.5s ease-in-out 0.3s; 
   text-shadow: 2px 2px var(--btn-shadow); 
 }
 
 .hover-area:hover ~ .button-3d-inner::before { 
   background: transparent; 
-}
-
-.hover-area:hover ~ .button-3d-inner::after {
-  content: attr(data-hover-text);
-  top: -150%;
-  transform: translate(-50%, 0);
-  font-size: 26px;
-  color: var(--btn-hover-text-color);
-  background: transparent;
-  position: absolute;
-  left: 50%;
 }
 
 .button-3d-inner {
@@ -166,7 +159,7 @@ body {
   color: var(--btn-text-color);
   font-size: 16px;
   font-weight: 700;
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.1s ease-out, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   white-space: nowrap;
 }
 
@@ -177,20 +170,22 @@ body {
   transform: translate(-50%, 0);
   color: var(--btn-hover-text-color);
   font-size: 26px;
-  font-weight: 700;
-  transition: all 0.3s ease-in-out;
+  font-weight: 900;
+  transition: opacity 0.1s ease-in 0.1s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), top 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0;
   white-space: nowrap;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .hover-area:hover ~ .button-3d-inner .button-3d-text-main {
   opacity: 0;
-  transform: translate(-50%, -150%);
+  transform: translate(-50%, -200%);
+  color: var(--btn-hover-text-color);
 }
 
 .hover-area:hover ~ .button-3d-inner .button-3d-text-hover {
   opacity: 1;
-  top: -150%;
+  top: -160%;
 }
 
 @keyframes shake {

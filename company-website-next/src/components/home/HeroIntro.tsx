@@ -94,13 +94,13 @@ export default function HeroIntro() {
             <Button3D 
               href="/contact"
               text={t('btn_start')}
-              hoverText="Let's Go!"
+              hoverText="LET'S GO!"
               variant="black"
             />
             <Button3D 
               href="/portfolio"
               text={t('btn_view_work')}
-              hoverText="Explore"
+              hoverText="EXPLORE"
               variant="gold"
             />
           </motion.div>

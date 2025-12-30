@@ -23,14 +23,14 @@ export default function Button3D({
         border: '#D4AF37',
         bg: '#D4AF37',
         textColor: '#FFFFFF',
-        hoverTextColor: '#D4AF37',
+        hoverTextColor: '#B8860B', // Darker gold for better contrast on light bg
         shadow: 'rgba(212, 175, 55, 0.4)'
       }
     : {
         border: '#1A1A1A',
         bg: '#1A1A1A',
         textColor: '#FFFFFF',
-        hoverTextColor: '#1A1A1A',
+        hoverTextColor: '#1A1A1A', // Black
         shadow: 'rgba(26, 26, 26, 0.4)'
       };
 
