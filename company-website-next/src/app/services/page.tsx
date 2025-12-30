@@ -11,16 +11,16 @@ export default function ServicesPage() {
     {
       id: 'web',
       title: t('nav_web_dev'),
-      description: 'We build fast, secure, and SEO-optimized websites using modern frameworks.', // Needs dictionary key if fully dynamic, but using English fallback for now or need to add more keys
+      description: t('service_web_desc'),
       icon: <Code className="w-10 h-10 text-[#D4AF37]" />,
-      features: ['Next.js / React Architecture', 'Headless CMS Integration', 'E-commerce Solutions', 'Performance Optimization']
+      features: [t('service_web_f1'), t('service_web_f2'), t('service_web_f3'), t('service_web_f4')]
     },
     {
       id: 'app',
       title: t('nav_mobile'),
-      description: 'Native and cross-platform mobile apps that deliver seamless user experiences.',
+      description: t('service_mobile_desc'),
       icon: <Smartphone className="w-10 h-10 text-[#D4AF37]" />,
-      features: ['iOS Native Development', 'React Native / Expo', 'PWA (Progressive Web Apps)', 'App Store Optimization']
+      features: [t('service_mobile_f1'), t('service_mobile_f2'), t('service_mobile_f3'), t('service_mobile_f4')]
     }
   ];
 
@@ -48,14 +48,14 @@ export default function ServicesPage() {
   ];
 
   const techStack = [
-    { name: 'Next.js 16', category: 'Frontend' },
-    { name: 'React', category: 'Library' },
-    { name: 'TypeScript', category: 'Language' },
-    { name: 'Tailwind CSS', category: 'Styling' },
-    { name: 'Swift', category: 'Mobile' },
-    { name: 'Python', category: 'Backend/Data' },
-    { name: 'Supabase', category: 'CMS/Database' },
-    { name: 'Vercel', category: 'Deployment' }
+    { name: 'Next.js 16', category: t('tech_category_frontend') },
+    { name: 'React', category: t('tech_category_library') },
+    { name: 'TypeScript', category: t('tech_category_language') },
+    { name: 'Tailwind CSS', category: t('tech_category_styling') },
+    { name: 'Swift', category: t('tech_category_mobile') },
+    { name: 'Python', category: t('tech_category_backend') },
+    { name: 'Supabase', category: t('tech_category_cms') },
+    { name: 'Vercel', category: t('tech_category_deployment') }
   ];
 
   return (
@@ -83,7 +83,7 @@ export default function ServicesPage() {
                 <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                 <ul className="space-y-2 mb-8">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm text-gray-500">
+                    <li key={idx} className="flex items-center gap-2 text-gray-600">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
                       {feature}
                     </li>
@@ -121,9 +121,9 @@ export default function ServicesPage() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="font-serif text-4xl font-bold mb-6">Our Technology Stack</h2>
+              <h2 className="font-serif text-4xl font-bold mb-6">{t('tech_stack_title')}</h2>
               <p className="text-gray-400 text-lg mb-8">
-                We use the latest, most robust technologies to ensure your digital product is scalable, secure, and future-proof.
+                {t('tech_stack_desc')}
               </p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-[#D4AF37] hover:text-white transition-colors">
                 {t('btn_start')} <ArrowRight size={20} />

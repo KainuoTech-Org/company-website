@@ -81,12 +81,11 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { title: t('nav_web_dev'), desc: 'Next.js, React, and modern headless CMS solutions.' },
-              { title: t('nav_mobile'), desc: 'Native iOS and cross-platform web applications.' }
+              { title: t('nav_web_dev') },
+              { title: t('nav_mobile') }
             ].map((service, index) => (
               <div key={index} className="border-t border-gray-700 pt-8 hover:border-[#D4AF37] transition-colors group cursor-pointer">
-                <h3 className="text-2xl font-serif font-bold mb-4 group-hover:text-[#D4AF37] transition-colors">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{service.desc}</p>
+                <h3 className="text-2xl font-serif font-bold group-hover:text-[#D4AF37] transition-colors">{service.title}</h3>
               </div>
             ))}
           </div>

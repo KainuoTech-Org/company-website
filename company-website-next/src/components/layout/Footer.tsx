@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { navigation, socialLinks } from '@/data/navigation';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="bg-[#1A1A1A] text-white py-16">
@@ -13,12 +15,12 @@ export default function Footer() {
               Kainuo Innovision
             </Link>
             <p className="text-gray-400 max-w-md">
-              Digital craftsmanship for business growth. We build bespoke websites and applications that transform your vision into reality.
+              {t('about_subtitle')}. {t('about_p1')}
             </p>
           </div>
           
           <div>
-            <h4 className="text-lg font-serif font-bold mb-6 text-[#D4AF37]">Explore</h4>
+            <h4 className="text-lg font-serif font-bold mb-6 text-[#D4AF37]">{t('footer_explore')}</h4>
             <ul className="space-y-3">
               {navigation.map((item) => (
                 <li key={item.name}>
@@ -34,7 +36,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-serif font-bold mb-6 text-[#D4AF37]">Connect</h4>
+            <h4 className="text-lg font-serif font-bold mb-6 text-[#D4AF37]">{t('footer_connect')}</h4>
             <ul className="space-y-3">
               {socialLinks.map((item) => (
                 <li key={item.name}>
@@ -61,10 +63,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>&copy; {currentYear} Kainuo Innovision Tech Co., Limited. All rights reserved.</p>
+          <p>&copy; {currentYear} {t('footer_copyright')}. {t('footer_rights')}</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">{t('footer_privacy')}</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">{t('footer_terms')}</Link>
           </div>
         </div>
       </div>
