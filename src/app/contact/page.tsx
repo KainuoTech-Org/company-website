@@ -1,10 +1,28 @@
 "use client";
 
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, MapPin, Phone, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ContactPage() {
   const { t } = useLanguage();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const subject = formData.get('subject') as string;
+    const body = `Name: ${formData.get('name')}
+Email: ${formData.get('email')}
+Message: ${formData.get('message')}`;
+
+    // Open email client
+    window.location.href = `mailto:contact@kainuotech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Show success message
+    setIsSubmitted(true);
+  };
 
   return (
     <div className="bg-[#F9F7F2] min-h-screen pt-20 pb-32">
@@ -78,56 +96,97 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_name_label')}</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_email_label')}</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all"
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_subject_label')}</label>
-                <select 
-                  id="subject" 
-                  className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all appearance-none"
+          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 min-h-[500px] flex items-center">
+            <AnimatePresence mode="wait">
+              {isSubmitted ? (
+                <motion.div 
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="w-full text-center py-12"
                 >
-                  <option value="">{t('contact_subject_placeholder')}</option>
-                  <option value="project">{t('contact_subject_project')}</option>
-                  <option value="collaboration">{t('contact_subject_collab')}</option>
-                  <option value="other">{t('contact_subject_other')}</option>
-                </select>
-              </div>
+                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-10 h-10 text-green-600" />
+                  </div>
+                  <h3 className="font-serif text-3xl font-bold mb-4">{t('contact_success_title')}</h3>
+                  <p className="text-gray-600 mb-8 max-w-sm mx-auto">
+                    {t('contact_success_desc')}
+                  </p>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="button-3d inline-block px-8"
+                  >
+                    {t('contact_success_btn')}
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.form 
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="space-y-6 w-full" 
+                  onSubmit={handleSubmit}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_name_label')}</label>
+                      <input 
+                        type="text" 
+                        name="name"
+                        id="name" 
+                        required
+                        className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_email_label')}</label>
+                      <input 
+                        type="email" 
+                        name="email"
+                        id="email" 
+                        required
+                        className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_subject_label')}</label>
+                    <select 
+                      id="subject" 
+                      name="subject"
+                      required
+                      className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all appearance-none"
+                    >
+                      <option value="">{t('contact_subject_placeholder')}</option>
+                      <option value="project">{t('contact_subject_project')}</option>
+                      <option value="collaboration">{t('contact_subject_collab')}</option>
+                      <option value="other">{t('contact_subject_other')}</option>
+                    </select>
+                  </div>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_msg_label')}</label>
-                <textarea 
-                  id="message" 
-                  rows={5}
-                  className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all resize-none"
-                ></textarea>
-              </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-bold uppercase tracking-wider text-gray-500">{t('contact_msg_label')}</label>
+                    <textarea 
+                      id="message" 
+                      name="message"
+                      rows={5}
+                      required
+                      className="w-full px-4 py-3 bg-[#F9F7F2] border-0 rounded-lg focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all resize-none"
+                    ></textarea>
+                  </div>
 
-              <button 
-                type="submit"
-                className="button-3d w-full text-center"
-              >
-                {t('contact_send_btn')}
-              </button>
-            </form>
+                  <button 
+                    type="submit"
+                    className="button-3d w-full text-center"
+                  >
+                    {t('contact_send_btn')}
+                  </button>
+                </motion.form>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
