@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kainuo Innovision Tech · Launch Grid</title>
+<link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;500;700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-dark: #0a0a0a;
+  --bg-card: #161616;
+  --text-main: #ffffff;
+  --text-muted: #888888;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-purple: #8b5cf6;
+  --border: #333;
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;padding:40px;
+  background:#050505;
+  color:var(--text-main);
+  font-family:var(--font-main);
+}
+.row{display:flex;gap:40px;flex-wrap:wrap;justify-content:center}
+
+/* Artboard Container */
+.artboard{
+  width:1080px;height:1080px;
+  position:relative;
+  overflow:hidden;
+  background:var(--bg-dark);
+  border:1px solid #222;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Common Elements */
+.logo-lockup{
+  position:absolute;bottom:60px;left:60px;
+  font-size:20px;
+  font-weight:400;
+  color:var(--text-muted);
+  display:flex;align-items:center;gap:16px;
+  z-index: 100;
+  background: rgba(10,10,10,0.8);
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+}
+.logo-lockup img{height:32px;opacity:1}
+.grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+}
+
+/* --- Post 1: The Vision (Right) --- */
+.post-vision{
+  background: #0f0f11;
+}
+.post-vision .content{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center; justify-content:center;
+}
+
+/* Updated Title Group: NO OVERLAP */
+.vision-title-group{
+  position:absolute; top:80px; left:80px;
+  z-index: 30;
+}
+.vision-big{
+  font-family: var(--font-display);
+  font-size:120px;
+  font-weight:700;line-height:0.95;
+  color: #fff;
+  letter-spacing:-4px;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.vision-sub{
+  font-size: 32px; color: #79c0ff; margin-top: 10px; font-weight: 500;
+}
+
+/* Terminal Moved Further Down to prevent ANY overlap */
+.terminal-window{
+  width: 740px;
+  background:rgba(10,10,15,0.95);
+  border:1px solid #333;
+  border-radius:20px;
+  padding:40px;
+  font-family:var(--font-code);
+  box-shadow:0 50px 100px rgba(0,0,0,0.6);
+  position:relative;
+  z-index: 10;
+  /* Reduced margin-top slightly to pull it up from footer, but scaled down more to fit */
+  margin-top: 400px; /* Increased to push down further */
+  margin-left: 80px;
+  /* Scaled down to ensure footer clearance */
+  transform: scale(0.9);
+  transform-origin: top center;
+}
+.terminal-header{
+  display:flex;gap:12px;margin-bottom:24px; border-bottom: 1px solid #333; padding-bottom: 20px;
+}
+.dot{width:16px;height:16px;border-radius:50%;}
+.dot.r{background:#ff5f56} .dot.y{background:#ffbd2e} .dot.g{background:#27c93f}
+
+.code-content{
+  font-size:24px; line-height:1.6; color:#d4d4d4;
+}
+.kw{color:#ff79c6} 
+.str{color:#a5d6ff} 
+.fn{color:#79c0ff} 
+.prop{color:#d2a8ff}
+.comment{color:#6a737d; display:block; margin-top:15px;}
+.cursor{
+  display:inline-block;width:12px;height:28px;background:#79c0ff;
+  vertical-align:middle;
+  animation:blink 1s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.icon-dock{
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid #333;
+  display:flex; gap: 24px; align-items:center;
+  opacity: 0.9;
+}
+.icon-dock img{ height: 36px; filter: grayscale(1); transition: filter 0.3s;}
+
+/* --- Post 2: The Identity (Middle) --- */
+.post-identity{
+  background:#fff;
+  color:#111;
+  display:flex;align-items:center;justify-content:center;
+}
+.post-identity .grid-bg{
+  background-image:
+    linear-gradient(#e5e5e5 1px, transparent 1px),
+    linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+}
+.split-layout{
+  position:absolute;inset:0;
+  display:flex;
+}
+.split-left{
+  flex:1;background:#f2f2f2;
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+}
+.split-right{
+  flex:1;background:#fff;
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+
+.bg-type{
+  font-size:240px; font-weight:900; 
+  position:absolute; 
+  opacity:0.04;
+  white-space:nowrap;
+  font-family: var(--font-display);
+}
+
+.center-logo-box{
+  width:320px;height:320px;
+  background:#fff;
+  border:1px solid #e0e0e0;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 30px 60px rgba(0,0,0,0.1);
+  z-index:20;
+  position:relative;
+}
+.center-logo-box img{width:55%;}
+
+.identity-text{
+  position:absolute;
+  width:100%;
+  text-align:center;
+  top:160px;
+  z-index:20;
+}
+.identity-h1{
+  font-size:64px;font-weight:800;letter-spacing:-2px;
+  margin-bottom:16px;
+  font-family: var(--font-display);
+  color: #111;
+}
+.identity-sub{
+  font-size:24px;color:#666;font-weight:500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.orbit-ring{
+  position:absolute;
+  border:1px dashed #ccc;
+  border-radius:50%;
+  z-index:5;
+  animation:spin 80s linear infinite;
+}
+.orbit-1{width:500px; height:500px; animation-duration: 60s;}
+.orbit-2{width:750px; height:750px; animation-duration: 90s; border-color: #e0e0e0;}
+
+.orbit-icon{
+  position:absolute;
+  width:56px;height:56px;
+  background:#fff;
+  border: 1px solid #eee;
+  padding:12px;border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+  display:flex;align-items:center;justify-content:center;
+}
+.orbit-icon img{width:100%; height:100%; object-fit:contain;}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* --- Post 3: The Service (Left) --- */
+/* Redesigned: Swiss Grid / Creative Layout */
+.post-service{
+  background: #0f0f11;
+  color: #fff;
+}
+.service-wrap{
+  position: absolute; inset: 60px;
+  display: flex; flex-direction: column;
+}
+
+/* 2x2 Creative Grid */
+.bento-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+  flex: 1;
+}
+
+.b-card{
+  background: rgba(255,255,255,0.03);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex; flex-direction: column;
+  border: 1px solid rgba(255,255,255,0.08);
+  position: relative; overflow: hidden;
+  transition: all 0.4s ease;
+}
+.b-card:hover{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-5px);
+}
+
+/* Card 1: Main Title Block */
+.b-card.title-block{
+  background: transparent;
+  border: none;
+  padding: 0;
+  justify-content: center;
+}
+.tb-super{
+  font-family: var(--font-display);
+  font-size: 100px; font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  margin-bottom: 24px;
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tb-desc{
+  font-size: 24px; color: #666; font-weight: 500; max-width: 400px;
+}
+
+/* Service Cards Typography */
+.srv-num{
+  font-family: var(--font-code);
+  font-size: 14px; color: #444; margin-bottom: auto;
+  border: 1px solid #333; display: inline-block; padding: 4px 10px; border-radius: 100px;
+}
+.srv-icon{
+  width: 64px; height: 64px; margin-bottom: 32px;
+  opacity: 0.8;
+}
+.srv-title{
+  font-family: var(--font-display);
+  font-size: 48px; font-weight: 700; line-height: 1;
+  margin-bottom: 16px; letter-spacing: -2px;
+}
+.srv-desc{
+  font-size: 18px; color: #888; line-height: 1.4;
+}
+
+/* Gradient accents for cards */
+.b-card.c1:hover .srv-title{ color: #60a5fa; }
+.b-card.c2:hover .srv-title{ color: #c084fc; }
+.b-card.c3:hover .srv-title{ color: #4ade80; }
+
+</style>
+</head>
+<body>
+
+<div class="row">
+  <!-- POST 1: VISION (Right) -->
+  <div class="artboard post-vision">
+    <div class="grid-bg"></div>
+    
+    <div class="vision-title-group">
+      <div class="vision-big">HELLO,<br>WORLD.</div>
+      <div class="vision-sub">Efficiency meets Aesthetics</div>
+    </div>
+
+    <div class="content">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+          <div style="margin-left:auto; color:#666; font-size:14px">index.tsx</div>
+        </div>
+        <div class="code-content" style="font-size:20px;">
+          <div class="comment">/**</div>
+          <div class="comment"> * Kainuo Innovision Tech</div>
+          <div class="comment"> * Digital Consultancy driven by Innovation.</div>
+          <div class="comment"> */</div>
+          <br>
+          <div><span class="kw">const</span> <span class="fn">Config</span> = {</div>
+          <div style="padding-left:30px">
+            <span class="prop">stack</span>: <span class="str">"Next.js / React Architecture"</span>,
+          </div>
+          <div style="padding-left:30px">
+            <span class="prop">perf</span>: <span class="str">"Fast, Secure, SEO-Optimized"</span>,
+          </div>
+          <div style="padding-left:30px">
+            <span class="prop">serve</span>: [<span class="str">"HK"</span>, <span class="str">"Mainland"</span>, <span class="str">"Global"</span>],
+          </div>
+          <div style="padding-left:30px">
+            <span class="prop">goal</span>: <span class="str">"Vision &rarr; Market Reality"</span>,
+          </div>
+          <div style="padding-left:30px">
+            <span class="prop">build</span>: [
+          </div>
+          <div style="padding-left:60px" id="typewriter-line">
+            <span class="str">"..."</span>
+          </div>
+          <div style="padding-left:30px">
+            ]
+          </div>
+          <div>};</div>
+        </div>
+
+        <div class="icon-dock">
+           <img src="https://cdn.simpleicons.org/react/fff" />
+           <img src="https://cdn.simpleicons.org/nextdotjs/fff" />
+           <img src="https://cdn.simpleicons.org/typescript/fff" />
+           <img src="https://cdn.simpleicons.org/swift/fff" />
+           <img src="https://cdn.simpleicons.org/sanity/fff" />
+           <img src="https://cdn.simpleicons.org/stripe/fff" />
+           <img src="https://cdn.simpleicons.org/vercel/fff" />
+           <img src="https://cdn.simpleicons.org/github/fff" />
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-lockup" style="color:#fff;">
+      <img src="isolated-monochrome-black.svg" style="filter:invert(1)" />
+      <!-- Text removed as requested since Logo contains 'Kainuo' -->
+    </div>
+  </div>
+
+  <!-- POST 2: IDENTITY (Middle) -->
+  <div class="artboard post-identity">
+    <div class="split-layout">
+      <div class="split-left">
+        <div class="bg-type" style="transform:rotate(90deg); left:-80px; color:#000;">TRADITION</div>
+      </div>
+      <div class="split-right">
+         <div class="grid-bg"></div>
+         <div class="bg-type" style="transform:rotate(-90deg); right:-60px; color:#000;">DIGITAL</div>
+      </div>
+    </div>
+
+    <div class="orbit-ring orbit-1">
+       <div class="orbit-icon" style="top:0;left:50%;transform:translate(-50%,-50%)"><img src="https://cdn.simpleicons.org/react/000"></div>
+       <div class="orbit-icon" style="bottom:0;left:50%;transform:translate(-50%,50%)"><img src="https://cdn.simpleicons.org/nextdotjs/000"></div>
+       <div class="orbit-icon" style="left:0;top:50%;transform:translate(-50%,-50%)"><img src="https://cdn.simpleicons.org/swift/fa7343"></div>
+       <div class="orbit-icon" style="right:0;top:50%;transform:translate(50%,-50%)"><img src="https://cdn.simpleicons.org/vercel/000"></div>
+    </div>
+
+    <div class="orbit-ring orbit-2">
+       <div class="orbit-icon" style="top:15%;left:15%"><img src="https://cdn.simpleicons.org/sanity/000"></div>
+       <div class="orbit-icon" style="top:15%;right:15%"><img src="https://cdn.simpleicons.org/stripe/635bff"></div>
+       <div class="orbit-icon" style="bottom:15%;left:15%"><img src="https://cdn.simpleicons.org/google/4285F4"></div>
+       <div class="orbit-icon" style="bottom:15%;right:15%"><img src="https://cdn.simpleicons.org/apple/000"></div>
+       <div class="orbit-icon" style="top:50%;left:0; transform:translate(-50%, -50%)"><img src="https://cdn.simpleicons.org/github/000"></div>
+       <div class="orbit-icon" style="top:50%;right:0; transform:translate(50%, -50%)"><img src="https://cdn.simpleicons.org/shopify/95bf47"></div>
+    </div>
+
+    <div class="center-logo-box">
+      <img src="./isolated-monochrome-black.svg" alt="Logo" />
+    </div>
+
+    <div class="identity-text">
+      <div class="identity-h1">Bridging Tradition<br>→ Digital Precision</div>
+      <div class="identity-sub">Kainuo Innovision Tech Co., Limited</div>
+    </div>
+  </div>
+
+  <!-- POST 3: SERVICE (Left) -->
+  <div class="artboard post-service">
+    <div class="service-wrap">
+      <div class="bento-grid">
+        
+        <!-- 1. Title Block (Top Left) -->
+        <div class="b-card title-block">
+          <div style="display:flex; flex-direction:column; justify-content:center; height:100%">
+            <div class="tb-super">Core<br>Focus.</div>
+            <div class="tb-desc">
+              Building digital infrastructure for the next generation of business.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Web Experience (Top Right) -->
+        <div class="b-card c1">
+          <div style="display:flex; justify-content:space-between; width:100%">
+             <div class="srv-num">01</div>
+             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <div style="margin-top:auto">
+            <div class="srv-title">Web<br>Experience</div>
+            <div class="srv-desc">High-performance platforms designed for impact and scale.</div>
+          </div>
+        </div>
+
+        <!-- 3. Mobile Native (Bottom Left) -->
+        <div class="b-card c2">
+          <div style="display:flex; justify-content:space-between; width:100%">
+             <div class="srv-num">02</div>
+             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          </div>
+          <div style="margin-top:auto">
+            <div class="srv-title">Digital<br>Products</div>
+            <div class="srv-desc">Interactive experiences for mobile and web.</div>
+          </div>
+        </div>
+
+        <!-- 4. System Arch (Bottom Right) -->
+        <div class="b-card c3">
+          <div style="display:flex; justify-content:space-between; width:100%">
+             <div class="srv-num">03</div>
+             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <div style="margin-top:auto">
+            <div class="srv-title">Custom<br>Solutions</div>
+            <div class="srv-desc">Tailored technology for unique business challenges.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+<script>
+  // Post 1: Typewriter Effect
+  // Sequence: Start "Traditional" -> Wait -> Backspace -> Type "Next.js", "Sanity", "Stripe"
+  const target = document.querySelector('#typewriter-line');
+  const cursor = '<span class="cursor"></span>';
+  
+  // Highlighting helpers
+  const str = (txt) => `<span class="str">"${txt}"</span>`;
+  const cm = (txt) => `<span class="comment">, </span>`; // using comment style for comma separator if needed or just plain white
+  
+  const finalState = [
+    str("Web Experience"), 
+    str("Digital Products"), 
+    str("Custom Solutions")
+  ].join(', ');
+
+  const initialState = str("Legacy Sites");
+  
+  let currentHTML = "";
+  
+  // A simple function to simulate typing text content
+  // Note: Since we have HTML structure (spans), we'll cheat a bit by replacing full blocks or text content.
+  // Actually, let's just animate the text content of the "Legacy Sites" string then replace it.
+
+  async function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  async function runAnimation() {
+    // 1. Initial State
+    target.innerHTML = initialState + cursor;
+    await wait(2000); // Wait for viewer to read "Legacy Sites"
+
+    // 2. Backspace "Legacy Sites" (12 chars + 2 quotes = 14 chars)
+    // We will just strip chars from the text content
+    let text = '"Legacy Sites"';
+    for (let i = 0; i < 14; i++) {
+        text = text.slice(0, -1);
+        target.innerHTML = `<span class="str">${text}</span>` + cursor;
+        await wait(100);
+    }
+    
+    // Empty state
+    await wait(500);
+
+    // 3. Type New Content: "Web Experience", "Digital Products", "Custom Solutions"
+    // We will construct the HTML string progressively
+    const fullText = '"Web Experience", "Digital Products", "Custom Solutions"';
+    
+    let buffer = "";
+    const chars = fullText.split('');
+    
+    for (let char of chars) {
+        buffer += char;
+        target.innerHTML = `<span class="str">${buffer}</span>` + cursor;
+        // Random typing speed
+        await wait(40 + Math.random() * 60);
+    }
+
+    // 4. Finalize (Fix colors if needed - e.g. make commas white)
+    await wait(500);
+    // Replace with perfect syntax highlighted HTML
+    target.innerHTML = finalState + cursor;
+    
+    // Loop?
+    await wait(5000);
+    runAnimation();
+  }
+
+  runAnimation();
+
+</script>
+</html>
