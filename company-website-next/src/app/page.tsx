@@ -1,6 +1,7 @@
 "use client";
 
-import HeroSlider from '@/components/home/HeroSlider';
+import HeroIntro from '@/components/home/HeroIntro';
+import ProjectShowcase from '@/components/home/ProjectShowcase';
 import InteractiveBackground from '@/components/home/InteractiveBackground';
 import WhoWeAreVisual from '@/components/home/WhoWeAreVisual';
 import Link from 'next/link';
@@ -21,12 +22,17 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col gap-20 pb-20 relative">
+    <div className="flex flex-col pb-20 relative">
       <InteractiveBackground />
-      <HeroSlider />
+      
+      {/* Hero Introduction Section */}
+      <HeroIntro />
+      
+      {/* Project Showcase Section */}
+      <ProjectShowcase />
       
       {/* About Preview */}
-      <section className="container mx-auto px-6">
+      <section className="container mx-auto px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-[#D4AF37] text-sm uppercase tracking-[0.3em] font-medium mb-4 block">
