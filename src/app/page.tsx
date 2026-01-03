@@ -15,6 +15,7 @@ export default function Home() {
     { name: 'Next.js', icon: 'https://cdn.simpleicons.org/nextdotjs/black' },
     { name: 'TypeScript', icon: 'https://cdn.simpleicons.org/typescript/black' },
     { name: 'Swift', icon: 'https://cdn.simpleicons.org/swift/black' },
+    { name: 'Sanity', icon: 'https://cdn.simpleicons.org/sanity/black' },
     { name: 'Shopify', icon: 'https://cdn.simpleicons.org/shopify/black' },
     { name: 'Stripe', icon: 'https://cdn.simpleicons.org/stripe/black' },
     { name: 'PayPal', icon: 'https://cdn.simpleicons.org/paypal/black' },

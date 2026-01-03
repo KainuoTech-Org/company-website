@@ -109,7 +109,7 @@ function TerminalVisual({ t }: { t: any }) {
 
         {/* Tech Dock */}
         <div className="mt-6 pt-4 border-t border-white/5 flex gap-4 overflow-hidden">
-          {['react', 'nextdotjs', 'typescript', 'swift', 'shopify', 'stripe', 'paypal', 'firebase', 'vercel', 'github'].map((icon) => (
+          {['react', 'nextdotjs', 'typescript', 'swift', 'sanity', 'supabase', 'firebase', 'stripe', 'paypal', 'vercel', 'github'].map((icon) => (
             <img 
               key={icon}
               src={`https://cdn.simpleicons.org/${icon}/ffffff`} 
@@ -185,10 +185,10 @@ function OrbitVisual({ t }: { t: any }) {
           className="absolute w-[360px] h-[360px] border border-dashed border-black/5 rounded-full"
         >
           <OrbitIcon icon="swift" color="FA7343" top="15%" left="15%" />
-          <OrbitIcon icon="stripe" color="635BFF" top="15%" right="15%" />
-          <OrbitIcon icon="paypal" color="003087" bottom="15%" left="15%" />
+          <OrbitIcon icon="sanity" color="F03E2F" top="15%" right="15%" />
+          <OrbitIcon icon="supabase" color="3ECF8E" bottom="15%" left="15%" />
           <OrbitIcon icon="firebase" color="FFCA28" bottom="15%" right="15%" />
-          <OrbitIcon icon="shopify" color="95BF47" left="0" top="50%" />
+          <OrbitIcon icon="stripe" color="635BFF" left="0" top="50%" />
           <OrbitIcon icon="github" color="181717" right="0" top="50%" />
         </motion.div>
 
