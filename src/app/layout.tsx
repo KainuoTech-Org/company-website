@@ -21,6 +21,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Kainuo Innovision Tech | Digital Craftsmanship",
   description: "Full-cycle digital product agency specializing in bespoke websites, apps, and digital experiences.",
+  icons: {
+    icon: "/logo.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
