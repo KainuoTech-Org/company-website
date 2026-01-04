@@ -26,7 +26,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col pb-20 relative">
+    <div className="flex flex-col relative">
       <InteractiveBackground />
       
       {/* Hero Introduction Section */}
