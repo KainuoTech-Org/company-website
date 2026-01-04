@@ -151,7 +151,7 @@ export default function ProjectShowcase() {
                       rel="noopener noreferrer"
                       className="px-6 py-3 bg-white text-[#1A1A1A] rounded-full font-medium hover:bg-[#D4AF37] transition-all"
                     >
-                      {t('btn_visit_live')}
+                      {currentProject.isRealProject ? t('btn_visit_site') : t('btn_visit_live')}
                     </a>
                     <Link 
                       href="/portfolio"

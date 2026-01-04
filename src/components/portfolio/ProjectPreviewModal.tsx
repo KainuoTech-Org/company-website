@@ -118,15 +118,15 @@ export default function ProjectPreviewModal({ project, isOpen, onClose }: Projec
               {/* Action Buttons */}
               <div className="mt-8 flex flex-col gap-3">
                 {project.url !== '#' ? (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-4 bg-[#1A1A1A] text-white font-medium uppercase tracking-wider hover:bg-[#D4AF37] transition-all duration-300 rounded-lg group"
-                  >
-                    <span>{t('btn_visit_live')}</span>
-                    <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </a>
+                         <a
+                           href={project.url}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="flex items-center justify-center gap-2 w-full py-4 bg-[#1A1A1A] text-white font-medium uppercase tracking-wider hover:bg-[#D4AF37] transition-all duration-300 rounded-lg group"
+                         >
+                           <span>{project.isRealProject ? t('btn_visit_site') : t('btn_visit_live')}</span>
+                           <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
+                         </a>
                 ) : (
                   <button disabled className="flex items-center justify-center gap-2 w-full py-4 bg-gray-200 text-gray-400 font-medium uppercase tracking-wider rounded-lg cursor-not-allowed">
                     <span>{t('app_coming_soon')}</span>
