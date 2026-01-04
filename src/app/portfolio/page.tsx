@@ -185,7 +185,15 @@ export default function PortfolioPage() {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
                 
-                <div className="absolute bottom-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#D4AF37] hover:text-white shadow-lg z-10">
+                <div 
+                  className="absolute bottom-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-[#D4AF37] hover:text-white shadow-lg z-10"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (project.url !== '#') {
+                      window.open(project.url, '_blank', 'noopener,noreferrer');
+                    }
+                  }}
+                >
                    <ExternalLink size={20} />
                 </div>
               </div>
