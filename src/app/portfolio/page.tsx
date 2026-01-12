@@ -164,7 +164,7 @@ export default function PortfolioPage() {
               onClick={() => handleProjectClick(project)}
             >
               {/* Project Card with Scroll Effect */}
-              <div className="aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden mb-6 relative shadow-sm border border-gray-100">
+              <div className="aspect-[4/5] md:aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden mb-6 relative shadow-sm border border-gray-100">
                 <div className="w-full h-full overflow-hidden relative">
                   {/* Scrolling Image */}
                   <div 

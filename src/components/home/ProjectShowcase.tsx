@@ -104,8 +104,7 @@ export default function ProjectShowcase() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.7 }}
-              className="relative rounded-3xl overflow-hidden shadow-2xl"
-              style={{ aspectRatio: '16/9' }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] md:aspect-video"
             >
               {/* Background Image */}
               <div className="absolute inset-0 overflow-hidden">
@@ -130,32 +129,32 @@ export default function ProjectShowcase() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-white">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  <h3 className="font-serif text-3xl md:text-5xl font-bold mb-4">
+                  <h3 className="font-serif text-2xl md:text-5xl font-bold mb-3 md:mb-4">
                     {t(currentProject.titleKey)}
                   </h3>
                   
-                  <p className="text-base md:text-lg text-gray-200 mb-6 max-w-2xl leading-relaxed">
+                  <p className="text-sm md:text-lg text-gray-200 mb-6 max-w-2xl leading-relaxed line-clamp-3 md:line-clamp-none">
                     {t(currentProject.descKey)}
                   </p>
 
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-wrap gap-3 md:gap-4">
                     <a 
                       href={currentProject.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-3 bg-white text-[#1A1A1A] rounded-full font-medium hover:bg-[#D4AF37] transition-all"
+                      className="px-4 py-2.5 md:px-6 md:py-3 bg-white text-[#1A1A1A] rounded-full text-sm md:text-base font-medium hover:bg-[#D4AF37] transition-all"
                     >
                       {currentProject.isRealProject ? t('btn_visit_site') : t('btn_visit_live')}
                     </a>
                     <Link 
                       href="/portfolio"
-                      className="px-6 py-3 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-[#1A1A1A] transition-all"
+                      className="px-4 py-2.5 md:px-6 md:py-3 border-2 border-white text-white rounded-full text-sm md:text-base font-medium hover:bg-white hover:text-[#1A1A1A] transition-all"
                     >
                       {t('btn_view_work')}
                     </Link>
