@@ -67,7 +67,7 @@ export default function PortfolioPage() {
       url: 'https://01-tech-saas.vercel.app',
       description: t('web_proj5_desc')
     },
-    {
+    /* {
       id: 'harbour-trade',
       title: t('web_proj1_title'),
       category: t('tag_corporate'),
@@ -75,7 +75,7 @@ export default function PortfolioPage() {
       image: '/img/harbour-trade-long.png',
       url: 'https://demo-trade.kainuotech.com/',
       description: t('web_proj1_desc')
-    },
+    }, */
     {
       id: 'flow-space',
       title: t('web_proj2_title'),
