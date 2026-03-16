@@ -123,12 +123,20 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="font-serif text-4xl font-bold mb-6">{t('tech_stack_title')}</h2>
-              <p className="text-gray-400 text-lg mb-8">
+              <p className="text-gray-400 text-lg mb-4">
                 {t('tech_stack_desc')}
               </p>
-              <Link href="/contact" className="inline-flex items-center gap-2 text-[#D4AF37] hover:text-white transition-colors">
-                {t('btn_start')} <ArrowRight size={20} />
-              </Link>
+              <p className="text-gray-500 text-sm mb-8">
+                {t('about_also_build')}
+              </p>
+              <div className="flex gap-4 flex-wrap">
+                <Link href="/contact" className="inline-flex items-center gap-2 text-[#D4AF37] hover:text-white transition-colors">
+                  {t('btn_start')} <ArrowRight size={20} />
+                </Link>
+                <Link href="/products" className="inline-flex items-center gap-2 text-gray-400 hover:text-[#D4AF37] transition-colors">
+                  {t('nav_products')} <ArrowRight size={20} />
+                </Link>
+              </div>
             </div>
             
             <div className="grid grid-cols-2 gap-4">

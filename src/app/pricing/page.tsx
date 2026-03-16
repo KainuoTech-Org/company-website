@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
-import { Check } from 'lucide-react';
+import { Check, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function PricingPage() {
   const { t } = useLanguage();
+  const [activeTab, setActiveTab] = useState<'web' | 'products'>('web');
 
   const plans = [
     {
@@ -88,8 +90,37 @@ export default function PricingPage() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             {t('services_desc')}
           </p>
+
+          {/* Tab Switcher */}
+          <div className="flex justify-center mt-10">
+            <div className="inline-flex bg-gray-100 rounded-full p-1">
+              <button
+                onClick={() => setActiveTab('web')}
+                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeTab === 'web' 
+                    ? 'bg-[#1A1A1A] text-white shadow-sm' 
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {t('pricing_tab_web')}
+              </button>
+              <button
+                onClick={() => setActiveTab('products')}
+                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeTab === 'products' 
+                    ? 'bg-[#1A1A1A] text-white shadow-sm' 
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {t('pricing_tab_products')}
+              </button>
+            </div>
+          </div>
         </div>
 
+        {/* Web Development Pricing */}
+        {activeTab === 'web' && (
+        <>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {plans.map((plan, index) => (
             <div 
@@ -176,6 +207,112 @@ export default function PricingPage() {
             </Link>
           </div>
         </div>
+        </>
+        )}
+
+        {/* Products Pricing */}
+        {activeTab === 'products' && (
+          <div className="space-y-8">
+            <p className="text-center text-gray-600 mb-12">{t('pricing_products_desc')}</p>
+            
+            {/* Custly CRM */}
+            <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 hover:shadow-lg transition-shadow">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-[#1B5E20] text-white flex items-center justify-center font-bold text-sm">C</div>
+                    <h3 className="text-2xl font-serif font-bold">{t('product_custly_name')}</h3>
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider">{t('products_status_live')}</span>
+                  </div>
+                  <p className="text-gray-500 mb-4">{t('product_custly_tagline')}</p>
+                  <p className="text-gray-600 text-sm">{t('product_custly_desc')}</p>
+                </div>
+                <div className="text-center lg:text-right">
+                  <div className="space-y-2 mb-6">
+                    <div className="text-sm text-gray-500">$20{t('pricing_per_month')} · $168{t('pricing_per_year')}</div>
+                    <div className="text-2xl font-bold text-[#D4AF37]">$399 <span className="text-sm font-normal text-gray-500">{t('pricing_one_time')}</span></div>
+                    <div className="text-xs text-gray-400">{t('products_free_trial')} · 14 days</div>
+                  </div>
+                  <a href="https://custlycrm.com" target="_blank" rel="noopener noreferrer" className="button-3d button-3d-gold text-sm inline-flex items-center gap-2">
+                    {t('products_visit')} <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Kinolu */}
+            <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 hover:shadow-lg transition-shadow">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm">K</div>
+                    <h3 className="text-2xl font-serif font-bold">{t('product_kinolu_name')}</h3>
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider">{t('products_status_live')}</span>
+                  </div>
+                  <p className="text-gray-500 mb-4">{t('product_kinolu_tagline')}</p>
+                  <p className="text-gray-600 text-sm">{t('product_kinolu_desc')}</p>
+                </div>
+                <div className="text-center lg:text-right">
+                  <div className="space-y-2 mb-6">
+                    <div className="text-sm text-gray-500">{t('pricing_free')} · $2.99{t('pricing_per_month')} · $29.99{t('pricing_per_year')}</div>
+                    <div className="text-2xl font-bold text-[#D4AF37]">$49.99 <span className="text-sm font-normal text-gray-500">{t('pricing_one_time')}</span></div>
+                  </div>
+                  <a href="https://kinolu.cam" target="_blank" rel="noopener noreferrer" className="button-3d button-3d-gold text-sm inline-flex items-center gap-2">
+                    {t('products_visit')} <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Velo Studio */}
+            <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 hover:shadow-lg transition-shadow">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-[#89A389] text-white flex items-center justify-center font-bold text-sm">V</div>
+                    <h3 className="text-2xl font-serif font-bold">{t('product_velo_name')}</h3>
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 uppercase tracking-wider">{t('products_status_beta')}</span>
+                  </div>
+                  <p className="text-gray-500 mb-4">{t('product_velo_tagline')}</p>
+                  <p className="text-gray-600 text-sm">{t('product_velo_desc')}</p>
+                </div>
+                <div className="text-center lg:text-right">
+                  <div className="space-y-2 mb-6">
+                    <div className="text-2xl font-bold text-[#D4AF37]">$8<span className="text-sm font-normal text-gray-500">{t('pricing_per_month')}</span></div>
+                    <div className="text-sm text-gray-500">$68{t('pricing_per_year')} (save 29%)</div>
+                    <div className="text-xs text-gray-400">{t('products_free_trial')} · 7 days</div>
+                  </div>
+                  <a href="https://velostudio.app" target="_blank" rel="noopener noreferrer" className="button-3d button-3d-gold text-sm inline-flex items-center gap-2">
+                    {t('products_visit')} <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Mood Balloon */}
+            <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 opacity-75">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-[#E8A87C] text-white flex items-center justify-center font-bold text-sm">M</div>
+                    <h3 className="text-2xl font-serif font-bold">{t('product_mood_name')}</h3>
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 uppercase tracking-wider">{t('products_status_review')}</span>
+                  </div>
+                  <p className="text-gray-500 mb-4">{t('product_mood_tagline')}</p>
+                  <p className="text-gray-600 text-sm">{t('product_mood_desc')}</p>
+                </div>
+                <div className="text-center lg:text-right">
+                  <div className="space-y-2 mb-6">
+                    <div className="text-2xl font-bold text-gray-300">{t('app_coming_soon')}</div>
+                  </div>
+                  <span className="px-6 py-3 bg-gray-100 text-gray-400 text-sm font-medium uppercase tracking-wider rounded-full cursor-default inline-block">
+                    {t('app_coming_soon')}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

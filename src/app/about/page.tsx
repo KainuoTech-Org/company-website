@@ -31,6 +31,7 @@ export default function AboutPage() {
             <div className="space-y-6 text-lg text-gray-600 mb-8">
               <p>{t('about_p3')}</p>
               <p>{t('about_p4')}</p>
+              <p>{t('about_also_build')}</p>
             </div>
             
             {/* DUNS Text */}

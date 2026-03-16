@@ -1,6 +1,7 @@
 export const navigation = [
   { name: 'Home', href: '/', key: 'nav_home' },
   { name: 'Services', href: '/services', key: 'nav_services' },
+  { name: 'Products', href: '/products', key: 'nav_products' },
   { name: 'Portfolio', href: '/portfolio', key: 'nav_works' },
   { name: 'Pricing', href: '/pricing', key: 'nav_pricing' },
   { name: 'About', href: '/about', key: 'nav_about' },

@@ -34,7 +34,54 @@ export default function Home() {
       
       {/* Project Showcase Section */}
       <ProjectShowcase />
-      
+
+      {/* Our Products Section */}
+      <section className="bg-white py-24 relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <span className="text-[#D4AF37] text-sm uppercase tracking-[0.3em] font-medium mb-4 block">
+                {t('home_products_title')}
+              </span>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+                {t('home_products_desc')}
+              </h2>
+            </div>
+            <Link href="/products" className="button-3d text-sm">
+              {t('btn_view_work')}
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: t('product_custly_name'), tagline: t('product_custly_tagline'), url: 'https://custlycrm.com', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#1B5E20' },
+              { name: t('product_kinolu_name'), tagline: t('product_kinolu_tagline'), url: 'https://kinolu.cam', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#000000' },
+              { name: t('product_velo_name'), tagline: t('product_velo_tagline'), url: 'https://velostudio.app', status: t('products_status_beta'), statusColor: 'bg-blue-100 text-blue-700', color: '#89A389' },
+              { name: t('product_mood_name'), tagline: t('product_mood_tagline'), url: '#', status: t('products_status_review'), statusColor: 'bg-amber-100 text-amber-700', color: '#E8A87C' },
+            ].map((product, index) => (
+              <Link
+                href={product.url !== '#' ? product.url : '/products'}
+                target={product.url !== '#' ? '_blank' : undefined}
+                rel={product.url !== '#' ? 'noopener noreferrer' : undefined}
+                key={index}
+                className="group p-8 border border-gray-100 rounded-2xl hover:shadow-lg hover:border-[#D4AF37]/30 transition-all duration-300 bg-white"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm font-bold" style={{ backgroundColor: product.color }}>
+                    {product.name.charAt(0)}
+                  </div>
+                  <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider ${product.statusColor}`}>
+                    {product.status}
+                  </span>
+                </div>
+                <h3 className="text-lg font-serif font-bold mb-1 group-hover:text-[#D4AF37] transition-colors">{product.name}</h3>
+                <p className="text-sm text-gray-500">{product.tagline}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Preview */}
       <section className="container mx-auto px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -93,11 +140,12 @@ export default function Home() {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
                 title: t('nav_web_dev'), 
                 desc: t('service_web_desc'),
+                href: '/services',
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -107,15 +155,26 @@ export default function Home() {
               { 
                 title: t('nav_mobile'), 
                 desc: t('service_mobile_desc'),
+                href: '/services',
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                 )
+              },
+              { 
+                title: t('home_products_title'), 
+                desc: t('home_products_desc'),
+                href: '/products',
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                  </svg>
+                )
               }
             ].map((service, index) => (
               <Link 
-                href="/services" 
+                href={service.href} 
                 key={index} 
                 className="group p-10 border border-white/10 rounded-3xl hover:border-[#D4AF37] transition-all duration-500 bg-white/[0.02] hover:bg-white/[0.05] relative overflow-hidden"
               >

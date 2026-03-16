@@ -17,6 +17,7 @@ export default function Navbar() {
 
   const navigation = [
     { name: t('nav_services'), href: '/services' },
+    { name: t('nav_products'), href: '/products' },
     { name: t('nav_works'), href: '/portfolio' },
     { name: t('nav_pricing'), href: '/pricing' },
     { name: t('nav_about'), href: '/about' },

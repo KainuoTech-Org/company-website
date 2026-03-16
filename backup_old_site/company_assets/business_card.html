@@ -10,9 +10,15 @@
             --bg-color: #F9F7F2;
             --text-color: #333;
             --accent-color: #A67C52;
-            --logo-color: #A67C52; /* Coffee/Brown color for logo */
+            --logo-color: #A67C52;
             --card-width: 90mm;
             --card-height: 54mm;
+        }
+
+        /* Essential for PDF Export to match card size */
+        @page {
+            size: 90mm 54mm;
+            margin: 0;
         }
 
         body {
@@ -22,9 +28,12 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
             gap: 2rem;
             font-family: 'Inter', sans-serif;
             -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .card {
@@ -36,8 +45,9 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            padding: 3mm 6mm 6mm 6mm; /* Adjusted padding: Less top, More bottom to lift content */
+            padding: 3mm 6mm 6mm 6mm;
             box-sizing: border-box;
+            flex-shrink: 0;
         }
 
         .card-front {
@@ -49,18 +59,18 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 0.5mm; /* Reduced gap */
-            margin-bottom: 1mm; /* Reduced margin */
+            gap: 0.5mm;
+            margin-bottom: 1mm;
         }
 
         .logo-svg {
-            height: 7.5mm; /* Slightly smaller to ensure fit */
+            height: 7.5mm;
             width: auto;
         }
         
         .logo-subtitle {
             font-family: 'Inter', sans-serif;
-            font-size: 5pt; /* Slightly smaller */
+            font-size: 5pt;
             font-weight: 400;
             color: #888;
             letter-spacing: 0.3px;
@@ -70,7 +80,7 @@
         .name-title {
             margin-top: auto;
             margin-bottom: auto;
-            padding: 0.5mm 0; /* Further reduced buffer to fit company name */
+            padding: 0.5mm 0;
         }
 
         .company-full-name {
@@ -91,33 +101,23 @@
         }
 
         .title {
-            font-size: 8.5pt; /* Slightly smaller */
+            font-size: 8.5pt;
             color: var(--accent-color);
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
-            margin-top: 0.5mm; /* Tighter margin */
+            margin-top: 0.5mm;
         }
 
         .contact-info {
-            font-size: 6.5pt; /* Consistent small size */
+            font-size: 6.5pt;
             color: #555;
             line-height: 1.2;
             display: flex;
             flex-direction: column;
-            gap: 0.6mm; /* Tighter gap */
+            gap: 0.6mm;
             border-top: 1px solid #eee;
-            padding-top: 1.5mm; /* Reduced padding */
-        }
-
-        /* Right-aligned contact info with fixed icon alignment */
-        .contact-info-rtl {
-            align-items: flex-end;
-        }
-
-        .contact-info-rtl .info-row {
-            justify-content: flex-end;
-            width: 100%;
+            padding-top: 1.5mm;
         }
 
         .info-row {
@@ -150,13 +150,16 @@
         @media print {
             body {
                 background: none;
+                padding: 0;
                 display: block;
             }
             .card {
                 box-shadow: none;
-                break-inside: avoid;
-                margin-bottom: 20mm;
-                border: 1px solid #ddd;
+                margin: 0;
+                border: none;
+                page-break-after: always;
+                width: 90mm;
+                height: 54mm;
             }
             .instructions { display: none; }
         }
@@ -172,8 +175,8 @@
 
     <div class="instructions">
         <h2>Business Card Preview</h2>
-        <p>Screenshot these cards or press <strong>Cmd + P</strong> to save as PDF.</p>
-        <p>Size: Standard 90mm x 54mm</p>
+        <p>Press <strong>Cmd + P</strong> to save as professional PDF.</p>
+        <p>Settings: Margins: <b>None</b>, Background Graphics: <b>Checked</b></p>
     </div>
 
     <!-- FRONT (English) -->
