@@ -48,7 +48,7 @@ export default function ProductsPage() {
         t('product_kinolu_f3'),
         t('product_kinolu_f4'),
       ],
-      url: 'https://kinolu.cam',
+      url: 'https://www.kinolu.cam/landing',
       status: 'live',
       statusLabel: t('products_status_live'),
       pricing: `${t('pricing_free')} · $2.99/mo · $49.99 lifetime`,
@@ -57,13 +57,11 @@ export default function ProductsPage() {
       logoBg: '#000000',
       platform: 'PWA (iOS / Android / Web)',
       color: '#000000',
-      /* screenshot-1 is landscape hero, 2 & 3 are portrait phone shots */
-      heroImage: '/img/Kinolu/kinolu-screenshot-1.jpg',
       screenshots: [
         '/img/Kinolu/kinolu-screenshot-2.jpg',
         '/img/Kinolu/kinolu-screenshot-3.jpg',
       ],
-      screenshotType: 'mixed' as const,
+      screenshotType: 'mobile' as const,
     },
     {
       id: 'velo-studio',
@@ -241,39 +239,6 @@ export default function ProductsPage() {
                           />
                         </div>
                       ))}
-                    </div>
-                  ) : product.screenshotType === 'mixed' ? (
-                    /* Mixed: hero banner + phone screenshots */
-                    <div className="space-y-6">
-                      {'heroImage' in product && product.heroImage && (
-                        <div className="rounded-2xl overflow-hidden shadow-md">
-                          <Image
-                            src={product.heroImage}
-                            alt={`${product.name} hero`}
-                            width={2295}
-                            height={1290}
-                            className="w-full h-auto block"
-                          />
-                        </div>
-                      )}
-                      {product.screenshots.length > 0 && (
-                        <div className="flex justify-center items-end gap-4 md:gap-6">
-                          {product.screenshots.map((src, idx) => (
-                            <div
-                              key={idx}
-                              className="w-[20%] max-w-[160px] rounded-2xl overflow-hidden shadow-md"
-                            >
-                              <Image
-                                src={src}
-                                alt={`${product.name} screenshot ${idx + 1}`}
-                                width={642}
-                                height={1254}
-                                className="w-full h-auto block"
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      )}
                     </div>
                   ) : product.screenshots.length > 0 ? (
                     /* Desktop: carousel */

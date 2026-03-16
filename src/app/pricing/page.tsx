@@ -258,7 +258,7 @@ export default function PricingPage() {
                     <div className="text-sm text-gray-500">{t('pricing_free')} · $2.99{t('pricing_per_month')} · $29.99{t('pricing_per_year')}</div>
                     <div className="text-2xl font-bold text-[#D4AF37]">$49.99 <span className="text-sm font-normal text-gray-500">{t('pricing_one_time')}</span></div>
                   </div>
-                  <a href="https://kinolu.cam" target="_blank" rel="noopener noreferrer" className="button-3d button-3d-gold text-sm inline-flex items-center gap-2">
+                  <a href="https://www.kinolu.cam/landing" target="_blank" rel="noopener noreferrer" className="button-3d button-3d-gold text-sm inline-flex items-center gap-2">
                     {t('products_visit')} <ExternalLink size={14} />
                   </a>
                 </div>
