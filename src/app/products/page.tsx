@@ -111,6 +111,9 @@ export default function ProductsPage() {
         '/img/Mood balloon/mood-screenshot-2.png',
         '/img/Mood balloon/mood-screenshot-3.png',
         '/img/Mood balloon/mood-screenshot-4.png',
+        '/img/Mood balloon/mood-screenshot-5.png',
+        '/img/Mood balloon/mood-screenshot-6.png',
+        '/img/Mood balloon/mood-screenshot-7.png',
       ],
       screenshotType: 'mobile' as const,
     },
@@ -223,12 +226,12 @@ export default function ProductsPage() {
               {(product.screenshots.length > 0 || 'heroImage' in product || product.url !== '#') && (
                 <div className="bg-gray-50 border-t border-gray-100 px-8 md:px-12 py-8">
                   {product.screenshotType === 'mobile' ? (
-                    /* Mobile app: show phones side by side, centered */
-                    <div className="flex justify-center items-end gap-3 md:gap-5">
+                    /* Mobile app: show phones in rows, centered */
+                    <div className="flex flex-wrap justify-center items-end gap-3 md:gap-5">
                       {product.screenshots.map((src, idx) => (
                         <div
                           key={idx}
-                          className="w-[22%] max-w-[180px] rounded-2xl overflow-hidden shadow-md"
+                          className="w-[20%] min-w-[100px] max-w-[150px] rounded-2xl overflow-hidden shadow-md"
                         >
                           <Image
                             src={src}
