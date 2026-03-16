@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ExternalLink, Smartphone, Monitor, Globe, Heart } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function ProductsPage() {
@@ -23,9 +25,16 @@ export default function ProductsPage() {
       status: 'live',
       statusLabel: t('products_status_live'),
       pricing: '$20/mo · $168/yr · $399 lifetime',
-      icon: <Globe className="w-8 h-8" />,
+      logo: '/img/custly-logo.svg',
+      logoBg: '#1B5E20',
       platform: 'Web App',
       color: '#1B5E20',
+      screenshots: [
+        '/img/custlycrm/custly-screenshot-1.png',
+        '/img/custlycrm/custly-screenshot-2.png',
+        '/img/custlycrm/custly-screenshot-3.png',
+      ],
+      screenshotType: 'desktop' as const,
     },
     {
       id: 'kinolu',
@@ -42,14 +51,16 @@ export default function ProductsPage() {
       status: 'live',
       statusLabel: t('products_status_live'),
       pricing: `${t('pricing_free')} · $2.99/mo · $49.99 lifetime`,
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
-        </svg>
-      ),
+      logo: '/img/kinolu-logo.png',
+      logoBg: '#000000',
       platform: 'PWA (iOS / Android / Web)',
       color: '#000000',
+      screenshots: [
+        '/img/Kinolu/kinolu-screenshot-1.jpg',
+        '/img/Kinolu/kinolu-screenshot-2.jpg',
+        '/img/Kinolu/kinolu-screenshot-3.jpg',
+      ],
+      screenshotType: 'mobile' as const,
     },
     {
       id: 'velo-studio',
@@ -66,9 +77,12 @@ export default function ProductsPage() {
       status: 'beta',
       statusLabel: t('products_status_beta'),
       pricing: '$8/mo · $68/yr',
-      icon: <Monitor className="w-8 h-8" />,
+      logo: '/img/velo-logo.svg',
+      logoBg: '#89A389',
       platform: 'macOS App',
       color: '#89A389',
+      screenshots: [],
+      screenshotType: 'desktop' as const,
     },
     {
       id: 'mood-balloon',
@@ -85,9 +99,18 @@ export default function ProductsPage() {
       status: 'review',
       statusLabel: t('products_status_review'),
       pricing: t('app_coming_soon'),
-      icon: <Smartphone className="w-8 h-8" />,
+      logo: null,
+      logoBg: '#E8A87C',
       platform: 'iOS App',
       color: '#E8A87C',
+      screenshots: [
+        '/img/Mood balloon/mood-screenshot-1.png',
+        '/img/Mood balloon/mood-screenshot-2.png',
+        '/img/Mood balloon/mood-screenshot-3.png',
+        '/img/Mood balloon/mood-screenshot-4.png',
+        '/img/Mood balloon/mood-screenshot-5.png',
+      ],
+      screenshotType: 'mobile' as const,
     },
   ];
 
@@ -113,20 +136,24 @@ export default function ProductsPage() {
 
         {/* Products Grid */}
         <div className="space-y-12">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <div 
               key={product.id}
               className="group bg-white rounded-3xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500"
             >
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
                 {/* Left: Product Info */}
-                <div className="lg:col-span-3 p-8 md:p-12">
+                <div className="lg:col-span-2 p-8 md:p-12">
                   <div className="flex items-center gap-4 mb-6">
                     <div 
-                      className="p-3 rounded-2xl text-white"
-                      style={{ backgroundColor: product.color }}
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden p-2"
+                      style={{ backgroundColor: product.logoBg }}
                     >
-                      {product.icon}
+                      {product.logo ? (
+                        <Image src={product.logo} alt={product.name} width={40} height={40} className="w-10 h-10 object-contain brightness-0 invert" />
+                      ) : (
+                        <span className="text-white text-xl font-bold">{product.name.charAt(0)}</span>
+                      )}
                     </div>
                     <div>
                       <div className="flex items-center gap-3">
@@ -144,7 +171,7 @@ export default function ProductsPage() {
                   </p>
 
                   {/* Features */}
-                  <div className="grid grid-cols-2 gap-3 mb-8">
+                  <div className="grid grid-cols-1 gap-3 mb-8">
                     {product.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] flex-shrink-0" />
@@ -176,17 +203,43 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                {/* Right: Visual / Pricing Summary */}
-                <div className="lg:col-span-2 bg-gray-50 p-8 md:p-12 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-gray-100">
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500 uppercase tracking-wider mb-3 font-medium">
+                {/* Right: Screenshots Gallery */}
+                <div className="lg:col-span-3 bg-gray-50 p-8 md:p-10 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-gray-100">
+                  <div className="text-center mb-4">
+                    <div className="text-sm text-gray-500 uppercase tracking-wider mb-1 font-medium">
                       {t('products_view_pricing')}
                     </div>
-                    <div className="text-lg font-bold text-[#1A1A1A] mb-6">
+                    <div className="text-lg font-bold text-[#1A1A1A]">
                       {product.pricing}
                     </div>
-                    
-                    {/* Product screenshot placeholder */}
+                  </div>
+                  
+                  {/* Screenshots */}
+                  {product.screenshots.length > 0 ? (
+                    product.screenshotType === 'mobile' ? (
+                      /* Mobile: show multiple phone screenshots side by side */
+                      <div className="flex justify-center gap-3 overflow-x-auto py-4 px-2">
+                        {product.screenshots.map((src, idx) => (
+                          <div key={idx} className="flex-shrink-0 w-[140px] md:w-[160px] rounded-2xl overflow-hidden shadow-lg border-4 border-gray-800 bg-gray-800">
+                            <div className="w-full h-3 bg-gray-800 flex justify-center items-end">
+                              <div className="w-12 h-1.5 bg-gray-700 rounded-full mb-0.5" />
+                            </div>
+                            <Image 
+                              src={src} 
+                              alt={`${product.name} screenshot ${idx + 1}`} 
+                              width={320} 
+                              height={640} 
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      /* Desktop: carousel of screenshots */
+                      <DesktopScreenshotCarousel screenshots={product.screenshots} name={product.name} />
+                    )
+                  ) : (
+                    /* No screenshots - show website preview via iframe */
                     <div className="aspect-[16/10] bg-gray-200 rounded-2xl overflow-hidden relative group-hover:shadow-lg transition-shadow duration-500">
                       {product.url !== '#' ? (
                         <iframe
@@ -199,14 +252,11 @@ export default function ProductsPage() {
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
-                          <div className="text-center">
-                            <Heart className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                            <p className="text-gray-400 text-sm">{t('app_coming_soon')}</p>
-                          </div>
+                          <p className="text-gray-400 text-sm">{t('app_coming_soon')}</p>
                         </div>
                       )}
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -226,6 +276,64 @@ export default function ProductsPage() {
           </Link>
         </div>
       </div>
+    </div>
+  );
+}
+
+/* Desktop screenshot carousel component */
+function DesktopScreenshotCarousel({ screenshots, name }: { screenshots: string[]; name: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prev = () => setCurrentIndex((i) => (i === 0 ? screenshots.length - 1 : i - 1));
+  const next = () => setCurrentIndex((i) => (i === screenshots.length - 1 ? 0 : i + 1));
+
+  return (
+    <div className="relative">
+      {/* Browser chrome mockup */}
+      <div className="bg-gray-800 rounded-t-xl pt-3 px-4 pb-0">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-3 h-3 rounded-full bg-red-400" />
+          <div className="w-3 h-3 rounded-full bg-yellow-400" />
+          <div className="w-3 h-3 rounded-full bg-green-400" />
+          <div className="flex-1 mx-4 bg-gray-700 rounded-md h-5" />
+        </div>
+      </div>
+      <div className="aspect-[16/10] overflow-hidden rounded-b-xl relative bg-gray-100">
+        <Image
+          src={screenshots[currentIndex]}
+          alt={`${name} screenshot ${currentIndex + 1}`}
+          fill
+          className="object-cover object-top"
+        />
+      </div>
+
+      {/* Navigation */}
+      {screenshots.length > 1 && (
+        <>
+          <button
+            onClick={prev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-colors z-10"
+          >
+            <ChevronLeft size={16} />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-colors z-10"
+          >
+            <ChevronRight size={16} />
+          </button>
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-3">
+            {screenshots.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`w-2 h-2 rounded-full transition-colors ${idx === currentIndex ? 'bg-[#D4AF37]' : 'bg-gray-300'}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

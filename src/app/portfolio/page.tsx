@@ -6,7 +6,6 @@ import { useLanguage } from '@/context/LanguageContext';
 import ProjectPreviewModal from '@/components/portfolio/ProjectPreviewModal';
 
 export default function PortfolioPage() {
-  const [filter, setFilter] = useState<'web' | 'app'>('web');
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { t } = useLanguage();
@@ -102,20 +101,8 @@ export default function PortfolioPage() {
       image: '/img/vault-capital-long.png',
       url: 'https://03-vault-capital.vercel.app',
       description: t('web_proj9_desc')
-    },
-    {
-      id: 'mood-balloon',
-      title: 'Mood Balloon',
-      category: t('nav_mobile'),
-      type: 'app',
-      image: '/img/mood-balloon.jpg', 
-      url: '#', 
-      description: t('app_mood_desc'),
-      noScroll: true
     }
   ];
-
-  const filteredProjects = projects.filter(p => p.type === filter);
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
@@ -132,32 +119,10 @@ export default function PortfolioPage() {
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed mb-10">
             {t('works_subtitle')}
           </p>
-          
-          {/* Filter Tabs */}
-          <div className="flex gap-8 border-b border-gray-200">
-            <button 
-              onClick={() => setFilter('web')}
-              className={`pb-4 text-lg font-bold transition-colors relative ${filter === 'web' ? 'text-[#D4AF37]' : 'text-gray-400 hover:text-gray-600'}`}
-            >
-              {t('cat_web')}
-              {filter === 'web' && (
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#D4AF37] rounded-t-full" />
-              )}
-            </button>
-            <button 
-              onClick={() => setFilter('app')}
-              className={`pb-4 text-lg font-bold transition-colors relative ${filter === 'app' ? 'text-[#D4AF37]' : 'text-gray-400 hover:text-gray-600'}`}
-            >
-              {t('cat_app')}
-              {filter === 'app' && (
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#D4AF37] rounded-t-full" />
-              )}
-            </button>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-          {filteredProjects.map((project) => (
+          {projects.map((project) => (
             <div 
               key={project.id} 
               className="group cursor-pointer"
@@ -168,12 +133,12 @@ export default function PortfolioPage() {
                 <div className="w-full h-full overflow-hidden relative">
                   {/* Scrolling Image */}
                   <div 
-                    className={`w-full absolute top-0 left-0 transition-transform duration-[3000ms] ease-in-out ${project.noScroll ? '' : 'group-hover:translate-y-[calc(-100%+300px)]'}`}
+                    className="w-full absolute top-0 left-0 transition-transform duration-[3000ms] ease-in-out group-hover:translate-y-[calc(-100%+300px)]"
                     style={{ 
                       backgroundImage: `url(${project.image})`,
                       backgroundSize: 'cover',
-                      backgroundPosition: project.noScroll ? 'center' : 'top center',
-                      height: project.noScroll ? '100%' : '400%', // Assume long image is roughly 4x the card height
+                      backgroundPosition: 'top center',
+                      height: '400%',
                       width: '100%'
                     }}
                   >

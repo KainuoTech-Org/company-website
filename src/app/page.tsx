@@ -4,6 +4,7 @@ import HeroIntro from '@/components/home/HeroIntro';
 import ProjectShowcase from '@/components/home/ProjectShowcase';
 import InteractiveBackground from '@/components/home/InteractiveBackground';
 import WhoWeAreVisual from '@/components/home/WhoWeAreVisual';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -54,10 +55,10 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: t('product_custly_name'), tagline: t('product_custly_tagline'), url: 'https://custlycrm.com', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#1B5E20' },
-              { name: t('product_kinolu_name'), tagline: t('product_kinolu_tagline'), url: 'https://kinolu.cam', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#000000' },
-              { name: t('product_velo_name'), tagline: t('product_velo_tagline'), url: 'https://velostudio.app', status: t('products_status_beta'), statusColor: 'bg-blue-100 text-blue-700', color: '#89A389' },
-              { name: t('product_mood_name'), tagline: t('product_mood_tagline'), url: '#', status: t('products_status_review'), statusColor: 'bg-amber-100 text-amber-700', color: '#E8A87C' },
+              { name: t('product_custly_name'), tagline: t('product_custly_tagline'), url: 'https://custlycrm.com', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#1B5E20', logo: '/img/custly-logo.svg' },
+              { name: t('product_kinolu_name'), tagline: t('product_kinolu_tagline'), url: 'https://kinolu.cam', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#000000', logo: '/img/kinolu-logo.png' },
+              { name: t('product_velo_name'), tagline: t('product_velo_tagline'), url: 'https://velostudio.app', status: t('products_status_beta'), statusColor: 'bg-blue-100 text-blue-700', color: '#89A389', logo: '/img/velo-logo.svg' },
+              { name: t('product_mood_name'), tagline: t('product_mood_tagline'), url: '#', status: t('products_status_review'), statusColor: 'bg-amber-100 text-amber-700', color: '#E8A87C', logo: null },
             ].map((product, index) => (
               <Link
                 href={product.url !== '#' ? product.url : '/products'}
@@ -67,8 +68,12 @@ export default function Home() {
                 className="group p-8 border border-gray-100 rounded-2xl hover:shadow-lg hover:border-[#D4AF37]/30 transition-all duration-300 bg-white"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm font-bold" style={{ backgroundColor: product.color }}>
-                    {product.name.charAt(0)}
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden p-1.5" style={{ backgroundColor: product.color }}>
+                    {product.logo ? (
+                      <Image src={product.logo} alt={product.name} width={28} height={28} className="w-7 h-7 object-contain brightness-0 invert" />
+                    ) : (
+                      <span className="text-white text-sm font-bold">{product.name.charAt(0)}</span>
+                    )}
                   </div>
                   <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider ${product.statusColor}`}>
                     {product.status}

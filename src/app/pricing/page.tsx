@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Check, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -220,7 +221,7 @@ export default function PricingPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-[#1B5E20] text-white flex items-center justify-center font-bold text-sm">C</div>
+                    <div className="w-10 h-10 rounded-xl bg-[#1B5E20] flex items-center justify-center overflow-hidden p-1.5"><Image src="/img/custly-logo.svg" alt="Custly" width={28} height={28} className="w-7 h-7 object-contain brightness-0 invert" /></div>
                     <h3 className="text-2xl font-serif font-bold">{t('product_custly_name')}</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider">{t('products_status_live')}</span>
                   </div>
@@ -245,7 +246,7 @@ export default function PricingPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center font-bold text-sm">K</div>
+                    <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center overflow-hidden p-1.5"><Image src="/img/kinolu-logo.png" alt="Kinolu" width={28} height={28} className="w-7 h-7 object-contain brightness-0 invert" /></div>
                     <h3 className="text-2xl font-serif font-bold">{t('product_kinolu_name')}</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider">{t('products_status_live')}</span>
                   </div>
@@ -269,7 +270,7 @@ export default function PricingPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-[#89A389] text-white flex items-center justify-center font-bold text-sm">V</div>
+                    <div className="w-10 h-10 rounded-xl bg-[#89A389] flex items-center justify-center overflow-hidden p-1.5"><Image src="/img/velo-logo.svg" alt="Velo Studio" width={28} height={28} className="w-7 h-7 object-contain brightness-0 invert" /></div>
                     <h3 className="text-2xl font-serif font-bold">{t('product_velo_name')}</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 uppercase tracking-wider">{t('products_status_beta')}</span>
                   </div>
@@ -294,7 +295,7 @@ export default function PricingPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-[#E8A87C] text-white flex items-center justify-center font-bold text-sm">M</div>
+                    <div className="w-10 h-10 rounded-xl bg-[#E8A87C] text-white flex items-center justify-center font-bold text-sm">🎈</div>
                     <h3 className="text-2xl font-serif font-bold">{t('product_mood_name')}</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 uppercase tracking-wider">{t('products_status_review')}</span>
                   </div>
