@@ -34,6 +34,8 @@ export default function ProductsPage() {
         '/img/custlycrm/custly-screenshot-1.png',
         '/img/custlycrm/custly-screenshot-2.png',
         '/img/custlycrm/custly-screenshot-3.png',
+        '/img/custlycrm/custly-screenshot-4.png',
+        '/img/custlycrm/custly-screenshot-5.png',
       ],
       screenshotType: 'desktop' as const,
     },
