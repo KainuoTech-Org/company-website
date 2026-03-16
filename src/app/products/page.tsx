@@ -217,25 +217,10 @@ export default function ProductsPage() {
                   {/* Screenshots */}
                   {product.screenshots.length > 0 ? (
                     product.screenshotType === 'mobile' ? (
-                      /* Mobile: show multiple phone screenshots side by side */
-                      <div className="flex justify-center gap-3 overflow-x-auto py-4 px-2">
-                        {product.screenshots.map((src, idx) => (
-                          <div key={idx} className="flex-shrink-0 w-[140px] md:w-[160px] rounded-2xl overflow-hidden shadow-lg border-4 border-gray-800 bg-gray-800">
-                            <div className="w-full h-3 bg-gray-800 flex justify-center items-end">
-                              <div className="w-12 h-1.5 bg-gray-700 rounded-full mb-0.5" />
-                            </div>
-                            <Image 
-                              src={src} 
-                              alt={`${product.name} screenshot ${idx + 1}`} 
-                              width={320} 
-                              height={640} 
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                        ))}
-                      </div>
+                      /* Mobile: show 3 screenshots neatly, no heavy frames */
+                      <MobileScreenshotGallery screenshots={product.screenshots} name={product.name} />
                     ) : (
-                      /* Desktop: carousel of screenshots */
+                      /* Desktop: clean carousel */
                       <DesktopScreenshotCarousel screenshots={product.screenshots} name={product.name} />
                     )
                   ) : (
@@ -280,7 +265,51 @@ export default function ProductsPage() {
   );
 }
 
-/* Desktop screenshot carousel component */
+/* Mobile screenshot gallery — show 3 at a time, clean layout */
+function MobileScreenshotGallery({ screenshots, name }: { screenshots: string[]; name: string }) {
+  const [page, setPage] = useState(0);
+  const perPage = 3;
+  const totalPages = Math.ceil(screenshots.length / perPage);
+  const visible = screenshots.slice(page * perPage, page * perPage + perPage);
+
+  return (
+    <div>
+      <div className="flex justify-center items-end gap-4 py-4">
+        {visible.map((src, idx) => {
+          const isCenter = idx === 1 || visible.length === 1;
+          return (
+            <div
+              key={page * perPage + idx}
+              className={`rounded-2xl overflow-hidden shadow-md bg-white transition-transform ${isCenter ? 'scale-105 shadow-lg' : 'scale-95 opacity-90'}`}
+              style={{ width: visible.length === 1 ? '180px' : '140px' }}
+            >
+              <Image
+                src={src}
+                alt={`${name} screenshot ${page * perPage + idx + 1}`}
+                width={280}
+                height={560}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          );
+        })}
+      </div>
+      {totalPages > 1 && (
+        <div className="flex justify-center gap-2 mt-3">
+          {Array.from({ length: totalPages }).map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setPage(idx)}
+              className={`w-2 h-2 rounded-full transition-colors ${idx === page ? 'bg-[#D4AF37]' : 'bg-gray-300'}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* Desktop screenshot carousel — clean, no browser chrome */
 function DesktopScreenshotCarousel({ screenshots, name }: { screenshots: string[]; name: string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -289,16 +318,7 @@ function DesktopScreenshotCarousel({ screenshots, name }: { screenshots: string[
 
   return (
     <div className="relative">
-      {/* Browser chrome mockup */}
-      <div className="bg-gray-800 rounded-t-xl pt-3 px-4 pb-0">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-3 h-3 rounded-full bg-red-400" />
-          <div className="w-3 h-3 rounded-full bg-yellow-400" />
-          <div className="w-3 h-3 rounded-full bg-green-400" />
-          <div className="flex-1 mx-4 bg-gray-700 rounded-md h-5" />
-        </div>
-      </div>
-      <div className="aspect-[16/10] overflow-hidden rounded-b-xl relative bg-gray-100">
+      <div className="aspect-[16/10] overflow-hidden rounded-2xl relative bg-gray-100 shadow-md">
         <Image
           src={screenshots[currentIndex]}
           alt={`${name} screenshot ${currentIndex + 1}`}
