@@ -52,6 +52,7 @@ export default function ProductsPage() {
       statusLabel: t('products_status_live'),
       pricing: `${t('pricing_free')} · $2.99/mo · $49.99 lifetime`,
       logo: '/img/kinolu-logo.png',
+      logoIsAppIcon: true,
       logoBg: '#000000',
       platform: 'PWA (iOS / Android / Web)',
       color: '#000000',
@@ -99,7 +100,8 @@ export default function ProductsPage() {
       status: 'review',
       statusLabel: t('products_status_review'),
       pricing: t('app_coming_soon'),
-      logo: null,
+      logo: '/img/mood-balloon-logo.png',
+      logoIsAppIcon: true,
       logoBg: '#E8A87C',
       platform: 'iOS App',
       color: '#E8A87C',
@@ -145,16 +147,20 @@ export default function ProductsPage() {
                 {/* Left: Product Info */}
                 <div className="lg:col-span-2 p-8 md:p-12">
                   <div className="flex items-center gap-4 mb-6">
-                    <div 
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden p-2"
-                      style={{ backgroundColor: product.logoBg }}
-                    >
-                      {product.logo ? (
-                        <Image src={product.logo} alt={product.name} width={40} height={40} className="w-10 h-10 object-contain brightness-0 invert" />
-                      ) : (
-                        <span className="text-white text-xl font-bold">{product.name.charAt(0)}</span>
-                      )}
-                    </div>
+                    {product.logoIsAppIcon ? (
+                      <Image src={product.logo!} alt={product.name} width={56} height={56} className="w-14 h-14 rounded-2xl object-cover" />
+                    ) : (
+                      <div 
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden p-2"
+                        style={{ backgroundColor: product.logoBg }}
+                      >
+                        {product.logo ? (
+                          <Image src={product.logo} alt={product.name} width={40} height={40} className="w-10 h-10 object-contain brightness-0 invert" />
+                        ) : (
+                          <span className="text-white text-xl font-bold">{product.name.charAt(0)}</span>
+                        )}
+                      </div>
+                    )}
                     <div>
                       <div className="flex items-center gap-3">
                         <h2 className="text-2xl md:text-3xl font-serif font-bold">{product.name}</h2>

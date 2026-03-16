@@ -246,7 +246,7 @@ export default function PricingPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center overflow-hidden p-1.5"><Image src="/img/kinolu-logo.png" alt="Kinolu" width={28} height={28} className="w-7 h-7 object-contain brightness-0 invert" /></div>
+                    <Image src="/img/kinolu-logo.png" alt="Kinolu" width={40} height={40} className="w-10 h-10 rounded-xl object-cover" />
                     <h3 className="text-2xl font-serif font-bold">{t('product_kinolu_name')}</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider">{t('products_status_live')}</span>
                   </div>
@@ -295,7 +295,7 @@ export default function PricingPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-[#E8A87C] text-white flex items-center justify-center font-bold text-sm">🎈</div>
+                    <Image src="/img/mood-balloon-logo.png" alt="Mood Balloon" width={40} height={40} className="w-10 h-10 rounded-xl object-cover" />
                     <h3 className="text-2xl font-serif font-bold">{t('product_mood_name')}</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 uppercase tracking-wider">{t('products_status_review')}</span>
                   </div>
