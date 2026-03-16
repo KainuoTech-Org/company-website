@@ -26,6 +26,7 @@ export default function ProductsPage() {
       statusLabel: t('products_status_live'),
       pricing: '$20/mo · $168/yr · $399 lifetime',
       logo: '/img/custly-logo.svg',
+      logoIsAppIcon: false,
       logoBg: '#1B5E20',
       platform: 'Web App',
       color: '#1B5E20',
@@ -56,12 +57,13 @@ export default function ProductsPage() {
       logoBg: '#000000',
       platform: 'PWA (iOS / Android / Web)',
       color: '#000000',
+      /* screenshot-1 is landscape hero, 2 & 3 are portrait phone shots */
+      heroImage: '/img/Kinolu/kinolu-screenshot-1.jpg',
       screenshots: [
-        '/img/Kinolu/kinolu-screenshot-1.jpg',
         '/img/Kinolu/kinolu-screenshot-2.jpg',
         '/img/Kinolu/kinolu-screenshot-3.jpg',
       ],
-      screenshotType: 'mobile' as const,
+      screenshotType: 'mixed' as const,
     },
     {
       id: 'velo-studio',
@@ -79,6 +81,7 @@ export default function ProductsPage() {
       statusLabel: t('products_status_beta'),
       pricing: '$8/mo · $68/yr',
       logo: '/img/velo-logo.svg',
+      logoIsAppIcon: false,
       logoBg: '#89A389',
       platform: 'macOS App',
       color: '#89A389',
@@ -110,7 +113,6 @@ export default function ProductsPage() {
         '/img/Mood balloon/mood-screenshot-2.png',
         '/img/Mood balloon/mood-screenshot-3.png',
         '/img/Mood balloon/mood-screenshot-4.png',
-        '/img/Mood balloon/mood-screenshot-5.png',
       ],
       screenshotType: 'mobile' as const,
     },
@@ -136,120 +138,161 @@ export default function ProductsPage() {
           </p>
         </div>
 
-        {/* Products Grid */}
-        <div className="space-y-12">
+        {/* Products */}
+        <div className="space-y-16">
           {products.map((product) => (
             <div 
               key={product.id}
               className="group bg-white rounded-3xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
-                {/* Left: Product Info */}
-                <div className="lg:col-span-2 p-8 md:p-12">
-                  <div className="flex items-center gap-4 mb-6">
-                    {product.logoIsAppIcon ? (
-                      <Image src={product.logo!} alt={product.name} width={56} height={56} className="w-14 h-14 rounded-2xl object-cover" />
-                    ) : (
-                      <div 
-                        className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden p-2"
-                        style={{ backgroundColor: product.logoBg }}
-                      >
-                        {product.logo ? (
-                          <Image src={product.logo} alt={product.name} width={40} height={40} className="w-10 h-10 object-contain brightness-0 invert" />
-                        ) : (
-                          <span className="text-white text-xl font-bold">{product.name.charAt(0)}</span>
-                        )}
+              {/* Top: Product Info */}
+              <div className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                  {/* Left: Main Info */}
+                  <div className="flex-1 max-w-2xl">
+                    <div className="flex items-center gap-4 mb-6">
+                      {product.logoIsAppIcon ? (
+                        <Image src={product.logo!} alt={product.name} width={56} height={56} className="w-14 h-14 rounded-2xl object-cover" />
+                      ) : (
+                        <div 
+                          className="w-14 h-14 rounded-2xl flex items-center justify-center overflow-hidden p-2"
+                          style={{ backgroundColor: product.logoBg }}
+                        >
+                          <Image src={product.logo!} alt={product.name} width={40} height={40} className="w-10 h-10 object-contain brightness-0 invert" />
+                        </div>
+                      )}
+                      <div>
+                        <div className="flex items-center gap-3 flex-wrap">
+                          <h2 className="text-2xl md:text-3xl font-serif font-bold">{product.name}</h2>
+                          <span className={`text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${statusStyles[product.status]}`}>
+                            {product.statusLabel}
+                          </span>
+                        </div>
+                        <p className="text-gray-500 text-sm mt-1">{product.tagline}</p>
                       </div>
-                    )}
-                    <div>
-                      <div className="flex items-center gap-3">
-                        <h2 className="text-2xl md:text-3xl font-serif font-bold">{product.name}</h2>
-                        <span className={`text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${statusStyles[product.status]}`}>
-                          {product.statusLabel}
+                    </div>
+
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      {product.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-2 mb-6">
+                      {product.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] flex-shrink-0" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-4 flex-wrap">
+                      {product.url !== '#' ? (
+                        <a
+                          href={product.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="button-3d button-3d-gold text-sm inline-flex items-center gap-2"
+                        >
+                          {t('products_visit')}
+                          <ExternalLink size={14} />
+                        </a>
+                      ) : (
+                        <span className="px-6 py-3 bg-gray-100 text-gray-400 text-sm font-medium uppercase tracking-wider rounded-full cursor-default">
+                          {t('app_coming_soon')}
                         </span>
-                      </div>
-                      <p className="text-gray-500 text-sm mt-1">{product.tagline}</p>
+                      )}
+                      <span className="text-xs text-gray-400 uppercase tracking-wider">
+                        {product.platform}
+                      </span>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 leading-relaxed mb-8 max-w-xl">
-                    {product.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="grid grid-cols-1 gap-3 mb-8">
-                    {product.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] flex-shrink-0" />
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex items-center gap-4 flex-wrap">
-                    {product.url !== '#' ? (
-                      <a
-                        href={product.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="button-3d button-3d-gold text-sm inline-flex items-center gap-2"
-                      >
-                        {t('products_visit')}
-                        <ExternalLink size={14} />
-                      </a>
-                    ) : (
-                      <span className="px-6 py-3 bg-gray-100 text-gray-400 text-sm font-medium uppercase tracking-wider rounded-full cursor-default">
-                        {t('app_coming_soon')}
-                      </span>
-                    )}
-                    <span className="text-xs text-gray-400 uppercase tracking-wider">
-                      {product.platform}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Right: Screenshots Gallery */}
-                <div className="lg:col-span-3 bg-gray-50 p-8 md:p-10 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-gray-100">
-                  <div className="text-center mb-4">
-                    <div className="text-sm text-gray-500 uppercase tracking-wider mb-1 font-medium">
+                  {/* Right: Pricing */}
+                  <div className="md:text-right shrink-0">
+                    <div className="text-sm text-gray-500 uppercase tracking-wider mb-2 font-medium">
                       {t('products_view_pricing')}
                     </div>
                     <div className="text-lg font-bold text-[#1A1A1A]">
                       {product.pricing}
                     </div>
                   </div>
-                  
-                  {/* Screenshots */}
-                  {product.screenshots.length > 0 ? (
-                    product.screenshotType === 'mobile' ? (
-                      /* Mobile: show 3 screenshots neatly, no heavy frames */
-                      <MobileScreenshotGallery screenshots={product.screenshots} name={product.name} />
-                    ) : (
-                      /* Desktop: clean carousel */
-                      <DesktopScreenshotCarousel screenshots={product.screenshots} name={product.name} />
-                    )
-                  ) : (
-                    /* No screenshots - show website preview via iframe */
-                    <div className="aspect-[16/10] bg-gray-200 rounded-2xl overflow-hidden relative group-hover:shadow-lg transition-shadow duration-500">
-                      {product.url !== '#' ? (
-                        <iframe
-                          src={product.url}
-                          className="w-full h-full border-0 pointer-events-none scale-[0.5] origin-top-left"
-                          style={{ width: '200%', height: '200%' }}
-                          title={product.name}
-                          loading="lazy"
-                          sandbox="allow-same-origin"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <p className="text-gray-400 text-sm">{t('app_coming_soon')}</p>
+                </div>
+              </div>
+
+              {/* Bottom: Screenshots — full width */}
+              {(product.screenshots.length > 0 || 'heroImage' in product || product.url !== '#') && (
+                <div className="bg-gray-50 border-t border-gray-100 px-8 md:px-12 py-8">
+                  {product.screenshotType === 'mobile' ? (
+                    /* Mobile app: show phones side by side, centered */
+                    <div className="flex justify-center items-end gap-3 md:gap-5">
+                      {product.screenshots.map((src, idx) => (
+                        <div
+                          key={idx}
+                          className="w-[22%] max-w-[180px] rounded-2xl overflow-hidden shadow-md"
+                        >
+                          <Image
+                            src={src}
+                            alt={`${product.name} screenshot ${idx + 1}`}
+                            width={642}
+                            height={1389}
+                            className="w-full h-auto block"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : product.screenshotType === 'mixed' ? (
+                    /* Mixed: hero banner + phone screenshots */
+                    <div className="space-y-6">
+                      {'heroImage' in product && product.heroImage && (
+                        <div className="rounded-2xl overflow-hidden shadow-md">
+                          <Image
+                            src={product.heroImage}
+                            alt={`${product.name} hero`}
+                            width={2295}
+                            height={1290}
+                            className="w-full h-auto block"
+                          />
+                        </div>
+                      )}
+                      {product.screenshots.length > 0 && (
+                        <div className="flex justify-center items-end gap-4 md:gap-6">
+                          {product.screenshots.map((src, idx) => (
+                            <div
+                              key={idx}
+                              className="w-[20%] max-w-[160px] rounded-2xl overflow-hidden shadow-md"
+                            >
+                              <Image
+                                src={src}
+                                alt={`${product.name} screenshot ${idx + 1}`}
+                                width={642}
+                                height={1254}
+                                className="w-full h-auto block"
+                              />
+                            </div>
+                          ))}
                         </div>
                       )}
                     </div>
-                  )}
+                  ) : product.screenshots.length > 0 ? (
+                    /* Desktop: carousel */
+                    <DesktopScreenshotCarousel screenshots={product.screenshots} name={product.name} />
+                  ) : product.url !== '#' ? (
+                    /* Fallback: iframe preview */
+                    <div className="aspect-[16/10] bg-gray-200 rounded-2xl overflow-hidden relative">
+                      <iframe
+                        src={product.url}
+                        className="w-full h-full border-0 pointer-events-none scale-[0.5] origin-top-left"
+                        style={{ width: '200%', height: '200%' }}
+                        title={product.name}
+                        loading="lazy"
+                        sandbox="allow-same-origin"
+                      />
+                    </div>
+                  ) : null}
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>
@@ -271,51 +314,7 @@ export default function ProductsPage() {
   );
 }
 
-/* Mobile screenshot gallery — show 3 at a time, clean layout */
-function MobileScreenshotGallery({ screenshots, name }: { screenshots: string[]; name: string }) {
-  const [page, setPage] = useState(0);
-  const perPage = 3;
-  const totalPages = Math.ceil(screenshots.length / perPage);
-  const visible = screenshots.slice(page * perPage, page * perPage + perPage);
-
-  return (
-    <div>
-      <div className="flex justify-center items-end gap-4 py-4">
-        {visible.map((src, idx) => {
-          const isCenter = idx === 1 || visible.length === 1;
-          return (
-            <div
-              key={page * perPage + idx}
-              className={`rounded-2xl overflow-hidden shadow-md bg-white transition-transform ${isCenter ? 'scale-105 shadow-lg' : 'scale-95 opacity-90'}`}
-              style={{ width: visible.length === 1 ? '180px' : '140px' }}
-            >
-              <Image
-                src={src}
-                alt={`${name} screenshot ${page * perPage + idx + 1}`}
-                width={280}
-                height={560}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          );
-        })}
-      </div>
-      {totalPages > 1 && (
-        <div className="flex justify-center gap-2 mt-3">
-          {Array.from({ length: totalPages }).map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setPage(idx)}
-              className={`w-2 h-2 rounded-full transition-colors ${idx === page ? 'bg-[#D4AF37]' : 'bg-gray-300'}`}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-/* Desktop screenshot carousel — clean, no browser chrome */
+/* Desktop screenshot carousel */
 function DesktopScreenshotCarousel({ screenshots, name }: { screenshots: string[]; name: string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -333,23 +332,21 @@ function DesktopScreenshotCarousel({ screenshots, name }: { screenshots: string[
         />
       </div>
 
-      {/* Navigation */}
       {screenshots.length > 1 && (
         <>
           <button
             onClick={prev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-colors z-10"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-colors z-10"
           >
-            <ChevronLeft size={16} />
+            <ChevronLeft size={18} />
           </button>
           <button
             onClick={next}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-colors z-10"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md transition-colors z-10"
           >
-            <ChevronRight size={16} />
+            <ChevronRight size={18} />
           </button>
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-3">
+          <div className="flex justify-center gap-2 mt-4">
             {screenshots.map((_, idx) => (
               <button
                 key={idx}
