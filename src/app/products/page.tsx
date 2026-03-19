@@ -60,10 +60,14 @@ export default function ProductsPage() {
       platform: 'PWA (iOS / Android / Web)',
       color: '#000000',
       screenshots: [
+        '/img/Kinolu/kinolu-screenshot-1.png',
+        '/img/Kinolu/kinolu-screenshot-4.png',
+      ],
+      mobileScreenshots: [
         '/img/Kinolu/kinolu-screenshot-2.jpg',
         '/img/Kinolu/kinolu-screenshot-3.jpg',
       ],
-      screenshotType: 'mobile' as const,
+      screenshotType: 'mixed' as const,
     },
     {
       id: 'velo-studio',
@@ -230,7 +234,7 @@ export default function ProductsPage() {
               </div>
 
               {/* Bottom: Screenshots — full width */}
-              {(product.screenshots.length > 0 || 'heroImage' in product || product.url !== '#') && (
+              {(product.screenshots.length > 0 || product.url !== '#') && (
                 <div className="bg-gray-50 border-t border-gray-100 px-8 md:px-12 py-8">
                   {product.screenshotType === 'mobile' ? (
                     /* Mobile app: show phones in rows, centered */
@@ -249,6 +253,31 @@ export default function ProductsPage() {
                           />
                         </div>
                       ))}
+                    </div>
+                  ) : product.screenshotType === 'mixed' ? (
+                    /* Mixed: landscape carousel + portrait phones below */
+                    <div className="space-y-6">
+                      {product.screenshots.length > 0 && (
+                        <DesktopScreenshotCarousel screenshots={product.screenshots} name={product.name} />
+                      )}
+                      {'mobileScreenshots' in product && (product as any).mobileScreenshots?.length > 0 && (
+                        <div className="flex justify-center items-end gap-4 md:gap-6">
+                          {(product as any).mobileScreenshots.map((src: string, idx: number) => (
+                            <div
+                              key={idx}
+                              className="w-[18%] max-w-[150px] rounded-2xl overflow-hidden shadow-md"
+                            >
+                              <Image
+                                src={src}
+                                alt={`${product.name} screenshot ${idx + 1}`}
+                                width={642}
+                                height={1254}
+                                className="w-full h-auto block"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ) : product.screenshots.length > 0 ? (
                     /* Desktop: carousel */
