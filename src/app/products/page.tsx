@@ -327,12 +327,12 @@ function DesktopScreenshotCarousel({ screenshots, name }: { screenshots: string[
 
   return (
     <div className="relative">
-      <div className="aspect-[16/10] overflow-hidden rounded-2xl relative bg-gray-100 shadow-md">
+      <div className="aspect-[4/3] overflow-hidden rounded-2xl relative bg-gray-100 shadow-md">
         <Image
           src={screenshots[currentIndex]}
           alt={`${name} screenshot ${currentIndex + 1}`}
           fill
-          className="object-cover object-top"
+          className="object-contain"
         />
       </div>
 
