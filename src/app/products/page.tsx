@@ -85,7 +85,12 @@ export default function ProductsPage() {
       logoBg: '#89A389',
       platform: 'macOS App',
       color: '#89A389',
-      screenshots: [],
+      screenshots: [
+        '/img/Velostudio/velo-screenshot-1.png',
+        '/img/Velostudio/velo-screenshot-2.png',
+        '/img/Velostudio/velo-screenshot-3.png',
+        '/img/Velostudio/velo-screenshot-4.png',
+      ],
       screenshotType: 'desktop' as const,
     },
     {
