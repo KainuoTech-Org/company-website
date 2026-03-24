@@ -291,24 +291,30 @@ export default function PricingPage() {
             </div>
 
             {/* Mood Balloon */}
-            <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 opacity-75">
+            <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <div className="flex items-center gap-3 mb-2">
                     <Image src="/img/mood-balloon-logo.png" alt="Mood Balloon" width={40} height={40} className="w-10 h-10 rounded-xl object-cover" />
                     <h3 className="text-2xl font-serif font-bold">{t('product_mood_name')}</h3>
-                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 uppercase tracking-wider">{t('products_status_review')}</span>
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider">{t('products_status_live')}</span>
                   </div>
                   <p className="text-gray-500 mb-4">{t('product_mood_tagline')}</p>
                   <p className="text-gray-600 text-sm">{t('product_mood_desc')}</p>
                 </div>
                 <div className="text-center lg:text-right">
                   <div className="space-y-2 mb-6">
-                    <div className="text-2xl font-bold text-gray-300">{t('app_coming_soon')}</div>
+                    <div className="text-2xl font-bold text-[#1A1A1A]">{t('pricing_free')}</div>
                   </div>
-                  <span className="px-6 py-3 bg-gray-100 text-gray-400 text-sm font-medium uppercase tracking-wider rounded-full cursor-default inline-block">
-                    {t('app_coming_soon')}
-                  </span>
+                  <a
+                    href="https://apps.apple.com/app/mood-balloon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button-3d button-3d-gold text-sm inline-flex items-center gap-2"
+                  >
+                    App Store
+                    <ExternalLink size={14} />
+                  </a>
                 </div>
               </div>
             </div>

@@ -58,7 +58,7 @@ export default function Home() {
               { name: t('product_custly_name'), tagline: t('product_custly_tagline'), url: 'https://custlycrm.com', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#1B5E20', logo: '/img/custly-logo.svg', isAppIcon: false },
               { name: t('product_kinolu_name'), tagline: t('product_kinolu_tagline'), url: 'https://www.kinolu.cam/landing', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#000000', logo: '/img/kinolu-logo.png', isAppIcon: true },
               { name: t('product_velo_name'), tagline: t('product_velo_tagline'), url: 'https://velostudio.app', status: t('products_status_beta'), statusColor: 'bg-blue-100 text-blue-700', color: '#89A389', logo: '/img/velo-logo.svg', isAppIcon: false },
-              { name: t('product_mood_name'), tagline: t('product_mood_tagline'), url: '#', status: t('products_status_review'), statusColor: 'bg-amber-100 text-amber-700', color: '#E8A87C', logo: '/img/mood-balloon-logo.png', isAppIcon: true },
+              { name: t('product_mood_name'), tagline: t('product_mood_tagline'), url: 'https://apps.apple.com/app/mood-balloon', status: t('products_status_live'), statusColor: 'bg-green-100 text-green-700', color: '#E8A87C', logo: '/img/mood-balloon-logo.png', isAppIcon: true },
             ].map((product, index) => (
               <Link
                 href={product.url !== '#' ? product.url : '/products'}
