@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import AppStoreBadge from '@/components/ui-custom/AppStoreBadge';
 
 export default function ProductsPage() {
   const { t } = useLanguage();
@@ -108,7 +109,8 @@ export default function ProductsPage() {
         t('product_mood_f3'),
         t('product_mood_f4'),
       ],
-      url: 'https://apps.apple.com/app/mood-balloon',
+      url: 'https://apps.apple.com/us/app/mood-balloon/id6755811908',
+      appStoreUrl: 'https://apps.apple.com/us/app/mood-balloon/id6755811908',
       status: 'live',
       statusLabel: t('products_status_live'),
       pricing: t('pricing_free'),
@@ -200,7 +202,9 @@ export default function ProductsPage() {
 
                     {/* Actions */}
                     <div className="flex items-center gap-4 flex-wrap">
-                      {product.url !== '#' ? (
+                      {'appStoreUrl' in product && product.appStoreUrl ? (
+                        <AppStoreBadge href={product.appStoreUrl} />
+                      ) : product.url !== '#' ? (
                         <a
                           href={product.url}
                           target="_blank"

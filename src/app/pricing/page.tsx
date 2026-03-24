@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check, ExternalLink } from 'lucide-react';
+import AppStoreBadge from '@/components/ui-custom/AppStoreBadge';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function PricingPage() {
@@ -306,15 +307,7 @@ export default function PricingPage() {
                   <div className="space-y-2 mb-6">
                     <div className="text-2xl font-bold text-[#1A1A1A]">{t('pricing_free')}</div>
                   </div>
-                  <a
-                    href="https://apps.apple.com/app/mood-balloon"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button-3d button-3d-gold text-sm inline-flex items-center gap-2"
-                  >
-                    App Store
-                    <ExternalLink size={14} />
-                  </a>
+                  <AppStoreBadge href="https://apps.apple.com/us/app/mood-balloon/id6755811908" />
                 </div>
               </div>
             </div>
